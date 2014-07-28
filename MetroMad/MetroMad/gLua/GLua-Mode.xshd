@@ -1,0 +1,161 @@
+<?xml version="1.0"?>
+
+<!-- /* GLua-Mode.xshd - A useful and low weight highlighting strategy system for GLua.
+
+    Copyright (C) 2014  Ali Deym (https://github.com/111WARLOCK111/).
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License along
+    with this program; if not, write to the Free Software Foundation, Inc.,
+    51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+    
+    */-->
+
+<SyntaxDefinition name = "GLua" extensions = ".lua">
+	
+	<Environment>
+		<Custom name="TypeReference" bold="false" italic="false" color="#04ABAB" />
+		<Custom name="UnknownEntity" bold="false" italic="false" color="#AB0404" />
+	</Environment>
+	
+	<Properties>
+    <Property name="LineComment" value="//"/>
+    <Property name="LineComment2" value="--"/>
+    <Property name="BlockCommentBegin" value="/*"/>
+    <Property name="BlockCommentEnd" value="*/"/>
+    <Property name="BlockCommentBegin2" value="--[["/>
+    <Property name="BlockCommentEnd2" value="]]"/>
+  </Properties>
+	
+	<Digits name = "Digits" bold = "false" italic = "false" color = "Orange"/>
+	
+	<RuleSets>
+		<RuleSet ignorecase="false">
+			<Delimiters>&amp;&lt;&gt;~!%^*()-+=|\/{}[]:;"' ,	.?</Delimiters>
+			
+			<Span name = "LineComment" rule = "CommentMarkerSet" bold = "false" italic = "false" color = "Green" stopateol = "true">
+				<Begin>////</Begin>
+			</Span>
+			<Span name = "LineComment2" rule = "CommentMarkerSet" bold = "false" italic = "false" color = "Green" stopateol = "true">
+				<Begin>----</Begin>
+			</Span>
+			
+			<Span name = "BlockComment" rule = "CommentMarkerSet" bold = "false" italic = "false" color = "Green" stopateol = "false">
+				<Begin>/*</Begin>
+				<End>*/</End>
+			</Span>
+      
+      <Span name = "BlockComment2" rule = "CommentMarkerSet" bold = "false" italic = "false" color = "Green" stopateol = "false">
+				<Begin>--[[</Begin>
+				<End>]]</End>
+			</Span>
+			
+			<Span name = "String" bold = "false" italic = "false" color = "Gray" stopateol = "true" escapecharacter="\">
+				<Begin>"</Begin>
+				<End>"</End>
+			</Span>
+			
+			<Span name = "MultiLineString" bold = "false" italic = "false" color = "DarkRed" stopateol = "false" escapecharacter='"'>
+				<Begin>[[</Begin>
+				<End>]]</End>
+			</Span>
+			
+			<Span name = "Char" bold = "false" italic = "false" color = "DarkRed" stopateol = "true" escapecharacter="\">
+				<Begin>&apos;</Begin>
+				<End>&apos;</End>
+			</Span>
+			
+      <!-- Functions
+			<MarkPrevious bold = "false" italic = "false" color = "DarkCyan">(</MarkPrevious>
+      -->
+      
+      <KeyWords name="Global" bold="false" italic="false" color="LightBlue">
+        <Key word="LocalPlayer" />
+        <Key word="print" />
+      </KeyWords>
+			
+			<KeyWords name = "Punctuation" bold = "false" italic = "false" color = "Black">
+				<Key word = "?" />
+				<Key word = "," />
+				<Key word = "." />
+				<Key word = ";" />
+				<Key word = "(" />
+				<Key word = ")" />
+				<Key word = "[" />
+				<Key word = "]" />
+				<Key word = "{" />
+				<Key word = "}" />
+				<Key word = "+" />
+				<Key word = "-" />
+				<Key word = "/" />
+				<Key word = "%" />
+				<Key word = "*" />
+				<Key word = "&lt;" />
+				<Key word = "&gt;" />
+				<Key word = "^" />
+				<Key word = "=" />
+				<Key word = "~" />
+				<Key word = "!" />
+				<Key word = "|" />
+				<Key word = "&amp;" />
+			</KeyWords>
+			
+			<KeyWords name = "SelectionStatements" bold="false" italic="false" color="Blue">
+				<Key word = "else" />
+				<Key word = "if" />
+				<Key word = "elseif" />
+        <Key word = "end" />
+			</KeyWords>
+			
+			<KeyWords name = "IterationStatements" bold="false" italic="false" color="Blue">
+				<Key word = "do" />
+				<Key word = "for" />
+				<Key word = "in" />
+				<Key word = "while" />
+			</KeyWords>
+			
+			<KeyWords name = "JumpStatements" bold="false" italic="false" color="Blue">
+				<Key word = "break" />
+				<Key word = "continue" />
+				<Key word = "goto" />
+				<Key word = "return" />
+			</KeyWords>
+			
+			<KeyWords name = "Void" bold="false" italic="false" color="Blue">
+				<Key word = "function" />
+			</KeyWords>
+			
+			<KeyWords name = "AccessModifiers" bold="false" italic="false" color="Blue">
+				<Key word = "local" />
+			</KeyWords>
+			
+			<KeyWords name = "Literals" bold="false" italic="false" color="Blue">
+        <Key word = "true" />
+        <Key word = "false" />
+        <Key word = "nil" />
+      </KeyWords>
+    </RuleSet>
+		
+		<RuleSet name = "CommentMarkerSet" ignorecase = "false">
+			<Delimiters>&lt;&gt;~!@%^*()-+=|\#/{}[]:;"' ,	.?</Delimiters>
+			<KeyWords name = "ErrorWords" bold="true" italic="false" color="Red">
+				<Key word = "TODO" />
+				<Key word = "FIXME" />
+			</KeyWords>
+			<KeyWords name = "WarningWords" bold="true" italic="false" color="#EEE0E000">
+				<Key word = "HACK" />
+				<Key word = "UNDONE" />
+			</KeyWords>
+		</RuleSet>
+	</RuleSets>
+</SyntaxDefinition>
+
