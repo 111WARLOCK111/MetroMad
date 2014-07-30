@@ -40,7 +40,7 @@ namespace MetroMad.Lua.gLua {
         // <realm>Client</realm>
         // <summary>Enables the mouse cursor without restricting player movement, like using Sandbox's Context Menu</summary>
         // <param name="enabled">Whether the cursor should be enabled or not. (true.</param>
-        public static void EnableScreenClicker(boolean enabled) {
+        public static void EnableScreenClicker(bool enabled) {
         }
         
         // <realm>Client</realm>

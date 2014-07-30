@@ -110,7 +110,7 @@ namespace MetroMad.Lua.gLua {
         // <summary>Sets if an addon should be enabled or disabled. Call {{LibraryFunction|steamworks|ApplyAddons}} afterwards to update.</summary>
         // <param name="workshopItemID">The ID of the Steam Workshop item we should enable/disable.</param>
         // <param name="shouldMount">true to enable the item, false to disable.</param>
-        public static void SetShouldMountAddon(string workshopItemID, boolean shouldMount) {
+        public static void SetShouldMountAddon(string workshopItemID, bool shouldMount) {
         }
         
         // <realm>Client</realm>
@@ -141,7 +141,7 @@ namespace MetroMad.Lua.gLua {
         // <summary>Makes the user vote for the specified addon</summary>
         // <param name="workshopItemID">The ID of workshop item.</param>
         // <param name="upOrDown">Sets if the user should vote up/down. True makes them upvote, false down.</param>
-        public static void Vote(string workshopItemID, boolean upOrDown) {
+        public static void Vote(string workshopItemID, bool upOrDown) {
         }
         
         // <realm>Client</realm>

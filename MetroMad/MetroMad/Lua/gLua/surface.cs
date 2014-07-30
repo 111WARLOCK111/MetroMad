@@ -42,7 +42,7 @@ namespace MetroMad.Lua.gLua {
         // <realm>Client</realm>
         // <summary>Enables or disables the clipping used by the VGUI that limits the drawing operations to a panels bounds.</summary>
         // <param name="disable">True to disable, false to enable the clipping.</param>
-        public static void DisableClipping(boolean disable) {
+        public static void DisableClipping(bool disable) {
         }
         
         // <realm>Client</realm>

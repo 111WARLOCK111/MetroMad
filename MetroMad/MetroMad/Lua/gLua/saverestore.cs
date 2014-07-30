@@ -109,7 +109,7 @@ namespace MetroMad.Lua.gLua {
         
         // <realm>Shared</realm>
         // <summary>Writes a variable to the save game file that is being saved.</summary>
-        // <param name="value">The value to save.<br/>It can be one of the following types: {{Type|number}}, {{Type|boolean}}, {{Type|string}}, {{Type|Entity}}, {{Type|Angle}}, {{Type|Vector}} or {{Type|table}}.</param>
+        // <param name="value">The value to save.<br/>It can be one of the following types: {{Type|number}}, {{Type|bool}}, {{Type|string}}, {{Type|Entity}}, {{Type|Angle}}, {{Type|Vector}} or {{Type|table}}.</param>
         // <param name="save">The save object to write the variable to.</param>
         public static void WriteVar(any value, ISave save) {
         }

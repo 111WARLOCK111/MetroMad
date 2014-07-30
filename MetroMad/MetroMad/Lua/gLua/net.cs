@@ -55,7 +55,7 @@ namespace MetroMad.Lua.gLua {
         }
         
         // <realm>Shared</realm>
-        // <summary>Reads a boolean from the received net message.</summary>
+        // <summary>Reads a bool from the received net message.</summary>
         public static void ReadBit() {
         }
         
@@ -168,7 +168,7 @@ namespace MetroMad.Lua.gLua {
         // <summary>Begins a new net message.</summary>
         // <param name="messageName">The name of the message to send.</param>
         // <param name="unreliable">If set to true, the message is not guaranteed to reach its destination.</param>
-        public static void Start(string messageName, boolean unreliable) {
+        public static void Start(string messageName, bool unreliable) {
         }
         
         // <realm>Shared</realm>
@@ -178,9 +178,9 @@ namespace MetroMad.Lua.gLua {
         }
         
         // <realm>Shared</realm>
-        // <summary>Appends a boolean to the current net message.</summary>
-        // <param name="boolean">T.</param>
-        public static void WriteBit(boolean boolean) {
+        // <summary>Appends a bool to the current net message.</summary>
+        // <param name="bool">T.</param>
+        public static void WriteBit(bool bool) {
         }
         
         // <realm>Shared</realm>

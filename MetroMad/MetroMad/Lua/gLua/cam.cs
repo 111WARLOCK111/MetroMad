@@ -68,7 +68,7 @@ namespace MetroMad.Lua.gLua {
         // <realm>Client</realm>
         // <summary>Tells the renderer to ignore the depth buffer and draw any upcoming operation "ontop" of everything that was drawn yet.</summary>
         // <param name="ignoreZ">Determines whenever to ignore the depth buffer or not.</param>
-        public static void IgnoreZ(boolean ignoreZ) {
+        public static void IgnoreZ(bool ignoreZ) {
         }
         
         // <realm>Client</realm>

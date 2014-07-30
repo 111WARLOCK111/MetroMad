@@ -70,7 +70,7 @@ namespace MetroMad.Lua.gLua {
         // <summary>Escapes dangerous characters and symbols from user input used in an SQL Query.</summary>
         // <param name="string">The string to be escaped.</param>
         // <param name="bNoQuotes">Set this as true, and the function will not wrap the input string in apostrophes.</param>
-        public static void SQLStr(string @string, boolean bNoQuotes) {
+        public static void SQLStr(string @string, bool bNoQuotes) {
         }
         
         // <realm>Shared</realm>

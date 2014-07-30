@@ -104,7 +104,7 @@ namespace MetroMad.Lua.gLua {
         // <summary>Sets the mounting options for mountable content.</summary>
         // <param name="depotID">The depot id of the game to mount.</param>
         // <param name="doMount">The mount state, true to mount, false to unmount.</param>
-        public static void SetMounted(string depotID, boolean doMount) {
+        public static void SetMounted(string depotID, bool doMount) {
         }
         
         // <realm>Shared</realm>

@@ -136,7 +136,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="effectData">The effect data describing the effect.</param>
         // <param name="allowOverride">Allow override.</param>
         // <param name="ignorePredictionOrRecipientFilter">Ignore predicition or recipient filter.</param>
-        public static void Effect(string effectName, CEffectData effectData, boolean allowOverride, float ignorePredictionOrRecipientFilter) {
+        public static void Effect(string effectName, CEffectData effectData, bool allowOverride, float ignorePredictionOrRecipientFilter) {
         }
         
         // <realm>Shared</realm>
@@ -260,14 +260,14 @@ namespace MetroMad.Lua.gLua {
         // <summary>Converts a KeyValue string to a Lua table.</summary>
         // <param name="KeyValuestring">The KeyValue string to convert.</param>
         // <param name="preserveKeyCase">Whether we should preserve key case or not.</param>
-        public static void KeyValuesToTable(string KeyValuestring, boolean preserveKeyCase) {
+        public static void KeyValuesToTable(string KeyValuestring, bool preserveKeyCase) {
         }
         
         // <realm>Shared</realm>
         // <summary>Similar to {{LibraryFunction|util|KeyValuesToTable}} but it also preserves order of keys.</summary>
         // <param name="keyvals">The key value string.</param>
         // <param name="preserveKeyCase">Whether we should preserve key case or not.</param>
-        public static void KeyValuesToTablePreserveOrder(string keyvals, boolean preserveKeyCase) {
+        public static void KeyValuesToTablePreserveOrder(string keyvals, bool preserveKeyCase) {
         }
         
         // <realm>Shared</realm>
@@ -302,7 +302,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="startPos">The start position of the tracer.</param>
         // <param name="endPos">The end position of the tracer.</param>
         // <param name="doWhiz">Play the hit miss(whiz) sound.</param>
-        public static void ParticleTracer(string name, Vector startPos, Vector endPos, boolean doWhiz) {
+        public static void ParticleTracer(string name, Vector startPos, Vector endPos, bool doWhiz) {
         }
         
         // <realm>Shared</realm>
@@ -313,7 +313,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="entityIndex">Entity index of the emitting entity.</param>
         // <param name="doWhiz">Play the hit miss(whiz) sound.</param>
         // <param name="attachmentIndex">Attachment index to be used as origin.</param>
-        public static void ParticleTracerEx(string name, Vector startPos, Vector endPos, float entityIndex, boolean doWhiz, float attachmentIndex) {
+        public static void ParticleTracerEx(string name, Vector startPos, Vector endPos, float entityIndex, bool doWhiz, float attachmentIndex) {
         }
         
         // <realm>Client</realm>
@@ -401,7 +401,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="lifetime">How long it takes to transition from startWidth to endWidth.</param>
         // <param name="textureRes">The resolution of trails texture. A good value can be calculated using this formula: 1 / ( startWidth + endWidth ) * 0.5.</param>
         // <param name="texture">Path to the texture to use as a trail. Note that you should also include the ".vmt" or the game WILL crash!.</param>
-        public static void SpriteTrail(Entity ent, float attachmentID, table color, boolean additive, float startWidth, float endWidth, float lifetime, float textureRes, string texture) {
+        public static void SpriteTrail(Entity ent, float attachmentID, table color, bool additive, float startWidth, float endWidth, float lifetime, float textureRes, string texture) {
         }
         
         // <realm>Shared</realm>

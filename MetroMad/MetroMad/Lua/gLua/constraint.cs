@@ -71,7 +71,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="nocollide">Whether the entities should be no-collided.</param>
         // <param name="LocalAxis">If you include the LocalAxis then LPos2 will not be used in the final constraint. However, LPos2 is still a required argument.</param>
         // <param name="DontAddTable">Whether or not to add the constraint info on the entity table. See {{LibraryFunction|constraint|AddConstraintTable}}.</param>
-        public static void Axis(Entity Ent1, Entity Ent2, float Bone1, float Bone2, float forcelimit, float torquelimit, float nocollide, Vector LocalAxis, boolean DontAddTable) {
+        public static void Axis(Entity Ent1, Entity Ent2, float Bone1, float Bone2, float forcelimit, float torquelimit, float nocollide, Vector LocalAxis, bool DontAddTable) {
         }
         
         // <realm>Server</realm>
@@ -241,7 +241,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="rigid">Whether the constraint is rigid.</param>
         // <param name="width">Width of the rope.</param>
         // <param name="material">Material of the rope.</param>
-        public static void Pulley(float forcelimit, boolean rigid, float width, string material) {
+        public static void Pulley(float forcelimit, bool rigid, float width, string material) {
         }
         
         // <realm>Server</realm>
@@ -271,7 +271,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="width">Width of the rope.</param>
         // <param name="material">Material of the rope.</param>
         // <param name="rigid">Whether the constraint is rigid.</param>
-        public static void Rope(Entity Ent1, float Ent2, float Bone1, float Bone2, Vector LPos1, Vector LPos2, float length, float addlength, float forcelimit, float width, string material, boolean rigid) {
+        public static void Rope(Entity Ent1, float Ent2, float Bone1, float Bone2, Vector LPos1, Vector LPos2, float length, float addlength, float forcelimit, float width, string material, bool rigid) {
         }
         
         // <realm>Server</realm>
@@ -294,7 +294,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="forcelimit">The amount of force appliable to the constraint before it will break (0 is never).</param>
         // <param name="nocollide">Should ent1 be nocollided to ent2 via this constraint.</param>
         // <param name="deleteent1onbreak">If true, when ent2 is removed, ent1 will also be removed.</param>
-        public static void Weld(Entity ent1, Entity ent2, float bone1, float bone2, float forcelimit, boolean nocollide, boolean deleteent1onbreak) {
+        public static void Weld(Entity ent1, Entity ent2, float bone1, float bone2, float forcelimit, bool nocollide, bool deleteent1onbreak) {
         }
         
         // <realm>Server</realm>
@@ -311,7 +311,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="bwd_speed">Backwards speed.</param>
         // <param name="material">The material of the rope.</param>
         // <param name="toggle">Whether the winch should be on toggle.</param>
-        public static void Winch(Player pl, Entity Ent1, Entity Ent2, float Bone1, float Bone2, float width, float key, float key1, float fwd_speed, float bwd_speed, string material, boolean toggle) {
+        public static void Winch(Player pl, Entity Ent1, Entity Ent2, float Bone1, float Bone2, float width, float key, float key1, float fwd_speed, float bwd_speed, string material, bool toggle) {
         }
     }
 }

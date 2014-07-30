@@ -43,7 +43,7 @@ namespace MetroMad.Lua.gLua {
         // <summary>Changes all keys to integers</summary>
         // <param name="tabl">The original table to modify.</param>
         // <param name="saveKeys">Save the keys? This will insert a new field __key into each value, and should not be used if the table contains non-table values.</param>
-        public static void ClearKeys(table tabl, boolean saveKeys) {
+        public static void ClearKeys(table tabl, bool saveKeys) {
         }
         
         // <realm>Shared</realm>
@@ -262,7 +262,7 @@ namespace MetroMad.Lua.gLua {
         }
         
         // <realm>Shared</realm>
-        // <summary>Converts {{Type|Vector}}s, {{Type|Angle}}s and {{Type|boolean}}s to be able to be converted to and from key-values. {{LibraryFunction|table|DeSanitise}} does the opposite</summary>
+        // <summary>Converts {{Type|Vector}}s, {{Type|Angle}}s and {{Type|bool}}s to be able to be converted to and from key-values. {{LibraryFunction|table|DeSanitise}} does the opposite</summary>
         // <param name="tab">Table to sanitise.</param>
         public static void Sanitise(table tab) {
         }
@@ -284,7 +284,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="tab">Table to sort.</param>
         // <param name="memberKey">The key used to identify the member.</param>
         // <param name="ascending">Whether or not the order should be ascending.</param>
-        public static void SortByMember(table tab, any memberKey, boolean ascending) {
+        public static void SortByMember(table tab, any memberKey, bool ascending) {
         }
         
         // <realm>Shared</realm>
@@ -297,7 +297,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="Table">The table to iterate over.</param>
         // <param name="Table Name">A name for the table.</param>
         // <param name=""Nice" formatting">Adds new lines and tabs to the string.</param>
-        public static void ToString(table Table, string Table Name, boolean "Nice" formatting) {
+        public static void ToString(table Table, string Table Name, bool "Nice" formatting) {
         }
     }
 }

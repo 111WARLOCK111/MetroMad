@@ -41,7 +41,7 @@ namespace MetroMad.Lua.gLua {
         }
         
         // <realm>Shared</realm>
-        // <summary>Retrieves console variable as a boolean.</summary>
+        // <summary>Retrieves console variable as a bool.</summary>
         // <param name="cvar">Name of console variable.</param>
         public static void Bool(string cvar) {
         }
@@ -50,7 +50,7 @@ namespace MetroMad.Lua.gLua {
         // <summary>Returns a table with the convars callbacks.</summary>
         // <param name="name">The name of the convar.</param>
         // <param name="CreateIfNotFound">If a convar is not found, should it be created.</param>
-        public static void GetConVarCallbacks(string name, boolean CreateIfNotFound) {
+        public static void GetConVarCallbacks(string name, bool CreateIfNotFound) {
         }
         
         // <realm>Shared</realm>

@@ -49,7 +49,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="vel">Velocity to set on spawn.</param>
         // <param name="aVel">Angular velocity to set on spawn.</param>
         // <param name="frozen">Freeze the magnet on start.</param>
-        public static void Magnet(Player ply, Vector pos, Angle ang, string model, string material, float key, float maxObjects, float strength, float nopull, float allowrot, float startOn, float toggle, Vector vel, Angle aVel, boolean frozen) {
+        public static void Magnet(Player ply, Vector pos, Angle ang, string model, string material, float key, float maxObjects, float strength, float nopull, float allowrot, float startOn, float toggle, Vector vel, Angle aVel, bool frozen) {
         }
         
         // <realm>Server</realm>

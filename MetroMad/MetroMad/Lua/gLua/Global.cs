@@ -178,7 +178,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="code">The code to compile.</param>
         // <param name="identifier">An identifier in case an error is thrown. (The same identifier can be used multiple times).</param>
         // <param name="HandleError">If false this function will return an error string instead of throwing an error.</param>
-        public static void CompileString(string code, string identifier, boolean HandleError) {
+        public static void CompileString(string code, string identifier, bool HandleError) {
         }
         
         // <realm>Shared</realm>
@@ -193,7 +193,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="default">Default value of the ConVar.</param>
         // <param name="shouldsave">Should the ConVar be saved across sessions.</param>
         // <param name="userdata">Should the ConVar and its containing data be sent to the server when it has changed. This make the convar accessible from server using {{ClassFunction|Player|GetInfoNum}} and similar functions.</param>
-        public static void CreateClientConVar(string name, float @default, boolean shouldsave, boolean userdata) {
+        public static void CreateClientConVar(string name, float @default, bool shouldsave, bool userdata) {
         }
         
         // <realm>Shared</realm>
@@ -322,7 +322,7 @@ namespace MetroMad.Lua.gLua {
         // <realm>Client</realm>
         // <summary>Sets whether rendering should be limited to being inside a panel or not</summary>
         // <param name="disable">Whether or not clipping should be disabled.</param>
-        public static void DisableClipping(boolean disable) {
+        public static void DisableClipping(bool disable) {
         }
         
         // <realm>Client</realm>
@@ -434,7 +434,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="condition">The condition to check if true or false.</param>
         // <param name="truevar">If the condition is true, return this variable.</param>
         // <param name="falsevar">If the condition is false, return this variable.</param>
-        public static void Either(boolean condition, any truevar, any falsevar) {
+        public static void Either(bool condition, any truevar, any falsevar) {
         }
         
         // <realm>Shared</realm>
@@ -575,10 +575,10 @@ namespace MetroMad.Lua.gLua {
         }
         
         // <realm>Shared</realm>
-        // <summary>Returns a boolean that is shared between the server and all clients.</summary>
+        // <summary>Returns a bool that is shared between the server and all clients.</summary>
         // <param name="Index">The unique index to identify the global value with.</param>
         // <param name="Default">The value to return if the global value is not set.</param>
-        public static void GetGlobalBool(string Index, boolean Default) {
+        public static void GetGlobalBool(string Index, bool Default) {
         }
         
         // <realm>Shared</realm>
@@ -645,7 +645,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="width">The width of the render target, must be power of 2.</param>
         // <param name="height">The height of the render target, must be power of 2.</param>
         // <param name="additive">Sets whenever the rt should be additive.</param>
-        public static void GetRenderTarget(string name, float width, float height, boolean additive) {
+        public static void GetRenderTarget(string name, float width, float height, bool additive) {
         }
         
         // <realm>Client</realm>
@@ -721,7 +721,7 @@ namespace MetroMad.Lua.gLua {
         }
         
         // <realm>Shared</realm>
-        // <summary>Returns if the passed object is a {{Type|boolean}}.</summary>
+        // <summary>Returns if the passed object is a {{Type|bool}}.</summary>
         // <param name="variable">The variable to perform the type check for.</param>
         public static void isbool(any variable) {
         }
@@ -965,7 +965,7 @@ namespace MetroMad.Lua.gLua {
         // <realm>Shared</realm>
         // <summary>Returns a new userdata object.</summary>
         // <param name="addMetatable">If true, the userdata will get its own metatable automatically.</param>
-        public static void newproxy(boolean addMetatable) {
+        public static void newproxy(bool addMetatable) {
         }
         
         // <realm>Shared</realm>
@@ -1028,7 +1028,7 @@ namespace MetroMad.Lua.gLua {
         // <summary>Creates a new {{Type|CLuaEmitter}}.</summary>
         // <param name="position">The start position of the emitter.</param>
         // <param name="use3D">Whenever to render the particles in 2D or 3D mode.</param>
-        public static void ParticleEmitter(Vector position, boolean use3D) {
+        public static void ParticleEmitter(Vector position, bool use3D) {
         }
         
         // <realm>Server</realm>
@@ -1112,7 +1112,7 @@ namespace MetroMad.Lua.gLua {
         // <summary>Returns an iterator function that can be used to loop through a table in random order</summary>
         // <param name="table">Table to create iterator for.</param>
         // <param name="descending">Whether the iterator should iterate descending or not.</param>
-        public static void RandomPairs(table table, boolean descending) {
+        public static void RandomPairs(table table, bool descending) {
         }
         
         // <realm>Shared</realm>
@@ -1178,7 +1178,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="spin">Whether to cycle the frame or not.</param>
         // <param name="inView">Table of view data.</param>
         // <param name="fov">FOV to render the effect with.</param>
-        public static void RenderDoF(Vector origin, Angle angle, Vector usableFocusPoint, float angleSize, float radialSteps, float passes, boolean spin, table inView, float fov) {
+        public static void RenderDoF(Vector origin, Angle angle, Vector usableFocusPoint, float angleSize, float radialSteps, float passes, bool spin, table inView, float fov) {
         }
         
         // <realm>Client</realm>
@@ -1304,10 +1304,10 @@ namespace MetroMad.Lua.gLua {
         }
         
         // <realm>Shared</realm>
-        // <summary>Defined a boolean to be automatically networked to clients</summary>
-        // <param name="index">Index to identify the global boolean with.</param>
+        // <summary>Defined a bool to be automatically networked to clients</summary>
+        // <param name="index">Index to identify the global bool with.</param>
         // <param name="bool">Boolean to be networked.</param>
-        public static void SetGlobalBool(any index, boolean @bool) {
+        public static void SetGlobalBool(any index, bool @bool) {
         }
         
         // <realm>Shared</realm>
@@ -1369,7 +1369,7 @@ namespace MetroMad.Lua.gLua {
         // <summary>This function can be used in a for loop instead of {{GlobalFunction|pairs}}. It sorts all '''keys''' alphabetically.</summary>
         // <param name="table">The table to sort.</param>
         // <param name="desc">Reverse the sorting order.</param>
-        public static void SortedPairs(table table, boolean desc) {
+        public static void SortedPairs(table table, bool desc) {
         }
         
         // <realm>Shared</realm>
@@ -1377,14 +1377,14 @@ namespace MetroMad.Lua.gLua {
         // <param name="table">Table to create iterator for.</param>
         // <param name="memberName">Name of member to order iteration by.</param>
         // <param name="descending">Whether the iterator should iterate in descending order or not.</param>
-        public static void SortedPairsByMemberValue(table table, string memberName, boolean descending) {
+        public static void SortedPairsByMemberValue(table table, string memberName, bool descending) {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns an iterator function that can be used to loop through a table in order of its '''values'''.</summary>
         // <param name="table">Table to create iterator for.</param>
         // <param name="descending">Whether the iterator should iterate in descending order or not.</param>
-        public static void SortedPairsByValue(table table, boolean descending) {
+        public static void SortedPairsByValue(table table, bool descending) {
         }
         
         // <realm>Shared</realm>
@@ -1403,7 +1403,7 @@ namespace MetroMad.Lua.gLua {
         // <summary>Returns the input value in an escaped form so that it can safely be used inside of queries. The returned value is surrounded by quotes unless noQuotes is true. Alias of {{LibraryFunction|sql|SQLStr}}</summary>
         // <param name="input">String to be escaped.</param>
         // <param name="noQuotes">Whether the returned value should be surrounded in quotes or not.</param>
-        public static void SQLStr(string input, boolean noQuotes) {
+        public static void SQLStr(string input, bool noQuotes) {
         }
         
         // <realm>Client</realm>
@@ -1458,8 +1458,8 @@ namespace MetroMad.Lua.gLua {
         }
         
         // <realm>Shared</realm>
-        // <summary>Attempts to return an appropriate boolean for the given value</summary>
-        // <param name="val">The object to be converted to a boolean.</param>
+        // <summary>Attempts to return an appropriate bool for the given value</summary>
+        // <param name="val">The object to be converted to a bool.</param>
         public static void tobool(any val) {
         }
         

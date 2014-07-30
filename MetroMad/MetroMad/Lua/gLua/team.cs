@@ -137,7 +137,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="teamName">The team name.</param>
         // <param name="teamColor">The team color. Uses the {{Struct|Color}}.</param>
         // <param name="teamJoinable">Whether the team is joinable or not.</param>
-        public static void SetUp(float teamIndex, string teamName, table teamColor, boolean teamJoinable) {
+        public static void SetUp(float teamIndex, string teamName, table teamColor, bool teamJoinable) {
         }
         
         // <realm>Shared</realm>

@@ -41,7 +41,7 @@ namespace MetroMad.Lua.gLua {
         // <realm>Server</realm>
         // <summary>Write a bool to the user message.</summary>
         // <param name="angle">The bool to be sent.</param>
-        public static void Bool(boolean angle) {
+        public static void Bool(bool angle) {
         }
         
         // <realm>Server</realm>

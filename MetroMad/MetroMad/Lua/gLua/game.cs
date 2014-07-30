@@ -60,7 +60,7 @@ namespace MetroMad.Lua.gLua {
         // <summary>If called serverside it will remove ALL entities which were not created by the map(not players or weapons held by players).</summary>
         // <param name="dontSendToClients">If set to true, don't run this functions on all clients.</param>
         // <param name="ExtraFilters">Entity classes not to reset during cleanup.</param>
-        public static void CleanUpMap(boolean dontSendToClients, table ExtraFilters) {
+        public static void CleanUpMap(bool dontSendToClients, table ExtraFilters) {
         }
         
         // <realm>Server</realm>

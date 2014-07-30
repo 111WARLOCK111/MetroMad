@@ -30,7 +30,7 @@ namespace MetroMad.Lua.gLua {
     using System;
     
     
-    public class ai schedule {
+    public class aischedule {
         
         // <realm>Server</realm>
         // <summary>Adds an engine task to the schedule.</summary>

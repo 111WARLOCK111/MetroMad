@@ -77,7 +77,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="roundTopRight">Whether the top right corner should be rounded.</param>
         // <param name="roundBottomLeft">Whether the bottom left corner should be rounded.</param>
         // <param name="roundBottomRight">Whether the bottom right corner should be rounded.</param>
-        public static void RoundedBoxEx(float cornerRadius, float x, float y, float width, float height, table color, boolean roundTopLeft, boolean roundTopRight, boolean roundBottomLeft, boolean roundBottomRight) {
+        public static void RoundedBoxEx(float cornerRadius, float x, float y, float width, float height, table color, bool roundTopLeft, bool roundTopRight, bool roundBottomLeft, bool roundBottomRight) {
         }
         
         // <realm>Client</realm>

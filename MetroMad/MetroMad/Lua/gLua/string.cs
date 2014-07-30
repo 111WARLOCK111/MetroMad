@@ -56,7 +56,7 @@ namespace MetroMad.Lua.gLua {
         // <summary>Returns the binary bytecode of function.</summary>
         // <param name="func">The function to get the bytecode of.</param>
         // <param name="stripDebugInfo">True to strip the debug data, false to keep it.</param>
-        public static void dump(function func, boolean stripDebugInfo) {
+        public static void dump(function func, bool stripDebugInfo) {
         }
         
         // <realm>Shared</realm>
@@ -71,7 +71,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="separator">The string will be separated wherever this sequence is found.</param>
         // <param name="str">The string to split up.</param>
         // <param name="use_patterns">Set this to true if your separator is a pattern.</param>
-        public static void Explode(string separator, string str, boolean use_patterns) {
+        public static void Explode(string separator, string str, bool use_patterns) {
         }
         
         // <realm>Shared</realm>
@@ -80,7 +80,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="needle">The string to find, can contain patterns if enabled.</param>
         // <param name="startPos">The position to start the search from, can be negative start position will be relative to the end position.</param>
         // <param name="noPatterns">Disable patterns.</param>
-        public static void find(string haystack, string needle, float startPos, boolean noPatterns) {
+        public static void find(string haystack, string needle, float startPos, bool noPatterns) {
         }
         
         // <realm>Shared</realm>

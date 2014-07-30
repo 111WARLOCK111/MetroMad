@@ -69,7 +69,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="a">Alpha component to clear to.</param>
         // <param name="clearDepth">Clear the depth.</param>
         // <param name="clearStencil">Clear the stencil.</param>
-        public static void Clear(float r, float g, float b, float a, boolean clearDepth, boolean clearStencil) {
+        public static void Clear(float r, float g, float b, float a, bool clearDepth, bool clearStencil) {
         }
         
         // <realm>Client</realm>
@@ -79,7 +79,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="b">Value of the blue channel to clear the current rt with.</param>
         // <param name="a">Value of the alpha channel to clear the current rt with.</param>
         // <param name="depth">Clear the depth buffer.</param>
-        public static void ClearBuffersObeyStencil(float r, float g, float b, float a, boolean depth) {
+        public static void ClearBuffersObeyStencil(float r, float g, float b, float a, bool depth) {
         }
         
         // <realm>Client</realm>
@@ -160,7 +160,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="maxs">End position of the box.</param>
         // <param name="color">The color of the box. Uses the {{Struct|Color}}.</param>
         // <param name="writeZ">End position of the box.</param>
-        public static void DrawBox(Vector position, Angle angles, Vector mins, Vector maxs, table color, boolean writeZ) {
+        public static void DrawBox(Vector position, Angle angles, Vector mins, Vector maxs, table color, bool writeZ) {
         }
         
         // <realm>Client</realm>
@@ -169,7 +169,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="endPos">Line end position.</param>
         // <param name="color">The color to be used. Uses the {{Struct|Color}}.</param>
         // <param name="writeZ">Sets whenever to write to the zBuffer.</param>
-        public static void DrawLine(Vector startPos, Vector endPos, table color, boolean writeZ) {
+        public static void DrawLine(Vector startPos, Vector endPos, table color, bool writeZ) {
         }
         
         // <realm>Client</realm>
@@ -242,7 +242,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="maxs">The highest corner of the box.</param>
         // <param name="color">The color of the box. Uses the {{Struct|Color}}.</param>
         // <param name="writeZ">Sets whenever to write to the zBuffer.</param>
-        public static void DrawWireframeBox(Vector position, Angle angle, Vector mins, Vector maxs, table color, boolean writeZ) {
+        public static void DrawWireframeBox(Vector position, Angle angle, Vector mins, Vector maxs, table color, bool writeZ) {
         }
         
         // <realm>Client</realm>
@@ -253,13 +253,13 @@ namespace MetroMad.Lua.gLua {
         // <param name="segments">The number of segments.</param>
         // <param name="[color]">The color of the box.</param>
         // <param name="[writeZ]">End position of the box.</param>
-        public static void DrawWireframeSphere(Vector position, float size, float sectors, float segments, table [color], boolean [writeZ]) {
+        public static void DrawWireframeSphere(Vector position, float size, float sectors, float segments, table [color], bool [writeZ]) {
         }
         
         // <realm>Client</realm>
         // <summary>Sets the status of the clip renderer, returns previous state.</summary>
         // <param name="state">New clipping state.</param>
-        public static void EnableClipping(boolean state) {
+        public static void EnableClipping(bool state) {
         }
         
         // <realm>Client</realm>
@@ -447,21 +447,21 @@ namespace MetroMad.Lua.gLua {
         // <summary>Overrides the write behaviour of all next rendering operations towards the alpha channel of the current render target.</summary>
         // <param name="enable">Enable or disable the override.</param>
         // <param name="shouldWrite">If the previous argument is true, sets whether the next rendering operations should write to the alpha channel or not. Has no effect if the previous argument is false.</param>
-        public static void OverrideAlphaWriteEnable(boolean enable, boolean shouldWrite) {
+        public static void OverrideAlphaWriteEnable(bool enable, bool shouldWrite) {
         }
         
         // <realm>Client</realm>
         // <summary>Overrides the write behaviour of all next rendering operations towards the color channel of the current render target.</summary>
         // <param name="enable">Enable or disable the override.</param>
         // <param name="shouldWrite">If the previous argument is true, sets whether the next rendering operations should write to the color channel or not. Has no effect if the previous argument is false.</param>
-        public static void OverrideColorWriteEnable(boolean enable, boolean shouldWrite) {
+        public static void OverrideColorWriteEnable(bool enable, bool shouldWrite) {
         }
         
         // <realm>Client</realm>
         // <summary>Overrides the write behaviour of all next rendering operations towards the depth buffer.</summary>
         // <param name="enable">Enable or disable the override.</param>
         // <param name="shouldWrite">If the previous argument is true, sets whether the next rendering operations should write to the depth buffer or not. Has no effect if the previous argument is false.</param>
-        public static void OverrideDepthEnable(boolean enable, boolean shouldWrite) {
+        public static void OverrideDepthEnable(bool enable, bool shouldWrite) {
         }
         
         // <realm>Client</realm>
@@ -515,7 +515,7 @@ namespace MetroMad.Lua.gLua {
         // <realm>Client</realm>
         // <summary>Enables the flashlight projection for the upcoming rendering.</summary>
         // <param name="enable">Whether the flashlight mode should be enabled or disabled.</param>
-        public static void PushFlashlightMode(boolean enable) {
+        public static void PushFlashlightMode(bool enable) {
         }
         
         // <realm>Client</realm>
@@ -664,7 +664,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="endX">X end coordinate of the scissor rect.</param>
         // <param name="endY">Y end coordinate of the scissor rect.</param>
         // <param name="enable">Enable or disable the scissor rect.</param>
-        public static void SetScissorRect(float startX, float startY, float endX, float endY, boolean enable) {
+        public static void SetScissorRect(float startX, float startY, float endX, float endY, bool enable) {
         }
         
         // <realm>Client</realm>
@@ -700,7 +700,7 @@ namespace MetroMad.Lua.gLua {
         // <realm>Client</realm>
         // <summary>Sets the state of the stencil buffer.</summary>
         // <param name="newState">The new state.</param>
-        public static void SetStencilEnable(boolean newState) {
+        public static void SetStencilEnable(bool newState) {
         }
         
         // <realm>Client</realm>
@@ -786,7 +786,7 @@ namespace MetroMad.Lua.gLua {
         // <realm>Client</realm>
         // <summary>Suppresses or enables any engine lighting for any upcoming render operation.</summary>
         // <param name="suppressLighting">True to suppress false to enable.</param>
-        public static void SuppressEngineLighting(boolean suppressLighting) {
+        public static void SuppressEngineLighting(bool suppressLighting) {
         }
         
         // <realm>Client</realm>

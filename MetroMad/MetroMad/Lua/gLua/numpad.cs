@@ -37,7 +37,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="ply">The player whose numpad should be simulated.</param>
         // <param name="key">The key to press, see {{Enum|KEY}}.</param>
         // <param name="isButton">Should this keypress pretend to be a from a gmod_button? (causes {{LibraryFunction|numpad|FromButton}} to return true).</param>
-        public static void Activate(Player ply, float key, boolean isButton) {
+        public static void Activate(Player ply, float key, bool isButton) {
         }
         
         // <realm>Server</realm>
@@ -45,7 +45,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="ply">The player whose numpad should be simulated.</param>
         // <param name="key">The key to press, corresponding to {{Enum|KEY}}.</param>
         // <param name="isButton">Should this keypress pretend to be a from a gmod_button? (causes {{LibraryFunction|numpad|FromButton}} to return true).</param>
-        public static void Deactivate(Player ply, float key, boolean isButton) {
+        public static void Deactivate(Player ply, float key, bool isButton) {
         }
         
         // <realm>Server</realm>

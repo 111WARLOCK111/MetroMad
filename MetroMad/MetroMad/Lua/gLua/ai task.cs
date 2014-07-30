@@ -30,7 +30,7 @@ namespace MetroMad.Lua.gLua {
     using System;
     
     
-    public class ai task {
+    public class aitask {
         
         // <realm>Server</realm>
         // <summary>Create a new empty task</summary>

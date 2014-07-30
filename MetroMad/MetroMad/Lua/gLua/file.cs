@@ -52,7 +52,7 @@ namespace MetroMad.Lua.gLua {
         }
         
         // <realm>Shared</realm>
-        // <summary>Returns a boolean of whether the file or directory exists or not.</summary>
+        // <summary>Returns a bool of whether the file or directory exists or not.</summary>
         // <param name="name">The file or directory's name.</param>
         // <param name="path">The path of where to look for the file.</param>
         public static void Exists(string name, string path) {
