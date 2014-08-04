@@ -37,27 +37,27 @@ namespace MetroMad.Lua.gLua {
         // <param name="Text">The string to display.</param>
         // <param name="Type">Determines the method for displaying the notification. See the {{Enum|NOTIFY}}.</param>
         // <param name="Length">The number of seconds to display the notification for.</param>
-        public static void AddLegacy(string Text, float Type, float Length) {
+        public virtual void AddLegacy(string Text, float Type, float Length) {
         }
         
         // <realm>Client</realm>
         // <summary>Adds a notification with an animated progress bar.</summary>
         // <param name="id">Can be any type. It's used as an index.</param>
         // <param name="strText">The text to show.</param>
-        public static void AddProgress(any id, string strText) {
+        public virtual void AddProgress(any id, string strText) {
         }
         
         // <realm>Client</realm>
         // <summary>{{Deprecated|Function doesn't seem to be doing anything useful}}</summary>
         // <param name="uid">Notification unique ID.</param>
         // <param name="delay">Delay.</param>
-        public static void Die(string uid, float delay) {
+        public virtual void Die(string uid, float delay) {
         }
         
         // <realm>Client</realm>
         // <summary>Removes the notification.</summary>
         // <param name="uid">The unique ID of the notification.</param>
-        public static void Kill(string uid) {
+        public virtual void Kill(string uid) {
         }
     }
 }

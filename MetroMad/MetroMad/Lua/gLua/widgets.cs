@@ -36,13 +36,13 @@ namespace MetroMad.Lua.gLua {
         // <summary>Internal function automatically called to update all widgets. Normally you won't need to call this.</summary>
         // <param name="ply">The player.</param>
         // <param name="mv">Player move data.</param>
-        public static void PlayerTick(Player ply, CMoveData mv) {
+        public virtual void PlayerTick(Player ply, CMoveData mv) {
         }
         
         // <realm>Client</realm>
         // <summary>Renders a widget. Normally you won't need to call this.</summary>
         // <param name="ent">Widget entity to render.</param>
-        public static void RenderMe(Entity ent) {
+        public virtual void RenderMe(Entity ent) {
         }
     }
 }

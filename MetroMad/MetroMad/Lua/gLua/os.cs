@@ -34,27 +34,35 @@ namespace MetroMad.Lua.gLua {
         
         // <realm>Shared</realm>
         // <summary>Returns the approximate cpu time the application ran.</summary>
-        public static void clock() {
+        // <return>number|runtime</return>
+        public virtual int clock() {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the date/time as a formatted string or in a table.</summary>
         // <param name="format">The format string.</param>
         // <param name="time">Time to use for the format.</param>
-        public static void date(string format, float time) {
+        // <return>string|Formatted date<br/></return>
+        public virtual string date(string format, float time) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Subtracts the second of the first value and rounds the result.</summary>
         // <param name="timeA">The first value.</param>
         // <param name="timeB">The value to subtract.</param>
-        public static void difftime(float timeA, float timeB) {
+        // <return>number|diffTime</return>
+        public virtual int difftime(float timeA, float timeB) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the system time in seconds past the unix epoch. If a table is supplied, the function attempts to build a system time with the specified table members.</summary>
         // <param name="dateData">Table to generate the time from. This table's data is interpreted as being in the local timezone. See {{Struct|DateData}}.</param>
-        public static void time(table dateData) {
+        // <return>number|Seconds passed since Unix epoch</return>
+        public virtual int time(table dateData) {
+            return 1;
         }
     }
 }

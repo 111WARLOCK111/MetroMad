@@ -36,13 +36,13 @@ namespace MetroMad.Lua.gLua {
         // <summary>Adds a language item. Language placeholders are replaced with full text in Garry's Mod once registered with this function.</summary>
         // <param name="placeholder">The key for this phrase.</param>
         // <param name="fulltext">The phrase that should be displayed whenever this key is used.</param>
-        public static void Add(string placeholder, string fulltext) {
+        public virtual void Add(string placeholder, string fulltext) {
         }
         
         // <realm>Client</realm>
         // <summary>Retrieves the translated version of inputted string. Useful for concentrating multiple translated strings.</summary>
         // <param name="phrase">The untranslated phrase.</param>
-        public static void GetPhrase(string phrase) {
+        public virtual void GetPhrase(string phrase) {
         }
     }
 }

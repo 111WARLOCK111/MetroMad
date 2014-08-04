@@ -37,14 +37,14 @@ namespace MetroMad.Lua.gLua {
         // <param name="class">Weapon or entity class.</param>
         // <param name="texture">Path to the texture.</param>
         // <param name="color">Color of the kill icon.</param>
-        public static void Add(string @class, string texture, table color) {
+        public virtual void Add(string @class, string texture, table color) {
         }
         
         // <realm>Client</realm>
         // <summary>Creates kill icon from existing one.</summary>
         // <param name="new_class">New class of the kill icon.</param>
         // <param name="existing_class">Already existing kill icon class.</param>
-        public static void AddAlias(string new_class, string existing_class) {
+        public virtual void AddAlias(string new_class, string existing_class) {
         }
         
         // <realm>Client</realm>
@@ -53,7 +53,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="font">Font to be used.</param>
         // <param name="symbol">The symbol to be used.</param>
         // <param name="color">Color of the killicon.</param>
-        public static void AddFont(string @class, string font, string symbol, table color) {
+        public virtual void AddFont(string @class, string font, string symbol, table color) {
         }
         
         // <realm>Client</realm>
@@ -62,19 +62,23 @@ namespace MetroMad.Lua.gLua {
         // <param name="y">Y coordinate of the icon.</param>
         // <param name="name">Classname of the kill icon.</param>
         // <param name="alpha">Alpha/transparency value ( 0 - 255 ) of the icon.</param>
-        public static void Draw(float x, float y, string name, float alpha) {
+        public virtual void Draw(float x, float y, string name, float alpha) {
         }
         
         // <realm>Client</realm>
         // <summary>Checks if kill icon exists for given class.</summary>
         // <param name="class">The class to test.</param>
-        public static void Exists(string @class) {
+        // <return>boolean|Returns true if kill icon exists</return>
+        public virtual bool Exists(string @class) {
+            return true;
         }
         
         // <realm>Client</realm>
         // <summary>Returns the size of a kill icon.</summary>
         // <param name="name">Classname of the kill icon.</param>
-        public static void GetSize(string name) {
+        // <return>number|Width of the kill icon</return>
+        public virtual int GetSize(string name) {
+            return 1;
         }
     }
 }

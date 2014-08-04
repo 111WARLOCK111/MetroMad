@@ -36,27 +36,29 @@ namespace MetroMad.Lua.gLua {
         // <summary>You can attach callbacks to a number of compiler events with jit.attach. The callback can be called:</summary>
         // <param name="callback">The callback function.</param>
         // <param name="event">The event to hook into.</param>
-        public static void attach(function callback, string @event) {
+        public virtual void attach(function callback, string @event) {
         }
         
         // <realm>Shared</realm>
         // <summary>Flushes the whole cache of compiled code.</summary>
-        public static void flush() {
+        public virtual void flush() {
         }
         
         // <realm>Shared</realm>
         // <summary>Disables LuaJIT Lua compilation.</summary>
-        public static void off() {
+        public virtual void off() {
         }
         
         // <realm>Shared</realm>
         // <summary>Enables LuaJIT Lua compilation.</summary>
-        public static void on() {
+        public virtual void on() {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the status of the JIT compiler and the current optimizations enabled.</summary>
-        public static void status() {
+        // <return>boolean|Is JIT enabled</return>
+        public virtual bool status() {
+            return true;
         }
     }
 }

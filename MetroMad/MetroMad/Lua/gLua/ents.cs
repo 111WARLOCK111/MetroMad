@@ -35,45 +35,59 @@ namespace MetroMad.Lua.gLua {
         // <realm>Server</realm>
         // <summary>Starts creating an entity.</summary>
         // <param name="class">The classname of the entity to create.</param>
-        public static void Create(string @class) {
+        // <return>Entity|The created entity</return>
+        public virtual Entity Create(string @class) {
+            return new Entity();
         }
         
         // <realm>Client</realm>
         // <summary>Creates a clientside only prop</summary>
         // <param name="model">The model of ent to create.</param>
-        public static void CreateClientProp(string model) {
+        // <return>Entity|Created entity.</return>
+        public virtual Entity CreateClientProp(string model) {
+            return new Entity();
         }
         
         // <realm>Shared</realm>
         // <summary>Gets all entities with the given class, supports wildcards.</summary>
         // <param name="class">The class of the entities to find.</param>
-        public static void FindByClass(string @class) {
+        // <return>table|A table containing all found entities</return>
+        public virtual table FindByClass(string @class) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Finds all entities that are of given class and are children of given entity.</summary>
         // <param name="class">The class of entities to search for.</param>
         // <param name="parent">Parent of entities that are being searched for.</param>
-        public static void FindByClassAndParent(string @class, Entity parent) {
+        // <return>table|A table of found entities or nil if none are found</return>
+        public virtual table FindByClassAndParent(string @class, Entity parent) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Gets all entities with the given model, supports wildcards.</summary>
         // <param name="model">The model of the entities to find.</param>
-        public static void FindByModel(string model) {
+        // <return>table|A table of all found entities.</return>
+        public virtual table FindByModel(string model) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Gets all entities with the given hammer targetname</summary>
         // <param name="name">The targetname to look for.</param>
-        public static void FindByName(string name) {
+        // <return>table|A table of all found entities</return>
+        public virtual table FindByName(string name) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Gets all entities within the specified box.</summary>
         // <param name="boxMins">The box maximum.</param>
         // <param name="boxMaxs">The box minimum.</param>
-        public static void FindInBox(Vector boxMins, Vector boxMaxs) {
+        // <return>table|A table of all found entities</return>
+        public virtual table FindInBox(Vector boxMins, Vector boxMaxs) {
+            return new table();
         }
         
         // <realm>Shared</realm>
@@ -82,14 +96,18 @@ namespace MetroMad.Lua.gLua {
         // <param name="normal">Direction of the code.</param>
         // <param name="radius">Height of the cone.</param>
         // <param name="angle">The angle of the cone.</param>
-        public static void FindInCone(Vector origin, Vector normal, float radius, float angle) {
+        // <return>table|A table of all found entities</return>
+        public virtual table FindInCone(Vector origin, Vector normal, float radius, float angle) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Gets all entities within the specified sphere.</summary>
         // <param name="origin">Center of the sphere.</param>
         // <param name="radius">Radius of the sphere.</param>
-        public static void FindInSphere(Vector origin, float radius) {
+        // <return>table|A table of all found entities</return>
+        public virtual table FindInSphere(Vector origin, float radius) {
+            return new table();
         }
         
         // <realm>Server</realm>
@@ -98,24 +116,30 @@ namespace MetroMad.Lua.gLua {
         // <param name="activator">Activator of the event.</param>
         // <param name="caller">Caller of the event.</param>
         // <param name="usetype">Use type. See the {{Enum|USE}}.</param>
-        public static void FireTargets(string target, Entity activator, Entity caller, float usetype) {
+        public virtual void FireTargets(string target, Entity activator, Entity caller, float usetype) {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns a table of all existing entities.</summary>
-        public static void GetAll() {
+        // <return>table|Table of all existing entities.</return>
+        public virtual table GetAll() {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns an entity by its index. Same as {{GlobalFunction|Entity}}.</summary>
         // <param name="entIdx">The index of the entity.</param>
-        public static void GetByIndex(float entIdx) {
+        // <return>Entity|The entity if it exists.</return>
+        public virtual Entity GetByIndex(float entIdx) {
+            return new Entity();
         }
         
         // <realm>Server</realm>
         // <summary>Returns entity that has given {{ClassFunction|Entity|MapCreationID}}.</summary>
         // <param name="id">Entity's creation id.</param>
-        public static void GetMapCreatedEntity(float id) {
+        // <return>Entity|Found entity</return>
+        public virtual Entity GetMapCreatedEntity(float id) {
+            return new Entity();
         }
     }
 }

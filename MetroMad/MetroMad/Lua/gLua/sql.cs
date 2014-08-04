@@ -34,49 +34,61 @@ namespace MetroMad.Lua.gLua {
         
         // <realm>Shared</realm>
         // <summary>Tells the engine a set of queries is coming. Will wait until {{LibraryFunction|sql|Commit}} is called to run them.<br></summary>
-        public static void Begin() {
+        public virtual void Begin() {
         }
         
         // <realm>Shared</realm>
         // <summary>Tells the engine to execute a series of queries queued for execution, must be preceded by {{LibraryFunction|sql|Begin}}<br></summary>
-        public static void Commit() {
+        public virtual void Commit() {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the last error from a SQLite query.</summary>
-        public static void LastError() {
+        // <return>string|error</return>
+        public virtual string LastError() {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Performs a query on the local SQLite database, returns a table as result set, nil if result is empty and false on error.</summary>
         // <param name="query">The query to execute.</param>
-        public static void Query(string query) {
+        // <return>table|resultSet</return>
+        public virtual table Query(string query) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Performs the query like {{LibraryFunction|sql|Query}}, but returns the first row found.<br></summary>
         // <param name="query">The input query.</param>
         // <param name="row">The row number. Say we receive back 5 rows, putting 3 as this argument will give us row #3.</param>
-        public static void QueryRow(string query, float row) {
+        // <return>table|The returned row.</return>
+        public virtual table QueryRow(string query, float row) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Performs the query like {{LibraryFunction|sql|Query}}, but returns the first value found.</summary>
         // <param name="query">The input query.</param>
-        public static void QueryValue(string query) {
+        // <return>any|The returned value, garry'smod automatically converts numerical output to lua numbers.</return>
+        public virtual any QueryValue(string query) {
+            return new any();
         }
         
         // <realm>Shared</realm>
         // <summary>Escapes dangerous characters and symbols from user input used in an SQL Query.</summary>
         // <param name="string">The string to be escaped.</param>
         // <param name="bNoQuotes">Set this as true, and the function will not wrap the input string in apostrophes.</param>
-        public static void SQLStr(string @string, bool bNoQuotes) {
+        // <return>string|The escaped input.</return>
+        public virtual string SQLStr(string @string, boolean bNoQuotes) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Returns if the table with the specified name exists.</summary>
         // <param name="tableName">The name of the table to check.</param>
-        public static void TableExists(string tableName) {
+        // <return>boolean|exists</return>
+        public virtual bool TableExists(string tableName) {
+            return true;
         }
     }
 }

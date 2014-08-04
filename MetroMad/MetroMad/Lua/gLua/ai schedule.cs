@@ -36,24 +36,26 @@ namespace MetroMad.Lua.gLua {
         // <summary>Adds an engine task to the schedule.</summary>
         // <param name="taskname">Task name.</param>
         // <param name="taskdata">Task data.</param>
-        public static void EngTask(string taskname, float taskdata) {
+        public virtual void EngTask(string taskname, float taskdata) {
         }
         
         // <realm>Server</realm>
         // <summary>Returns the task at the given index.</summary>
         // <param name="num">Task index.</param>
-        public static void GetTask(float num) {
+        public virtual void GetTask(float num) {
         }
         
         // <realm>Server</realm>
         // <summary>Creates a schedule for scripted NPC.</summary>
         // <param name="name">Name of the schedule.</param>
-        public static void New(string name) {
+        // <return>table|A table containing schedule information to be used with {{HookFunction|ENTITY|StartSchedule}}</return>
+        public virtual table New(string name) {
+            return new table();
         }
         
         // <realm>Server</realm>
         // <summary>Returns the number of tasks in the schedule.</summary>
-        public static void NumTasks() {
+        public virtual void NumTasks() {
         }
     }
 }

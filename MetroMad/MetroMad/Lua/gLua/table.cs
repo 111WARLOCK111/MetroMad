@@ -34,22 +34,28 @@ namespace MetroMad.Lua.gLua {
         
         // <realm>Shared</realm>
         // <summary>Adds the contents from one table to another</summary>
-        // <param name="Destination Table">The table to insert the new values to.</param>
-        // <param name="Source Table">The table to retrieve the values from.</param>
-        public static void Add(table Destination Table, table Source Table) {
+        // <param name="DestinationTable">The table to insert the new values to.</param>
+        // <param name="SourceTable">The table to retrieve the values from.</param>
+        // <return>table|Destination table</return>
+        public virtual table Add(table DestinationTable, table SourceTable) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Changes all keys to integers</summary>
         // <param name="tabl">The original table to modify.</param>
         // <param name="saveKeys">Save the keys? This will insert a new field __key into each value, and should not be used if the table contains non-table values.</param>
-        public static void ClearKeys(table tabl, bool saveKeys) {
+        // <return>table|Table with integer keys</return>
+        public virtual table ClearKeys(table tabl, boolean saveKeys) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Collapses a table with keyvalue structure</summary>
         // <param name="input">Input table.</param>
-        public static void CollapseKeyValue(table input) {
+        // <return>table|Output table</return>
+        public virtual table CollapseKeyValue(table input) {
+            return new table();
         }
         
         // <realm>Shared</realm>
@@ -58,135 +64,165 @@ namespace MetroMad.Lua.gLua {
         // <param name="concatenator">A seperator to insert between strings.</param>
         // <param name="startPos">The key to start at.</param>
         // <param name="endPos">The key to end at.</param>
-        public static void concat(table tbl, string concatenator, float startPos, float endPos) {
+        public virtual void concat(table tbl, string concatenator, float startPos, float endPos) {
         }
         
         // <realm>Shared</realm>
         // <summary>Copies and returns an identical table.</summary>
         // <param name="originalTable">The table to be copied.</param>
-        public static void Copy(table originalTable) {
+        // <return>table|Identical Table</return>
+        public virtual table Copy(table originalTable) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Erases all values from a table, and copies the values from another table to it.</summary>
-        // <param name="Source Table">The table to copy from.</param>
-        // <param name="Destination Table">The table to write to.</param>
-        public static void CopyFromTo(table Source Table, table Destination Table) {
+        // <param name="SourceTable">The table to copy from.</param>
+        // <param name="DestinationTable">The table to write to.</param>
+        public virtual void CopyFromTo(table SourceTable, table DestinationTable) {
         }
         
         // <realm>Shared</realm>
         // <summary>Counts the amount of keys in a table.</summary>
         // <param name="value">The table we wish to count the keys of.</param>
-        public static void Count(table value) {
+        // <return>number|The amount of keys</return>
+        public virtual int Count(table value) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Converts a table that has been sanitised with {{LibraryFunction|table|Sanitise}} back to its original form</summary>
         // <param name="table">Table to be de-sanitised.</param>
-        public static void DeSanitise(table table) {
+        // <return>table|De-sanitised table</return>
+        public virtual table DeSanitise(table table) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Removes all values from a table</summary>
         // <param name="Table">The table to empty.</param>
-        public static void Empty(table Table) {
+        public virtual void Empty(table Table) {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the value positioned after the supplied value in a table. If it isn't found then the first element in the table is returned</summary>
         // <param name="table">Table to search.</param>
         // <param name="value">Value to return element after.</param>
-        public static void FindNext(table table, any value) {
+        // <return>any|Found element</return>
+        public virtual any FindNext(table table, any value) {
+            return new any();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the value positioned before the supplied value in a table. If it isn't found then the last element in the table is returned</summary>
         // <param name="table">Table to search.</param>
         // <param name="value">Value to return element before.</param>
-        public static void FindPrev(table table, any value) {
+        // <return>any|Found element</return>
+        public virtual any FindPrev(table table, any value) {
+            return new any();
         }
         
         // <realm>Shared</realm>
         // <summary>Inserts a value in to the given table even if the table is non-existent</summary>
         // <param name="tab">Table to insert value in to.</param>
         // <param name="value">Value to insert.</param>
-        public static void ForceInsert(table tab, any value) {
+        // <return>table|The supplied or created table</return>
+        public virtual table ForceInsert(table tab, any value) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Iterates for each pair in the table, calling the function with the key and value of the pair.</summary>
         // <param name="Table">The table to iterate over.</param>
         // <param name="Function">The function to run for each key and value.</param>
-        public static void @foreach(table Table, function Function) {
+        public virtual void @foreach(table Table, function Function) {
         }
         
         // <realm>Shared</realm>
         // <summary>Iterates over a table and calls the given function for each key and element found</summary>
         // <param name="tab">Table to iterate.</param>
         // <param name="callback">Function to call for every key, value. Given the arguments: key, value.</param>
-        public static void ForEach(table tab, function callback) {
+        public virtual void ForEach(table tab, function callback) {
         }
         
         // <realm>Shared</realm>
         // <summary>Iterates for each numeric index in the table.</summary>
         // <param name="table">The table to iterate over.</param>
         // <param name="func">The function to run for each index.</param>
-        public static void foreachi(table table, function func) {
+        public virtual void foreachi(table table, function func) {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the first key found in the given table</summary>
         // <param name="tab">Table to retrieve key from.</param>
-        public static void GetFirstKey(table tab) {
+        // <return>any|Key</return>
+        public virtual any GetFirstKey(table tab) {
+            return new any();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the first value found in the given table</summary>
         // <param name="tab">Table to retrieve value from.</param>
-        public static void GetFirstValue(table tab) {
+        // <return>any|Value</return>
+        public virtual any GetFirstValue(table tab) {
+            return new any();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns all keys of a table.</summary>
         // <param name="tabl">The table to get keys of.</param>
-        public static void GetKeys(table tabl) {
+        // <return>table|Table of keys</return>
+        public virtual table GetKeys(table tabl) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the last key found in the given table</summary>
         // <param name="tab">Table to retrieve key from.</param>
-        public static void GetLastKey(table tab) {
+        // <return>any|Key</return>
+        public virtual any GetLastKey(table tab) {
+            return new any();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the last value found in the given table</summary>
         // <param name="tab">Table to retrieve value from.</param>
-        public static void GetLastValue(table tab) {
+        // <return>any|Value</return>
+        public virtual any GetLastValue(table tab) {
+            return new any();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the highest sequential index starting from 1.</summary>
-        public static void getn() {
+        // <return>number|Highest sequencial index</return>
+        public virtual int getn() {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns a key of the supplied table with the highest number value.</summary>
         // <param name="inputTable">The table to search in.</param>
-        public static void GetWinningKey(table inputTable) {
+        // <return>any|winningKey</return>
+        public virtual any GetWinningKey(table inputTable) {
+            return new any();
         }
         
         // <realm>Shared</realm>
         // <summary>Checks if a table has a value</summary>
         // <param name="tbl">Table to check.</param>
         // <param name="value">Value to search for.</param>
-        public static void HasValue(table tbl, any value) {
+        // <return>boolean|Returns true if the table has that value, false otherwise</return>
+        public virtual bool HasValue(table tbl, any value) {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Copies any missing data from base to target</summary>
         // <param name="target">Table to copy data to.</param>
         // <param name="base">Table to copy data from.</param>
-        public static void Inherit(table target, table @base) {
+        // <return>table|Target</return>
+        public virtual table Inherit(table target, table @base) {
+            return new table();
         }
         
         // <realm>Shared</realm>
@@ -194,89 +230,111 @@ namespace MetroMad.Lua.gLua {
         // <param name="table">The table to insert the variable into.</param>
         // <param name="position">The position in the table to insert the variable.</param>
         // <param name="value">The variable to insert into the table.</param>
-        public static void insert(table table, float position, any value) {
+        // <return>number|The index the object was placed at.</return>
+        public virtual int insert(table table, float position, any value) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns whether or not the table's keys are sequential</summary>
         // <param name="tab">Table to check.</param>
-        public static void IsSequential(table tab) {
+        // <return>boolean|Is sequential</return>
+        public virtual bool IsSequential(table tab) {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the first key found to be containing the supplied value</summary>
         // <param name="tab">Table to search.</param>
         // <param name="value">Value to search for.</param>
-        public static void KeyFromValue(table tab, any value) {
+        // <return>any|Key</return>
+        public virtual any KeyFromValue(table tab, any value) {
+            return new any();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns a table of keys containing the supplied value</summary>
         // <param name="tab">Table to search.</param>
         // <param name="value">Value to search for.</param>
-        public static void KeysFromValue(table tab, any value) {
+        // <return>table|Keys</return>
+        public virtual table KeysFromValue(table tab, any value) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns a copy of the input table with all keys converted to be lowercase recursively</summary>
         // <param name="table">Table to convert.</param>
-        public static void LowerKeyNames(table table) {
+        // <return>table|New table</return>
+        public virtual table LowerKeyNames(table table) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the highest numeric index.</summary>
-        public static void maxn() {
+        // <return>number|highest numeric Index</return>
+        public virtual int maxn() {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Merges the content of the second table with the content in the first one</summary>
         // <param name="destination">The table you want the source table to merge with.</param>
         // <param name="source">The table you want to merge with the destination table.</param>
-        public static void Merge(table destination, table source) {
+        public virtual void Merge(table destination, table source) {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns a random value from the supplied table.</summary>
         // <param name="haystack">The table to choose from.</param>
-        public static void Random(table haystack) {
+        // <return>any|A value of a random key in the supplied table.</return>
+        public virtual any Random(table haystack) {
+            return new any();
         }
         
         // <realm>Shared</realm>
         // <summary>Removes a value from a table and shifts any other variables down to fill the gap.</summary>
         // <param name="table">The table to remove the variable from.</param>
         // <param name="index">The index in the table to remove the variable from.</param>
-        public static void remove(table table, float index) {
+        // <return>any|removed_var</return>
+        public virtual any remove(table table, float index) {
+            return new any();
         }
         
         // <realm>Shared</realm>
         // <summary>Removes a given value from the specified table with [[table/remove|table.remove]], then returns the key that the value was found at (or returns false if the value was not found).</summary>
         // <param name="tbl">The table that will be searched.</param>
         // <param name="val">The value to find within the table.</param>
-        public static void RemoveByValue(table tbl, any val) {
+        // <return>any|The key at which the value was found, or false if the value was not found.</return>
+        public virtual any RemoveByValue(table tbl, any val) {
+            return new any();
         }
         
         // <realm>Shared</realm>
         // <summary>Reverse a table.</summary>
         // <param name="table">Table to reverse.</param>
-        public static void Reverse(table table) {
+        // <return>table|Reversed table.</return>
+        public virtual table Reverse(table table) {
+            return new table();
         }
         
         // <realm>Shared</realm>
-        // <summary>Converts {{Type|Vector}}s, {{Type|Angle}}s and {{Type|bool}}s to be able to be converted to and from key-values. {{LibraryFunction|table|DeSanitise}} does the opposite</summary>
+        // <summary>Converts {{Type|Vector}}s, {{Type|Angle}}s and {{Type|boolean}}s to be able to be converted to and from key-values. {{LibraryFunction|table|DeSanitise}} does the opposite</summary>
         // <param name="tab">Table to sanitise.</param>
-        public static void Sanitise(table tab) {
+        // <return>table|Sanitised table</return>
+        public virtual table Sanitise(table tab) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Sorts a table either ascending or by the given sort function.</summary>
         // <param name="table">The table to sort.</param>
         // <param name="sorter">If specified, the function will be called with 2 parameters each.</param>
-        public static void sort(table table, function sorter) {
+        public virtual void sort(table table, function sorter) {
         }
         
         // <realm>Shared</realm>
         // <summary>Sorts a table with key/value associations by its keys.</summary>
-        public static void SortByKey() {
+        public virtual void SortByKey() {
         }
         
         // <realm>Shared</realm>
@@ -284,20 +342,24 @@ namespace MetroMad.Lua.gLua {
         // <param name="tab">Table to sort.</param>
         // <param name="memberKey">The key used to identify the member.</param>
         // <param name="ascending">Whether or not the order should be ascending.</param>
-        public static void SortByMember(table tab, any memberKey, bool ascending) {
+        public virtual void SortByMember(table tab, any memberKey, boolean ascending) {
         }
         
         // <realm>Shared</realm>
         // <summary>Sorts a table in reverse order from {{LibraryFunction|table|sort}}</summary>
-        public static void SortDesc() {
+        // <return>table|sorted</return>
+        public virtual table SortDesc() {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Converts a table into a string</summary>
         // <param name="Table">The table to iterate over.</param>
-        // <param name="Table Name">A name for the table.</param>
-        // <param name=""Nice" formatting">Adds new lines and tabs to the string.</param>
-        public static void ToString(table Table, string Table Name, bool "Nice" formatting) {
+        // <param name="TableName">A name for the table.</param>
+        // <param name="Niceformatting">Adds new lines and tabs to the string.</param>
+        // <return>string|String</return>
+        public virtual string ToString(table Table, string TableName, boolean Niceformatting) {
+            return "String";
         }
     }
 }

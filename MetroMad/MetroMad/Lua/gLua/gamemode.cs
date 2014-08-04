@@ -36,13 +36,17 @@ namespace MetroMad.Lua.gLua {
         // <summary>Called by the engine to call a hook within the loaded gamemode.</summary>
         // <param name="name">The name of the hook to call.</param>
         // <param name="arg">The arguements.</param>
-        public static void Call(string name, any arg) {
+        // <return>any|The result of the hook function.</return>
+        public virtual any Call(string name, any arg) {
+            return new any();
         }
         
         // <realm>Shared</realm>
         // <summary>This returns the internally stored gamemode table.</summary>
         // <param name="name">The name of the gamemode you want to get.</param>
-        public static void Get(string name) {
+        // <return>table|The gamemode's table</return>
+        public virtual table Get(string name) {
+            return new table();
         }
         
         // <realm>Shared</realm>
@@ -50,7 +54,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="gm">Your GM table.</param>
         // <param name="name">Name of your gamemode, lowercase, no spaces.</param>
         // <param name="derived">The gamemode name that your gamemode is derived from.</param>
-        public static void Register(table gm, string name, string derived) {
+        public virtual void Register(table gm, string name, string derived) {
         }
     }
 }

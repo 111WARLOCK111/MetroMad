@@ -41,13 +41,13 @@ namespace MetroMad.Lua.gLua {
         // <param name="passes">The number of times the halo should be drawn per frame. Increasing this may hinder player FPS.</param>
         // <param name="additive">Sets the render mode of the halo to additive.</param>
         // <param name="ignoreZ">Renders the halo through anything when set to true.</param>
-        public static void Add(table entities, float color, float blurX, float blurY, float passes, bool additive, bool ignoreZ) {
+        public virtual void Add(table entities, float color, float blurX, float blurY, float passes, boolean additive, boolean ignoreZ) {
         }
         
         // <realm>Client</realm>
         // <summary>Renders a halo according to the specified table, only used internally, called from a PostDrawEffects hook added by the halo library</summary>
         // <param name="entry">Table with info about the halo to draw.</param>
-        public static void Render(table entry) {
+        public virtual void Render(table entry) {
         }
     }
 }

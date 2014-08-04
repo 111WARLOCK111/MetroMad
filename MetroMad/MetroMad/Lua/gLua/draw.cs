@@ -40,18 +40,20 @@ namespace MetroMad.Lua.gLua {
         // <param name="y">The Y Coordinate.</param>
         // <param name="color">Color to draw the text in. Uses the {{Struct|Color}}.</param>
         // <param name="xAlign">Where to align the text horizontally. Uses the {{Enum|TEXT}}.</param>
-        public static void DrawText(string text, string font, float x, float y, table color, float xAlign) {
+        public virtual void DrawText(string text, string font, float x, float y, table color, float xAlign) {
         }
         
         // <realm>Client</realm>
         // <summary>Returns the height of the specified font in pixels.</summary>
         // <param name="font">Name of the font to get the height of.</param>
-        public static void GetFontHeight(string font) {
+        // <return>number|fontHeight</return>
+        public virtual int GetFontHeight(string font) {
+            return 1;
         }
         
         // <realm>Client</realm>
         // <summary>Sets drawing texture to a default white texture (vgui/white). Useful for resetting the drawing texture.</summary>
-        public static void NoTexture() {
+        public virtual void NoTexture() {
         }
         
         // <realm>Client</realm>
@@ -62,7 +64,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="width">The width of the rectangle.</param>
         // <param name="height">The height of the rectangle.</param>
         // <param name="color">The color to fill the rectangle with. Uses the {{Struct|Color}}.</param>
-        public static void RoundedBox(float cornerRadius, float x, float y, float width, float height, table color) {
+        public virtual void RoundedBox(float cornerRadius, float x, float y, float width, float height, table color) {
         }
         
         // <realm>Client</realm>
@@ -77,7 +79,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="roundTopRight">Whether the top right corner should be rounded.</param>
         // <param name="roundBottomLeft">Whether the bottom left corner should be rounded.</param>
         // <param name="roundBottomRight">Whether the bottom right corner should be rounded.</param>
-        public static void RoundedBoxEx(float cornerRadius, float x, float y, float width, float height, table color, bool roundTopLeft, bool roundTopRight, bool roundBottomLeft, bool roundBottomRight) {
+        public virtual void RoundedBoxEx(float cornerRadius, float x, float y, float width, float height, table color, boolean roundTopLeft, boolean roundTopRight, boolean roundBottomLeft, boolean roundBottomRight) {
         }
         
         // <realm>Client</realm>
@@ -89,7 +91,9 @@ namespace MetroMad.Lua.gLua {
         // <param name="color">The color of the text. Uses the {{Struct|Color}}.</param>
         // <param name="xAlign">The alignment of the X coordinate using {{Enum|TEXT}}.</param>
         // <param name="yAlign">The alignment of the Y coordinate using {{Enum|TEXT}}.</param>
-        public static void SimpleText(string text, string font, float x, float y, table color, float xAlign, float yAlign) {
+        // <return>number|The width of the text. Same value as if you were calling {{LibraryFunction|surface|GetTextSize}}.</return>
+        public virtual int SimpleText(string text, string font, float x, float y, table color, float xAlign, float yAlign) {
+            return 1;
         }
         
         // <realm>Client</realm>
@@ -103,13 +107,17 @@ namespace MetroMad.Lua.gLua {
         // <param name="yAlign">The alignment of the Y Coordinate.</param>
         // <param name="outlinewidth">Width of the outline.</param>
         // <param name="outlinecolor">Color of the outline. Uses the {{Struct|Color}}.</param>
-        public static void SimpleTextOutlined(string Text, string font, float x, float y, table color, float xAlign, float yAlign, float outlinewidth, table outlinecolor) {
+        // <return>number|The width of the text. Same value as if you were calling {{LibraryFunction|surface|GetTextSize}}.</return>
+        public virtual int SimpleTextOutlined(string Text, string font, float x, float y, table color, float xAlign, float yAlign, float outlinewidth, table outlinecolor) {
+            return 1;
         }
         
         // <realm>Client</realm>
         // <summary>Works like {{LibraryFunction|draw|SimpleText}} but uses a table structure instead.</summary>
         // <param name="textdata">The text properties. See the {{Struct|TextData}}.</param>
-        public static void Text(table textdata) {
+        // <return>number|Width of drawn text</return>
+        public virtual int Text(table textdata) {
+            return 1;
         }
         
         // <realm>Client</realm>
@@ -117,13 +125,13 @@ namespace MetroMad.Lua.gLua {
         // <param name="textdata">The text properties. See {{Struct|TextData}}.</param>
         // <param name="distance">How far away the shadow appears.</param>
         // <param name="alpha">How visible the shadow is (0-255).</param>
-        public static void TextShadow(table textdata, float distance, float alpha) {
+        public virtual void TextShadow(table textdata, float distance, float alpha) {
         }
         
         // <realm>Client</realm>
         // <summary>Draws a texture with a table structure.</summary>
         // <param name="texturedata">The texture properties. See {{Struct|TextureData}}.</param>
-        public static void TexturedQuad(table texturedata) {
+        public virtual void TexturedQuad(table texturedata) {
         }
         
         // <realm>Client</realm>
@@ -135,7 +143,9 @@ namespace MetroMad.Lua.gLua {
         // <param name="font">Font to draw in. See {{LibraryFunction|surface|CreateFont}} to create your own, or [[Default_Fonts|here]] for a list of default fonts.</param>
         // <param name="boxcolor">The box color. Uses the {{Struct|Color}}.</param>
         // <param name="textcolor">The text color. Uses the {{Struct|Color}}.</param>
-        public static void WordBox(float bordersize, float x, float y, string text, string font, table boxcolor, table textcolor) {
+        // <return>number|The width of the word box.</return>
+        public virtual int WordBox(float bordersize, float x, float y, string text, string font, table boxcolor, table textcolor) {
+            return 1;
         }
     }
 }

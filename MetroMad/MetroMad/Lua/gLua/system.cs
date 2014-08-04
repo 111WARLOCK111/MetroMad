@@ -34,52 +34,70 @@ namespace MetroMad.Lua.gLua {
         
         // <realm>Shared</realm>
         // <summary>Returns the total uptime of the current application.</summary>
-        public static void AppTime() {
+        // <return>number|upTime</return>
+        public virtual int AppTime() {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the current battery power.</summary>
-        public static void BatteryPower() {
+        // <return>number|0-100 if not plugged in, 255 if plugged in</return>
+        public virtual int BatteryPower() {
+            return 1;
         }
         
         // <realm>Client</realm>
         // <summary>Flashes the window. Currently works only on Windows.</summary>
-        public static void FlashWindow() {
+        public virtual void FlashWindow() {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the country determined by the localisation settings of the OS.</summary>
-        public static void GetCountry() {
+        // <return>string|country</return>
+        public virtual string GetCountry() {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the whether the game window has focus.</summary>
-        public static void HasFocus() {
+        // <return>boolean|hasFocus</return>
+        public virtual bool HasFocus() {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns whether the current OS is Linux.</summary>
-        public static void IsLinux() {
+        // <return>boolean|isLinux</return>
+        public virtual bool IsLinux() {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns whether the current OS is OSX.</summary>
-        public static void IsOSX() {
+        // <return>boolean|isOSX</return>
+        public virtual bool IsOSX() {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns whether the current OS is Windows.</summary>
-        public static void IsWindows() {
+        // <return>boolean|isWindows</return>
+        public virtual bool IsWindows() {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the synchronized steam time.</summary>
-        public static void SteamTime() {
+        // <return>number|steamTime</return>
+        public virtual int SteamTime() {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the total uptime of operating system.</summary>
-        public static void UpTime() {
+        // <return>number|systemUpTime</return>
+        public virtual int UpTime() {
+            return 1;
         }
     }
 }

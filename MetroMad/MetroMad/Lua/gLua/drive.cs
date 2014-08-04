@@ -36,46 +36,56 @@ namespace MetroMad.Lua.gLua {
         // <summary>{{Internal}}</summary>
         // <param name="ply">The player.</param>
         // <param name="view">The view, see {{Struct|ViewData}}.</param>
-        public static void CalcView(Player ply, table view) {
+        // <return>boolean|true if succeeded</return>
+        public virtual bool CalcView(Player ply, table view) {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>{{Internal}}</summary>
         // <param name="cmd">The user command.</param>
-        public static void CreateMove(CUserCmd cmd) {
+        // <return>boolean|true if succeeded</return>
+        public virtual bool CreateMove(CUserCmd cmd) {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>{{Internal}}</summary>
         // <param name="ply">The player to affect.</param>
-        public static void DestroyMethod(Player ply) {
+        public virtual void DestroyMethod(Player ply) {
         }
         
         // <realm>Shared</realm>
         // <summary>Player has stopped driving the entity.</summary>
         // <param name="ply">The player.</param>
         // <param name="ent">The entity.</param>
-        public static void End(Player ply, Entity ent) {
+        public virtual void End(Player ply, Entity ent) {
         }
         
         // <realm>Shared</realm>
         // <summary>{{Internal}}</summary>
         // <param name="ply">The player.</param>
         // <param name="mv">The move data.</param>
-        public static void FinishMove(Player ply, CMoveData mv) {
+        // <return>boolean|true if succeeded</return>
+        public virtual bool FinishMove(Player ply, CMoveData mv) {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>{{Internal}}</summary>
         // <param name="ply">The player.</param>
-        public static void GetMethod(Player ply) {
+        // <return>table|A method object.</return>
+        public virtual table GetMethod(Player ply) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>{{Internal}}</summary>
         // <param name="ply">The player.</param>
         // <param name="mv">The move data.</param>
-        public static void Move(Player ply, CMoveData mv) {
+        // <return>boolean|true if succeeded</return>
+        public virtual bool Move(Player ply, CMoveData mv) {
+            return true;
         }
         
         // <realm>Shared</realm>
@@ -83,13 +93,13 @@ namespace MetroMad.Lua.gLua {
         // <param name="ply">The player to affect.</param>
         // <param name="ent">The entity to drive.</param>
         // <param name="mode">The driving mode.</param>
-        public static void PlayerStartDriving(Player ply, Entity ent, string mode) {
+        public virtual void PlayerStartDriving(Player ply, Entity ent, string mode) {
         }
         
         // <realm>Shared</realm>
         // <summary>Stops the player from driving anything. ( For example a prop in sandbox )</summary>
         // <param name="ply">The player to affect.</param>
-        public static void PlayerStopDriving(Player ply) {
+        public virtual void PlayerStopDriving(Player ply) {
         }
         
         // <realm>Shared</realm>
@@ -97,14 +107,14 @@ namespace MetroMad.Lua.gLua {
         // <param name="name">The name of the drive.</param>
         // <param name="data">The data required to create the drive. This includes the functions used by the drive.</param>
         // <param name="base">The base of the drive.</param>
-        public static void Register(string name, table data, string @base) {
+        public virtual void Register(string name, table data, string @base) {
         }
         
         // <realm>Shared</realm>
         // <summary>Called when the player first starts driving this entity</summary>
         // <param name="ply">The player.</param>
         // <param name="ent">The entity.</param>
-        public static void Start(Player ply, Entity ent) {
+        public virtual void Start(Player ply, Entity ent) {
         }
         
         // <realm>Shared</realm>
@@ -112,7 +122,9 @@ namespace MetroMad.Lua.gLua {
         // <param name="ply">The player.</param>
         // <param name="mv">The move data.</param>
         // <param name="cmd">The user command.</param>
-        public static void StartMove(Player ply, CMoveData mv, CUserCmd cmd) {
+        // <return>boolean|true if succeeded</return>
+        public virtual bool StartMove(Player ply, CMoveData mv, CUserCmd cmd) {
+            return true;
         }
     }
 }

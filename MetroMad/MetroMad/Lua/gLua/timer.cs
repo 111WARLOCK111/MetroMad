@@ -38,12 +38,14 @@ namespace MetroMad.Lua.gLua {
         // <param name="delay">The delay interval in seconds.</param>
         // <param name="repetitions">Repetitions. Use 0 for infinite.</param>
         // <param name="func">The new function.</param>
-        public static void Adjust(any identifier, float delay, float repetitions, function func) {
+        // <return>boolean|true if succeeded</return>
+        public virtual bool Adjust(any identifier, float delay, float repetitions, function func) {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Check all timers and complete any tasks needed. This should be run every frame.</summary>
-        public static void Check() {
+        public virtual void Check() {
         }
         
         // <realm>Shared</realm>
@@ -52,74 +54,90 @@ namespace MetroMad.Lua.gLua {
         // <param name="delay">The delay interval in seconds.</param>
         // <param name="repetitions">The number of times to repeat the timer. (Enter 0 for infinite repetitions).</param>
         // <param name="func">Function called when timer has finished the countdown.</param>
-        public static void Create(string identifier, float delay, float repetitions, function func) {
+        public virtual void Create(string identifier, float delay, float repetitions, function func) {
         }
         
         // <realm>Shared</realm>
         // <summary>Stops and destroys the given timer.</summary>
         // <param name="identifier">Identifier of the timer to destroy.</param>
-        public static void Destroy(any identifier) {
+        public virtual void Destroy(any identifier) {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns whenever the given timer exists or not.</summary>
         // <param name="identifier">Identifier of the timer.</param>
-        public static void Exists(any identifier) {
+        // <return>boolean|Returns true if the timer exists, false if it doesn't</return>
+        public virtual bool Exists(any identifier) {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Pauses the given timer.</summary>
         // <param name="identifier">Identifier of the timer.</param>
-        public static void Pause(any identifier) {
+        // <return>boolean|false if the timer didn't exist or was already paused, true otherwise.</return>
+        public virtual bool Pause(any identifier) {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Removes the timer.</summary>
         // <param name="identifier">Identifier of the timer to stop.</param>
-        public static void Remove(any identifier) {
+        public virtual void Remove(any identifier) {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns amount of repetitions/executions left before the timer destroys itself.</summary>
         // <param name="identifier">Identifier of the timer.</param>
-        public static void RepsLeft(any identifier) {
+        // <return>number|The amount of executions left.</return>
+        public virtual int RepsLeft(any identifier) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Runs the given function after a specified delay.</summary>
         // <param name="delay">How long until the function should be ran (in seconds).</param>
         // <param name="func">The function to run after the specified delay.</param>
-        public static void Simple(float delay, function func) {
+        public virtual void Simple(float delay, function func) {
         }
         
         // <realm>Shared</realm>
         // <summary>Restarts the given timer.</summary>
         // <param name="identifier">Identifier of the timer.</param>
-        public static void Start(any identifier) {
+        // <return>boolean|true if the timer exists, false if it doesn't.</return>
+        public virtual bool Start(any identifier) {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Stops the given timer.</summary>
         // <param name="identifier">Identifier of the timer.</param>
-        public static void Stop(any identifier) {
+        // <return>boolean|false if the timer didn't exist or was already stopped, true otherwise.</return>
+        public virtual bool Stop(any identifier) {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns amount of time left before the timer executes its function.</summary>
         // <param name="identifier">Identifier of the timer.</param>
-        public static void TimeLeft(any identifier) {
+        // <return>number|The amount of time left.</return>
+        public virtual int TimeLeft(any identifier) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Runs either {{LibraryFunction|timer|Pause}} or {{LibraryFunction|timer|UnPause}} based on the timer's current status.</summary>
         // <param name="identifier">Identifier of the timer.</param>
-        public static void Toggle(any identifier) {
+        // <return>boolean|status of the timer.</return>
+        public virtual bool Toggle(any identifier) {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Unpauses the timer.</summary>
         // <param name="identifier">Identifier of the timer.</param>
-        public static void UnPause(any identifier) {
+        // <return>boolean|false if the timer didn't exist or was already running, true otherwise.</return>
+        public virtual bool UnPause(any identifier) {
+            return true;
         }
     }
 }

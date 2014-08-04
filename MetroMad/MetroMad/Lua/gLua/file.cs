@@ -36,26 +36,26 @@ namespace MetroMad.Lua.gLua {
         // <summary>Appends a file relative to the ''data'' folder.</summary>
         // <param name="name">The file's name.</param>
         // <param name="content">The content which should be appended to the file.</param>
-        public static void Append(string name, string content) {
+        public virtual void Append(string name, string content) {
         }
         
         // <realm>Shared</realm>
         // <summary>Creates a directory that is relative to the ''data'' folder.</summary>
         // <param name="name">The directory's name.</param>
-        public static void CreateDir(string name) {
+        public virtual void CreateDir(string name) {
         }
         
         // <realm>Shared</realm>
         // <summary>Deletes a file that is relative to the '''data''' folder.</summary>
         // <param name="name">The file name.</param>
-        public static void Delete(string name) {
+        public virtual void Delete(string name) {
         }
         
         // <realm>Shared</realm>
-        // <summary>Returns a bool of whether the file or directory exists or not.</summary>
+        // <summary>Returns a boolean of whether the file or directory exists or not.</summary>
         // <param name="name">The file or directory's name.</param>
         // <param name="path">The path of where to look for the file.</param>
-        public static void Exists(string name, string path) {
+        public virtual void Exists(string name, string path) {
         }
         
         // <realm>Shared</realm>
@@ -63,14 +63,18 @@ namespace MetroMad.Lua.gLua {
         // <param name="name">The directories/files to search for.</param>
         // <param name="path">The path to look for the files and directories in.</param>
         // <param name="sorting">The sorting to be used, optional.</param>
-        public static void Find(string name, string path, string sorting) {
+        // <return>table|A table of found files</return>
+        public virtual table Find(string name, string path, string sorting) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns if the given file is a directory.</summary>
         // <param name="fileName">The file or directory's name.</param>
         // <param name="path">The path type.</param>
-        public static void IsDir(string fileName, string path) {
+        // <return>boolean|isDir</return>
+        public virtual bool IsDir(string fileName, string path) {
+            return true;
         }
         
         // <realm>Shared</realm>
@@ -78,35 +82,39 @@ namespace MetroMad.Lua.gLua {
         // <param name="fileName">The files name.</param>
         // <param name="fileMode">The mode to open the file in, use [http://lua-users.org/wiki/IoLibraryTutorial this] page for reference of what modes are possible.</param>
         // <param name="path">The path type.</param>
-        public static void Open(string fileName, string fileMode, string path) {
+        // <return>File|The opened file</return>
+        public virtual File Open(string fileName, string fileMode, string path) {
+            return new File();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the content of a file.</summary>
         // <param name="fileName">The name of the file.</param>
         // <param name="path">The path used to look up the file.</param>
-        public static void Read(string fileName, string path) {
+        // <return>string|The data from the file.</return>
+        public virtual string Read(string fileName, string path) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the file's size in bytes. If the file is not found, returns -1.</summary>
         // <param name="fileName">The file's name.</param>
         // <param name="path">The path type.</param>
-        public static void Size(string fileName, string path) {
+        public virtual void Size(string fileName, string path) {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns when the file was lasted modified in Unix time.</summary>
         // <param name="fileName">The name of the file.</param>
         // <param name="path">The game path to be used.</param>
-        public static void Time(string fileName, string path) {
+        public virtual void Time(string fileName, string path) {
         }
         
         // <realm>Shared</realm>
         // <summary>Writes the given string to a file. Erases all previous data in the file. To add data without deleting previous data, use {{LibraryFunction|file|Append}}.</summary>
         // <param name="fileName">The name of the file being written into.</param>
         // <param name="content">The content that will be written into the file.</param>
-        public static void Write(string fileName, string content) {
+        public virtual void Write(string fileName, string content) {
         }
     }
 }

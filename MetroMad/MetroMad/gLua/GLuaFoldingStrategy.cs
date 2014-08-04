@@ -5,7 +5,7 @@
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation; either version 2 of the License, or
-    (at your option) any later version.
+    (at your option) object later version.
 
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -116,7 +116,7 @@ namespace MetroMad.gLua
 
 
         /// <summary>
-        /// Skips any comments that start at the current offset.
+        /// Skips object comments that start at the current offset.
         /// </summary>
         /// <param name="document">The document.</param>
         /// <param name="offset">The offset.</param>
@@ -158,7 +158,7 @@ namespace MetroMad.gLua
             }
             else if (current == '/' && next == '*')
             {
-                // Skip block comment "/* ... */"
+                // Skip block comment "/* params object[] anything */"
                 offset += 2;
                 while (offset + 1 < document.TextLength)
                 {
@@ -218,7 +218,7 @@ namespace MetroMad.gLua
                         if (offsetOfClosingBracket > 0)
                         {
                             int length = offsetOfClosingBracket - startOffset + 1;
-                            foldMarkers.Add(new Fold(document, startOffset, length + 2, "{...}", false));
+                            foldMarkers.Add(new Fold(document, startOffset, length + 2, "{params object[] anything}", false));
 
                             // Skip to offset after '{'.
                             offset++;
@@ -226,7 +226,7 @@ namespace MetroMad.gLua
                         }
                         else
                         {
-                            foldMarkers.Add(new Fold(document, startOffset, document.TextLength, "{...}", false));
+                            foldMarkers.Add(new Fold(document, startOffset, document.TextLength, "{params object[] anything}", false));
 
                             // Skip to offset after '{'.
                             offset++;
@@ -243,7 +243,7 @@ namespace MetroMad.gLua
                         if (offsetOfClosingBracket > 0)
                         {
                             int length = offsetOfClosingBracket - startOffset + 1;
-                            foldMarkers.Add(new Fold(document, startOffset, length + 2, "{...}", false));
+                            foldMarkers.Add(new Fold(document, startOffset, length + 2, "{params object[] anything}", false));
 
                             // Skip to offset after '{'.
                             offset++;
@@ -251,7 +251,7 @@ namespace MetroMad.gLua
                         }
                         else
                         {
-                            foldMarkers.Add(new Fold(document, startOffset, document.TextLength, "{...}", false));
+                            foldMarkers.Add(new Fold(document, startOffset, document.TextLength, "{params object[] anything}", false));
 
                             // Skip to offset after '{'.
                             offset++;
@@ -268,7 +268,7 @@ namespace MetroMad.gLua
                         if (offsetOfClosingBracket > 0)
                         {
                             int length = (offsetOfClosingBracket) - startOffset + 1;
-                            foldMarkers.Add(new Fold(document, startOffset, length, "{...}", false));
+                            foldMarkers.Add(new Fold(document, startOffset, length, "{params object[] anything}", false));
 
                             // Skip to offset after '{'.
                             offset++;
@@ -276,7 +276,7 @@ namespace MetroMad.gLua
                         }
                         else
                         {
-                            foldMarkers.Add(new Fold(document, startOffset, document.TextLength, "{...}", false));
+                            foldMarkers.Add(new Fold(document, startOffset, document.TextLength, "{params object[] anything}", false));
 
                             // Skip to offset after '{'.
                             offset++;
@@ -293,7 +293,7 @@ namespace MetroMad.gLua
                         if (offsetOfClosingBracket > 0)
                         {
                             int length = (offsetOfClosingBracket) - startOffset + 1;
-                            foldMarkers.Add(new Fold(document, startOffset, length, "{...}", false));
+                            foldMarkers.Add(new Fold(document, startOffset, length, "{params object[] anything}", false));
 
                             // Skip to offset after '{'.
                             offset++;
@@ -301,7 +301,7 @@ namespace MetroMad.gLua
                         }
                         else
                         {
-                            foldMarkers.Add(new Fold(document, startOffset, document.TextLength, "{...}", false));
+                            foldMarkers.Add(new Fold(document, startOffset, document.TextLength, "{params object[] anything}", false));
 
                             // Skip to offset after '{'.
                             offset++;
@@ -349,7 +349,7 @@ namespace MetroMad.gLua
                     return offset + 1;
 
                 int length = offsetOfClosingBracket - startOffset + 1;
-                folds.Add(new Fold(document, startOffset, length, "{...}", false));
+                folds.Add(new Fold(document, startOffset, length, "{params object[] anything}", false));
 
                 // Skip to offset after '}'. (Ignore nested blocks.)
                 offset = offsetOfClosingBracket + 1;

@@ -35,32 +35,44 @@ namespace MetroMad.Lua.gLua {
         // <realm>Server</realm>
         // <summary>Similar to the serverside command "bot", this function creates a new Player bot with the given name. This bot will not obey to the usual "bot_*" commands, and it's the same bot base used in TF2 and CS:S.</summary>
         // <param name="botName">The name of the bot, using an already existing name will append brackets at the end of it with a number pertaining it.</param>
-        public static void CreateNextBot(string botName) {
+        // <return>Player|The newly created Player bot. Returns NULL if there's no Player slots available to host it.</return>
+        public virtual Player CreateNextBot(string botName) {
+            return new Player();
         }
         
-        public static void () {
+        // <return>table|All players currently in the server.</return>
+        public virtual table () {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns a table of all bot entities.</summary>
-        public static void GetBots() {
+        // <return>table|bots</return>
+        public virtual table GetBots() {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Gets the player with the specified connection ID.</summary>
         // <param name="connectionID">The connection ID to find the player by.</param>
-        public static void GetByID(float connectionID) {
+        // <return>Player|Player is one is found, nil otherwise</return>
+        public virtual Player GetByID(float connectionID) {
+            return new Player();
         }
         
         // <realm>Shared</realm>
         // <summary>Gets the player with the specified uniqueID.</summary>
         // <param name="uniqueID">The uniqueID to find the player by.</param>
-        public static void GetByUniqueID(string uniqueID) {
+        // <return>Player|Player if one is found, false otherwise.</return>
+        public virtual Player GetByUniqueID(string uniqueID) {
+            return new Player();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns a table of all actual players.</summary>
-        public static void GetHumans() {
+        // <return>table|players</return>
+        public virtual table GetHumans() {
+            return new table();
         }
     }
 }

@@ -36,99 +36,121 @@ namespace MetroMad.Lua.gLua {
         // <summary>Increases the score of the given team</summary>
         // <param name="index">Index of the team.</param>
         // <param name="increment">Amount to increase the team's score by.</param>
-        public static void AddScore(float index, float increment) {
+        public virtual void AddScore(float index, float increment) {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the team index of the team with the least players. Falls back to TEAM_UNASSIGNED</summary>
-        public static void BestAutoJoinTeam() {
+        // <return>number|Team index</return>
+        public virtual int BestAutoJoinTeam() {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns a table consisting of information on every defined team</summary>
-        public static void GetAllTeams() {
+        // <return>table|Team info</return>
+        public virtual table GetAllTeams() {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the selectable classes for the given team. This can be added to with [[team/SetClass]]</summary>
         // <param name="index">Index of the team.</param>
-        public static void GetClass(float index) {
+        // <return>table|Selectable classes</return>
+        public virtual table GetClass(float index) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the team's color.</summary>
         // <param name="teamIndex">The team index.</param>
-        public static void GetColor(float teamIndex) {
+        // <return>table|The team's color as a {{Struct|Color}}.</return>
+        public virtual table GetColor(float teamIndex) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the name of the team.</summary>
         // <param name="teamIndex">The team index.</param>
-        public static void GetName(float teamIndex) {
+        // <return>string|The team name</return>
+        public virtual string GetName(float teamIndex) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Returns a table with all player of the specified team.</summary>
         // <param name="teamIndex">The team index.</param>
-        public static void GetPlayers(float teamIndex) {
+        // <return>table|players</return>
+        public virtual table GetPlayers(float teamIndex) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the score of the team.</summary>
         // <param name="teamIndex">The team index.</param>
-        public static void GetScore(float teamIndex) {
+        // <return>number|score</return>
+        public virtual int GetScore(float teamIndex) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns a table of valid spawnpoint classes the team can use. These are set with {{LibraryFunction|team|SetSpawnPoint}}.</summary>
         // <param name="index">Index of the team.</param>
-        public static void GetSpawnPoint(float index) {
+        // <return>table|Valid spawnpoint classes</return>
+        public virtual table GetSpawnPoint(float index) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns a table of valid spawnpoint entities the team can use. These are set with  {{LibraryFunction|team|SetSpawnPoint}}.</summary>
         // <param name="index">Index of the team.</param>
-        public static void GetSpawnPoints(float index) {
+        // <return>table|Valid spawnpoint entities</return>
+        public virtual table GetSpawnPoints(float index) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns if a team is joinable or not. This is set in {{LibraryFunction|team|SetUp}}.</summary>
         // <param name="index">The index of the team.</param>
-        public static void Joinable(float index) {
+        // <return>boolean|True if the team is joinable. False otherwise.</return>
+        public virtual bool Joinable(float index) {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the amount of players in a team.</summary>
         // <param name="teamIndex">The team index.</param>
-        public static void NumPlayers(float teamIndex) {
+        // <return>number|playerCount</return>
+        public virtual int NumPlayers(float teamIndex) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Sets valid classes for use by a team. Classes can be created using {{LibraryFunction|player_manager|RegisterClass}}</summary>
         // <param name="index">Index of the team.</param>
         // <param name="classes">A class ID or table of class IDs.</param>
-        public static void SetClass(float index, any classes) {
+        public virtual void SetClass(float index, any classes) {
         }
         
         // <realm>Shared</realm>
         // <summary>Sets the team's color.</summary>
         // <param name="teamIndex">The team index.</param>
         // <param name="color">The team's new color as a {{Struct|Color}}.</param>
-        public static void SetColor(float teamIndex, table color) {
+        public virtual void SetColor(float teamIndex, table color) {
         }
         
         // <realm>Shared</realm>
         // <summary>Sets the score of the given team</summary>
         // <param name="index">Index of the team.</param>
         // <param name="score">The team's new score.</param>
-        public static void SetScore(float index, float score) {
+        public virtual void SetScore(float index, float score) {
         }
         
         // <realm>Shared</realm>
         // <summary>Sets valid spawnpoint classes for use by a team.</summary>
         // <param name="index">Index of the team.</param>
         // <param name="classes">A spawnpoint classname or table of spawnpoint classnames.</param>
-        public static void SetSpawnPoint(float index, any classes) {
+        public virtual void SetSpawnPoint(float index, any classes) {
         }
         
         // <realm>Shared</realm>
@@ -137,25 +159,31 @@ namespace MetroMad.Lua.gLua {
         // <param name="teamName">The team name.</param>
         // <param name="teamColor">The team color. Uses the {{Struct|Color}}.</param>
         // <param name="teamJoinable">Whether the team is joinable or not.</param>
-        public static void SetUp(float teamIndex, string teamName, table teamColor, bool teamJoinable) {
+        public virtual void SetUp(float teamIndex, string teamName, table teamColor, boolean teamJoinable) {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the sum of deaths of all players of the team.</summary>
         // <param name="teamIndex">The team index.</param>
-        public static void TotalDeaths(float teamIndex) {
+        // <return>number|deathCount</return>
+        public virtual int TotalDeaths(float teamIndex) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Get's the total frags in a team.</summary>
-        // <param name="Entity or number">Entity or number.</param>
-        public static void TotalFrags(Entity Entity or number) {
+        // <param name="Entityornumber">Entity or number.</param>
+        // <return>number|index</return>
+        public virtual int TotalFrags(Entity Entityornumber) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns true if the given team index is valid</summary>
         // <param name="index">Index of the team.</param>
-        public static void Valid(float index) {
+        // <return>boolean|Is valid</return>
+        public virtual bool Valid(float index) {
+            return true;
         }
     }
 }

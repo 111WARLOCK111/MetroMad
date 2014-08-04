@@ -34,94 +34,119 @@ namespace MetroMad.Lua.gLua {
         
         // <realm>Shared</realm>
         // <summary>Returns the name of the currently running gamemode.</summary>
-        public static void ActiveGamemode() {
+        // <return>string|The active gamemode's name.</return>
+        public virtual string ActiveGamemode() {
+            return "String";
         }
         
         // <realm>Server</realm>
         // <summary>Closes the server and completely exits.</summary>
-        public static void CloseServer() {
+        public virtual void CloseServer() {
         }
         
         // <realm>Shared</realm>
         // <summary>Gets the addons you have downloaded from the workshop.</summary>
-        public static void GetAddons() {
+        // <return>table|Returns a table with 6 keys (downloaded, models, title, file, mounted, wsid)</return>
+        public virtual table GetAddons() {
+            return new table();
         }
         
         // <realm>Client</realm>
         // <summary>When starting playing a demo, {{LibraryFunction|engine|GetDemoPlaybackTick}} will be reset and its old value will be added to this functions return value.</summary>
-        public static void GetDemoPlaybackStartTick() {
+        public virtual int GetDemoPlaybackStartTick() {
+            return 1;
         }
         
         // <realm>Client</realm>
         // <summary>Current tick of currently loaded demo.</summary>
-        public static void GetDemoPlaybackTick() {
+        // <return>number|The amount of ticks of currently loaded demo.</return>
+        public virtual int GetDemoPlaybackTick() {
+            return 1;
         }
         
         // <realm>Client</realm>
         // <summary>Returns time scale of demo playback.</summary>
-        public static void GetDemoPlaybackTimeScale() {
+        // <return>number|The time scale of demo playback, value of demo_timescale console variable.</return>
+        public virtual int GetDemoPlaybackTimeScale() {
+            return 1;
         }
         
         // <realm>Client</realm>
         // <summary>Returns total amount of ticks of currently loaded demo.</summary>
-        public static void GetDemoPlaybackTotalTicks() {
+        // <return>number|Total amount of ticks of currently loaded demo.</return>
+        public virtual int GetDemoPlaybackTotalTicks() {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns a table containing info for all installed gamemodes</summary>
-        public static void GetGamemodes() {
+        // <return>table|gamemodes</return>
+        public virtual table GetGamemodes() {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns an array of tables corresponding to all games from which Garry's Mod supports mounting content.</summary>
-        public static void GetGames() {
+        // <return>table|A table containing all mountable games</return>
+        public virtual table GetGames() {
+            return new table();
         }
         
         // <realm>Client</realm>
         // <summary>Returns true if we're currently playing a demo.</summary>
-        public static void IsPlayingDemo() {
+        // <return>boolean|Whether the game is currently playing a demo or not.</return>
+        public virtual bool IsPlayingDemo() {
+            return true;
         }
         
         // <realm>Client</realm>
         // <summary>Returns true if the game is currently recording a demo file (.dem) using gm_demo</summary>
-        public static void IsRecordingDemo() {
+        // <return>boolean|Whether the game is currently recording a demo or not.</return>
+        public virtual bool IsRecordingDemo() {
+            return true;
         }
         
         // <realm>Server</realm>
         // <summary>This is a direct binding to the function “engine->LightStyle”. This function allows you to change the default light style of the map - so you can make lighting lighter or darker. You’ll need to call {{LibraryFunction|render|RedownloadAllLightmaps}} clientside to refresh the lightmaps to this new color.</summary>
         // <param name="lightstyle">The lightstyle to edit. If you want to edit map lighting, you want to set this to 0.</param>
         // <param name="pattern">The pattern to change the lightstyle to. "a" is the darkest, "z" is the brightest. You can use stuff like "abcxyz" to make flashing patterns. The normal brightness for a map is "m".</param>
-        public static void LightStyle(float lightstyle, string pattern) {
+        public virtual void LightStyle(float lightstyle, string pattern) {
         }
         
         // <realm>Client</realm>
         // <summary>Loads a duplication from the local filesystem.</summary>
         // <param name="dupeName">Name of the file. e.g, engine.OpenDupe("dupes/8b809dd7a1a9a375e75be01cdc12e61f.dupe").</param>
-        public static void OpenDupe(string dupeName) {
+        // <return>string|Compressed dupeData. Use util.JSONToTable to make it into a format useable by the duplicator tool.</return>
+        public virtual string OpenDupe(string dupeName) {
+            return "String";
         }
         
         // <realm>Menu</realm>
         // <summary>Sets the mounting options for mountable content.</summary>
         // <param name="depotID">The depot id of the game to mount.</param>
         // <param name="doMount">The mount state, true to mount, false to unmount.</param>
-        public static void SetMounted(string depotID, bool doMount) {
+        public virtual void SetMounted(string depotID, boolean doMount) {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the number of seconds between each gametick.</summary>
-        public static void TickInterval() {
+        // <return>number|Number of seconds between each gametick.</return>
+        public virtual int TickInterval() {
+            return 1;
         }
         
         // <realm>Client</realm>
         // <summary>Returns video recording settings set by {{LibraryFunction|video|Record}}. Used by Demo-To-Video feature.</summary>
-        public static void VideoSettings() {
+        // <return>table|The video recording settings, see {{Struct|VideoData}}.</return>
+        public virtual table VideoSettings() {
+            return new table();
         }
         
         // <realm>Client</realm>
         // <summary>Saves a duplication as a file.</summary>
         // <param name="dupe">Dupe table, encoded by {{LibraryFunction|util|TableToJSON}} and compressed by {{LibraryFunction|util|Compress}}.</param>
         // <param name="jpeg">The dupe icon, created by {{LibraryFunction|render|Capture}}.</param>
-        public static void WriteDupe(string dupe, string jpeg) {
+        public virtual void WriteDupe(string dupe, string jpeg) {
         }
         
         // <realm>Client</realm>
@@ -130,7 +155,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="name">Name the save will have.</param>
         // <param name="time">When the save was saved during the game (Put CurTime here).</param>
         // <param name="map">The map the save is used for.</param>
-        public static void WriteSave(string saveData, string name, float time, string map) {
+        public virtual void WriteSave(string saveData, string name, float time, string map) {
         }
     }
 }

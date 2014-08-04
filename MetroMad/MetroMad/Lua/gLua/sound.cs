@@ -35,13 +35,13 @@ namespace MetroMad.Lua.gLua {
         // <realm>Shared</realm>
         // <summary>Creates a sound script. It can also override sounds, which seems to only work when set on the server.</summary>
         // <param name="soundData">The sounds properties. See {{Struct|SoundData}}.</param>
-        public static void Add(table soundData) {
+        public virtual void Add(table soundData) {
         }
         
         // <realm>Shared</realm>
         // <summary>Overrides sounds defined inside of a txt file; typically used for adding map-specific sounds.</summary>
         // <param name="filepath">Path to the script file to load.</param>
-        public static void AddSoundOverrides(string filepath) {
+        public virtual void AddSoundOverrides(string filepath) {
         }
         
         // <realm>Client</realm>
@@ -50,18 +50,22 @@ namespace MetroMad.Lua.gLua {
         // <param name="samplerate">The sample rate of the sound. Must be 11025, 22050 or 44100.</param>
         // <param name="length">The length in seconds of the sound to generate.</param>
         // <param name="callback">A function which will be called to generate every sample on the sound. This function gets the current sample number passed as the first argument. The return value must be between 0 and 65535.</param>
-        public static void Generate(string indentifier, float samplerate, float length, function callback) {
+        public virtual void Generate(string indentifier, float samplerate, float length, function callback) {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns properties of the soundscript.</summary>
         // <param name="name">The name of the sound script.</param>
-        public static void GetProperties(string name) {
+        // <return>table|The properties of the soundscript. See {{Struct|SoundData}}</return>
+        public virtual table GetProperties(string name) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns a list of all registered sound scripts.</summary>
-        public static void GetTable() {
+        // <return>table|The list of all registered sound scripts</return>
+        public virtual table GetTable() {
+            return new table();
         }
         
         // <realm>Shared</realm>
@@ -71,7 +75,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="Level">Sound level in decibels. 75 is normal. Ranges from 20 to 180, where 180 is super loud. This affects how far away the sound will be heard.</param>
         // <param name="Pitch">An integer describing the sound pitch. Range is from 0 to 255. 100 is normal pitch.</param>
         // <param name="Volume">A float ranging from 0-1 describing the output volume of the sound.</param>
-        public static void Play(string Name, Vector Pos, float Level, float Pitch, float Volume) {
+        public virtual void Play(string Name, Vector Pos, float Level, float Pitch, float Volume) {
         }
         
         // <realm>Client</realm>
@@ -79,7 +83,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="path">The path to the file to play.</param>
         // <param name="flags">Flags for the sound. Can be one or more of following, separated by a space (" "):.</param>
         // <param name="callback">Callback function that is called as soon as the the stream is loaded. It has next arguments:<br/>.</param>
-        public static void PlayFile(string path, string flags, function callback) {
+        public virtual void PlayFile(string path, string flags, function callback) {
         }
         
         // <realm>Client</realm>
@@ -87,7 +91,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="url">The URL of the sound to play.</param>
         // <param name="flags">Flags for the sound. Can be one or more of following, separated by a space (" "):.</param>
         // <param name="callback">Callback function that is called as soon as the the stream is loaded. It has next arguments:<br/>.</param>
-        public static void PlayURL(string url, string flags, function callback) {
+        public virtual void PlayURL(string url, string flags, function callback) {
         }
     }
 }

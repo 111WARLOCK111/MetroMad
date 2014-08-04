@@ -36,13 +36,13 @@ namespace MetroMad.Lua.gLua {
         // <summary>Queries a server for its player list.</summary>
         // <param name="ip">The IP address of the server, including the port.</param>
         // <param name="callback">The function to be called if and when the request finishes. Function has one argument, a table containing tables with player info.</param>
-        public static void PlayerList(string ip, function callback) {
+        public virtual void PlayerList(string ip, function callback) {
         }
         
         // <realm>Menu</realm>
         // <summary>Queries the master server for server list.</summary>
         // <param name="data">The information about what kind of servers we want. Has next fields:.</param>
-        public static void Query(table data) {
+        public virtual void Query(table data) {
         }
     }
 }

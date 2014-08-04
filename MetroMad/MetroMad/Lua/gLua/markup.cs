@@ -36,7 +36,9 @@ namespace MetroMad.Lua.gLua {
         // <summary>Parses markup into a {{Type| MarkupObject}}.</summary>
         // <param name="markup">The markup to be parsed.</param>
         // <param name="maxwidth">The max width of the output.</param>
-        public static void Parse(string markup, float maxwidth) {
+        // <return>MarkupObject|parsed</return>
+        public virtual MarkupObject Parse(string markup, float maxwidth) {
+            return new MarkupObject();
         }
     }
 }

@@ -34,7 +34,7 @@ namespace MetroMad.Lua.gLua {
         
         // <realm>Server</realm>
         // <summary>Create a new empty task</summary>
-        public static void New() {
+        public virtual void New() {
         }
     }
 }

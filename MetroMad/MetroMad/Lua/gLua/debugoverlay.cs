@@ -39,7 +39,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="size">Size of the axis.</param>
         // <param name="lifetime">Number of seconds to appear (Defaults to 1).</param>
         // <param name="ignoreZ">If true, will draw on top of everything; ignoring the Z buffer.</param>
-        public static void Axis(Vector origin, Angle ang, float size, float lifetime, bool ignoreZ) {
+        public virtual void Axis(Vector origin, Angle ang, float size, float lifetime, boolean ignoreZ) {
         }
         
         // <realm>Shared</realm>
@@ -50,7 +50,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="lifetime">Number of seconds to appear.</param>
         // <param name="color">The color of the box. Uses the {{Struct|Color}}.</param>
         // <param name="ignoreZ">If true, will draw on top of everything; ignoring the Z buffer.</param>
-        public static void Box(Vector origin, Vector mins, Vector maxs, float lifetime, table color, bool ignoreZ) {
+        public virtual void Box(Vector origin, Vector mins, Vector maxs, float lifetime, table color, boolean ignoreZ) {
         }
         
         // <realm>Shared</realm>
@@ -61,7 +61,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="lifetime">Amount of seconds to show the box.</param>
         // <param name="color">The color of the box. Uses the {{Struct|Color}}.</param>
         // <param name="ignoreZ">If true, will draw on top of everything; ignoring the Z buffer.</param>
-        public static void BoxAngles(Vector pos, Vector mins, Vector maxs, float lifetime, table color, bool ignoreZ) {
+        public virtual void BoxAngles(Vector pos, Vector mins, Vector maxs, float lifetime, table color, boolean ignoreZ) {
         }
         
         // <realm>Shared</realm>
@@ -71,7 +71,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="lifetime">Number of seconds the cross to appear.</param>
         // <param name="color">The color of the cross. Uses the {{Struct|Color}}.</param>
         // <param name="ignoreZ">If true, will draw on top of everything; ignoring the Z buffer.</param>
-        public static void Cross(Vector position, float size, float lifetime, table color, bool ignoreZ) {
+        public virtual void Cross(Vector position, float size, float lifetime, table color, boolean ignoreZ) {
         }
         
         // <realm>Shared</realm>
@@ -81,7 +81,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="lifetime">Number of seconds to appear.</param>
         // <param name="color">The color of the line. Uses the {{Struct|Color}}.</param>
         // <param name="ignoreZ">If true, will draw on top of everything; ignoring the Z buffer.</param>
-        public static void Line(Vector pos1, Vector pos2, float lifetime, table color, bool ignoreZ) {
+        public virtual void Line(Vector pos1, Vector pos2, float lifetime, table color, boolean ignoreZ) {
         }
         
         // <realm>Shared</realm>
@@ -91,7 +91,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="lifetime">Number of seconds to appear.</param>
         // <param name="color">The color of the sphere. Uses the {{Struct|Color}}.</param>
         // <param name="ignoreZ">If true, will draw on top of everything; ignoring the Z buffer.</param>
-        public static void Sphere(Vector origin, float size, float lifetime, table color, bool ignoreZ) {
+        public virtual void Sphere(Vector origin, float size, float lifetime, table color, boolean ignoreZ) {
         }
         
         // <realm>Shared</realm>
@@ -99,7 +99,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="origin">Position origin.</param>
         // <param name="text">String message to display.</param>
         // <param name="lifetime">Number of seconds to appear.</param>
-        public static void Text(Vector origin, string text, float lifetime) {
+        public virtual void Text(Vector origin, string text, float lifetime) {
         }
     }
 }

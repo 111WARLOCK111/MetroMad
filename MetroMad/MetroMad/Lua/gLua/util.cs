@@ -35,7 +35,7 @@ namespace MetroMad.Lua.gLua {
         // <realm>Server</realm>
         // <summary>Precaches the string for networking. Whenever you want to create a net message, you must add the name of that message as a networked string via this function.</summary>
         // <param name="str">Adds the specified string to the string table.</param>
-        public static void AddNetworkString(string str) {
+        public virtual void AddNetworkString(string str) {
         }
         
         // <realm>Shared</realm>
@@ -46,13 +46,17 @@ namespace MetroMad.Lua.gLua {
         // <param name="y">Mouse Y position.</param>
         // <param name="scrWidth">Screen width.</param>
         // <param name="scrHeight">Screen height.</param>
-        public static void AimVector(Angle ViewAngles, float ViewFOV, float x, float y, float scrWidth, float scrHeight) {
+        // <return>Vector|Calculated aim vector</return>
+        public virtual Vector AimVector(Angle ViewAngles, float ViewFOV, float x, float y, float scrWidth, float scrHeight) {
+            return new Vector();
         }
         
         // <realm>Shared</realm>
         // <summary>Encodes the specified string to base64.</summary>
         // <param name="str">String to encode.</param>
-        public static void Base64Encode(string str) {
+        // <return>string|base64encoded</return>
+        public virtual string Base64Encode(string str) {
+            return "String";
         }
         
         // <realm>Server</realm>
@@ -62,7 +66,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="damageOrigin">The center of the explosion.</param>
         // <param name="damageRadius">The radius in which entities will be damaged.</param>
         // <param name="damage">The amount of damage to be applied.</param>
-        public static void BlastDamage(Entity inflictor, Entity attacker, Vector damageOrigin, float damageRadius, float damage) {
+        public virtual void BlastDamage(Entity inflictor, Entity attacker, Vector damageOrigin, float damageRadius, float damage) {
         }
         
         // <realm>Server</realm>
@@ -70,24 +74,30 @@ namespace MetroMad.Lua.gLua {
         // <param name="dmg">The information about the damage.</param>
         // <param name="damageOrigin">Center of the spherical damage.</param>
         // <param name="damageRadius">The radius in which entities will be damaged.</param>
-        public static void BlastDamageInfo(CTakeDamageInfo dmg, Vector damageOrigin, float damageRadius) {
+        public virtual void BlastDamageInfo(CTakeDamageInfo dmg, Vector damageOrigin, float damageRadius) {
         }
         
         // <realm>Shared</realm>
         // <summary>Compresses the given string using [http://fastlz.org/ FastLZ].</summary>
         // <param name="str">String to compress.</param>
-        public static void Compress(string str) {
+        // <return>string|The compressed string.</return>
+        public virtual string Compress(string str) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Generates the hash of the specified string, up to the first null character ('\0').</summary>
         // <param name="stringToHash">The string to hash.</param>
-        public static void CRC(string stringToHash) {
+        // <return>string|The unsigned 32 bit hash</return>
+        public virtual string CRC(string stringToHash) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the current date formatted like '2012-10-31 18-00-00'</summary>
-        public static void DateStamp() {
+        // <return>string|date</return>
+        public virtual string DateStamp() {
+            return "String";
         }
         
         // <realm>Shared</realm>
@@ -95,7 +105,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="decalName">The name of the decal to paint.</param>
         // <param name="traceStart">The start of the trace.</param>
         // <param name="traceEnd">The end of the trace.</param>
-        public static void Decal(string decalName, Vector traceStart, Vector traceEnd) {
+        public virtual void Decal(string decalName, Vector traceStart, Vector traceEnd) {
         }
         
         // <realm>Client</realm>
@@ -107,19 +117,23 @@ namespace MetroMad.Lua.gLua {
         // <param name="color">The color of the decal. Uses the {{Struct|Color}}.</param>
         // <param name="w">The width of the decal.</param>
         // <param name="h">The height of the decal.</param>
-        public static void DecalEx(IMaterial material, Entity ent, Vector position, Vector normal, table color, float w, float h) {
+        public virtual void DecalEx(IMaterial material, Entity ent, Vector position, Vector normal, table color, float w, float h) {
         }
         
         // <realm>Shared</realm>
         // <summary>Gets the full material path by the decal name.</summary>
         // <param name="decalName">Name of the decal.</param>
-        public static void DecalMaterial(string decalName) {
+        // <return>string|materialPath</return>
+        public virtual string DecalMaterial(string decalName) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Decompresses the given string using [http://fastlz.org/ FastLZ].</summary>
         // <param name="compressedString">String to decompress.</param>
-        public static void Decompress(string compressedString) {
+        // <return>string|uncompressed</return>
+        public virtual string Decompress(string compressedString) {
+            return "String";
         }
         
         // <realm>Shared</realm>
@@ -127,7 +141,9 @@ namespace MetroMad.Lua.gLua {
         // <param name="lineStart">Start of the line.</param>
         // <param name="lineEnd">End of the line.</param>
         // <param name="pointPos">The position of the point.</param>
-        public static void DistanceToLine(Vector lineStart, Vector lineEnd, Vector pointPos) {
+        // <return>number|distance</return>
+        public virtual int DistanceToLine(Vector lineStart, Vector lineEnd, Vector pointPos) {
+            return 1;
         }
         
         // <realm>Shared</realm>
@@ -136,13 +152,15 @@ namespace MetroMad.Lua.gLua {
         // <param name="effectData">The effect data describing the effect.</param>
         // <param name="allowOverride">Allow override.</param>
         // <param name="ignorePredictionOrRecipientFilter">Ignore predicition or recipient filter.</param>
-        public static void Effect(string effectName, CEffectData effectData, bool allowOverride, float ignorePredictionOrRecipientFilter) {
+        public virtual void Effect(string effectName, CEffectData effectData, boolean allowOverride, float ignorePredictionOrRecipientFilter) {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns a table containing the info about the model. It seems to be not working serverside, but still exists serverside.</summary>
         // <param name="mdl">Model path.</param>
-        public static void GetModelInfo(string mdl) {
+        // <return>table|The model info</return>
+        public virtual table GetModelInfo(string mdl) {
+            return new table();
         }
         
         // <realm>Shared</realm>
@@ -150,41 +168,55 @@ namespace MetroMad.Lua.gLua {
         // <param name="steamID">SteamID of the player.</param>
         // <param name="name">Variable name to get value of.</param>
         // <param name="default">The default value in case there's nothing stored.</param>
-        public static void GetPData(string steamID, string name, string @default) {
+        // <return>string|The stored value</return>
+        public virtual string GetPData(string steamID, string name, string @default) {
+            return "String";
         }
         
         // <realm>Client</realm>
         // <summary>Creates a new PixVis handle.</summary>
-        public static void GetPixelVisibleHandle() {
+        // <return>pixelvis_handle_t|PixVis</return>
+        public virtual pixelvis_handle_t GetPixelVisibleHandle() {
+            return new pixelvis_handle_t();
         }
         
         // <realm>Shared</realm>
         // <summary>Utility function to quickly generate a trace table that starts at the players view position, and ends 16384 units along a specified direction</summary>
         // <param name="ply">The player the trace should be based on.</param>
         // <param name="dir">The direction of the trace.</param>
-        public static void GetPlayerTrace(Player ply, Vector dir) {
+        // <return>table|Trace result. See {{Struct|TraceResult}}.</return>
+        public virtual table GetPlayerTrace(Player ply, Vector dir) {
+            return new table();
         }
         
         // <realm>Client</realm>
         // <summary>Gets information about the sun position and obstruction or nil if there is no sun.</summary>
-        public static void GetSunInfo() {
+        // <return>table|The sun info. See {{Struct|SunInfo}}</return>
+        public virtual table GetSunInfo() {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the matching surface index for the surface name.</summary>
         // <param name="surfaceName">The name of the surface.</param>
-        public static void GetSurfaceIndex(string surfaceName) {
+        // <return>number|surfaceIndex</return>
+        public virtual int GetSurfaceIndex(string surfaceName) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns a name of surfaceproperties ID.</summary>
         // <param name="id">Surface properties ID. You can get it from {{Struct|TraceResult}}.</param>
-        public static void GetSurfacePropName(float id) {
+        // <return>string|The name</return>
+        public virtual string GetSurfacePropName(float id) {
+            return "String";
         }
         
         // <realm>Server</realm>
         // <summary>Returns a table of all SteamIDs that have a usergroup.</summary>
-        public static void GetUserGroups() {
+        // <return>table|The table of users. The table consists of SteamID-Table pairs, where the table has 2 fields:</return>
+        public virtual table GetUserGroups() {
+            return new table();
         }
         
         // <realm>Shared</realm>
@@ -195,7 +227,9 @@ namespace MetroMad.Lua.gLua {
         // <param name="boxAngles">The angles of the box.</param>
         // <param name="boxMins">The min position of the box.</param>
         // <param name="boxMaxs">The max position of the box.</param>
-        public static void IntersectRayWithOBB(Vector rayStart, Vector rayDirection, Vector boxOrigin, Angle boxAngles, Vector boxMins, Vector boxMaxs) {
+        // <return>Vector|hitPos</return>
+        public virtual Vector IntersectRayWithOBB(Vector rayStart, Vector rayDirection, Vector boxOrigin, Angle boxAngles, Vector boxMins, Vector boxMaxs) {
+            return new Vector();
         }
         
         // <realm>Shared</realm>
@@ -204,70 +238,92 @@ namespace MetroMad.Lua.gLua {
         // <param name="rayDirection">The direction of the ray.</param>
         // <param name="planePosition">Any position on the plane.</param>
         // <param name="planeNormal">The normal vector of the plane.</param>
-        public static void IntersectRayWithPlane(Vector rayOrigin, Vector rayDirection, Vector planePosition, Vector planeNormal) {
+        // <return>number|hitPos</return>
+        public virtual int IntersectRayWithPlane(Vector rayOrigin, Vector rayDirection, Vector planePosition, Vector planeNormal) {
+            return 1;
         }
         
         // <realm>Server</realm>
         // <summary>Checks if a certain position in within the world bounds.</summary>
         // <param name="position">Position to check.</param>
-        public static void IsInWorld(Vector position) {
+        // <return>boolean|isInWorld</return>
+        public virtual bool IsInWorld(Vector position) {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Checks if the model is loaded in the game.</summary>
         // <param name="modelName">Name/Path of the model to check.</param>
-        public static void IsModelLoaded(string modelName) {
+        // <return>boolean|isLoaded</return>
+        public virtual bool IsModelLoaded(string modelName) {
+            return true;
         }
         
         // <realm>Client</realm>
         // <summary>Returns whenever the skybox is visibile from the point specified.</summary>
         // <param name="position">The position to check the skybox visibility from.</param>
-        public static void IsSkyboxVisibleFromPoint(Vector position) {
+        // <return>boolean|skyboxVisible</return>
+        public virtual bool IsSkyboxVisibleFromPoint(Vector position) {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Checks if the specified model is valid.</summary>
         // <param name="modelName">Name/Path of the model to check.</param>
-        public static void IsValidModel(string modelName) {
+        // <return>boolean|isValid</return>
+        public virtual bool IsValidModel(string modelName) {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Checks if given numbered physics object of given entity is valid or not. Most useful for ragdolls.</summary>
         // <param name="ent">The entity.</param>
         // <param name="physobj">Number of the physics object to test.</param>
-        public static void IsValidPhysicsObject(Entity ent, float physobj) {
+        // <return>boolean|true is valid, false otherwise</return>
+        public virtual bool IsValidPhysicsObject(Entity ent, float physobj) {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Checks if the specified prop is valid.</summary>
         // <param name="modelName">Name/Path of the model to check.</param>
-        public static void IsValidProp(string modelName) {
+        // <return>boolean|isValid</return>
+        public virtual bool IsValidProp(string modelName) {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Checks if the specified model name points to a valid ragdoll.</summary>
         // <param name="ragdollName">Name/Path of the ragdoll model to check.</param>
-        public static void IsValidRagdoll(string ragdollName) {
+        // <return>boolean|isValid</return>
+        public virtual bool IsValidRagdoll(string ragdollName) {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Converts a JSON string to a Lua table.</summary>
         // <param name="JSONstring">The JSON string to convert.</param>
-        public static void JSONToTable(string JSONstring) {
+        // <return>table|The table containing converted information. Returns nil on failure.</return>
+        public virtual table JSONToTable(string JSONstring) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Converts a KeyValue string to a Lua table.</summary>
         // <param name="KeyValuestring">The KeyValue string to convert.</param>
         // <param name="preserveKeyCase">Whether we should preserve key case or not.</param>
-        public static void KeyValuesToTable(string KeyValuestring, bool preserveKeyCase) {
+        // <return>table|The converted table</return>
+        public virtual table KeyValuesToTable(string KeyValuestring, boolean preserveKeyCase) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Similar to {{LibraryFunction|util|KeyValuesToTable}} but it also preserves order of keys.</summary>
         // <param name="keyvals">The key value string.</param>
         // <param name="preserveKeyCase">Whether we should preserve key case or not.</param>
-        public static void KeyValuesToTablePreserveOrder(string keyvals, bool preserveKeyCase) {
+        // <return>table|The output table</return>
+        public virtual table KeyValuesToTablePreserveOrder(string keyvals, boolean preserveKeyCase) {
+            return new table();
         }
         
         // <realm>Shared</realm>
@@ -275,25 +331,33 @@ namespace MetroMad.Lua.gLua {
         // <param name="ent">The entity lpos is local to.</param>
         // <param name="lpos">Coordinates local to the ent.</param>
         // <param name="bonenum">The bonenumber of the ent lpos is local to.</param>
-        public static void LocalToWorld(Entity ent, Vector lpos, float bonenum) {
+        // <return>Vector|wpos</return>
+        public virtual Vector LocalToWorld(Entity ent, Vector lpos, float bonenum) {
+            return new Vector();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the string associated with the given id.</summary>
         // <param name="stringTableID">ID to get the associated string of.</param>
-        public static void NetworkIDToString(float stringTableID) {
+        // <return>string|network string</return>
+        public virtual string NetworkIDToString(float stringTableID) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the string associated with the given id.</summary>
         // <param name="networkString">String to get the associated ID from.</param>
-        public static void NetworkStringToID(string networkString) {
+        // <return>number|id</return>
+        public virtual int NetworkStringToID(string networkString) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Formats a float by stripping off extra 0's and .'s</summary>
         // <param name="float">The float to format.</param>
-        public static void NiceFloat(float @float) {
+        // <return>string|Formatted float</return>
+        public virtual string NiceFloat(float @float) {
+            return "String";
         }
         
         // <realm>Shared</realm>
@@ -302,7 +366,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="startPos">The start position of the tracer.</param>
         // <param name="endPos">The end position of the tracer.</param>
         // <param name="doWhiz">Play the hit miss(whiz) sound.</param>
-        public static void ParticleTracer(string name, Vector startPos, Vector endPos, bool doWhiz) {
+        public virtual void ParticleTracer(string name, Vector startPos, Vector endPos, boolean doWhiz) {
         }
         
         // <realm>Shared</realm>
@@ -313,7 +377,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="entityIndex">Entity index of the emitting entity.</param>
         // <param name="doWhiz">Play the hit miss(whiz) sound.</param>
         // <param name="attachmentIndex">Attachment index to be used as origin.</param>
-        public static void ParticleTracerEx(string name, Vector startPos, Vector endPos, float entityIndex, bool doWhiz, float attachmentIndex) {
+        public virtual void ParticleTracerEx(string name, Vector startPos, Vector endPos, float entityIndex, boolean doWhiz, float attachmentIndex) {
         }
         
         // <realm>Client</realm>
@@ -321,25 +385,29 @@ namespace MetroMad.Lua.gLua {
         // <param name="position">The PixVis position.</param>
         // <param name="radius">The radius of the PixVis.</param>
         // <param name="PixVis">The PixVis handle.</param>
-        public static void PixelVisible(Vector position, float radius, pixelvis_handle_t PixVis) {
+        // <return>number|visibility</return>
+        public virtual int PixelVisible(Vector position, float radius, pixelvis_handle_t PixVis) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the contents of the position specified.</summary>
         // <param name="position">Position to get the contents sample from.</param>
-        public static void PointContents(Vector position) {
+        // <return>number|Contents, see {{Enum|CONTENTS}}</return>
+        public virtual int PointContents(Vector position) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Precaches a model for later use. Model is cached after being loaded once.</summary>
         // <param name="modelName">The model to precache.</param>
-        public static void PrecacheModel(string modelName) {
+        public virtual void PrecacheModel(string modelName) {
         }
         
         // <realm>Shared</realm>
         // <summary>Precaches a sound for later use. Sound is cached after being loaded once.</summary>
         // <param name="soundName">The sound to precache.</param>
-        public static void PrecacheSound(string soundName) {
+        public virtual void PrecacheSound(string soundName) {
         }
         
         // <realm>Shared</realm>
@@ -347,20 +415,24 @@ namespace MetroMad.Lua.gLua {
         // <param name="origin">The origin of the trace.</param>
         // <param name="direction">The direction of the trace.</param>
         // <param name="filter">Entity which should be ignored. Can also be a table of entities.</param>
-        public static void QuickTrace(Vector origin, Vector direction, Entity filter) {
+        // <return>table|Trace result. See {{Struct|TraceResult}}</return>
+        public virtual table QuickTrace(Vector origin, Vector direction, Entity filter) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the absolute system path the file relative to /garrysmod/.</summary>
         // <param name="file">The file to get the absolute path of.</param>
-        public static void RelativePathToFull(string file) {
+        // <return>string|absolutePath</return>
+        public virtual string RelativePathToFull(string file) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Removes PData of offline player using his SteamID</summary>
         // <param name="steamID">SteamID of the player.</param>
         // <param name="name">Variable name to remove.</param>
-        public static void RemovePData(string steamID, string name) {
+        public virtual void RemovePData(string steamID, string name) {
         }
         
         // <realm>Shared</realm>
@@ -370,7 +442,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="frequency">The frequency of the effect in hz.</param>
         // <param name="duration">The duration of the effect in seconds.</param>
         // <param name="radius">The size of the effect in Garries.</param>
-        public static void ScreenShake(Vector pos, float amplitude, float frequency, float duration, float radius) {
+        public virtual void ScreenShake(Vector pos, float amplitude, float frequency, float duration, float radius) {
         }
         
         // <realm>Shared</realm>
@@ -378,7 +450,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="steamID">SteamID of the player.</param>
         // <param name="name">Variable name to store the value in.</param>
         // <param name="value">The value to store.</param>
-        public static void SetPData(string steamID, string name, any value) {
+        public virtual void SetPData(string steamID, string name, any value) {
         }
         
         // <realm>Shared</realm>
@@ -387,7 +459,9 @@ namespace MetroMad.Lua.gLua {
         // <param name="min">The minimum value of the random range.</param>
         // <param name="max">The maximum value of the random range.</param>
         // <param name="additionalSeed">The additional seed.</param>
-        public static void SharedRandom(string uniqueName, float min, float max, float additionalSeed) {
+        // <return>number|The random float value</return>
+        public virtual int SharedRandom(string uniqueName, float min, float max, float additionalSeed) {
+            return 1;
         }
         
         // <realm>Server</realm>
@@ -401,91 +475,121 @@ namespace MetroMad.Lua.gLua {
         // <param name="lifetime">How long it takes to transition from startWidth to endWidth.</param>
         // <param name="textureRes">The resolution of trails texture. A good value can be calculated using this formula: 1 / ( startWidth + endWidth ) * 0.5.</param>
         // <param name="texture">Path to the texture to use as a trail. Note that you should also include the ".vmt" or the game WILL crash!.</param>
-        public static void SpriteTrail(Entity ent, float attachmentID, table color, bool additive, float startWidth, float endWidth, float lifetime, float textureRes, string texture) {
+        // <return>Entity|Entity of created trail</return>
+        public virtual Entity SpriteTrail(Entity ent, float attachmentID, table color, boolean additive, float startWidth, float endWidth, float lifetime, float textureRes, string texture) {
+            return new Entity();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns a new {{Type|Stack}} object</summary>
-        public static void Stack() {
+        // <return>Stack|A brand new stack object</return>
+        public virtual Stack Stack() {
+            return new Stack();
         }
         
         // <realm>Shared</realm>
         // <summary>Given a 64bit SteamID will return a STEAM_0: style Steam ID</summary>
         // <param name="id">The 64 bit Steam ID.</param>
-        public static void SteamIDFrom64(string id) {
+        // <return>string|STEAM_0 style Steam ID</return>
+        public virtual string SteamIDFrom64(string id) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Given a STEAM_0 style Steam ID will return a 64bit Steam ID</summary>
         // <param name="id">The STEAM_0 style id.</param>
-        public static void SteamIDTo64(string id) {
+        // <return>string|64bit Steam ID</return>
+        public virtual string SteamIDTo64(string id) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Convert a string to a certain type</summary>
         // <param name="str">The string to convert.</param>
         // <param name="typename">The type to attempt to convert the string to ('vector','angle','float','bool','string'), case insensitive.</param>
-        public static void StringToType(string str, string typename) {
+        // <return>any|var</return>
+        public virtual any StringToType(string str, string typename) {
+            return new any();
         }
         
         // <realm>Shared</realm>
         // <summary>Converts a table to a JSON string.</summary>
         // <param name="table">Table to convert.</param>
-        public static void TableToJSON(table table) {
+        // <return>string|JSON</return>
+        public virtual string TableToJSON(table table) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Converts the given table into a key value string.</summary>
         // <param name="table">The table to convert.</param>
-        public static void TableToKeyValues(table table) {
+        // <return>string|KeyValueString</return>
+        public virtual string TableToKeyValues(table table) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Creates a timer object.</summary>
-        public static void Timer() {
+        // <return>table|A timer object. It has next methods:</return>
+        public virtual table Timer() {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the time since this function has been last called</summary>
-        public static void TimerCycle() {
+        // <return>number|Time since this function has been last called in ms</return>
+        public virtual int TimerCycle() {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>{{Deprecated|You should use {{GlobalFunction|tobool}} instead.}}</summary>
         // <param name="input">A string or a number to convert.</param>
-        public static void tobool(any input) {
+        // <return>boolean|False if the input is equal to the string or boolean "false", if the input is equal to the string or number "0", or if the input is nil. Returns true otherwise.</return>
+        public virtual bool tobool(any input) {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Runs a trace using the ent's collisionmodel between two points.</summary>
         // <param name="tracedata">Trace data. See {{Struct|Trace}}.</param>
         // <param name="ent">The entity to use.</param>
-        public static void TraceEntity(table tracedata, Entity ent) {
+        // <return>table|Trace result. See {{Struct|TraceResult}}</return>
+        public virtual table TraceEntity(table tracedata, Entity ent) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>{{Deprecated|This function is broken and returns the same values all the time}}</summary>
         // <param name="ent1">The first entity to trace from.</param>
         // <param name="ent2">The second entity to trace to.</param>
-        public static void TraceEntityHull(Entity ent1, Entity ent2) {
+        // <return>table|Trace result. See {{Struct|TraceResult}}</return>
+        public virtual table TraceEntityHull(Entity ent1, Entity ent2) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Performs a hull trace with the given trace data. This function is shared but will not give the desired results on the client; you should only use this serverside as the function utilizes certain physics mechanisms that do not exist on the client.</summary>
         // <param name="TraceData">The trace data to use. See {{Struct|HullTrace}}.</param>
-        public static void TraceHull(table TraceData) {
+        // <return>table|Trace result. See {{Struct|TraceResult}}</return>
+        public virtual table TraceHull(table TraceData) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Performs a trace with the given trace data.</summary>
         // <param name="TraceData">The trace data to use. See {{Struct|Trace}}.</param>
-        public static void TraceLine(table TraceData) {
+        // <return>table|Trace result. See {{Struct|TraceResult}}</return>
+        public virtual table TraceLine(table TraceData) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Converts a type to a (nice, but still parsable) string</summary>
         // <param name="input">What to convert.</param>
-        public static void TypeToString(any input) {
+        // <return>string|Converted string</return>
+        public virtual string TypeToString(any input) {
+            return "String";
         }
     }
 }

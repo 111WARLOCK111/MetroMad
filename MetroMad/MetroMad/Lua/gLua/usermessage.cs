@@ -34,21 +34,23 @@ namespace MetroMad.Lua.gLua {
         
         // <realm>Shared</realm>
         // <summary>Returns a table of every usermessage hook</summary>
-        public static void GetTable() {
+        // <return>table|hooks</return>
+        public virtual table GetTable() {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Sets a hook for the specified to be called when a usermessage with the specified name arrives</summary>
         // <param name="name">The message name to hook to.</param>
         // <param name="callback">The function to be called if the specified message was received.</param>
-        public static void Hook(string name, function callback) {
+        public virtual void Hook(string name, function callback) {
         }
         
         // <realm>Shared</realm>
         // <summary>Called by the engine when a usermessage arrives, this method calls the hook function specified by {{LibraryFunction|usermessage|Hook}} if any.</summary>
         // <param name="name">The message name.</param>
         // <param name="msg">The message.</param>
-        public static void IncomingMessage(string name, bf_read msg) {
+        public virtual void IncomingMessage(string name, bf_read msg) {
         }
     }
 }

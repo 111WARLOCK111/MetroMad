@@ -42,7 +42,9 @@ namespace MetroMad.Lua.gLua {
         // <param name="top">Top width of border.</param>
         // <param name="right">Right width of border.</param>
         // <param name="bottom">Bottom width of border.</param>
-        public static void CreateTextureBorder(float x, float y, float w, float h, float left, float top, float right, float bottom) {
+        // <return>function|The drawing function. Arguments are:</return>
+        public virtual function CreateTextureBorder(float x, float y, float w, float h, float left, float top, float right, float bottom) {
+            return new function();
         }
         
         // <realm>Client</realm>
@@ -51,7 +53,9 @@ namespace MetroMad.Lua.gLua {
         // <param name="y">The Y coordinate on the texture.</param>
         // <param name="w">Width of the area on texture.</param>
         // <param name="h">Height of the area on texture.</param>
-        public static void CreateTextureCentered(float x, float y, float w, float h) {
+        // <return>function|The drawing function. Arguments are:</return>
+        public virtual function CreateTextureCentered(float x, float y, float w, float h) {
+            return new function();
         }
         
         // <realm>Client</realm>
@@ -60,14 +64,18 @@ namespace MetroMad.Lua.gLua {
         // <param name="y">The Y coordinate on the texture.</param>
         // <param name="w">Width of the area on texture.</param>
         // <param name="h">Height of the area on texture.</param>
-        public static void CreateTextureNormal(float x, float y, float w, float h) {
+        // <return>function|The drawing function. Arguments are:</return>
+        public virtual function CreateTextureNormal(float x, float y, float w, float h) {
+            return new function();
         }
         
         // <realm>Client</realm>
         // <summary>When used in a material skin, it returns a color value from a point in the skin image.</summary>
         // <param name="x">X position of the pixel to get the color from.</param>
         // <param name="y">Y position of the pixel to get the color from.</param>
-        public static void TextureColor(float x, float y) {
+        // <return>table|The color of the point on the skin as a {{Struct|Color}}.</return>
+        public virtual table TextureColor(float x, float y) {
+            return new table();
         }
     }
 }

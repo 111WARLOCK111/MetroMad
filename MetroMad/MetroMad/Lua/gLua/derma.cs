@@ -35,7 +35,7 @@ namespace MetroMad.Lua.gLua {
         // <realm>Client</realm>
         // <summary>Gets the color from a Derma skin of a panel and returns default color if not found</summary>
         // <param name="default">The default color in case of failure.</param>
-        public static void Color(table @default) {
+        public virtual void Color(table @default) {
         }
         
         // <realm>Client</realm>
@@ -44,7 +44,9 @@ namespace MetroMad.Lua.gLua {
         // <param name="description">Description of the control.</param>
         // <param name="tab">Table containing control methods and properties.</param>
         // <param name="base">Derma control to base the new control off of.</param>
-        public static void DefineControl(string name, string description, table tab, string @base) {
+        // <return>table|A table containing the new control's methods and properties</return>
+        public virtual table DefineControl(string name, string description, table tab, string @base) {
+            return new table();
         }
         
         // <realm>Client</realm>
@@ -52,38 +54,48 @@ namespace MetroMad.Lua.gLua {
         // <param name="name">Name of the skin.</param>
         // <param name="descriptions">Description of the skin.</param>
         // <param name="skin">Table containing skin data.</param>
-        public static void DefineSkin(string name, string descriptions, table skin) {
+        public virtual void DefineSkin(string name, string descriptions, table skin) {
         }
         
         // <realm>Client</realm>
         // <summary>Returns the [[derma/Controls|derma.Controls]] table.</summary>
-        public static void GetControlList() {
+        // <return>table|A listing of all available derma-based controls.</return>
+        public virtual table GetControlList() {
+            return new table();
         }
         
         // <realm>Client</realm>
         // <summary>Returns the default skin table, which can be changed with the hook [[GM/ForceDermaSkin]]</summary>
-        public static void GetDefaultSkin() {
+        // <return>table|Skin table</return>
+        public virtual table GetDefaultSkin() {
+            return new table();
         }
         
         // <realm>Client</realm>
         // <summary>Returns the skin table of the skin with the supplied name</summary>
         // <param name="name">Name of skin.</param>
-        public static void GetNamedSkin(string name) {
+        // <return>table|Skin table</return>
+        public virtual table GetNamedSkin(string name) {
+            return new table();
         }
         
         // <realm>Client</realm>
         // <summary>Returns a copy of the table containing every Derma skin</summary>
-        public static void GetSkinTable() {
+        // <return>table|Table of every DermaS skin</return>
+        public virtual table GetSkinTable() {
+            return new table();
         }
         
         // <realm>Client</realm>
         // <summary>Clears all cached panels so that they reassess which skin they should be using.</summary>
-        public static void RefreshSkins() {
+        public virtual void RefreshSkins() {
         }
         
         // <realm>Client</realm>
         // <summary>Returns how many times {{LibraryFunction|derma|RefreshSkins}} has been called.</summary>
-        public static void SkinChangeIndex() {
+        // <return>number|Amount of times {{LibraryFunction|derma|RefreshSkins}} has been called.</return>
+        public virtual int SkinChangeIndex() {
+            return 1;
         }
         
         // <realm>Client</realm>
@@ -93,7 +105,9 @@ namespace MetroMad.Lua.gLua {
         // <param name="panel">The panel to call the hook for.</param>
         // <param name="w">The width of the panel.</param>
         // <param name="h">The height of the panel.</param>
-        public static void SkinHook(string type, string name, Panel panel, float w, float h) {
+        // <return>any|The returned variable from the skin hook</return>
+        public virtual any SkinHook(string type, string name, Panel panel, float w, float h) {
+            return new any();
         }
         
         // <realm>Client</realm>
@@ -101,7 +115,9 @@ namespace MetroMad.Lua.gLua {
         // <param name="name">The identifier of the texture.</param>
         // <param name="pnl">Panel to get the skin of.</param>
         // <param name="fallback">What to return if we failed to retrieve the texture.</param>
-        public static void SkinTexture(string name, Panel pnl, any fallback) {
+        // <return>function|A function that is created with the {{Lib|GWEN}} library to draw a texture.</return>
+        public virtual function SkinTexture(string name, Panel pnl, any fallback) {
+            return new function();
         }
     }
 }

@@ -35,28 +35,30 @@ namespace MetroMad.Lua.gLua {
         // <realm>Client</realm>
         // <summary>Adds text to the local player's chat box (which only they can read).</summary>
         // <param name="arguments">The arguments. Arguments can be:.</param>
-        public static void AddText(vararg arguments) {
+        public virtual void AddText(@object arguments) {
         }
         
         // <realm>Client</realm>
         // <summary>Closes the chat window.</summary>
-        public static void Close() {
+        public virtual void Close() {
         }
         
         // <realm>Client</realm>
         // <summary>Returns the chat box positions x and y.</summary>
-        public static void GetChatBoxPos() {
+        // <return>number|The X coordinate of the chat box's position.</return>
+        public virtual int GetChatBoxPos() {
+            return 1;
         }
         
         // <realm>Client</realm>
         // <summary>Opens the chat window.</summary>
         // <param name="mode">If equals 1, opens public chat, otherwise opens team chat.</param>
-        public static void Open(float mode) {
+        public virtual void Open(float mode) {
         }
         
         // <realm>Client</realm>
         // <summary>Plays the chat "tick" sound.</summary>
-        public static void PlaySound() {
+        public virtual void PlaySound() {
         }
     }
 }

@@ -5,7 +5,7 @@
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation; either version 2 of the License, or
-    (at your option) any later version.
+    (at your option) object later version.
 
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -29,6 +29,10 @@ namespace MetroMad.Lua
         public string Name { get; set; }
 
         public string Description { get; set; }
+
+        public string Realm { get; set; }
+
+        public string Return { get; set; }
 
         public MethodArgs[] Arguements { get; set; }
     }

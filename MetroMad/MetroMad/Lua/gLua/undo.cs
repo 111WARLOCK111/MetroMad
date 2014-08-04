@@ -35,65 +35,71 @@ namespace MetroMad.Lua.gLua {
         // <realm>Server</realm>
         // <summary>Adds an entity to the current undo block</summary>
         // <param name="ent">The entity to add.</param>
-        public static void AddEntity(Entity ent) {
+        public virtual void AddEntity(Entity ent) {
         }
         
         // <realm>Server</realm>
         // <summary>Adds a function to call when the current undo block is undone</summary>
         // <param name="func">The function to call.</param>
-        // <param name="arg2, ...">Arguments to pass to the function (after the undo info table).</param>
-        public static void AddFunction(function func, any arg2, ...) {
+        // <param name="arg2,params object[]">Arguments to pass to the function (after the undo info table).</param>
+        public virtual void AddFunction(function func, any arg2,params object[]) {
         }
         
         // <realm>Server</realm>
         // <summary>Begins a new undo entry</summary>
         // <param name="name">Name of the undo message to show to players.</param>
-        public static void Create(string name) {
+        public virtual void Create(string name) {
         }
         
         // <realm>Server</realm>
         // <summary>Processes an undo block (in table form). This is used internally by the undo manager when a player presses Z.</summary>
         // <param name="tab">The undo block to process as an {{Struct|Undo}}.</param>
-        public static void Do_Undo(table tab) {
+        // <return>number|Number of removed entities</return>
+        public virtual int Do_Undo(table tab) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Completes an undo entry, and registers it with the player's client</summary>
-        public static void Finish() {
+        public virtual void Finish() {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns a table containing all undo blocks</summary>
-        public static void GetTable() {
+        // <return>table|ret</return>
+        public virtual table GetTable() {
+            return new table();
         }
         
         // <realm>Client</realm>
         // <summary>{{Internal}}</summary>
-        public static void MakeUIDirty() {
+        public virtual void MakeUIDirty() {
         }
         
         // <realm>Server</realm>
         // <summary>Replaces any instance of the "from" reference with the "to" reference, in any existing undo block. Returns true if something was replaced</summary>
         // <param name="from">The old entity.</param>
         // <param name="to">The new entity to replace the old one.</param>
-        public static void ReplaceEntity(Entity from, Entity to) {
+        // <return>boolean|somethingReplaced</return>
+        public virtual bool ReplaceEntity(Entity from, Entity to) {
+            return true;
         }
         
         // <realm>Server</realm>
         // <summary>Sets a custom undo text for the current undo block</summary>
         // <param name="customText">The text to display when the undo block is undone.</param>
-        public static void SetCustomUndoText(string customText) {
+        public virtual void SetCustomUndoText(string customText) {
         }
         
         // <realm>Server</realm>
         // <summary>Sets the player which the current undo block belongs to</summary>
         // <param name="ply">The player responsible for undoing the block.</param>
-        public static void SetPlayer(Player ply) {
+        public virtual void SetPlayer(Player ply) {
         }
         
         // <realm>Client</realm>
         // <summary>{{Internal}}</summary>
-        public static void SetupUI() {
+        public virtual void SetupUI() {
         }
     }
 }

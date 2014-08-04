@@ -37,7 +37,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="ply">The player whose numpad should be simulated.</param>
         // <param name="key">The key to press, see {{Enum|KEY}}.</param>
         // <param name="isButton">Should this keypress pretend to be a from a gmod_button? (causes {{LibraryFunction|numpad|FromButton}} to return true).</param>
-        public static void Activate(Player ply, float key, bool isButton) {
+        public virtual void Activate(Player ply, float key, boolean isButton) {
         }
         
         // <realm>Server</realm>
@@ -45,12 +45,14 @@ namespace MetroMad.Lua.gLua {
         // <param name="ply">The player whose numpad should be simulated.</param>
         // <param name="key">The key to press, corresponding to {{Enum|KEY}}.</param>
         // <param name="isButton">Should this keypress pretend to be a from a gmod_button? (causes {{LibraryFunction|numpad|FromButton}} to return true).</param>
-        public static void Deactivate(Player ply, float key, bool isButton) {
+        public virtual void Deactivate(Player ply, float key, boolean isButton) {
         }
         
         // <realm>Server</realm>
         // <summary>Returns true during a function added with {{LibraryFunction| numpad|Register}} when the third argument to {{LibraryFunction|numpad|Activate}} is true.</summary>
-        public static void FromButton() {
+        // <return>boolean|wasButton</return>
+        public virtual bool FromButton() {
+            return true;
         }
         
         // <realm>Server</realm>
@@ -59,7 +61,9 @@ namespace MetroMad.Lua.gLua {
         // <param name="key">The key, corresponding to {{Enum|KEY}}.</param>
         // <param name="name">The name of the function to run, corresponding with the one used in {{LibraryFunction|numpad|Register}}.</param>
         // <param name="args">Arguments to pass to the function.</param>
-        public static void OnDown(Player ply, float key, string name, any args) {
+        // <return>number|impulseId</return>
+        public virtual int OnDown(Player ply, float key, string name, any args) {
+            return 1;
         }
         
         // <realm>Server</realm>
@@ -67,28 +71,30 @@ namespace MetroMad.Lua.gLua {
         // <param name="ply">The player whose numpad should be watched.</param>
         // <param name="key">The key, corresponding to {{Enum|KEY}}.</param>
         // <param name="name">The name of the function to run, corresponding with the one used in {{LibraryFunction|numpad|Register}}.</param>
-        // <param name="...">Arguments to pass to the function.</param>
-        public static void OnUp(Player ply, float key, string name, any ...) {
+        // <param name="params object[]">Arguments to pass to the function.</param>
+        // <return>number|impulseId</return>
+        public virtual int OnUp(Player ply, float key, string name, any params object[]) {
+            return 1;
         }
         
         // <realm>Server</realm>
         // <summary>Registers a numpad library action for use with {{LibraryFunction|numpad|OnDown}} and {{LibraryFunction|numpad|OnUp}}</summary>
         // <param name="id">The unique id of your action.</param>
         // <param name="func">The function to be executed.</param>
-        public static void Register(string id, function func) {
+        public virtual void Register(string id, function func) {
         }
         
         // <realm>Server</realm>
         // <summary>Removes a function added by either {{LibraryFunction|numpad|OnUp}} or {{LibraryFunction|numpad|OnDown}}</summary>
         // <param name="name">The name added via {{LibraryFunction|numpad|OnUp}} or {{LibraryFunction|numpad|OnDown}}.</param>
-        public static void Remove(string name) {
+        public virtual void Remove(string name) {
         }
         
         // <realm>Server</realm>
         // <summary>Either runs {{LibraryFunction|numpad|Activate}} or {{LibraryFunction|numpad|Deactivate}} depending on the key's current state</summary>
         // <param name="ply">The player whose numpad should be simulated.</param>
         // <param name="key">The key to press, corresponding to {{Enum|KEY}}.</param>
-        public static void Toggle(Player ply, float key) {
+        public virtual void Toggle(Player ply, float key) {
         }
     }
 }

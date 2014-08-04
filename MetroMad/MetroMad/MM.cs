@@ -5,7 +5,7 @@
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation; either version 2 of the License, or
-    (at your option) any later version.
+    (at your option) object later version.
 
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -87,7 +87,13 @@ namespace MetroMad
 
         private void OnDebug(object sender, EventArgs e)
         {
+            Core.lua = null; // Disposing.
 
+            GC.Collect();
+
+            Core.lua = new Lua.gLuaInterface();
+
+            Core.lua.DoString(Core.ChoosedData.Content);
         }
 
         private void OnCopyboard(object sender, EventArgs e)

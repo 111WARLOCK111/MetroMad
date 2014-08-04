@@ -34,87 +34,91 @@ namespace MetroMad.Lua.gLua {
         
         // <realm>Client</realm>
         // <summary>Tells the client that balloon has popped. This counts towards the Balloon Popper achievement.</summary>
-        public static void BalloonPopped() {
+        public virtual void BalloonPopped() {
         }
         
         // <realm>Client</realm>
         // <summary>Returns the amount of achievements in Garry's Mod.</summary>
-        public static void Count() {
+        // <return>number|The amount of achievements available.</return>
+        public virtual int Count() {
+            return 1;
         }
         
         // <realm>Client</realm>
         // <summary>Adds one to the count of balls eaten. Once this count reaches 200, the 'Ball Eater' achievement is unlocked.</summary>
-        public static void EatBall() {
+        public virtual void EatBall() {
         }
         
         // <realm>Client</realm>
         // <summary>Retrieves progress of given achievement</summary>
         // <param name="achievementID">The ID of achievement to retrieve progress of. Note: IDs start with 0, not 1.</param>
-        public static void GetCount(float achievementID) {
+        public virtual void GetCount(float achievementID) {
         }
         
         // <realm>Client</realm>
         // <summary>Retrieves description of given achievement</summary>
         // <param name="achievementID">The ID of achievement to retrieve description of. Note: IDs start with 0, not 1.</param>
-        public static void GetDesc(float achievementID) {
+        public virtual void GetDesc(float achievementID) {
         }
         
         // <realm>Client</realm>
         // <summary>Retrieves progress goal of given achievement</summary>
         // <param name="achievementID">The ID of achievement to retrieve goal of. Note: IDs start with 0, not 1.</param>
-        public static void GetGoal(float achievementID) {
+        public virtual void GetGoal(float achievementID) {
         }
         
         // <realm>Client</realm>
         // <summary>Retrieves name of given achievement</summary>
         // <param name="achievementID">The ID of achievement to retrieve name of. Note: IDs start with 0, not 1.</param>
-        public static void GetName(float achievementID) {
+        public virtual void GetName(float achievementID) {
         }
         
         // <realm>Client</realm>
         // <summary>Increases "War Zone" achievement progress by 1.</summary>
-        public static void IncBaddies() {
+        public virtual void IncBaddies() {
         }
         
         // <realm>Client</realm>
         // <summary>Increases "Innocent Bystander" achievement progress by 1.</summary>
-        public static void IncBystander() {
+        public virtual void IncBystander() {
         }
         
         // <realm>Client</realm>
         // <summary>Increases "Bad Friend" achievement progress by 1.</summary>
-        public static void IncGoodies() {
+        public virtual void IncGoodies() {
         }
         
         // <realm>Client</realm>
         // <summary>Used in GMod 12 in the achievements menu to show the user if they have unlocked certain achievements.</summary>
         // <param name="AchievementID">Internal Achievement ID number.</param>
-        public static void IsAchieved(float AchievementID) {
+        // <return>boolean|Returns true if the given achievementID is achieved.</return>
+        public virtual bool IsAchieved(float AchievementID) {
+            return true;
         }
         
         // <realm>Client</realm>
         // <summary>Called every time you use the remover tool on something, used by the engine to track achievement progress for 'Destroyer'.</summary>
-        public static void Remover() {
+        public virtual void Remover() {
         }
         
         // <realm>Client</realm>
         // <summary>Tracks achievement progress for 'Procreator' - used by the engine internally.</summary>
-        public static void SpawnedNPC() {
+        public virtual void SpawnedNPC() {
         }
         
         // <realm>Client</realm>
         // <summary>Tells the client that a prop has been spawned by the user, used to track achievement progress for 'Creator' by the engine.</summary>
-        public static void SpawnedProp() {
+        public virtual void SpawnedProp() {
         }
         
         // <realm>Client</realm>
         // <summary>Tells the client that a ragdoll has been spawned. Used internally to track achievement progress for 'Dollhouse'.</summary>
-        public static void SpawnedRagdoll() {
+        public virtual void SpawnedRagdoll() {
         }
         
         // <realm>Client</realm>
         // <summary>An automatically called function that adds one to a count of how many times the spawnmenu has been opened. It's purpose is to help unlock the achievement 'Menu User'.</summary>
-        public static void SpawnMenuOpen() {
+        public virtual void SpawnMenuOpen() {
         }
     }
 }

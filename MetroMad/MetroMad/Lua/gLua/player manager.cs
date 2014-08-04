@@ -30,7 +30,7 @@ namespace MetroMad.Lua.gLua {
     using System;
     
     
-    public class player manager {
+    public class playermanager {
         
         // <realm>Shared</realm>
         // <summary>Assigns view model hands to player model.</summary>
@@ -38,37 +38,39 @@ namespace MetroMad.Lua.gLua {
         // <param name="model">Hands model.</param>
         // <param name="skin">Skin to apply to the hands.</param>
         // <param name="bodygroups">Bodygroups to apply to the hands.</param>
-        public static void AddValidHands(string name, string model, float skin, string bodygroups) {
+        public virtual void AddValidHands(string name, string model, float skin, string bodygroups) {
         }
         
         // <realm>Shared</realm>
         // <summary>Associates a simplified name with a path to a valid player model.<br/></summary>
         // <param name="name">Simplified name.</param>
         // <param name="model">Valid PlayerModel path.</param>
-        public static void AddValidModel(string name, string model) {
+        public virtual void AddValidModel(string name, string model) {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the entire list of valid player models.</summary>
-        public static void AllValidModels() {
+        public virtual void AllValidModels() {
         }
         
         // <realm>Shared</realm>
         // <summary>Clears a player's class association by setting their ClassID to 0</summary>
         // <param name="ply">Player to clear class from.</param>
-        public static void ClearPlayerClass(Player ply) {
+        public virtual void ClearPlayerClass(Player ply) {
         }
         
         // <realm>Shared</realm>
         // <summary>Gets a players class</summary>
         // <param name="ply">Player to get class.</param>
-        public static void GetPlayerClass(Player ply) {
+        // <return>string|The players class</return>
+        public virtual string GetPlayerClass(Player ply) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Applies basic class variables when the player spawns.<br /></summary>
         // <param name="ply">Player to setup.</param>
-        public static void OnPlayerSpawn(Player ply) {
+        public virtual void OnPlayerSpawn(Player ply) {
         }
         
         // <realm>Shared</realm>
@@ -76,7 +78,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="name">Class name.</param>
         // <param name="table">Class metatable.</param>
         // <param name="base">Base class name.</param>
-        public static void RegisterClass(string name, table table, string @base) {
+        public virtual void RegisterClass(string name, table table, string @base) {
         }
         
         // <realm>Shared</realm>
@@ -84,32 +86,38 @@ namespace MetroMad.Lua.gLua {
         // <param name="ply">Player to execute function on.</param>
         // <param name="funcName">Name of function.</param>
         // <param name="arguments">Optional arguments. Can be of any type.</param>
-        public static void RunClass(Player ply, string funcName, vararg arguments) {
+        public virtual void RunClass(Player ply, string funcName, @object arguments) {
         }
         
         // <realm>Shared</realm>
         // <summary>Sets a player's class</summary>
         // <param name="ply">Player to set class.</param>
         // <param name="classname">Name of class to set.</param>
-        public static void SetPlayerClass(Player ply, string classname) {
+        public virtual void SetPlayerClass(Player ply, string classname) {
         }
         
         // <realm>Shared</realm>
         // <summary>Retrieves correct hands for given player model. By default returns citizen hands.</summary>
         // <param name="name">Player model name.</param>
-        public static void TranslatePlayerHands(string name) {
+        // <return>table|A table with following contents:</return>
+        public virtual table TranslatePlayerHands(string name) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the valid model path for a simplified name.</summary>
         // <param name="shortName">The short name of the model.</param>
-        public static void TranslatePlayerModel(string shortName) {
+        // <return>string|The valid model path for the short name.</return>
+        public virtual string TranslatePlayerModel(string shortName) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the simplified name for a valid model path of a player model.</summary>
         // <param name="model">The model path to a player model.</param>
-        public static void TranslateToPlayerModelName(string model) {
+        // <return>string|The simplified name for that model</return>
+        public virtual string TranslateToPlayerModelName(string model) {
+            return "String";
         }
     }
 }

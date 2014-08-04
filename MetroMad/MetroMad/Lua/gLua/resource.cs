@@ -35,19 +35,19 @@ namespace MetroMad.Lua.gLua {
         // <realm>Server</realm>
         // <summary>Adds the specified and all related files to the files the client should download.</summary>
         // <param name="path">Path of the file to be added, relative to garrysmod/.</param>
-        public static void AddFile(string path) {
+        public virtual void AddFile(string path) {
         }
         
         // <realm>Shared</realm>
         // <summary>Adds the specified file to the files the client should download.</summary>
         // <param name="path">Path of the file to be added, relative to garrysmod/.</param>
-        public static void AddSingleFile(string path) {
+        public virtual void AddSingleFile(string path) {
         }
         
         // <realm>Server</realm>
         // <summary>Adds a workshop addon for the client to download before entering the server.</summary>
         // <param name="workshopid">The workshop id of the file. This cannot be a collection.</param>
-        public static void AddWorkshop(string workshopid) {
+        public virtual void AddWorkshop(string workshopid) {
         }
     }
 }

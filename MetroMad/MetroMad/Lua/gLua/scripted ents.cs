@@ -30,60 +30,72 @@ namespace MetroMad.Lua.gLua {
     using System;
     
     
-    public class scripted ents {
+    public class scriptedents {
         
         // <realm>Shared</realm>
         // <summary>Defines an alias string that can be used to refer to another classname</summary>
         // <param name="alias">A new string which can be used to refer to another classname.</param>
         // <param name="classname">The classname the alias should refer to.</param>
-        public static void Alias(string alias, string classname) {
+        public virtual void Alias(string alias, string classname) {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns a copy of the ENT table for a class, including functions defined by the base class</summary>
         // <param name="classname">The classname of the ENT table to return, can be an alias.</param>
-        public static void Get(string classname) {
+        // <return>table|entTable</return>
+        public virtual table Get(string classname) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns a copy of the list of all ENT tables registered</summary>
-        public static void GetList() {
+        // <return>table|entTables</return>
+        public virtual table GetList() {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Retrieves a member of entity's table.</summary>
         // <param name="class">Entity's class name.</param>
         // <param name="name">Name of member to retrieve.</param>
-        public static void GetMember(string @class, string name) {
+        // <return>any|The member or nil if failed</return>
+        public virtual any GetMember(string @class, string name) {
+            return new any();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns a list of all ENT tables which contain either ENT.Spawnable or ENT.AdminSpawnable</summary>
-        public static void GetSpawnable() {
+        // <return>table|spawnableClasses</return>
+        public virtual table GetSpawnable() {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the actual ENT table for a class. Modifying functions/variables in this table will change newly spawned entities</summary>
         // <param name="classname">The classname of the ENT table to return.</param>
-        public static void GetStored(string classname) {
+        // <return>table|entTable</return>
+        public virtual table GetStored(string classname) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the 'type' of a class, this will one of the following: 'anim', 'ai', 'brush', 'point'.</summary>
         // <param name="classname">The classname to check.</param>
-        public static void GetType(string classname) {
+        // <return>string|type</return>
+        public virtual string GetType(string classname) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Runs {{LibraryFunction|baseclass|Set}} on every ENT in {{LibraryFunction|scripted_ents|GetList}}.</summary>
-        public static void OnLoaded() {
+        public virtual void OnLoaded() {
         }
         
         // <realm>Shared</realm>
         // <summary>Registers an ENT table with a classname. Reregistering an existing classname will automatically update the functions of all existing entities of that class.</summary>
         // <param name="ENT">The ENT table to register.</param>
         // <param name="classname">The classname to register.</param>
-        public static void Register(table ENT, string classname) {
+        public virtual void Register(table ENT, string classname) {
         }
     }
 }

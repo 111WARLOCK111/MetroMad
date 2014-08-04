@@ -39,23 +39,26 @@ namespace MetroMad.Lua.gLua {
         // <param name="autoCompleteFunc">The function to call which should return a table of options for autocompletion.<br>.</param>
         // <param name="helpText">The text to display should a user run 'help cmdName'.</param>
         // <param name="flags">Concommand flags from {{Enum|FCVAR}}.</param>
-        public static void Add(string name, function commandFunc, function autoCompleteFunc, string helpText, float flags) {
+        public virtual void Add(string name, function commandFunc, function autoCompleteFunc, string helpText, float flags) {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns a table for the autocompletion</summary>
-        public static void AutoComplete() {
+        public virtual table AutoComplete() {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns a table of all the console commands that were added to the game via lua.</summary>
-        public static void GetTable() {
+        // <return>table|Table of commands.</return>
+        public virtual table GetTable() {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Removes a console command.</summary>
         // <param name="name">The command name to be used in console.</param>
-        public static void Remove(string name) {
+        public virtual void Remove(string name) {
         }
         
         // <realm>Shared</realm>
@@ -63,7 +66,9 @@ namespace MetroMad.Lua.gLua {
         // <param name="ply">Player to run concommand on.</param>
         // <param name="cmd">Command name.</param>
         // <param name="args">Command arguments.</param>
-        public static void Run(Player ply, string cmd, any args) {
+        // <return>boolean|Return value</return>
+        public virtual bool Run(Player ply, string cmd, any args) {
+            return true;
         }
     }
 }

@@ -35,23 +35,25 @@ namespace MetroMad.Lua.gLua {
         // <realm>Client</realm>
         // <summary>Adds a material proxy.</summary>
         // <param name="MatProxyData">The information about the proxy. See {{Struct|MatProxyData}}.</param>
-        public static void Add(table MatProxyData) {
+        public virtual void Add(table MatProxyData) {
         }
         
         // <realm>Client</realm>
         // <summary>Called by the engine from OnBind</summary>
-        public static void Call() {
+        public virtual void Call() {
         }
         
         // <realm>Client</realm>
         // <summary>Called by the engine from OnBind</summary>
-        public static void Init() {
+        public virtual void Init() {
         }
         
         // <realm>Client</realm>
         // <summary>Called by engine, returns true if we're overriding a proxy</summary>
         // <param name="name">The name of proxy in question.</param>
-        public static void ShouldOverrideProxy(string name) {
+        // <return>boolean|Are we overriding it?</return>
+        public virtual bool ShouldOverrideProxy(string name) {
+            return true;
         }
     }
 }

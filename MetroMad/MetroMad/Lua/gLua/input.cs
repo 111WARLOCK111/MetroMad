@@ -34,99 +34,129 @@ namespace MetroMad.Lua.gLua {
         
         // <realm>Client</realm>
         // <summary>Returns the last key captured by key trapping.</summary>
-        public static void CheckKeyTrapping() {
+        // <return>number|The key, see {{Enum|KEY}}</return>
+        public virtual int CheckKeyTrapping() {
+            return 1;
         }
         
         // <realm>Client</realm>
         // <summary>Returns the cursor's position on the screen</summary>
-        public static void GetCursorPos() {
+        // <return>number|mouseX</return>
+        public virtual int GetCursorPos() {
+            return 1;
         }
         
         // <realm>Client</realm>
         // <summary>Gets the name of the key index.</summary>
         // <param name="key">The key, see {{Enum|KEY}}.</param>
-        public static void GetKeyName(float key) {
+        // <return>string|Key name</return>
+        public virtual string GetKeyName(float key) {
+            return "String";
         }
         
         // <realm>Client</realm>
         // <summary>Gets whether a key or mouse button is down. Seems to be a combination of {{LibraryFunction|input|IsKeyDown}} and {{LibraryFunction|input|IsMouseDown}}.</summary>
         // <param name="button">The button, see {{Enum|KEY}} and {{Enum|MOUSE}}.</param>
-        public static void IsButtonDown(float button) {
+        // <return>boolean|Is the button down</return>
+        public virtual bool IsButtonDown(float button) {
+            return true;
         }
         
         // <realm>Client</realm>
         // <summary>Returns whether a control key is being pressed</summary>
-        public static void IsControlDown() {
+        // <return>boolean|Is Ctrl key down or not</return>
+        public virtual bool IsControlDown() {
+            return true;
         }
         
         // <realm>Client</realm>
         // <summary>Gets whether a key is down</summary>
         // <param name="key">The key, see {{Enum|KEY}}.</param>
-        public static void IsKeyDown(float key) {
+        // <return>boolean|Is the key down</return>
+        public virtual bool IsKeyDown(float key) {
+            return true;
         }
         
         // <realm>Client</realm>
         // <summary>Returns whether key trapping is activate and the next key press will be captured.</summary>
-        public static void IsKeyTrapping() {
+        // <return>boolean|Whether key trapping active or not</return>
+        public virtual bool IsKeyTrapping() {
+            return true;
         }
         
         // <realm>Client</realm>
         // <summary>Gets whether a mouse button is down</summary>
         // <param name="mouseKey">The key, see {{Enum|MOUSE}}.</param>
-        public static void IsMouseDown(float mouseKey) {
+        // <return>boolean|Is the key down</return>
+        public virtual bool IsMouseDown(float mouseKey) {
+            return true;
         }
         
         // <realm>Client</realm>
         // <summary>Gets whether a shift key is being pressed</summary>
-        public static void IsShiftDown() {
+        // <return>boolean|isDown</return>
+        public virtual bool IsShiftDown() {
+            return true;
         }
         
         // <realm>Client</realm>
         // <summary>Gets the match uppercase key for the specified binding.</summary>
         // <param name="binding">The binding name.</param>
-        public static void LookupBinding(string binding) {
+        // <return>string|The first key found with that binding</return>
+        public virtual string LookupBinding(string binding) {
+            return "String";
         }
         
         // <realm>Client</realm>
         // <summary>Sets the cursor's position on the screen, relative to the topleft corner of the window</summary>
         // <param name="mouseX">X coordinate for mouse position.</param>
         // <param name="mouseY">Y coordinate for mouse position.</param>
-        public static void SetCursorPos(float mouseX, float mouseY) {
+        public virtual void SetCursorPos(float mouseX, float mouseY) {
         }
         
         // <realm>Client</realm>
         // <summary>Starts key trap</summary>
-        public static void StartKeyTrapping() {
+        public virtual void StartKeyTrapping() {
         }
         
         // <realm>Client</realm>
         // <summary>Returns whether a key was initially pressed in the same frame this function was called.</summary>
         // <param name="key">The key, see {{Enum|KEY}}.</param>
-        public static void WasKeyPressed(float key) {
+        // <return>boolean|True if the key was initially pressed the same frame that this function was called, false otherwise.</return>
+        public virtual bool WasKeyPressed(float key) {
+            return true;
         }
         
         // <realm>Client</realm>
         // <summary>Returns whether a key was released in the same frame this function was called.</summary>
         // <param name="key">The key, see {{Enum|KEY}}.</param>
-        public static void WasKeyReleased(float key) {
+        // <return>boolean|True if the key was released the same frame that this function was called, false otherwise.</return>
+        public virtual bool WasKeyReleased(float key) {
+            return true;
         }
         
         // <realm>Client</realm>
         // <summary>Returns whether the key is being held down or not.</summary>
         // <param name="key">The key to test, see {{Enum|KEY}}.</param>
-        public static void WasKeyTyped(float key) {
+        // <return>boolean|Whether the key is being held down or not.</return>
+        public virtual bool WasKeyTyped(float key) {
+            return true;
         }
         
         // <realm>Client</realm>
         // <summary>Returns whether a mouse key was double pressed in the same frame this function was called.<br/></summary>
         // <param name="button">The mouse button to test, see {{Enum|MOUSE}}.</param>
-        public static void WasMouseDoublePressed(float button) {
+        // <return>boolean|Whether the mouse key was double pressed or not.</return>
+        public virtual bool WasMouseDoublePressed(float button) {
+            return true;
         }
         
         // <realm>Client</realm>
         // <summary>Returns whether a mouse key was initially pressed in the same frame this function was called.<br/></summary>
         // <param name="key">The key, see {{Enum|MOUSE}}.</param>
-        public static void WasMousePressed(float key) {
+        // <return>boolean|True if the mouse key was initially pressed the same frame that this function was called, false otherwise.</return>
+        public virtual bool WasMousePressed(float key) {
+            return true;
         }
     }
 }

@@ -36,33 +36,39 @@ namespace MetroMad.Lua.gLua {
         // <summary>Loads a saved map.</summary>
         // <param name="mapData">The JSON encoded string containing all the map data.</param>
         // <param name="ply">The player to load positions for.</param>
-        public static void LoadMap(string mapData, Player ply) {
+        public virtual void LoadMap(string mapData, Player ply) {
         }
         
         // <realm>Server</realm>
         // <summary>Sets player position and angles from supplied table</summary>
         // <param name="ply">The player to "load" values for.</param>
         // <param name="data">A table containing Origin and Angle keys for position and angles to set.</param>
-        public static void PlayerLoad(Player ply, table data) {
+        public virtual void PlayerLoad(Player ply, table data) {
         }
         
         // <realm>Server</realm>
         // <summary>Returns a table containing player position and angles. Used by {{LibraryFunction|gmsave|SaveMap}}.</summary>
         // <param name="ply">The player to "save".</param>
-        public static void PlayerSave(Player ply) {
+        // <return>table|A table containing player position ( Origin ) and angles ( Angle )</return>
+        public virtual table PlayerSave(Player ply) {
+            return new table();
         }
         
         // <realm>Server</realm>
         // <summary>Saves the map</summary>
         // <param name="ply">The player, whose position should be saved for loading the save.</param>
-        public static void SaveMap(Player ply) {
+        // <return>string|The encoded to JSON string containing save data</return>
+        public virtual string SaveMap(Player ply) {
+            return "String";
         }
         
         // <realm>Server</realm>
         // <summary>Returns if we should save this entity in a duplication or a map save or not.</summary>
         // <param name="ent">The entity.</param>
         // <param name="t">A table containing classname key with entities classname.</param>
-        public static void ShouldSaveEntity(Entity ent, table t) {
+        // <return>boolean|Should save entity or not</return>
+        public virtual bool ShouldSaveEntity(Entity ent, table t) {
+            return true;
         }
     }
 }

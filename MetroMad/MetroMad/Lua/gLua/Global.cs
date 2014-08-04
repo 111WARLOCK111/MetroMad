@@ -38,18 +38,18 @@ namespace MetroMad.Lua.gLua {
         // <param name="key">The key of the table to be get/set.</param>
         // <param name="name">The name of the functions (will be prefixed with Get and Set).</param>
         // <param name="iForce">The type the setter should force to (uses {{Enum|FORCE}}).</param>
-        public static void AccessorFunc(table tab, any key, string name, float iForce) {
+        public virtual void AccessorFunc(table tab, any key, string name, float iForce) {
         }
         
         // <realm>Shared</realm>
         // <summary>{{Deprecated|This function no longer works. Use [http://wiki.garrysmod.com/page/Networking_Entities this] instead.}}</summary>
-        public static void AccessorFuncNW() {
+        public virtual void AccessorFuncNW() {
         }
         
         // <realm>Shared</realm>
         // <summary>Creates a CLASS_ Enum and assigns it as a global variable with a automatic value so as to prevent collisions with</summary>
         // <param name="name">The name of the ENUM/new global variable.</param>
-        public static void Add_NPC_Class(string name) {
+        public virtual void Add_NPC_Class(string name) {
         }
         
         // <realm>Shared</realm>
@@ -57,25 +57,25 @@ namespace MetroMad.Lua.gLua {
         // <param name="name">The name of the console command to add.</param>
         // <param name="helpText">The help text.</param>
         // <param name="flags">Concommand flags using {{Enum|FCVAR}}.</param>
-        public static void AddConsoleCommand(string name, string helpText, float flags) {
+        public virtual void AddConsoleCommand(string name, string helpText, float flags) {
         }
         
         // <realm>Server</realm>
         // <summary>Marks a Lua file to be sent to clients when they join the server.</summary>
         // <param name="file">The name/path (relative to the garrysmod/lua folder) to the Lua file that should be sent. If no parameter is specified, it sends the current file.</param>
-        public static void AddCSLuaFile(string file) {
+        public virtual void AddCSLuaFile(string file) {
         }
         
         // <realm>Client</realm>
         // <summary>Loads the specified material from the /cache folder, usually used in combination {{LibraryFunction|steamworks|Download}}.</summary>
         // <param name="name">The name of the file.</param>
-        public static void AddonMaterial(string name) {
+        public virtual void AddonMaterial(string name) {
         }
         
         // <realm>Server</realm>
         // <summary>Adds the specified vector to the PVS which is currently building. This allows all objects in visleafs visible from that vector to be drawn.</summary>
         // <param name="position">The origin to add.</param>
-        public static void AddOriginToPVS(Vector position) {
+        public virtual void AddOriginToPVS(Vector position) {
         }
         
         // <realm>Shared</realm>
@@ -83,66 +83,76 @@ namespace MetroMad.Lua.gLua {
         // <param name="pitch">The pitch value of the angle.</param>
         // <param name="yaw">The yaw value of the angle.</param>
         // <param name="roll">The roll value of the angle.</param>
-        public static void Angle(float pitch, float yaw, float roll) {
+        // <return>Angle|Created angle</return>
+        public virtual Angle Angle(float pitch, float yaw, float roll) {
+            return new Angle();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns an angle with a randomized pitch, yaw and roll, first one between -90 and 90, the rest between -180 and 180 degrees.</summary>
-        public static void AngleRand() {
+        // <return>Angle|The randomly generated angle.</return>
+        public virtual Angle AngleRand() {
+            return new Angle();
         }
         
         // <realm>Shared</realm>
         // <summary>If the result of the first argument is false or nil, an error is thrown with the second argument as the message.</summary>
-        public static void assert() {
+        // <return>any|If successful, returns the result of the first argument.</return>
+        public virtual any assert() {
+            return new any();
         }
         
         // <realm>Server</realm>
         // <summary>Sends the specified Lua code to all connected clients and executes it.</summary>
         // <param name="code">The code to be executed. Capped at length of 254 characters.</param>
-        public static void BroadcastLua(string code) {
+        public virtual void BroadcastLua(string code) {
         }
         
         // <realm>Shared</realm>
         // <summary>Dumps the networked variables of all entities into one table and returns it.</summary>
-        public static void BuildNetworkedVarsTable() {
+        public virtual void BuildNetworkedVarsTable() {
         }
         
         // <realm>Client</realm>
         // <summary>Automatically called by the engine when a panel is hovered over with the mouse</summary>
         // <param name="panel">Panel that has been hovered over.</param>
-        public static void ChangeTooltip(Panel panel) {
+        public virtual void ChangeTooltip(Panel panel) {
         }
         
         // <realm>Client</realm>
         // <summary>Creates a non physical entity that only exists on the client.</summary>
         // <param name="model">The file path to the model.</param>
         // <param name="renderGroup">The rendergroup of the entity, see {{Enum|RENDERGROUP}}.</param>
-        public static void ClientsideModel(string model, float renderGroup) {
+        // <return>Entity|Created model.</return>
+        public virtual Entity ClientsideModel(string model, float renderGroup) {
+            return new Entity();
         }
         
         // <realm>Client</realm>
         // <summary>Creates a physical entity that only exists on the client.</summary>
         // <param name="model">The file path to the model.</param>
-        public static void ClientsideRagdoll(string model) {
+        // <return>PhysObj|Returns a physics object; You can AddCallback for "BuildBonePositions" and more!</return>
+        public virtual PhysObj ClientsideRagdoll(string model) {
+            return new PhysObj();
         }
         
         // <realm>Client</realm>
         // <summary>Creates a scene entity based on the scene name and the entity.</summary>
         // <param name="name">The name of the scene.</param>
         // <param name="targetEnt">The entity to play the scene on.</param>
-        public static void ClientsideScene(string name, Entity targetEnt) {
+        public virtual void ClientsideScene(string name, Entity targetEnt) {
         }
         
         // <realm>Client</realm>
         // <summary>Closes all Derma menus that have been passed to {{GlobalFunction|RegisterDermaMenuForClose}} and calls {{HookFunction|GM|CloseDermaMenus}}</summary>
-        public static void CloseDermaMenus() {
+        public virtual void CloseDermaMenus() {
         }
         
         // <realm>Shared</realm>
         // <summary>Executes the specified action on the garbage collector.</summary>
         // <param name="action">The action to run.</param>
         // <param name="arg">The argument of the specified action, not always required.</param>
-        public static void collectgarbage(string action, float arg) {
+        public virtual void collectgarbage(string action, float arg) {
         }
         
         // <realm>Shared</realm>
@@ -151,26 +161,33 @@ namespace MetroMad.Lua.gLua {
         // <param name="g">An integer from 0-255 describing the green value of the color.</param>
         // <param name="b">An integer from 0-255 describing the blue value of the color.</param>
         // <param name="a">An integer from 0-255 describing the alpha (transparency) of the color.</param>
-        public static void Color(float r, float g, float b, float a) {
+        // <return>table|The created {{Struct|Color}}.</return>
+        public virtual table Color(float r, float g, float b, float a) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns a new {{Struct|Color}} with the RGB components of the given {{Struct|Color}} and the alpha value specified.</summary>
         // <param name="color">The {{Struct|Color}} from which to take RGB values. This color will not be modified.</param>
         // <param name="alpha">The new alpha value, a number between 0 and 1. Values above 1 will be clamped.</param>
-        public static void ColorAlpha(table color, float alpha) {
+        // <return>table|The new {{Struct|Color}} with the modified alpha value</return>
+        public virtual table ColorAlpha(table color, float alpha) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Converts a {{Struct|Color}} into HSV color space.</summary>
         // <param name="color">The {{Struct|Color}}.</param>
-        public static void ColorToHSV(table color) {
+        // <return>number|The hue in degrees.</return>
+        public virtual int ColorToHSV(table color) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Attempts to compile the given file. If successful, returns a function that can be called to perform the actual execution of the script.</summary>
         // <param name="path">Path to the file, relative to the garrysmod/lua/ directory.</param>
-        public static void CompileFile(string path) {
+        public virtual function CompileFile(string path) {
+            return new function();
         }
         
         // <realm>Shared</realm>
@@ -178,13 +195,15 @@ namespace MetroMad.Lua.gLua {
         // <param name="code">The code to compile.</param>
         // <param name="identifier">An identifier in case an error is thrown. (The same identifier can be used multiple times).</param>
         // <param name="HandleError">If false this function will return an error string instead of throwing an error.</param>
-        public static void CompileString(string code, string identifier, bool HandleError) {
+        // <return>function|A function that, when called, will execute the given code.</return>
+        public virtual function CompileString(string code, string identifier, boolean HandleError) {
+            return new function();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns whenever a convar with the given name exists</summary>
         // <param name="name">Name of the convar.</param>
-        public static void ConVarExists(string name) {
+        public virtual void ConVarExists(string name) {
         }
         
         // <realm>Client</realm>
@@ -193,7 +212,9 @@ namespace MetroMad.Lua.gLua {
         // <param name="default">Default value of the ConVar.</param>
         // <param name="shouldsave">Should the ConVar be saved across sessions.</param>
         // <param name="userdata">Should the ConVar and its containing data be sent to the server when it has changed. This make the convar accessible from server using {{ClassFunction|Player|GetInfoNum}} and similar functions.</param>
-        public static void CreateClientConVar(string name, float @default, bool shouldsave, bool userdata) {
+        // <return>ConVar|Created convar.</return>
+        public virtual ConVar CreateClientConVar(string name, float @default, boolean shouldsave, boolean userdata) {
+            return new ConVar();
         }
         
         // <realm>Shared</realm>
@@ -202,7 +223,9 @@ namespace MetroMad.Lua.gLua {
         // <param name="value">Default value of the convar.</param>
         // <param name="flags">Flags of the convar, see {{Enum|FCVAR}}, either as bitflag or as table.</param>
         // <param name="helptext">The help text to show in the console.</param>
-        public static void CreateConVar(string name, string value, float flags, string helptext) {
+        // <return>ConVar|The ConVar created</return>
+        public virtual ConVar CreateConVar(string name, string value, float flags, string helptext) {
+            return new ConVar();
         }
         
         // <realm>Client</realm>
@@ -210,43 +233,51 @@ namespace MetroMad.Lua.gLua {
         // <param name="name">The material name.</param>
         // <param name="shader">The shader.</param>
         // <param name="materialData">Key-value table that contains shader parameters and proxies.</param>
-        public static void CreateMaterial(string name, string shader, table materialData) {
+        // <return>IMaterial|Created material</return>
+        public virtual IMaterial CreateMaterial(string name, string shader, table materialData) {
+            return new IMaterial();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns a sound parented to the specified entity.</summary>
         // <param name="targetEnt">The target entity.</param>
         // <param name="soundName">The sound to play.</param>
-        public static void CreateSound(Entity targetEnt, string soundName) {
+        // <return>CSoundPatch|The sound object</return>
+        public virtual CSoundPatch CreateSound(Entity targetEnt, string soundName) {
+            return new CSoundPatch();
         }
         
         // <realm>Client</realm>
         // <summary>Returns a new DSprite element with the supplied material</summary>
         // <param name="material">Material to draw on the element.</param>
-        public static void CreateSprite(any material) {
+        // <return>Panel|DSprite element</return>
+        public virtual Panel CreateSprite(any material) {
+            return new Panel();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the uptime of the server in seconds (to at least 4 decimal places)</summary>
-        public static void CurTime() {
+        public virtual void CurTime() {
         }
         
         // <realm>Shared</realm>
         // <summary>Creates an empty damage info.</summary>
-        public static void DamageInfo() {
+        // <return>CTakeDamageInfo|The created damageinfo.</return>
+        public virtual CTakeDamageInfo DamageInfo() {
+            return new CTakeDamageInfo();
         }
         
         // <realm>Shared</realm>
         // <summary>Writes text to the right hand side of the screen, like the old error system. Messages disappear after a couple of seconds.</summary>
         // <param name="slot">The location on the right hand screen to write the debug info to. Starts at 0, no upper limit.</param>
         // <param name="info">The debugging information to be written to the screen.</param>
-        public static void DebugInfo(float slot, string info) {
+        public virtual void DebugInfo(float slot, string info) {
         }
         
         // <realm>Shared</realm>
         // <summary>Retrieves data from the base gamemode.</summary>
         // <param name="Text">Gamemode base name.</param>
-        public static void DeriveGamemode(string Text) {
+        public virtual void DeriveGamemode(string Text) {
         }
         
         // <realm>Client</realm>
@@ -254,14 +285,14 @@ namespace MetroMad.Lua.gLua {
         // <param name="name">Name of the animation to create.</param>
         // <param name="panel">Panel to run the animation on.</param>
         // <param name="func">Function to call to processing the animation.</param>
-        public static void Derma_Anim(string name, Panel panel, function func) {
+        public virtual void Derma_Anim(string name, Panel panel, function func) {
         }
         
         // <realm>Client</realm>
         // <summary>Draws background blur around the given panel.</summary>
         // <param name="panel">Panel to draw the background blur around.</param>
         // <param name="startTime">Time that the blur began being painted.</param>
-        public static void Derma_DrawBackgroundBlur(Panel panel, float startTime) {
+        public virtual void Derma_DrawBackgroundBlur(Panel panel, float startTime) {
         }
         
         // <realm>Client</realm>
@@ -270,12 +301,12 @@ namespace MetroMad.Lua.gLua {
         // <param name="functionName">Name of panel function to create.</param>
         // <param name="hookName">Name of Derma skin hook to call within the function.</param>
         // <param name="typeName">Type of element to call Derma skin hook for.</param>
-        public static void Derma_Hook(Panel panel, string functionName, string hookName, string typeName) {
+        public virtual void Derma_Hook(Panel panel, string functionName, string hookName, string typeName) {
         }
         
         // <summary>Makes the panel (usually an input of sorts) respond to changes in console variables by adding next functions to the panel:</summary>
         // <param name="target">The panel the functions should be added to.</param>
-        public static void Derma_Install_Convar_Functions(Panel target) {
+        public virtual void Derma_Install_Convar_Functions(Panel target) {
         }
         
         // <realm>Client</realm>
@@ -283,7 +314,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="Text">The text within the created panel.</param>
         // <param name="Title">The title of the created panel.</param>
         // <param name="Button">The text of the button to close the panel.</param>
-        public static void Derma_Message(string Text, string Title, string Button) {
+        public virtual void Derma_Message(string Text, string Title, string Button) {
         }
         
         // <realm>Client</realm>
@@ -298,7 +329,9 @@ namespace MetroMad.Lua.gLua {
         // <param name="btn3func">The function to run if the user clicks the third button.</param>
         // <param name="btn4text">The text to display on the third button.</param>
         // <param name="btn4func">The function to run if the user clicks the fourth button.</param>
-        public static void Derma_Query(string text, string title, string btn1text, function btn1func, string btn2text, function btn2func, string btn3text, function btn3func, string btn4text, function btn4func) {
+        // <return>Panel|The Panel object of the created window.</return>
+        public virtual Panel Derma_Query(string text, string title, string btn1text, function btn1func, string btn2text, function btn2func, string btn3text, function btn3func, string btn4text, function btn4func) {
+            return new Panel();
         }
         
         // <realm>Client</realm>
@@ -310,34 +343,34 @@ namespace MetroMad.Lua.gLua {
         // <param name="cancel">The function to be called once the user has cancelled their input.</param>
         // <param name="confirmText">Allows you to override text of the "OK" button.</param>
         // <param name="cancelText">Allows you to override text of the "Cancel" button.</param>
-        public static void Derma_StringRequest(string title, string subtitle, string @default, function confirm, function cancel, string confirmText, string cancelText) {
+        public virtual void Derma_StringRequest(string title, string subtitle, string @default, function confirm, function cancel, string confirmText, string cancelText) {
         }
         
         // <realm>Client</realm>
         // <summary>Creates a DMenu similar to a contextmenu and closes any current menus</summary>
         // <param name="parent">The panel to parent the created menu to.</param>
-        public static void DermaMenu(Panel parent) {
+        public virtual void DermaMenu(Panel parent) {
         }
         
         // <realm>Client</realm>
         // <summary>Sets whether rendering should be limited to being inside a panel or not</summary>
         // <param name="disable">Whether or not clipping should be disabled.</param>
-        public static void DisableClipping(bool disable) {
+        public virtual void DisableClipping(boolean disable) {
         }
         
         // <realm>Client</realm>
         // <summary>Cancels current DOF post-process effect started with {{GlobalFunction|DOF_Start}}</summary>
-        public static void DOF_Kill() {
+        public virtual void DOF_Kill() {
         }
         
         // <realm>Client</realm>
         // <summary>Begins the DOF post-process effect</summary>
-        public static void DOF_Start() {
+        public virtual void DOF_Start() {
         }
         
         // <realm>Client</realm>
         // <summary>A hacky method used to fix some bugs regarding DoF.</summary>
-        public static void DOFModeHack() {
+        public virtual void DOFModeHack() {
         }
         
         // <realm>Client</realm>
@@ -351,20 +384,20 @@ namespace MetroMad.Lua.gLua {
         // <param name="Red">How much red to multiply with the glowing color. Should be between 0 and 1.</param>
         // <param name="Green">How much green to multiply with the glowing color. Should be between 0 and 1.</param>
         // <param name="Blue">How much blue to multiply with the glowing color. Should be between 0 and 1.</param>
-        public static void DrawBloom(float Darken, float Multiply, float SizeX, float SizeY, float Passes, float ColorMultiply, float Red, float Green, float Blue) {
+        public virtual void DrawBloom(float Darken, float Multiply, float SizeX, float SizeY, float Passes, float ColorMultiply, float Red, float Green, float Blue) {
         }
         
         // <realm>Client</realm>
         // <summary>Draws the Color Modify shader, which can be used to adjust colors on screen.</summary>
         // <param name="modifyParameters">Color modification parameters. See {{Struct|ColorModifyData}}.</param>
-        public static void DrawColorModify(table modifyParameters) {
+        public virtual void DrawColorModify(table modifyParameters) {
         }
         
         // <realm>Client</realm>
         // <summary>Draws a material overlay on the screen.</summary>
         // <param name="Material">This will be the material that is drawn onto the screen.</param>
         // <param name="RefractAmount">This will adjust how much the material will refract your screen.</param>
-        public static void DrawMaterialOverlay(string Material, float RefractAmount) {
+        public virtual void DrawMaterialOverlay(string Material, float RefractAmount) {
         }
         
         // <realm>Client</realm>
@@ -372,20 +405,20 @@ namespace MetroMad.Lua.gLua {
         // <param name="AddAlpha">How much alpha to change per frame.</param>
         // <param name="DrawAlpha">How much alpha the frames will have. A value of 0 will not render the motion blur effect.</param>
         // <param name="Delay">Determines the amount of time between frames to capture.</param>
-        public static void DrawMotionBlur(float AddAlpha, float DrawAlpha, float Delay) {
+        public virtual void DrawMotionBlur(float AddAlpha, float DrawAlpha, float Delay) {
         }
         
         // <realm>Client</realm>
         // <summary>Draws the sharpen shader, which creates more contrast.</summary>
         // <param name="Contrast">How much contrast to create.</param>
         // <param name="Distance">How large the contrast effect will be.</param>
-        public static void DrawSharpen(float Contrast, float Distance) {
+        public virtual void DrawSharpen(float Contrast, float Distance) {
         }
         
         // <realm>Client</realm>
         // <summary>Draws the sobel shader, which detects edges and draws a black border.</summary>
         // <param name="Threshold">Determines the threshold of edges. A value of 0 will make your screen completely black.</param>
-        public static void DrawSobel(float Threshold) {
+        public virtual void DrawSobel(float Threshold) {
         }
         
         // <realm>Client</realm>
@@ -395,38 +428,40 @@ namespace MetroMad.Lua.gLua {
         // <param name="sunSize">$sunsize property for sunbeams material.</param>
         // <param name="sunX">$sunx property for sunbeams material.</param>
         // <param name="sunY">$suny property for sunbeams material.</param>
-        public static void DrawSunbeams(float darken, float multiplier, float sunSize, float sunX, float sunY) {
+        public virtual void DrawSunbeams(float darken, float multiplier, float sunSize, float sunX, float sunY) {
         }
         
         // <realm>Client</realm>
         // <summary>Draws the texturize shader, which replaces each pixel on your screen with a different part of the texture depending on its brightness. See [[Shaders/g_texturize|g_texturize]] for information on making the texture.</summary>
         // <param name="Scale">Scale of the texture. A smaller number creates a larger texture.</param>
         // <param name="BaseTexture">This will be the texture to use in the effect. Make sure you use {{GlobalFunction|Material}} to get the texture number.</param>
-        public static void DrawTexturize(float Scale, float BaseTexture) {
+        public virtual void DrawTexturize(float Scale, float BaseTexture) {
         }
         
         // <realm>Client</realm>
         // <summary>Draws the toy town shader, which blurs the top and bottom of your screen. This can make very large objects look like toys, hence the name.</summary>
         // <param name="Passes">An integer determining how many times to draw the effect. A higher number creates more blur.</param>
         // <param name="Height">The amount of screen which should be blurred on the top and bottom.</param>
-        public static void DrawToyTown(float Passes, float Height) {
+        public virtual void DrawToyTown(float Passes, float Height) {
         }
         
         // <realm>Shared</realm>
         // <summary>Drops the specified entity if it is being held by any player with Gravity Gun or +use pickup.</summary>
         // <param name="ent">The entity to drop.</param>
-        public static void DropEntityIfHeld(Entity ent) {
+        public virtual void DropEntityIfHeld(Entity ent) {
         }
         
         // <realm>Client</realm>
         // <summary>Creates or replaces a dynamic light with the given id.</summary>
         // <param name="index">Usually an entity index is used here.</param>
-        public static void DynamicLight(float index) {
+        // <return>table|A DynamicLight structured table. See {{Struct|DynamicLight}}</return>
+        public virtual table DynamicLight(float index) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Creates a new [[:Category:CEffectData|CEffectData]] object to be used with {{LibraryFunction|util|Effect}}.</summary>
-        public static void EffectData() {
+        public virtual void EffectData() {
         }
         
         // <realm>Shared</realm>
@@ -434,7 +469,9 @@ namespace MetroMad.Lua.gLua {
         // <param name="condition">The condition to check if true or false.</param>
         // <param name="truevar">If the condition is true, return this variable.</param>
         // <param name="falsevar">If the condition is false, return this variable.</param>
-        public static void Either(bool condition, any truevar, any falsevar) {
+        // <return>any|The result.</return>
+        public virtual any Either(boolean condition, any truevar, any falsevar) {
+            return new any();
         }
         
         // <realm>Shared</realm>
@@ -447,7 +484,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="soundLevel">The sound level of the sound, see {{Enum|SNDLVL}}.</param>
         // <param name="soundFlags">The flags of the sound, see {{Enum|SND}}.</param>
         // <param name="pitch">The pitch of the sound, 0-255.</param>
-        public static void EmitSentence(string soundName, Vector position, float entity, float channel, float volume, float soundLevel, float soundFlags, float pitch) {
+        public virtual void EmitSentence(string soundName, Vector position, float entity, float channel, float volume, float soundLevel, float soundFlags, float pitch) {
         }
         
         // <realm>Shared</realm>
@@ -460,183 +497,197 @@ namespace MetroMad.Lua.gLua {
         // <param name="soundLevel">The sound level of the sound, see {{Enum|SNDLVL}}.</param>
         // <param name="soundFlags">The flags of the sound, see {{Enum|SND}}.</param>
         // <param name="pitch">The pitch of the sound, 0-255.</param>
-        public static void EmitSound(string soundName, Vector position, float entity, float channel, float volume, float soundLevel, float soundFlags, float pitch) {
+        public virtual void EmitSound(string soundName, Vector position, float entity, float channel, float volume, float soundLevel, float soundFlags, float pitch) {
         }
         
         // <realm>Client</realm>
         // <summary>Removes the currently active tool tip from the screen.</summary>
         // <param name="panel">This is the panel that has a tool tip.</param>
-        public static void EndTooltip(Panel panel) {
+        public virtual void EndTooltip(Panel panel) {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the entity with the matching {{ClassFunction|Entity|EntIndex}}.</summary>
         // <param name="entityIndex">The entity index.</param>
-        public static void Entity(float entityIndex) {
+        // <return>Entity|The entity if it exists.</return>
+        public virtual Entity Entity(float entityIndex) {
+            return new Entity();
         }
         
         // <realm>Shared</realm>
         // <summary>Throws a Lua error with the specified message and stack level.</summary>
         // <param name="arguments">Converts all arguments to strings and prints them with no spacing or line breaks.</param>
-        public static void Error(vararg arguments) {
+        public virtual void Error(@object arguments) {
         }
         
         // <realm>Shared</realm>
         // <summary>Throws a Lua error and breaks out of the current call stack.</summary>
         // <param name="message">The error message to throw.</param>
         // <param name="errorLevel">The level to throw the error at.</param>
-        public static void error(string message, float errorLevel) {
+        public virtual void error(string message, float errorLevel) {
         }
         
         // <realm>Shared</realm>
         // <summary>Throws a Lua error but does not break out of the current call stack.</summary>
         // <param name="arguments">Converts all arguments to strings and prints them with no spacing.</param>
-        public static void ErrorNoHalt(vararg arguments) {
+        public virtual void ErrorNoHalt(@object arguments) {
         }
         
         // <realm>Client</realm>
         // <summary>Returns the angles of the players view calculated by {{HookFunction|GM|CalcView}}.</summary>
-        public static void EyeAngles() {
+        public virtual void EyeAngles() {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the position of the players view point calculated by {{HookFunction|GM|CalcView}}.</summary>
-        public static void EyePos() {
+        public virtual void EyePos() {
         }
         
         // <realm>Client</realm>
         // <summary>Returns the normal of the players view calculated by {{HookFunction|GM|CalcView}} similar to {{GlobalFunction|EyeAngles}}.</summary>
-        public static void EyeVector() {
+        public virtual void EyeVector() {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the meta table for the class with the matching name.</summary>
         // <param name="metaName">The name of the meta table.</param>
-        public static void FindMetaTable(string metaName) {
+        public virtual void FindMetaTable(string metaName) {
         }
         
         // <realm>Client</realm>
         // <summary>Returns the tool-tip text and tool-tip-panel (if any) of the given panel as well as itself</summary>
         // <param name="panel">Panel to find tool-tip of.</param>
-        public static void FindTooltip(Panel panel) {
+        // <return>string|tool-tip text</return>
+        public virtual string FindTooltip(Panel panel) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Formats the specified values into the string given. Same as {{LibraryFunction|string|format}}.</summary>
         // <param name="format">The string to be formatted.<br>.</param>
         // <param name="formatParameters">Values to be formatted into the string.</param>
-        public static void Format(string format, vararg formatParameters) {
+        // <return>string|The formatted string</return>
+        public virtual string Format(string format, @object formatParameters) {
+            return "String";
         }
         
         // <realm>Client</realm>
         // <summary>Returns the number of frames rendered since the game was launched.</summary>
-        public static void FrameNumber() {
+        public virtual void FrameNumber() {
         }
         
         // <realm>Client</realm>
         // <summary>Returns the time in second it took to render the last frame.</summary>
-        public static void FrameTime() {
+        public virtual void FrameTime() {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the current floored dynamic memory usage of Lua in kilobytes.</summary>
-        public static void gcinfo() {
+        public virtual void gcinfo() {
         }
         
         // <realm>Shared</realm>
         // <summary>Gets the ConVar with the specified name.</summary>
         // <param name="name">Name of the ConVar to get.</param>
-        public static void GetConVar(string name) {
+        // <return>ConVar|The ConVar object</return>
+        public virtual ConVar GetConVar(string name) {
+            return new ConVar();
         }
         
         // <realm>Shared</realm>
         // <summary>Gets the numeric value ConVar with the specified name.</summary>
         // <param name="name">Name of the ConVar to get.</param>
-        public static void GetConVarNumber(string name) {
+        // <return>number|The ConVar's value.</return>
+        public virtual int GetConVarNumber(string name) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Gets the string value ConVar with the specified name.</summary>
         // <param name="name">Name of the ConVar to get.</param>
-        public static void GetConVarString(string name) {
+        // <return>string|The ConVar's value.</return>
+        public virtual string GetConVarString(string name) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the environment table of either the stack level or the function specified.</summary>
         // <param name="location">The object to get the enviroment from. Can also be a number that specifies the function at that stack level: Level 1 is the function calling getfenv.</param>
-        public static void getfenv(function location) {
+        // <return>table|The environment.</return>
+        public virtual table getfenv(function location) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns an angle that is shared between the server and all clients.</summary>
         // <param name="Index">The unique index to identify the global value with.</param>
         // <param name="Default">The value to return if the global value is not set.</param>
-        public static void GetGlobalAngle(string Index, Angle Default) {
+        public virtual void GetGlobalAngle(string Index, Angle Default) {
         }
         
         // <realm>Shared</realm>
-        // <summary>Returns a bool that is shared between the server and all clients.</summary>
+        // <summary>Returns a boolean that is shared between the server and all clients.</summary>
         // <param name="Index">The unique index to identify the global value with.</param>
         // <param name="Default">The value to return if the global value is not set.</param>
-        public static void GetGlobalBool(string Index, bool Default) {
+        public virtual void GetGlobalBool(string Index, boolean Default) {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns an entity that is shared between the server and all clients.</summary>
         // <param name="Index">The unique index to identify the global value with.</param>
         // <param name="Default">The value to return if the global value is not set.</param>
-        public static void GetGlobalEntity(string Index, Entity Default) {
+        public virtual void GetGlobalEntity(string Index, Entity Default) {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns a float that is shared between the server and all clients.</summary>
         // <param name="Index">The unique index to identify the global value with.</param>
         // <param name="Default">The value to return if the global value is not set.</param>
-        public static void GetGlobalFloat(string Index, float Default) {
+        public virtual void GetGlobalFloat(string Index, float Default) {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns an integer that is shared between the server and all clients.</summary>
         // <param name="Index">The unique index to identify the global value with.</param>
         // <param name="Default">The value to return if the global value is not set.</param>
-        public static void GetGlobalInt(string Index, float Default) {
+        public virtual void GetGlobalInt(string Index, float Default) {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns a string that is shared between the server and all clients.</summary>
         // <param name="Index">The unique index to identify the global value with.</param>
         // <param name="Default">The value to return if the global value is not set.</param>
-        public static void GetGlobalString(string Index, string Default) {
+        public virtual void GetGlobalString(string Index, string Default) {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns a variable that is shared between the server and all clients.</summary>
         // <param name="Index">The unique index to identify the global value with.</param>
         // <param name="Default">The value to return if the global value is not set.</param>
-        public static void GetGlobalVar(string Index, any Default) {
+        public virtual void GetGlobalVar(string Index, any Default) {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns a vector that is shared between the server and all clients.</summary>
         // <param name="Index">The unique index to identify the global value with.</param>
         // <param name="Default">The value to return if the global value is not set.</param>
-        public static void GetGlobalVector(string Index, Vector Default) {
+        public virtual void GetGlobalVector(string Index, Vector Default) {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the name of the current server.</summary>
-        public static void GetHostName() {
+        public virtual void GetHostName() {
         }
         
         // <realm>Client</realm>
         // <summary>Returns the panel that is used as a wrapper for the HUD.</summary>
-        public static void GetHUDPanel() {
+        public virtual void GetHUDPanel() {
         }
         
         // <realm>Shared</realm>
         // <summary>Gets a table's metatable.</summary>
         // <param name="Tab">The table who's metatable to attempt to return.</param>
-        public static void getmetatable(table Tab) {
+        public virtual void getmetatable(table Tab) {
         }
         
         // <realm>Client</realm>
@@ -645,7 +696,9 @@ namespace MetroMad.Lua.gLua {
         // <param name="width">The width of the render target, must be power of 2.</param>
         // <param name="height">The height of the render target, must be power of 2.</param>
         // <param name="additive">Sets whenever the rt should be additive.</param>
-        public static void GetRenderTarget(string name, float width, float height, bool additive) {
+        // <return>ITexture|The render target</return>
+        public virtual ITexture GetRenderTarget(string name, float width, float height, boolean additive) {
+            return new ITexture();
         }
         
         // <realm>Client</realm>
@@ -658,12 +711,12 @@ namespace MetroMad.Lua.gLua {
         // <param name="textureFlags">Bitflag that configurates the texture, see {{Enum|TEXTURE}}.</param>
         // <param name="rtFlags">Flags that controll the HDR behaviour of the render target, see {{Enum|CREATERENDERTARGETFLAGS}}.</param>
         // <param name="imageFormat">Image format, see {{Enum|IMAGE_FORMAT}}.</param>
-        public static void GetRenderTargetEx(string name, float width, float height, float sizeMode, float depthMode, float textureFlags, float rtFlags, float imageFormat) {
+        public virtual void GetRenderTargetEx(string name, float width, float height, float sizeMode, float depthMode, float textureFlags, float rtFlags, float imageFormat) {
         }
         
         // <realm>Client</realm>
         // <summary>Returns the entity the client is using to see from (such as the player itself, the camera, or another entity).</summary>
-        public static void GetViewEntity() {
+        public virtual void GetViewEntity() {
         }
         
         // <realm>Shared</realm>
@@ -671,32 +724,36 @@ namespace MetroMad.Lua.gLua {
         // <param name="hue">Hue in degrees.</param>
         // <param name="saturation">Saturation from 0 - 1.</param>
         // <param name="value">Value from 0 - 1.</param>
-        public static void HSVToColor(float hue, float saturation, float value) {
+        // <return>table|The {{Struct|Color}} created from the HSV color space.</return>
+        public virtual table HSVToColor(float hue, float saturation, float value) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Launches a threaded http request with the given parameters</summary>
         // <param name="parameters">The request parameters. See {{Struct|HTTPRequest}}.</param>
-        public static void HTTP(table parameters) {
+        public virtual void HTTP(table parameters) {
         }
         
         // <realm>Shared</realm>
         // <summary>Executes a Lua script either relative to the current file, or absolute(relative to the /lua/ folder).</summary>
         // <param name="fileName">The name of the script to be executed.</param>
-        public static void include(string fileName) {
+        public virtual void include(string fileName) {
         }
         
         // <realm>Shared</realm>
         // <summary>{{Deprecated|To send the target file to the client simply call AddCSLuaFile() in the target file itself.}}</summary>
         // <param name="filename">The filename of the Lua file you want to include.</param>
-        public static void IncludeCS(string filename) {
+        public virtual void IncludeCS(string filename) {
         }
         
         // <realm>Shared</realm>
         // <summary>Alias of {{LibraryFunction|concommand|AutoComplete}} used by the engine for console command auto-completion.</summary>
         // <param name="command">Name of command.</param>
         // <param name="arguments">arguments given to the command.</param>
-        public static void InjectCommandAutocomplete(string command, string arguments) {
+        // <return>table|possibilities for auto-completion</return>
+        public virtual table InjectCommandAutocomplete(string command, string arguments) {
+            return new table();
         }
         
         // <realm>Shared</realm>
@@ -705,150 +762,192 @@ namespace MetroMad.Lua.gLua {
         // <param name="command">command that is being run.</param>
         // <param name="arguments">table of arguments send to the command.</param>
         // <param name="argumentString">string of all arguments sent to the command.</param>
-        public static void InjectConsoleCommand(Player player, string command, table arguments, string argumentString) {
+        // <return>boolean|true if the command exists, false otherwise</return>
+        public virtual bool InjectConsoleCommand(Player player, string command, table arguments, string argumentString) {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns an iterator function for a for loop that will return the values of the specified sequential numerical table in order.</summary>
         // <param name="tab">The table to iterate over.</param>
-        public static void ipairs(table tab) {
+        public virtual void ipairs(table tab) {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns if the passed object is an {{Type|Angle}}.</summary>
         // <param name="variable">The variable to perform the type check for.</param>
-        public static void isangle(any variable) {
+        // <return>boolean|True if the variable is an {{Type|Angle}}.</return>
+        public virtual bool isangle(any variable) {
+            return true;
         }
         
         // <realm>Shared</realm>
-        // <summary>Returns if the passed object is a {{Type|bool}}.</summary>
+        // <summary>Returns if the passed object is a {{Type|boolean}}.</summary>
         // <param name="variable">The variable to perform the type check for.</param>
-        public static void isbool(any variable) {
+        // <return>boolean|True if the variable is a {{Type|boolean}}.</return>
+        public virtual bool isbool(any variable) {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns true if the bonename is in a list of bones that the bone editor does not like to modify.</summary>
         // <param name="bonename">The bone name to look up, see {{ClassFunction|Entity|GetBoneName}}.</param>
-        public static void IsBullshitBone(string bonename) {
+        // <return>boolean|Is the bone bullshit or not.</return>
+        public virtual bool IsBullshitBone(string bonename) {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns whether the given object is or isn't a color.</summary>
         // <param name="Object">The object to be tested.</param>
-        public static void IsColor(any Object) {
+        // <return>boolean|Whether the given object is a color or not</return>
+        public virtual bool IsColor(any Object) {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns if the given NPC class name is an enemy</summary>
         // <param name="className">Class name of the entity to check.</param>
-        public static void IsEnemyEntityName(string className) {
+        // <return>boolean|Is an enemy</return>
+        public virtual bool IsEnemyEntityName(string className) {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns if the passed object is an {{Type|Entity}}. Alias of {{GlobalFunction|isentity}}.</summary>
         // <param name="variable">The variable to check.</param>
-        public static void IsEntity(any variable) {
+        // <return>boolean|True if the variable is an {{Type|Entity}}.</return>
+        public virtual bool IsEntity(any variable) {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns if the passed object is an {{Type|Entity}}.</summary>
         // <param name="variable">The variable to perform the type check for.</param>
-        public static void isentity(any variable) {
+        // <return>boolean|True if the variable is an {{Type|Entity}}.</return>
+        public virtual bool isentity(any variable) {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns if this is the first time being predicted.</summary>
-        public static void IsFirstTimePredicted() {
+        // <return>boolean|Whether or not this is the first time being predicted.</return>
+        public virtual bool IsFirstTimePredicted() {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns if the given NPC class name is a friend</summary>
         // <param name="className">Class name of the entity to check.</param>
-        public static void IsFriendEntityName(string className) {
+        // <return>boolean|Is a friend</return>
+        public virtual bool IsFriendEntityName(string className) {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns if the passed object is a {{Type|function}}.</summary>
         // <param name="variable">The variable to perform the type check for.</param>
-        public static void isfunction(any variable) {
+        // <return>boolean|True if the variable is a {{Type|function}}.</return>
+        public virtual bool isfunction(any variable) {
+            return true;
         }
         
         // <realm>Menu</realm>
         // <summary>Returns whether we are playing a singleplayer or multiplayer game.</summary>
-        public static void IsInGame() {
+        // <return>boolean|Whether we are in-game.</return>
+        public virtual bool IsInGame() {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Checks whether or not a game is currently mounted. Uses data given by {{LibraryFunction|engine|GetGames}}. Currently does not work correctly serverside on dedicated servers.</summary>
         // <param name="game">The game string/app ID to check.</param>
-        public static void IsMounted(string game) {
+        // <return>boolean|True if the game is mounted.</return>
+        public virtual bool IsMounted(string game) {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns if the passed object is a {{Type|number}}.</summary>
         // <param name="variable">The variable to perform the type check for.</param>
-        public static void isnumber(any variable) {
+        // <return>boolean|True if the variable is a {{Type|number}}.</return>
+        public virtual bool isnumber(any variable) {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns if the passed object is a {{Type|Panel}}.</summary>
         // <param name="variable">The variable to perform the type check for.</param>
-        public static void ispanel(any variable) {
+        // <return>boolean|True if the variable is a {{Type|Panel}}.</return>
+        public virtual bool ispanel(any variable) {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns if the passed object is a {{Type|string}}.</summary>
         // <param name="variable">The variable to perform the type check for.</param>
-        public static void isstring(any variable) {
+        // <return>boolean|True if the variable is a {{Type|string}}.</return>
+        public virtual bool isstring(any variable) {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns if the passed object is a {{Type|table}}.</summary>
         // <param name="variable">The variable to perform the type check for.</param>
-        public static void istable(any variable) {
+        // <return>boolean|True if the variable is a {{Type|table}}.</return>
+        public virtual bool istable(any variable) {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns whether or not every element within a table is a valid entity</summary>
         // <param name="table">Table containing entities to check.</param>
-        public static void IsTableOfEntitiesValid(table table) {
+        // <return>boolean|All entities valid</return>
+        public virtual bool IsTableOfEntitiesValid(table table) {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Checks if a table or class is valid<br />Checks that an object is not nil, has an IsValid method and if this method returns true.</summary>
         // <param name="toBeValidated">The table or class to be validated.</param>
-        public static void IsValid(any toBeValidated) {
+        // <return>boolean|True if the object is valid.</return>
+        public virtual bool IsValid(any toBeValidated) {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns if the passed object is a {{Type|Vector}}.</summary>
         // <param name="variable">The variable to perform the type check for.</param>
-        public static void isvector(any variable) {
+        // <return>boolean|True if the variable is a {{Type|Vector}}.</return>
+        public virtual bool isvector(any variable) {
+            return true;
         }
         
         // <realm>Menu</realm>
         // <summary>Joins the server with the specified IP.</summary>
         // <param name="IP">The IP of the server to join.</param>
-        public static void JoinServer(string IP) {
+        public virtual void JoinServer(string IP) {
         }
         
         // <realm>Client</realm>
         // <summary>Adds javascript function 'language.Update' to an HTML panel as a method to call Lua's {{LibraryFunction|language|GetPhrase}} function.</summary>
         // <param name="htmlPanel">Panel to add javascript function 'language.Update' to.</param>
-        public static void JS_Language(Panel htmlPanel) {
+        public virtual void JS_Language(Panel htmlPanel) {
         }
         
         // <realm>Client</realm>
         // <summary>Adds javascript function 'util.MotionSensorAvailable' to an HTML panel as a method to call Lua's {{LibraryFunction|motionsensor|IsAvailable}} function.</summary>
         // <param name="htmlPanel">Panel to add javascript function 'util.MotionSensorAvailable' to.</param>
-        public static void JS_Utility(Panel htmlPanel) {
+        public virtual void JS_Utility(Panel htmlPanel) {
         }
         
         // <realm>Client</realm>
         // <summary>Convenience function that creates a DLabel, sets the text, and returns it</summary>
         // <param name="text">The string to set the label's text to.</param>
         // <param name="parent">Optional. The panel to parent the DLabel to.</param>
-        public static void Label(string text, Panel parent) {
+        // <return>Panel|The created DLabel</return>
+        public virtual Panel Label(string text, Panel parent) {
+            return new Panel();
         }
         
         // <realm>Shared</realm>
@@ -856,7 +955,9 @@ namespace MetroMad.Lua.gLua {
         // <param name="delta">The fraction for finding the result. This number is clamped between 0 and 1.</param>
         // <param name="from">The starting number. The result will be equal to this if delta is 0.</param>
         // <param name="to">The ending number. The result will be equal to this if delta is 1.</param>
-        public static void Lerp(float delta, float from, float to) {
+        // <return>number|The result of the linear interpolation.</return>
+        public virtual int Lerp(float delta, float from, float to) {
+            return 1;
         }
         
         // <realm>Shared</realm>
@@ -864,7 +965,9 @@ namespace MetroMad.Lua.gLua {
         // <param name="ratio">Ratio of progress through values.</param>
         // <param name="angleStart">Angle to begin from.</param>
         // <param name="angleEnd">Angle to end at.</param>
-        public static void LerpAngle(float ratio, Angle angleStart, Angle angleEnd) {
+        // <return>Angle|angle</return>
+        public virtual Angle LerpAngle(float ratio, Angle angleStart, Angle angleEnd) {
+            return new Angle();
         }
         
         // <realm>Shared</realm>
@@ -872,24 +975,28 @@ namespace MetroMad.Lua.gLua {
         // <param name="percent">Percentage ranging from 0 to 1.</param>
         // <param name="from">The initial Vector.</param>
         // <param name="to">The desired Vector.</param>
-        public static void LerpVector(float percent, Vector from, Vector to) {
+        // <return>Vector|The lerped vector.</return>
+        public virtual Vector LerpVector(float percent, Vector from, Vector to) {
+            return new Vector();
         }
         
         // <realm>Client</realm>
         // <summary>Loads all preset settings for the [[presets]] module and returns them in a table</summary>
-        public static void LoadPresets() {
+        // <return>table|Preset data</return>
+        public virtual table LoadPresets() {
+            return new table();
         }
         
         // <realm>Client</realm>
         // <summary>Returns a localisation for the given token, if none is found it will return the default(second) parameter.</summary>
         // <param name="localisationToken">The token to find a translation for.</param>
         // <param name="default">The default value to be returned if no translation was found.</param>
-        public static void Localize(string localisationToken, string @default) {
+        public virtual void Localize(string localisationToken, string @default) {
         }
         
         // <realm>Client</realm>
         // <summary>Returns the player object of the current client.</summary>
-        public static void LocalPlayer() {
+        public virtual void LocalPlayer() {
         }
         
         // <realm>Shared</realm>
@@ -898,87 +1005,99 @@ namespace MetroMad.Lua.gLua {
         // <param name="localAng">The angle that should be translated from specified system to world angles.</param>
         // <param name="originPos">The origin of the system to translate from.</param>
         // <param name="originAngle">The angles of the system to translate from.</param>
-        public static void LocalToWorld(Vector localPos, Angle localAng, Vector originPos, Angle originAngle) {
+        // <return>Vector|World position</return>
+        public virtual Vector LocalToWorld(Vector localPos, Angle localAng, Vector originPos, Angle originAngle) {
+            return new Vector();
         }
         
         // <realm>Shared</realm>
         // <summary>Either returns the material with the given name, or loads the material interpreting the first argument as the path.</summary>
         // <param name="materialName">The material name/path.</param>
         // <param name="pngParameters">A string containing keywords which will be used to add material parameters.</param>
-        public static void Material(string materialName, string pngParameters) {
+        // <return>IMaterial|Generated material</return>
+        public virtual IMaterial Material(string materialName, string pngParameters) {
+            return new IMaterial();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns an empty matrix object.</summary>
         // <param name="data">Initial data to initialize the matrix with. See examples for usage.</param>
-        public static void Matrix(table data) {
+        public virtual void Matrix(table data) {
         }
         
         // <realm>Client</realm>
         // <summary>Returns a new mesh object.</summary>
-        public static void Mesh() {
+        // <return>IMesh|The created object.</return>
+        public virtual IMesh Mesh() {
+            return new IMesh();
         }
         
         // <realm>Shared</realm>
         // <summary>Runs {{LibraryFunction|util|PrecacheModel}} and returns the string</summary>
         // <param name="model">The model to precache.</param>
-        public static void Model(string model) {
+        public virtual void Model(string model) {
         }
         
         // <realm>Shared</realm>
         // <summary>Creates a table with the specified module name and sets the function environment for said table, calls all additional loaders as the table as argument.</summary>
         // <param name="name">The name of the module.</param>
         // <param name="loaders">Calls any function passed with the new table as argument.</param>
-        public static void module(string name, vararg loaders) {
+        public virtual void module(string name, @object loaders) {
         }
         
         // <realm>Shared</realm>
         // <summary>Writes every given argument to the console.<br /></summary>
         // <param name="args">List of values to print.</param>
-        public static void Msg(vararg args) {
+        public virtual void Msg(@object args) {
         }
         
         // <realm>Shared</realm>
         // <summary>Works exactly like {{GlobalFunction|Msg}} except that, if called on the server, will print to all players consoles plus the server console.</summary>
         // <param name="args">List of values to print.</param>
-        public static void MsgAll(vararg args) {
+        public virtual void MsgAll(@object args) {
         }
         
         // <realm>Shared</realm>
         // <summary>Just like {{GlobalFunction|Msg}}, except it can also print colored text, just like {{LibraryFunction|chat|AddText}}.</summary>
         // <param name="args">Values to print. If you put in a color, all text after that color will be printed in that color.</param>
-        public static void MsgC(vararg args) {
+        public virtual void MsgC(@object args) {
         }
         
         // <realm>Shared</realm>
         // <summary>Just like {{GlobalFunction|Msg}}, except it adds a newline (''"\n"'') at the end.</summary>
         // <param name="args">List of values to print.</param>
-        public static void MsgN(vararg args) {
+        public virtual void MsgN(@object args) {
         }
         
         // <realm>Client</realm>
         // <summary>Returns named color defined in resource/ClientScheme.res.</summary>
         // <param name="name">Name of color.</param>
-        public static void NamedColor(string name) {
+        // <return>table|A {{Struct|Color}} or nil</return>
+        public virtual table NamedColor(string name) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns a new userdata object.</summary>
         // <param name="addMetatable">If true, the userdata will get its own metatable automatically.</param>
-        public static void newproxy(bool addMetatable) {
+        // <return>userdata|The newly created userdata.</return>
+        public virtual userdata newproxy(boolean addMetatable) {
+            return new userdata();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the next key and value pair in a table</summary>
         // <param name="tab">The table.</param>
         // <param name="prevKey">The key previous to the keyvaluepair returned by this function.</param>
-        public static void next(table tab, any prevKey) {
+        public virtual void next(table tab, any prevKey) {
         }
         
         // <realm>Client</realm>
         // <summary>Returns the amount of skins the specified model has</summary>
         // <param name="modelName">Model to return amount of skins of.</param>
-        public static void NumModelSkins(string modelName) {
+        // <return>number|Amount of skins</return>
+        public virtual int NumModelSkins(string modelName) {
+            return 1;
         }
         
         // <realm>Client</realm>
@@ -990,20 +1109,20 @@ namespace MetroMad.Lua.gLua {
         // <param name="numBoneControllers">Number of bone controllers the model has.</param>
         // <param name="numSkins">Number of skins that the model has.</param>
         // <param name="size">Size of the model.</param>
-        public static void OnModelLoaded(string modelName, float numPostParams, float numSeq, float numAttachments, float numBoneControllers, float numSkins, float size) {
+        public virtual void OnModelLoaded(string modelName, float numPostParams, float numSeq, float numAttachments, float numBoneControllers, float numSkins, float size) {
         }
         
         // <realm>Shared</realm>
         // <summary>Modifies the given vectors so that all of vector2's axis are larger than vector1's by switching them around. Also known as ordering vectors</summary>
         // <param name="vector1">Bounding box min resultant.</param>
         // <param name="vector2">Bounding box max resultant.</param>
-        public static void OrderVectors(Vector vector1, Vector vector2) {
+        public virtual void OrderVectors(Vector vector1, Vector vector2) {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns an iterator function({{GlobalFunction|next}}) for a for loop that will return the values of the specified table in an arbitrary order.</summary>
         // <param name="tab">The table to iterate over.</param>
-        public static void pairs(table tab) {
+        public virtual void pairs(table tab) {
         }
         
         // <realm>Shared</realm>
@@ -1012,7 +1131,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="position">The start position of the effect.</param>
         // <param name="angles">The orientation of the effect.</param>
         // <param name="parent">If set, the particle will be parented to the entity.</param>
-        public static void ParticleEffect(string particleName, Vector position, Angle angles, Entity parent) {
+        public virtual void ParticleEffect(string particleName, Vector position, Angle angles, Entity parent) {
         }
         
         // <realm>Shared</realm>
@@ -1021,77 +1140,85 @@ namespace MetroMad.Lua.gLua {
         // <param name="attachType">Attachment type using {{Enum|PATTACH}}.</param>
         // <param name="entity">The entity to be used in the way specified by the attachType.</param>
         // <param name="attachmentID">The id of the attachment to be used in the way specified by the attachType.</param>
-        public static void ParticleEffectAttach(string particleName, float attachType, Entity entity, float attachmentID) {
+        public virtual void ParticleEffectAttach(string particleName, float attachType, Entity entity, float attachmentID) {
         }
         
         // <realm>Shared</realm>
         // <summary>Creates a new {{Type|CLuaEmitter}}.</summary>
         // <param name="position">The start position of the emitter.</param>
         // <param name="use3D">Whenever to render the particles in 2D or 3D mode.</param>
-        public static void ParticleEmitter(Vector position, bool use3D) {
+        // <return>CLuaEmitter|The new particle emitter.</return>
+        public virtual CLuaEmitter ParticleEmitter(Vector position, boolean use3D) {
+            return new CLuaEmitter();
         }
         
         // <realm>Server</realm>
         // <summary>Creates a path for the bot to follow</summary>
         // <param name="type">The name of the path to create.</param>
-        public static void Path(string type) {
+        // <return>PathFollower|The path</return>
+        public virtual PathFollower Path(string type) {
+            return new PathFollower();
         }
         
         // <realm>Shared</realm>
         // <summary>Calls a function and catches an error that can be thrown while the execution of the call.</summary>
         // <param name="func">Function to be executed and of which the errors should be caught of.</param>
         // <param name="arguments">Arguments to call the function with.</param>
-        public static void pcall(function func, vararg arguments) {
+        // <return>boolean|If the function had no errors occur within it.</return>
+        public virtual bool pcall(function func, @object arguments) {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the player with the matching player index.</summary>
         // <param name="playerIndex">The player index.</param>
-        public static void Player(float playerIndex) {
+        public virtual void Player(float playerIndex) {
         }
         
         // <realm>Client</realm>
         // <summary>Moves the given model to the given position and returns view information based on its properties</summary>
         // <param name="model">Model that is being rendered to the spawn icon.</param>
         // <param name="position">Position that the model is being rendered at.</param>
-        public static void PositionSpawnIcon(Entity model, Vector position) {
+        // <return>table|Table of information of the view which can be used for rendering</return>
+        public virtual table PositionSpawnIcon(Entity model, Vector position) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Precaches the particle the the specified name.</summary>
         // <param name="particleSystemName">The name of the particle system.</param>
-        public static void PrecacheParticleSystem(string particleSystemName) {
+        public virtual void PrecacheParticleSystem(string particleSystemName) {
         }
         
         // <realm>Server</realm>
         // <summary>Precaches a scene file.</summary>
         // <param name="scene">Path to the scene file to precache.</param>
-        public static void PrecacheScene(string scene) {
+        public virtual void PrecacheScene(string scene) {
         }
         
         // <realm>Server</realm>
         // <summary>Load and precache a custom sentence file.</summary>
         // <param name="filename">The path to the custom sentences.txt.</param>
-        public static void PrecacheSentenceFile(string filename) {
+        public virtual void PrecacheSentenceFile(string filename) {
         }
         
         // <realm>Server</realm>
         // <summary>Precache a sentence group in a sentences.txt definition file.</summary>
         // <param name="group">The group to precache.</param>
-        public static void PrecacheSentenceGroup(string group) {
+        public virtual void PrecacheSentenceGroup(string group) {
         }
         
         // <realm>Shared</realm>
         // <summary>Writes every given argument to the console.<br /></summary>
         // <param name="args">List of values to print.</param>
-        public static void print(vararg args) {
+        public virtual void print(@object args) {
         }
         
         // <realm>Server</realm>
         // <summary>Displays a message in the chat, console, or center of screen of every player.</summary>
         // <param name="type">Which type of message should be sent to the players (see {{Enum|HUD}}).</param>
         // <param name="message">Message to be sent to the players.</param>
-        public static void PrintMessage(float type, string message) {
+        public virtual void PrintMessage(float type, string message) {
         }
         
         // <realm>Shared</realm>
@@ -1099,33 +1226,37 @@ namespace MetroMad.Lua.gLua {
         // <param name="tableToPrint">The table to be printed.</param>
         // <param name="indent">Internal argument, you shouldn't normally change this. It sets the indentation of the string printed for when there's a table within a table.</param>
         // <param name="done">Internal argument, you shouldn't normally change this. This checks if there is a table within a table.</param>
-        public static void PrintTable(table tableToPrint, float indent, table done) {
+        public virtual void PrintTable(table tableToPrint, float indent, table done) {
         }
         
         // <realm>Shared</realm>
         // <summary>Runs a function without stopping whole script on error.</summary>
         // <param name="func">Function to run.</param>
-        public static void ProtectedCall(function func) {
+        // <return>boolean|Were there any errors or not</return>
+        public virtual bool ProtectedCall(function func) {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns an iterator function that can be used to loop through a table in random order</summary>
         // <param name="table">Table to create iterator for.</param>
         // <param name="descending">Whether the iterator should iterate descending or not.</param>
-        public static void RandomPairs(table table, bool descending) {
+        // <return>function|Iterator function</return>
+        public virtual function RandomPairs(table table, boolean descending) {
+            return new function();
         }
         
         // <realm>Shared</realm>
         // <summary>Compares the first and the second argument without calling their __eq operator.</summary>
         // <param name="arg1">The first argument to compare.</param>
-        public static void rawequal(any arg1) {
+        public virtual void rawequal(any arg1) {
         }
         
         // <realm>Shared</realm>
         // <summary>Gets the value with the specified key from the table without calling the __index method.</summary>
         // <param name="table">Table to get the value from.</param>
         // <param name="index">The index to get the value from.</param>
-        public static void rawget(table table, any index) {
+        public virtual void rawget(table table, any index) {
         }
         
         // <realm>Shared</realm>
@@ -1133,38 +1264,42 @@ namespace MetroMad.Lua.gLua {
         // <param name="table">Table to get the value from.</param>
         // <param name="index">The index to get the value from.</param>
         // <param name="value">The value to set for the specified key.</param>
-        public static void rawset(table table, any index, any value) {
+        public virtual void rawset(table table, any index, any value) {
         }
         
         // <realm>Client</realm>
         // <summary>Returns the real frame-time which is unaffected by host_timescale. To be used for GUI effects (for example)</summary>
-        public static void RealFrameTime() {
+        // <return>number|Real frame time</return>
+        public virtual int RealFrameTime() {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the uptime of the game/server in seconds (to at least 4 decimal places)</summary>
-        public static void RealTime() {
+        public virtual void RealTime() {
         }
         
         // <realm>Server</realm>
         // <summary>Creates a new recipient filter object.</summary>
-        public static void RecipientFilter() {
+        public virtual void RecipientFilter() {
         }
         
         // <realm>Client</realm>
         // <summary>Registers a Derma element to be closed the next time {{GlobalFunction|CloseDermaMenus}} is called</summary>
         // <param name="menu">Menu to be registered for closure.</param>
-        public static void RegisterDermaMenuForClose(Panel menu) {
+        public virtual void RegisterDermaMenuForClose(Panel menu) {
         }
         
         // <realm>Shared</realm>
         // <summary>Saves position of your cursor on screen. You can restore it by using {{GlobalFunction|RestoreCursorPosition}}.</summary>
-        public static void RememberCursorPosition() {
+        public virtual void RememberCursorPosition() {
         }
         
         // <realm>Client</realm>
         // <summary>Returns the angle that the clients view is being rendered at</summary>
-        public static void RenderAngles() {
+        // <return>Angle|Render Angles</return>
+        public virtual Angle RenderAngles() {
+            return new Angle();
         }
         
         // <realm>Client</realm>
@@ -1178,14 +1313,14 @@ namespace MetroMad.Lua.gLua {
         // <param name="spin">Whether to cycle the frame or not.</param>
         // <param name="inView">Table of view data.</param>
         // <param name="fov">FOV to render the effect with.</param>
-        public static void RenderDoF(Vector origin, Angle angle, Vector usableFocusPoint, float angleSize, float radialSteps, float passes, bool spin, table inView, float fov) {
+        public virtual void RenderDoF(Vector origin, Angle angle, Vector usableFocusPoint, float angleSize, float radialSteps, float passes, boolean spin, table inView, float fov) {
         }
         
         // <realm>Client</realm>
         // <summary>Renders the stereoscopic post-process effect</summary>
         // <param name="viewOrigin">Origin to render the effect at.</param>
         // <param name="viewAngles">Angles to render the effect at.</param>
-        public static void RenderStereoscopy(Vector viewOrigin, Angle viewAngles) {
+        public virtual void RenderStereoscopy(Vector viewOrigin, Angle viewAngles) {
         }
         
         // <realm>Client</realm>
@@ -1193,80 +1328,84 @@ namespace MetroMad.Lua.gLua {
         // <param name="viewOrigin">Origin to render the effect at.</param>
         // <param name="viewAngles">Angles to render the effect at.</param>
         // <param name="viewFOV">Field of View to render the effect at.</param>
-        public static void RenderSuperDoF(Vector viewOrigin, Angle viewAngles, float viewFOV) {
+        public virtual void RenderSuperDoF(Vector viewOrigin, Angle viewAngles, float viewFOV) {
         }
         
         // <realm>Shared</realm>
         // <summary>First tries to load a binary module with the given name, if unsuccesfull, it tries to load a lua module with the given name.</summary>
         // <param name="name">The name of the module to be loaded.</param>
-        public static void require(string name) {
+        public virtual void require(string name) {
         }
         
         // <realm>Shared</realm>
         // <summary>Restores position of your cursor on screen. You can save it by using {{GlobalFunction|RememberCursorPosition}}.</summary>
-        public static void RestoreCursorPosition() {
+        public virtual void RestoreCursorPosition() {
         }
         
         // <realm>Shared</realm>
         // <summary>Executes the given console command with the parameters.</summary>
         // <param name="command">The command to be executed.</param>
         // <param name="arguments">The arguments. Note, that unlike {{ClassFunction|Player|ConCommand}}, you must pass each argument as a new string, not separating them with a space.</param>
-        public static void RunConsoleCommand(string command, vararg arguments) {
+        public virtual void RunConsoleCommand(string command, @object arguments) {
         }
         
         // <realm>Shared</realm>
         // <summary>Evaluates and executes the given code, will throw an error on failure.</summary>
         // <param name="code">The code to execute.</param>
-        public static void RunString(string code) {
+        public virtual void RunString(string code) {
         }
         
         // <realm>Shared</realm>
         // <summary>The difference between this function and {{GlobalFunction|RunString}} is that this one lets you pic a custom identifier which will be shown in the error instead of "lua_run".</summary>
         // <param name="code">The code to execute.</param>
         // <param name="identifier">The identifier.</param>
-        public static void RunStringEx(string code, string identifier) {
+        public virtual void RunStringEx(string code, string identifier) {
         }
         
         // <realm>Shared</realm>
         // <summary>Removes the given entity unless it is a player or the world entity</summary>
         // <param name="ent">Entity to safely remove.</param>
-        public static void SafeRemoveEntity(Entity ent) {
+        public virtual void SafeRemoveEntity(Entity ent) {
         }
         
         // <realm>Shared</realm>
         // <summary>Removes entity after delay using {{GlobalFunction|SafeRemoveEntity}}</summary>
         // <param name="entity">Entity to be removed.</param>
         // <param name="delay">Delay for entity removal in seconds.</param>
-        public static void SafeRemoveEntityDelayed(Entity entity, float delay) {
+        public virtual void SafeRemoveEntityDelayed(Entity entity, float delay) {
         }
         
         // <realm>Client</realm>
         // <summary>Overwrites all presets with the supplied table. Used by the preset module for preset saving</summary>
         // <param name="presets">Presets to be saved.</param>
-        public static void SavePresets(table presets) {
+        public virtual void SavePresets(table presets) {
         }
         
         // <realm>Client</realm>
         // <summary>Returns a number based on the Size argument and your screen's width.</summary>
         // <param name="Size">The number you want to scale.</param>
-        public static void ScreenScale(float Size) {
+        public virtual void ScreenScale(float Size) {
         }
         
         // <realm>Client</realm>
         // <summary>Returns the height of GMod's window (in pixels).</summary>
-        public static void ScrH() {
+        // <return>number|The height of GMod's window in pixels</return>
+        public virtual int ScrH() {
+            return 1;
         }
         
         // <realm>Client</realm>
         // <summary>Gets the width of GMod window (in pixels).</summary>
-        public static void ScrW() {
+        // <return>number|The width of GMods window in pixels</return>
+        public virtual int ScrW() {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Used to select single values from a vararg or get the count of values in it.</summary>
         // <param name="parameter">If a string and the first char of the string equals #, the function will return the amount of values in the vararg. In case of a number it will return all values starting from the given index, if the number is negative, it will return the amount specified from the end instead of the beginning.</param>
-        // <param name="vararg">The vararg.</param>
-        public static void select(string parameter, any vararg) {
+        // <param name="object">The vararg.</param>
+        public virtual void select(string parameter, any @object) {
         }
         
         // <realm>Shared</realm>
@@ -1274,102 +1413,106 @@ namespace MetroMad.Lua.gLua {
         // <param name="Name">The name of the usermessage.</param>
         // <param name="Recipient">Can be a RecipientFilter, table or player object.</param>
         // <param name="VarArg">Data to send in the usermessage.</param>
-        public static void SendUserMessage(string Name, any Recipient, any VarArg) {
+        public virtual void SendUserMessage(string Name, any Recipient, any VarArg) {
         }
         
         // <realm>Server</realm>
         // <summary>Prints "ServerLog: PARAM" without a newline, to the server log and console.</summary>
         // <param name="parameter">The value to be printed to console.</param>
-        public static void ServerLog(string parameter) {
+        public virtual void ServerLog(string parameter) {
         }
         
         // <realm>Client</realm>
         // <summary>Adds the given string to the computers clipboard, which can then be pasted in or outside of GMod with Ctrl + V.</summary>
         // <param name="text">The text to add to the clipboard.</param>
-        public static void SetClipboardText(string text) {
+        public virtual void SetClipboardText(string text) {
         }
         
         // <realm>Shared</realm>
         // <summary>Sets the enviroment for a function or a stack level, if a function is passed, the return value will be the function, otherwise nil.</summary>
         // <param name="location">The function to set the enviroment for or a number representing stack level.</param>
         // <param name="enviroment">Table to be used as enviroment.</param>
-        public static void setfenv(function location, table enviroment) {
+        public virtual void setfenv(function location, table enviroment) {
         }
         
         // <realm>Shared</realm>
         // <summary>Defines an angle to be automatically networked to clients</summary>
         // <param name="index">Index to identify the global angle with.</param>
         // <param name="angle">Angle to be networked.</param>
-        public static void SetGlobalAngle(any index, Angle angle) {
+        public virtual void SetGlobalAngle(any index, Angle angle) {
         }
         
         // <realm>Shared</realm>
-        // <summary>Defined a bool to be automatically networked to clients</summary>
-        // <param name="index">Index to identify the global bool with.</param>
+        // <summary>Defined a boolean to be automatically networked to clients</summary>
+        // <param name="index">Index to identify the global boolean with.</param>
         // <param name="bool">Boolean to be networked.</param>
-        public static void SetGlobalBool(any index, bool @bool) {
+        public virtual void SetGlobalBool(any index, boolean @bool) {
         }
         
         // <realm>Shared</realm>
         // <summary>Defines an entity to be automatically networked to clients</summary>
         // <param name="index">Index to identify the global entity with.</param>
         // <param name="ent">Entity to be networked.</param>
-        public static void SetGlobalEntity(any index, Entity ent) {
+        public virtual void SetGlobalEntity(any index, Entity ent) {
         }
         
         // <realm>Shared</realm>
         // <summary>Defines a floating point number to be automatically networked to clients</summary>
         // <param name="index">Index to identify the global angle with.</param>
         // <param name="float">Float to be networked.</param>
-        public static void SetGlobalFloat(any index, float @float) {
+        public virtual void SetGlobalFloat(any index, float @float) {
         }
         
         // <realm>Shared</realm>
         // <summary>Sets an integer that is shared between the server and all clients.</summary>
         // <param name="Index">The unique index to identify the global value with.</param>
         // <param name="Value">The value to set the global value to.</param>
-        public static void SetGlobalInt(string Index, float Value) {
+        public virtual void SetGlobalInt(string Index, float Value) {
         }
         
         // <realm>Shared</realm>
         // <summary>Defines a string to be automatically networked to clients</summary>
         // <param name="index">Index to identify the global string with.</param>
         // <param name="string">String to be networked.</param>
-        public static void SetGlobalString(any index, string @string) {
+        public virtual void SetGlobalString(any index, string @string) {
         }
         
         // <realm>Shared</realm>
         // <summary>Define a variable to be automatically networked to clients</summary>
         // <param name="index">Index to identify the global variable with.</param>
         // <param name="var">Variable to be networked.</param>
-        public static void SetGlobalVar(any index, any var) {
+        public virtual void SetGlobalVar(any index, any var) {
         }
         
         // <realm>Shared</realm>
         // <summary>Defines a vector to be automatically networked to clients</summary>
         // <param name="index">Index to identify the global vector with.</param>
         // <param name="vec">Vector to be networked.</param>
-        public static void SetGlobalVector(any index, Vector vec) {
+        public virtual void SetGlobalVector(any index, Vector vec) {
         }
         
         // <realm>Shared</realm>
         // <summary>Sets, changes or removes a table's metatable. Returns Tab (the first argument).</summary>
         // <param name="Tab">The table who's metatable to change.</param>
         // <param name="Metatable">The metatable to assign.<br />If it's nil, the metatable will be removed.</param>
-        public static void setmetatable(table Tab, table Metatable) {
+        // <return>table|The first argument.</return>
+        public virtual table setmetatable(table Tab, table Metatable) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Called by the engine to set which constraint system [https://developer.valvesoftware.com/wiki/Phys_constraintsystem] the next created constraints should use</summary>
         // <param name="constraintSystem">Constraint system to use.</param>
-        public static void SetPhysConstraintSystem(Entity constraintSystem) {
+        public virtual void SetPhysConstraintSystem(Entity constraintSystem) {
         }
         
         // <realm>Shared</realm>
         // <summary>This function can be used in a for loop instead of {{GlobalFunction|pairs}}. It sorts all '''keys''' alphabetically.</summary>
         // <param name="table">The table to sort.</param>
         // <param name="desc">Reverse the sorting order.</param>
-        public static void SortedPairs(table table, bool desc) {
+        // <return>function|Iterator function</return>
+        public virtual function SortedPairs(table table, boolean desc) {
+            return new function();
         }
         
         // <realm>Shared</realm>
@@ -1377,66 +1520,76 @@ namespace MetroMad.Lua.gLua {
         // <param name="table">Table to create iterator for.</param>
         // <param name="memberName">Name of member to order iteration by.</param>
         // <param name="descending">Whether the iterator should iterate in descending order or not.</param>
-        public static void SortedPairsByMemberValue(table table, string memberName, bool descending) {
+        // <return>function|Iterator function</return>
+        public virtual function SortedPairsByMemberValue(table table, string memberName, boolean descending) {
+            return new function();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns an iterator function that can be used to loop through a table in order of its '''values'''.</summary>
         // <param name="table">Table to create iterator for.</param>
         // <param name="descending">Whether the iterator should iterate in descending order or not.</param>
-        public static void SortedPairsByValue(table table, bool descending) {
+        // <return>function|Iterator function</return>
+        public virtual function SortedPairsByValue(table table, boolean descending) {
+            return new function();
         }
         
         // <realm>Shared</realm>
         // <summary>Runs {{LibraryFunction|util|PrecacheSound}} and returns the string</summary>
         // <param name="soundPath">The soundpath to precache.</param>
-        public static void Sound(string soundPath) {
+        public virtual void Sound(string soundPath) {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the duration of the sound specified in seconds.</summary>
         // <param name="soundName">The sound name.</param>
-        public static void SoundDuration(string soundName) {
+        public virtual void SoundDuration(string soundName) {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the input value in an escaped form so that it can safely be used inside of queries. The returned value is surrounded by quotes unless noQuotes is true. Alias of {{LibraryFunction|sql|SQLStr}}</summary>
         // <param name="input">String to be escaped.</param>
         // <param name="noQuotes">Whether the returned value should be surrounded in quotes or not.</param>
-        public static void SQLStr(string input, bool noQuotes) {
+        // <return>string|Escaped input</return>
+        public virtual string SQLStr(string input, boolean noQuotes) {
+            return "String";
         }
         
         // <realm>Client</realm>
         // <summary>{{Deprecated|You should be using {{GlobalFunction|ScreenScale}} instead.}}</summary>
         // <param name="Size">The number you want to scale.</param>
-        public static void SScale(float Size) {
+        public virtual void SScale(float Size) {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns ordinal suffix of given number</summary>
         // <param name="value">value to return ordinal suffix of.</param>
-        public static void STNDRD(float value) {
+        // <return>string|suffix</return>
+        public virtual string STNDRD(float value) {
+            return "String";
         }
         
         // <realm>Server</realm>
         // <summary>Suppress any networking from the server to the specified player.</summary>
         // <param name="suppressPlayer">The player to suppress any networking to.</param>
-        public static void SuppressHostEvents(Player suppressPlayer) {
+        public virtual void SuppressHostEvents(Player suppressPlayer) {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns a highly accurate time since the start up, ideal for benchmarking.</summary>
-        public static void SysTime() {
+        public virtual void SysTime() {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns a TauntCamera object</summary>
-        public static void TauntCamera() {
+        // <return>table|TauntCamera</return>
+        public virtual table TauntCamera() {
+            return new table();
         }
         
         // <realm>Client</realm>
         // <summary>Clears focus from any text entries player may have focused.</summary>
-        public static void TextEntryLoseFocus() {
+        public virtual void TextEntryLoseFocus() {
         }
         
         // <realm>Shared</realm>
@@ -1445,7 +1598,9 @@ namespace MetroMad.Lua.gLua {
         // <param name="min">Minimum value.</param>
         // <param name="max">Maxmimum value.</param>
         // <param name="offset">Offset variable that doesn't affect the rate of change, but causes the returned value to be offset by time.</param>
-        public static void TimedCos(float frequency, float min, float max, float offset) {
+        // <return>number|Cosine value</return>
+        public virtual int TimedCos(float frequency, float min, float max, float offset) {
+            return 1;
         }
         
         // <realm>Shared</realm>
@@ -1454,38 +1609,46 @@ namespace MetroMad.Lua.gLua {
         // <param name="min">Minimum value.</param>
         // <param name="max">Maxmimum value.</param>
         // <param name="offset">Offset variable that doesn't affect the rate of change, but causes the returned value to be offset by time.</param>
-        public static void TimedSin(float frequency, float min, float max, float offset) {
+        // <return>number|Sine value</return>
+        public virtual int TimedSin(float frequency, float min, float max, float offset) {
+            return 1;
         }
         
         // <realm>Shared</realm>
-        // <summary>Attempts to return an appropriate bool for the given value</summary>
-        // <param name="val">The object to be converted to a bool.</param>
-        public static void tobool(any val) {
+        // <summary>Attempts to return an appropriate boolean for the given value</summary>
+        // <param name="val">The object to be converted to a boolean.</param>
+        // <return>boolean|'''false''' for the boolean false.<br />'''false''' for "false".<br />'''false''' for "0".<br />'''false''' for numeric 0.<br />'''false''' for nil.<br /><br />'''true''' otherwise.</return>
+        public virtual bool tobool(any val) {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Converts the string to a number with the given base, returns nil on failure.</summary>
         // <param name="string">The string containing a number.</param>
         // <param name="base">The number base, must range from 2 to 37, will throw an error otherwise.</param>
-        public static void tonumber(string @string, float @base) {
+        public virtual void tonumber(string @string, float @base) {
         }
         
         // <realm>Shared</realm>
         // <summary>Attempts to convert an object to a string, if defined, it will call the __tostring method for the given object's metatable, {{GlobalFunction|print}} also uses this functionality.</summary>
         // <param name="Var">The object to be converted to a string.</param>
-        public static void tostring(any Var) {
+        public virtual void tostring(any Var) {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns a string representing the name of the type of the passed object.</summary>
         // <param name="Var">The object to get the type of.</param>
-        public static void type(any Var) {
+        // <return>string|The name of the object's type.</return>
+        public virtual string type(any Var) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Gets the associated type ID of the variable.</summary>
         // <param name="variable">The variable to get the type ID of.</param>
-        public static void TypeID(any variable) {
+        // <return>number|The type ID of the variable. See the {{Enum|TYPE}}.</return>
+        public virtual int TypeID(any variable) {
+            return 1;
         }
         
         // <realm>Shared</realm>
@@ -1493,30 +1656,34 @@ namespace MetroMad.Lua.gLua {
         // <param name="tbl">The table to generate the vararg from.</param>
         // <param name="startIndex">Additional start index.</param>
         // <param name="endIndex">Additional start index.</param>
-        public static void unpack(table tbl, float startIndex, float endIndex) {
+        // <return>vararg|Output values</return>
+        public virtual vararg unpack(table tbl, float startIndex, float endIndex) {
+            return new vararg();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the current asynchronous in-game time.</summary>
-        public static void UnPredictedCurTime() {
+        public virtual void UnPredictedCurTime() {
         }
         
         // <realm>Server</realm>
         // <summary>Renders the rt material with the current angles and position of the given entity.</summary>
         // <param name="ent">Given entity.</param>
-        public static void UpdateRenderTarget(Entity ent) {
+        public virtual void UpdateRenderTarget(Entity ent) {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns whether or not a model is useless by checking that the file path is that of a proper model.</summary>
         // <param name="modelName">The model name to be checked.</param>
-        public static void UTIL_IsUselessModel(string modelName) {
+        // <return>boolean|Is useless</return>
+        public virtual bool UTIL_IsUselessModel(string modelName) {
+            return true;
         }
         
         // <realm>Client</realm>
         // <summary>{{Deprecated|You should use {{GlobalFunction|IsValid}} instead}}</summary>
         // <param name="panel">The panel to validate.</param>
-        public static void ValidPanel(Panel panel) {
+        public virtual void ValidPanel(Panel panel) {
         }
         
         // <realm>Shared</realm>
@@ -1524,17 +1691,19 @@ namespace MetroMad.Lua.gLua {
         // <param name="x">The x component of the vector.</param>
         // <param name="y">The y component of the vector.</param>
         // <param name="z">The z component of the vector.</param>
-        public static void Vector(float x, float y, float z) {
+        public virtual void Vector(float x, float y, float z) {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns a random vector whose components are each between -1 and 1</summary>
-        public static void VectorRand() {
+        // <return>Vector|The random direction vector</return>
+        public virtual Vector VectorRand() {
+            return new Vector();
         }
         
         // <realm>Client</realm>
         // <summary>Returns the time in seconds it took to render the VGUI.</summary>
-        public static void VGUIFrameTime() {
+        public virtual void VGUIFrameTime() {
         }
         
         // <realm>Client</realm>
@@ -1543,20 +1712,24 @@ namespace MetroMad.Lua.gLua {
         // <param name="y">Y position of the created element.</param>
         // <param name="w">Width of the created element.</param>
         // <param name="h">Height of the created element.</param>
-        public static void VGUIRect(float x, float y, float w, float h) {
+        // <return>Panel|DShape Derma element</return>
+        public virtual Panel VGUIRect(float x, float y, float w, float h) {
+            return new Panel();
         }
         
         // <realm>Client</realm>
         // <summary>Briefly displays layout details of the given panel on-screen</summary>
         // <param name="panel">Panel to display layout details of.</param>
-        public static void VisualizeLayout(Panel panel) {
+        public virtual void VisualizeLayout(Panel panel) {
         }
         
         // <realm>Client</realm>
         // <summary>Returns a new WorkshopFileBase element</summary>
         // <param name="namespace">Namespace for the file base.</param>
         // <param name="requiredTags">Tags required for a Workshop submission to be interacted with by the filebase.</param>
-        public static void WorkshopFileBase(string @namespace, table requiredTags) {
+        // <return>table|WorkshopFileBase element</return>
+        public virtual table WorkshopFileBase(string @namespace, table requiredTags) {
+            return new table();
         }
         
         // <realm>Shared</realm>
@@ -1565,7 +1738,9 @@ namespace MetroMad.Lua.gLua {
         // <param name="angle">The angles that should be translated from the current to the new system.</param>
         // <param name="newSystemOrigin">The origin of the system to translate to.</param>
         // <param name="newSystemAngles">The angles of the system to translate to.</param>
-        public static void WorldToLocal(Vector position, Angle angle, Vector newSystemOrigin, Angle newSystemAngles) {
+        // <return>Vector|Local position</return>
+        public virtual Vector WorldToLocal(Vector position, Angle angle, Vector newSystemOrigin, Angle newSystemAngles) {
+            return new Vector();
         }
         
         // <realm>Shared</realm>
@@ -1573,7 +1748,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="func">Numbers to get the largest from.</param>
         // <param name="errorCallback">Function to be called on error, error message passed as parameter.</param>
         // <param name="arguments">Arguments to call the function with.</param>
-        public static void xpcall(function func, function errorCallback, vararg arguments) {
+        public virtual void xpcall(function func, function errorCallback, @object arguments) {
         }
     }
 }

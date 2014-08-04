@@ -35,23 +35,25 @@ namespace MetroMad.Lua.gLua {
         // <realm>Client</realm>
         // <summary>Activates a tool, opens context menu and brings up the tool gun.</summary>
         // <param name="tool">Tool class/file name.</param>
-        public static void ActivateTool(string tool) {
+        public virtual void ActivateTool(string tool) {
         }
         
         // <realm>Client</realm>
         // <summary>Activates tools context menu in specified tool tab.</summary>
         // <param name="tab">The tabID of the tab to open the context menu in.</param>
         // <param name="cp">The control panel to open.</param>
-        public static void ActivateToolPanel(float tab, Panel cp) {
+        public virtual void ActivateToolPanel(float tab, Panel cp) {
         }
         
         // <realm>Client</realm>
         // <summary>Returns currently opened control panel of a tool, post process effect or some other menu in spawnmenu.</summary>
-        public static void ActiveControlPanel() {
+        // <return>Panel|The currently opened control panel, if any.</return>
+        public virtual Panel ActiveControlPanel() {
+            return new Panel();
         }
         
         // <realm>Client</realm>
-        public static void AddContentType() {
+        public virtual void AddContentType() {
         }
         
         // <realm>Client</realm>
@@ -61,15 +63,15 @@ namespace MetroMad.Lua.gLua {
         // <param name="pMaterial">Path to the material that will be used as an icon on the tab.</param>
         // <param name="iOrder">The order in which this tab should be shown relative to the other tabs on the creation menu.</param>
         // <param name="strTooltip">The tooltip to be shown for this tab.</param>
-        public static void AddCreationTab(string strName, function pFunction, string pMaterial, float iOrder, string strTooltip) {
+        public virtual void AddCreationTab(string strName, function pFunction, string pMaterial, float iOrder, string strTooltip) {
         }
         
         // <realm>Client</realm>
-        public static void AddPropCategory() {
+        public virtual void AddPropCategory() {
         }
         
         // <realm>Client</realm>
-        public static void AddToolCategory() {
+        public virtual void AddToolCategory() {
         }
         
         // <realm>Client</realm>
@@ -81,7 +83,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="cmd">Command to execute when the item is selected.</param>
         // <param name="config">Config name ( Unknown purpose ).</param>
         // <param name="cpanel">A function to build the C panel.</param>
-        public static void AddToolMenuOption(string tab, string category, string @class, string name, string cmd, string config, function cpanel) {
+        public virtual void AddToolMenuOption(string tab, string category, string @class, string name, string cmd, string config, function cpanel) {
         }
         
         // <realm>Client</realm>
@@ -89,73 +91,79 @@ namespace MetroMad.Lua.gLua {
         // <param name="tab">The name of the tab in creation.</param>
         // <param name="name">The 'Unique' tab name (Tip: {{LibraryFunction|language|Add}}).</param>
         // <param name="icon">(Optional) Directory to tab image.</param>
-        public static void AddToolTab(string tab, string name, string icon) {
+        public virtual void AddToolTab(string tab, string name, string icon) {
         }
         
         // <realm>Client</realm>
-        public static void ClearToolMenus() {
+        public virtual void ClearToolMenus() {
         }
         
         // <realm>Client</realm>
         // <param name="type">The type of the content icon.</param>
         // <param name="parent">The parent to add the content icon to.</param>
-        public static void CreateContentIcon(string type, Panel parent) {
+        // <return>Panel|The created content icon</return>
+        public virtual Panel CreateContentIcon(string type, Panel parent) {
+            return new Panel();
         }
         
         // <realm>Client</realm>
         // <summary>{{Deprecated}}</summary>
         // <param name="spawnlists">A table containing spawnlists.</param>
-        public static void DoSaveToTextFiles(table spawnlists) {
+        public virtual void DoSaveToTextFiles(table spawnlists) {
         }
         
         // <realm>Client</realm>
-        public static void GetContentType() {
+        public virtual void GetContentType() {
         }
         
         // <realm>Client</realm>
         // <summary>Gets the CreationMenus table, which was filled with creation menu tabs from {{LibraryFunction|spawnmenu|AddCreationTab}}.</summary>
-        public static void GetCreationTabs() {
+        // <return>table|The CreationMenus table. See the {{Struct|CreationMenus}}.</return>
+        public virtual table GetCreationTabs() {
+            return new table();
         }
         
         // <realm>Client</realm>
-        public static void GetPropTable() {
+        public virtual void GetPropTable() {
         }
         
         // <realm>Client</realm>
-        public static void GetToolMenu() {
+        public virtual void GetToolMenu() {
         }
         
         // <realm>Client</realm>
         // <summary>Gets a table of tools on the client.</summary>
-        public static void GetTools() {
+        // <return>table|A table with groups of tools, along with information on each tool.</return>
+        public virtual table GetTools() {
+            return new table();
         }
         
         // <realm>Client</realm>
         // <summary>{{Deprecated}}</summary>
-        public static void PopulateFromEngineTextFiles() {
+        public virtual void PopulateFromEngineTextFiles() {
         }
         
         // <realm>Client</realm>
         // <summary>Loads spawnlists from text files.</summary>
-        public static void PopulateFromTextFiles() {
+        public virtual void PopulateFromTextFiles() {
         }
         
         // <realm>Client</realm>
         // <summary>{{Internal}}</summary>
         // <param name="spawnlists">A table containing spawnlists.</param>
-        public static void SaveToTextFiles(table spawnlists) {
+        public virtual void SaveToTextFiles(table spawnlists) {
         }
         
         // <realm>Client</realm>
         // <summary>Sets currently active control panel to be returned by {{LibraryFunction|spawnmenu|ActiveControlPanel}}.</summary>
         // <param name="pnl">The panel to set.</param>
-        public static void SetActiveControlPanel(Panel pnl) {
+        public virtual void SetActiveControlPanel(Panel pnl) {
         }
         
         // <realm>Client</realm>
         // <summary>{{Deprecated}}</summary>
         // <param name="id">The tab ID to open.</param>
-        public static void SwitchToolTab(float id) {
+        public virtual void SwitchToolTab(float id) {
         }
     }
 }

@@ -35,14 +35,14 @@ namespace MetroMad.Lua.gLua {
         // <realm>Shared</realm>
         // <summary>Gets the base class of an an object.</summary>
         // <param name="name">The base class of the object.</param>
-        public static void Get(string name) {
+        public virtual void Get(string name) {
         }
         
         // <realm>Shared</realm>
         // <summary>Sets the base class of an an object.</summary>
         // <param name="name">The base class of the object.</param>
         // <param name="tab">The table.</param>
-        public static void Set(string name, table tab) {
+        public virtual void Set(string name, table tab) {
         }
     }
 }

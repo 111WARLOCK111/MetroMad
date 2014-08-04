@@ -35,115 +35,139 @@ namespace MetroMad.Lua.gLua {
         // <realm>Shared</realm>
         // <summary>Adds a new ammo type to the game.</summary>
         // <param name="ammoData">The attributes of the ammo. See the {{Struct|AmmoData}}.</param>
-        public static void AddAmmoType(table ammoData) {
+        public virtual void AddAmmoType(table ammoData) {
         }
         
         // <realm>Shared</realm>
         // <summary>Registers a new decal.</summary>
         // <param name="decalName">The name of the decal.</param>
         // <param name="materialName">The material to be used for the decal. May also be a list of material names, in which case a random material from that list will be chosen every time the decal is placed.</param>
-        public static void AddDecal(string decalName, string materialName) {
+        public virtual void AddDecal(string decalName, string materialName) {
         }
         
         // <realm>Client</realm>
         // <summary>Loads a particle file.</summary>
         // <param name="particleFileName">The path of the file to add.</param>
-        public static void AddParticles(string particleFileName) {
+        public virtual void AddParticles(string particleFileName) {
         }
         
         // <realm>Shared</realm>
         // <summary>{{Internal}}</summary>
-        public static void BuildAmmoTypes() {
+        // <return>table|All ammo types registered via {{LibraryFunction|game|AddAmmoType}}, sorted by its name value.</return>
+        public virtual table BuildAmmoTypes() {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>If called serverside it will remove ALL entities which were not created by the map(not players or weapons held by players).</summary>
         // <param name="dontSendToClients">If set to true, don't run this functions on all clients.</param>
         // <param name="ExtraFilters">Entity classes not to reset during cleanup.</param>
-        public static void CleanUpMap(bool dontSendToClients, table ExtraFilters) {
+        public virtual void CleanUpMap(boolean dontSendToClients, table ExtraFilters) {
         }
         
         // <realm>Server</realm>
         // <summary>Runs a console command.</summary>
         // <param name="stringCommand">String containing the command and arguments to be ran.</param>
-        public static void ConsoleCommand(string stringCommand) {
+        public virtual void ConsoleCommand(string stringCommand) {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the name of the current map, without a file extension.</summary>
-        public static void GetMap() {
+        // <return>string|The name of the current map, without a file extension.</return>
+        public virtual string GetMap() {
+            return "String";
         }
         
         // <realm>Server</realm>
         // <summary>Returns the next map that would be loaded according to the file that is set by the mapcyclefile convar.</summary>
-        public static void GetMapNext() {
+        // <return>string|nextMap</return>
+        public virtual string GetMapNext() {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the VBSP version of the current map.</summary>
-        public static void GetMapVersion() {
+        // <return>number|mapVersion</return>
+        public virtual int GetMapVersion() {
+            return 1;
         }
         
         // <realm>Server</realm>
         // <summary>Returns the skill level of the game.</summary>
-        public static void GetSkillLevel() {
+        // <return>number|The skill level, Easy( 1 ), Normal( 2 ), Hard ( 3 ).</return>
+        public virtual int GetSkillLevel() {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the timescale of the game</summary>
-        public static void GetTimeScale() {
+        // <return>number|timeScale</return>
+        public virtual int GetTimeScale() {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the worldspawn entity.</summary>
-        public static void GetWorld() {
+        // <return>Entity|The world</return>
+        public virtual Entity GetWorld() {
+            return new Entity();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns whenever the server or the server we are connected to is a dedicated server.</summary>
-        public static void IsDedicated() {
+        // <return>boolean|isDedicated</return>
+        public virtual bool IsDedicated() {
+            return true;
         }
         
         // <realm>Server</realm>
         // <summary>Loads the next map according to the file that is set by the mapcyclefile convar.</summary>
-        public static void LoadNextMap() {
+        public virtual void LoadNextMap() {
         }
         
         // <realm>Server</realm>
         // <summary>Returns the map load type of the current map.</summary>
-        public static void MapLoadType() {
+        // <return>string|The load type. Possible values are: "newgame", "loadgame", "transition", "background".</return>
+        public virtual string MapLoadType() {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the maximum number of players for this server.</summary>
-        public static void MaxPlayers() {
+        // <return>number|maxPlayers</return>
+        public virtual int MaxPlayers() {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Removes all the clientside ragdolls.</summary>
-        public static void RemoveRagdolls() {
+        public virtual void RemoveRagdolls() {
         }
         
         // <realm>Server</realm>
         // <summary>Sets the skill level of the game.</summary>
         // <param name="level">The skill level, Easy( 1 ), Normal( 2 ), Hard ( 3 ).</param>
-        public static void SetSkillLevel(float level) {
+        public virtual void SetSkillLevel(float level) {
         }
         
         // <realm>Server</realm>
         // <summary>Sets the time scale of the game.</summary>
         // <param name="timeScale">The new timescale.</param>
-        public static void SetTimeScale(float timeScale) {
+        public virtual void SetTimeScale(float timeScale) {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns whenever the current session is a single player game.</summary>
-        public static void SinglePlayer() {
+        // <return>boolean|isSinglePlayer</return>
+        public virtual bool SinglePlayer() {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns position the player should start from, this is not the same thing as spawn points, it is used to properly transit the player between maps.</summary>
-        public static void StartSpot() {
+        // <return>Vector|startSpot</return>
+        public virtual Vector StartSpot() {
+            return new Vector();
         }
     }
 }

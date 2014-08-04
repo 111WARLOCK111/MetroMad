@@ -35,7 +35,7 @@ namespace MetroMad.Lua.gLua {
         // <realm>Shared</realm>
         // <summary>Sets the __index member of the passed table to _G.</summary>
         // <param name="table">The table to set its __index.</param>
-        public static void seeall(table table) {
+        public virtual void seeall(table table) {
         }
     }
 }

@@ -35,40 +35,46 @@ namespace MetroMad.Lua.gLua {
         // <realm>Shared</realm>
         // <summary>Loads the given surface properties as a string, follows the file format.</summary>
         // <param name="properties">The properties to add.</param>
-        public static void AddSurfaceData(string properties) {
+        public virtual void AddSurfaceData(string properties) {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the air density.</summary>
-        public static void GetAirDensity() {
+        // <return>number|airDensity</return>
+        public virtual int GetAirDensity() {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Gets the global gravity.</summary>
-        public static void GetGravity() {
+        // <return>Vector|gravity</return>
+        public virtual Vector GetGravity() {
+            return new Vector();
         }
         
         // <realm>Shared</realm>
         // <summary>Gets the current performance settings in table form.</summary>
-        public static void GetPerformanceSettings() {
+        // <return>table|Performance settings. See {{Struct|PhysEnvPerformanceSettings}}</return>
+        public virtual table GetPerformanceSettings() {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Sets the air density.</summary>
         // <param name="airDensity">The new air density.</param>
-        public static void SetAirDensity(float airDensity) {
+        public virtual void SetAirDensity(float airDensity) {
         }
         
         // <realm>Shared</realm>
         // <summary>Sets the directional gravity, does not work on players.</summary>
         // <param name="gravity">The new gravity.</param>
-        public static void SetGravity(Vector gravity) {
+        public virtual void SetGravity(Vector gravity) {
         }
         
         // <realm>Shared</realm>
         // <summary>Sets the performance settings.</summary>
         // <param name="performanceSettings">The new performance settings. See {{Struct|PhysEnvPerformanceSettings}}.</param>
-        public static void SetPerformanceSettings(table performanceSettings) {
+        public virtual void SetPerformanceSettings(table performanceSettings) {
         }
     }
 }

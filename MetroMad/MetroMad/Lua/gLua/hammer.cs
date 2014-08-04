@@ -35,7 +35,9 @@ namespace MetroMad.Lua.gLua {
         // <realm>Server</realm>
         // <summary>Sends command to Hammer</summary>
         // <param name="cmd">Command to send.</param>
-        public static void SendCommand(string cmd) {
+        // <return>string|Result</return>
+        public virtual string SendCommand(string cmd) {
+            return "String";
         }
     }
 }

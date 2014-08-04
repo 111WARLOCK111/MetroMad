@@ -36,28 +36,30 @@ namespace MetroMad.Lua.gLua {
         // <summary>Add properties to the properties module</summary>
         // <param name="name">A unique name used to identify the property.</param>
         // <param name="propertyData">A table that defines the property.</param>
-        public static void Add(string name, table propertyData) {
+        public virtual void Add(string name, table propertyData) {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns an entity player is hovering over with his cursor.</summary>
         // <param name="pos">Eye position of local player, {{ClassFunction|Entity|EyePos}}.</param>
         // <param name="aimVec">Aim vector of local player, {{ClassFunction|Player|GetAimVector}}.</param>
-        public static void GetHovered(Vector pos, Vector aimVec) {
+        // <return>Entity|The hovered entity</return>
+        public virtual Entity GetHovered(Vector pos, Vector aimVec) {
+            return new Entity();
         }
         
         // <realm>Shared</realm>
         // <summary>Checks if player hovers over any entities and open a properties menu for it.</summary>
         // <param name="eyepos">The eye pos of a player.</param>
         // <param name="eyevec">The aim vector of a player.</param>
-        public static void OnScreenClick(Vector eyepos, Vector eyevec) {
+        public virtual void OnScreenClick(Vector eyepos, Vector eyevec) {
         }
         
         // <realm>Shared</realm>
         // <summary>Opens properties menu for given entity.</summary>
         // <param name="ent">The entity to open menu for.</param>
         // <param name="tr">The trace that is passed as second argument to Action callback of a property.</param>
-        public static void OpenEntityMenu(Entity ent, table tr) {
+        public virtual void OpenEntityMenu(Entity ent, table tr) {
         }
     }
 }

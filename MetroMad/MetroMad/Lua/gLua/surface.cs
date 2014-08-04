@@ -36,13 +36,13 @@ namespace MetroMad.Lua.gLua {
         // <summary>Creates a new font.</summary>
         // <param name="fontName">The new font name.</param>
         // <param name="fontData">The font properties. See the {{Struct|FontData}}.</param>
-        public static void CreateFont(string fontName, table fontData) {
+        public virtual void CreateFont(string fontName, table fontData) {
         }
         
         // <realm>Client</realm>
         // <summary>Enables or disables the clipping used by the VGUI that limits the drawing operations to a panels bounds.</summary>
         // <param name="disable">True to disable, false to enable the clipping.</param>
-        public static void DisableClipping(bool disable) {
+        public virtual void DisableClipping(boolean disable) {
         }
         
         // <realm>Client</realm>
@@ -51,7 +51,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="originY">The center y coordinate.</param>
         // <param name="radius">The radius of the circle.</param>
         // <param name="color">The color of the circle. Uses the {{Struct|Color}}.</param>
-        public static void DrawCircle(float originX, float originY, float radius, table color) {
+        public virtual void DrawCircle(float originX, float originY, float radius, table color) {
         }
         
         // <realm>Client</realm>
@@ -60,7 +60,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="startY">The start y coordinate.</param>
         // <param name="endX">The end x coordinate.</param>
         // <param name="endY">The end y coordinate.</param>
-        public static void DrawLine(float startX, float startY, float endX, float endY) {
+        public virtual void DrawLine(float startX, float startY, float endX, float endY) {
         }
         
         // <realm>Client</realm>
@@ -69,13 +69,13 @@ namespace MetroMad.Lua.gLua {
         // <param name="y">The start y coordinate.</param>
         // <param name="w">The width.</param>
         // <param name="h">The height.</param>
-        public static void DrawOutlinedRect(float x, float y, float w, float h) {
+        public virtual void DrawOutlinedRect(float x, float y, float w, float h) {
         }
         
         // <realm>Client</realm>
         // <summary>Draws a polygon with a maximum of 256 vertices.</summary>
         // <param name="vertices">A table containing vertices. See the {{Struct|PolygonVertex}}.</param>
-        public static void DrawPoly(table vertices) {
+        public virtual void DrawPoly(table vertices) {
         }
         
         // <realm>Client</realm>
@@ -84,13 +84,13 @@ namespace MetroMad.Lua.gLua {
         // <param name="y">The Y co-ordinate.</param>
         // <param name="width">The width of the rectangle.</param>
         // <param name="height">The height of the rectangle.</param>
-        public static void DrawRect(float x, float y, float width, float height) {
+        public virtual void DrawRect(float x, float y, float width, float height) {
         }
         
         // <realm>Client</realm>
         // <summary>Draw the specified text on the screen, using the previously set position.</summary>
         // <param name="text">The text to be rendered.</param>
-        public static void DrawText(string text) {
+        public virtual void DrawText(string text) {
         }
         
         // <realm>Client</realm>
@@ -99,7 +99,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="y">The Y co-ordinate.</param>
         // <param name="width">The width of the rectangle.</param>
         // <param name="height">The height of the rectangle.</param>
-        public static void DrawTexturedRect(float x, float y, float width, float height) {
+        public virtual void DrawTexturedRect(float x, float y, float width, float height) {
         }
         
         // <realm>Client</realm>
@@ -109,7 +109,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="width">The width of the rectangle.</param>
         // <param name="height">The height of the rectangle.</param>
         // <param name="rotation">The rotation of the rectangle, in degrees.</param>
-        public static void DrawTexturedRectRotated(float x, float y, float width, float height, float rotation) {
+        public virtual void DrawTexturedRectRotated(float x, float y, float width, float height, float rotation) {
         }
         
         // <realm>Client</realm>
@@ -122,53 +122,65 @@ namespace MetroMad.Lua.gLua {
         // <param name="startV">The V texture mapping of the rect origin.</param>
         // <param name="endU">The U texture mapping of the rect end.</param>
         // <param name="endV">The V texture mapping of the rect end.</param>
-        public static void DrawTexturedRectUV(float x, float y, float width, float height, float startU, float startV, float endU, float endV) {
+        public virtual void DrawTexturedRectUV(float x, float y, float width, float height, float startU, float startV, float endU, float endV) {
         }
         
         // <realm>Client</realm>
         // <summary>Gets the HUD texture with the specified name.</summary>
         // <param name="name">The name of the texture.</param>
-        public static void GetHUDTexture(string name) {
+        // <return>ITexture|text</return>
+        public virtual ITexture GetHUDTexture(string name) {
+            return new ITexture();
         }
         
         // <realm>Client</realm>
         // <summary>Returns the width and height (in pixels) of the given text, but only if the font has been set with {{LibraryFunction|surface|SetFont}}.</summary>
         // <param name="text">The string to check the size of.</param>
-        public static void GetTextSize(string text) {
+        // <return>number|width</return>
+        public virtual int GetTextSize(string text) {
+            return 1;
         }
         
         // <realm>Client</realm>
         // <summary>Returns the texture id of the texture with the given name/path.</summary>
         // <param name="name/path">Name or path of the texture.</param>
-        public static void GetTextureID(string name/path) {
+        // <return>number|textureID</return>
+        public virtual int GetTextureID(string name/path) {
+            return 1;
         }
         
         // <realm>Client</realm>
         // <summary>Returns the size of the texture with the associated texture id.</summary>
         // <param name="textureID">The texture id.</param>
-        public static void GetTextureSize(float textureID) {
+        // <return>number|width</return>
+        public virtual int GetTextureSize(float textureID) {
+            return 1;
         }
         
         // <realm>Client</realm>
         // <summary>Play a sound file directly on the client (such as UI sounds, etc).</summary>
         // <param name="soundfile">The path to the sound file.</param>
-        public static void PlaySound(string soundfile) {
+        public virtual void PlaySound(string soundfile) {
         }
         
         // <realm>Client</realm>
         // <summary>Returns the height of the current client's screen.</summary>
-        public static void ScreenHeight() {
+        // <return>number|screenHeight</return>
+        public virtual int ScreenHeight() {
+            return 1;
         }
         
         // <realm>Client</realm>
         // <summary>Returns the width of the current client's screen.</summary>
-        public static void ScreenWidth() {
+        // <return>number|screenWidth</return>
+        public virtual int ScreenWidth() {
+            return 1;
         }
         
         // <realm>Client</realm>
         // <summary>Sets a multiplier that will influence all upcoming drawing operations.</summary>
         // <param name="multiplier">The multiplier ranging from 0 to 1.</param>
-        public static void SetAlphaMultiplier(float multiplier) {
+        public virtual void SetAlphaMultiplier(float multiplier) {
         }
         
         // <realm>Client</realm>
@@ -177,19 +189,19 @@ namespace MetroMad.Lua.gLua {
         // <param name="g">The green value of color.</param>
         // <param name="b">The blue value of color.</param>
         // <param name="a">The alpha value of color.</param>
-        public static void SetDrawColor(float r, float g, float b, float a) {
+        public virtual void SetDrawColor(float r, float g, float b, float a) {
         }
         
         // <realm>Client</realm>
         // <summary>Set the current font to be used for text operations later.</summary>
         // <param name="fontName">The name of the font to use.</param>
-        public static void SetFont(string fontName) {
+        public virtual void SetFont(string fontName) {
         }
         
         // <realm>Client</realm>
         // <summary>Sets the material to be used in all upcoming surface draw operations.</summary>
         // <param name="material">The material to be used.</param>
-        public static void SetMaterial(IMaterial material) {
+        public virtual void SetMaterial(IMaterial material) {
         }
         
         // <realm>Client</realm>
@@ -198,20 +210,20 @@ namespace MetroMad.Lua.gLua {
         // <param name="g">The green value of color.</param>
         // <param name="b">The blue value of color.</param>
         // <param name="a">The alpha value of color.</param>
-        public static void SetTextColor(float r, float g, float b, float a) {
+        public virtual void SetTextColor(float r, float g, float b, float a) {
         }
         
         // <realm>Client</realm>
         // <summary>Set the position to draw any future text.</summary>
         // <param name="x">The X co-ordinate.</param>
         // <param name="y">The Y co-ordinate.</param>
-        public static void SetTextPos(float x, float y) {
+        public virtual void SetTextPos(float x, float y) {
         }
         
         // <realm>Client</realm>
         // <summary>Sets the texture to be used in all upcoming surface draw operations.</summary>
         // <param name="textureID">The id of the texture to draw with.</param>
-        public static void SetTexture(float textureID) {
+        public virtual void SetTexture(float textureID) {
         }
     }
 }

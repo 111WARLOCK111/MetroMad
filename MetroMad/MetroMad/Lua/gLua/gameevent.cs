@@ -35,7 +35,7 @@ namespace MetroMad.Lua.gLua {
         // <realm>Shared</realm>
         // <summary>Add a game event listener.</summary>
         // <param name="eventName">The event to listen to, travels through hooks with eventName as event.<br />.</param>
-        public static void Listen(string eventName) {
+        public virtual void Listen(string eventName) {
         }
     }
 }

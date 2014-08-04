@@ -35,13 +35,15 @@ namespace MetroMad.Lua.gLua {
         // <realm>Client</realm>
         // <summary>Adds a search result provider. For examples, see gamemodes/sandbox/gamemode/cl_search_models.lua</summary>
         // <param name="provider">Provider function. It has one argument: [[:Category:string|string]] searchQuery.</param>
-        public static void AddProvider(function provider) {
+        public virtual void AddProvider(function provider) {
         }
         
         // <realm>Client</realm>
         // <summary>Retrieves search results.</summary>
         // <param name="query">Search query.</param>
-        public static void GetResults(string query) {
+        // <return>table|A table of results ( Maximum 1024 items )</return>
+        public virtual table GetResults(string query) {
+            return new table();
         }
     }
 }

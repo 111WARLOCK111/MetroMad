@@ -36,17 +36,17 @@ namespace MetroMad.Lua.gLua {
         // <summary>Add this position and normal to the list of walkable positions, used before map generation with {{LibraryFunction|navmesh|BeginGeneration}}</summary>
         // <param name="pos">The terrain position.</param>
         // <param name="dir">The normal of this terrain position.</param>
-        public static void AddWalkableSeed(Vector pos, Vector dir) {
+        public virtual void AddWalkableSeed(Vector pos, Vector dir) {
         }
         
         // <realm>Server</realm>
         // <summary>Starts the generation of a new navmesh.</summary>
-        public static void BeginGeneration() {
+        public virtual void BeginGeneration() {
         }
         
         // <realm>Server</realm>
         // <summary>Clears all the walkable positions, used before calling {{LibraryFunction|navmesh|BeginGeneration}}.</summary>
-        public static void ClearWalkableSeeds() {
+        public virtual void ClearWalkableSeeds() {
         }
         
         // <realm>Server</realm>
@@ -55,40 +55,52 @@ namespace MetroMad.Lua.gLua {
         // <param name="radius">Radius to search within.</param>
         // <param name="stepdown">Maximum stepdown( fall distance ) allowed.</param>
         // <param name="stepup">Maximum stepup( jump height ) allowed.</param>
-        public static void Find(Vector pos, float radius, float stepdown, float stepup) {
+        // <return>table|A table of {{Type|CNavArea}}s</return>
+        public virtual table Find(Vector pos, float radius, float stepdown, float stepup) {
+            return new table();
         }
         
         // <realm>Server</realm>
         // <summary>Returns the Nav Area contained in this position that also satisfies the elevation limit.</summary>
         // <param name="pos">The position to search for.</param>
         // <param name="beneathLimit">The elevation limit at which the Nav Area will be searched.</param>
-        public static void GetNavArea(Vector pos, float beneathLimit) {
+        // <return>CNavArea|The nav area.</return>
+        public virtual CNavArea GetNavArea(Vector pos, float beneathLimit) {
+            return new CNavArea();
         }
         
         // <realm>Server</realm>
         // <summary>Returns the Nav Area by the given ID.</summary>
-        public static void GetNavAreaByID() {
+        // <return>CNavArea|The returned Nav Area.</return>
+        public virtual CNavArea GetNavAreaByID() {
+            return new CNavArea();
         }
         
         // <realm>Server</realm>
         // <summary>Returns the count of how many Nav Areas are currently loaded in the map.</summary>
-        public static void GetNavAreaCount() {
+        // <return>number|Nav Area count.</return>
+        public virtual int GetNavAreaCount() {
+            return 1;
         }
         
         // <realm>Server</realm>
         // <summary>Returns the classname of the player spawn entity.</summary>
-        public static void GetPlayerSpawnName() {
+        // <return>string|The classname of the spawn point entity. By default returns "info_player_start"</return>
+        public virtual string GetPlayerSpawnName() {
+            return "String";
         }
         
         // <realm>Server</realm>
         // <summary>Whether we're currently generating a new navmesh with {{LibraryFunction|navmesh|BeginGeneration}}.</summary>
-        public static void IsGenerating() {
+        // <return>boolean|Whether we're generating a nav mesh or not.</return>
+        public virtual bool IsGenerating() {
+            return true;
         }
         
         // <realm>Server</realm>
         // <summary>Sets the classname of the default spawn point entity, used before generating a new navmesh with {{LibraryFunction|navmesh|BeginGeneration}}.</summary>
         // <param name="spawnPointClass">The classname of what the player uses to spawn, automatically adds it to the walkable positions during map generation.</param>
-        public static void SetPlayerSpawnName(string spawnPointClass) {
+        public virtual void SetPlayerSpawnName(string spawnPointClass) {
         }
     }
 }

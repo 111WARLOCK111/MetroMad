@@ -34,24 +34,30 @@ namespace MetroMad.Lua.gLua {
         
         // <realm>Shared</realm>
         // <summary>Enters an interactive mode with the user, running each string that the user enters. Using simple commands and other debug facilities, the user can inspect global and local variables, change their values, evaluate expressions, and so on. A line containing only the word cont finishes this function, so that the caller continues its execution.</summary>
-        public static void debug() {
+        public virtual void debug() {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the environment of the passed object. This can be set with {{LibraryFunction|debug|setfenv}}</summary>
         // <param name="object">Object to get environment of.</param>
-        public static void getfenv(table @object) {
+        // <return>table|Environment</return>
+        public virtual table getfenv(table @object) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the current hook settings of the passed thread. The thread argument can be omitted. This is unrelated to gamemode hooks. More information on hooks can be found at http://www.lua.org/pil/23.2.html</summary>
-        public static void gethook() {
+        // <return>function|Hook function</return>
+        public virtual function gethook() {
+            return new function();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns useful information about a function.</summary>
         // <param name="func">Takes either a function or a level as an argument. When a function is defined, it returns useful information about that function in a table.</param>
-        public static void getinfo(function func) {
+        // <return>table|A table as a {{Struct|DebugInfo}} containing information about the function you passed.</return>
+        public virtual table getinfo(function func) {
+            return new table();
         }
         
         // <realm>Shared</realm>
@@ -59,29 +65,37 @@ namespace MetroMad.Lua.gLua {
         // <param name="thread">The thread.</param>
         // <param name="level">The level above the thread.</param>
         // <param name="index">The variable's index you want to get.</param>
-        public static void getlocal(Thread thread, float level, float index) {
+        // <return>string|The name of the variable</return>
+        public virtual string getlocal(Thread thread, float level, float index) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the metatable of an object.</summary>
         // <param name="Object">The object to retrieve the metatable from.</param>
-        public static void getmetatable(any Object) {
+        // <return>table|The metatable of the given object or nil.</return>
+        public virtual table getmetatable(any Object) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the internal Lua registry tables.</summary>
-        public static void getregistry() {
+        // <return>table|registry</return>
+        public virtual table getregistry() {
+            return new table();
         }
         
         // <realm>Shared</realm>
-        public static void getupvalue() {
+        public virtual void getupvalue() {
         }
         
         // <realm>Shared</realm>
         // <summary>Sets the environment of the passed object.</summary>
         // <param name="object">Object to set environment of.</param>
         // <param name="env">Environment to set.</param>
-        public static void setfenv(table @object, table env) {
+        // <return>table|The object</return>
+        public virtual table setfenv(table @object, table env) {
+            return new table();
         }
         
         // <realm>Shared</realm>
@@ -90,40 +104,43 @@ namespace MetroMad.Lua.gLua {
         // <param name="hook">Function for the hook to call.</param>
         // <param name="mask">The hook's mask.</param>
         // <param name="count">How often to call the hook (in instructions). 0 for every instruction.</param>
-        public static void sethook(thread thread, function hook, string mask, float count) {
+        public virtual void sethook(thread thread, function hook, string mask, float count) {
         }
         
         // <realm>Shared</realm>
-        public static void setlocal() {
+        public virtual void setlocal() {
         }
         
         // <realm>Shared</realm>
         // <summary>Sets an object's metatable.</summary>
         // <param name="Object">The object to be given a new metatable.</param>
         // <param name="Metatable">The metatable to set for the object or nil.</param>
-        public static void setmetatable(any Object, table Metatable) {
+        public virtual bool setmetatable(any Object, table Metatable) {
+            return true;
         }
         
         // <realm>Shared</realm>
-        public static void setupvalue() {
+        public virtual void setupvalue() {
         }
         
         // <realm>Shared</realm>
         // <summary>Prints out the lua function call stack to the console.</summary>
-        public static void Trace() {
+        public virtual void Trace() {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns a full execution stack trace.</summary>
-        public static void traceback() {
+        // <return>string|A dump of the execution stack.</return>
+        public virtual string traceback() {
+            return "String";
         }
         
         // <realm>Shared</realm>
-        public static void upvalueid() {
+        public virtual void upvalueid() {
         }
         
         // <realm>Shared</realm>
-        public static void upvaluejoin() {
+        public virtual void upvaluejoin() {
         }
     }
 }

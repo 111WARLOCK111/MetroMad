@@ -35,60 +35,62 @@ namespace MetroMad.Lua.gLua {
         // <realm>Shared</realm>
         // <summary>"Allow this entity to be duplicated"</summary>
         // <param name="classname">An entity's classname.</param>
-        public static void Allow(string classname) {
+        public virtual void Allow(string classname) {
         }
         
         // <realm>Server</realm>
         // <summary>"Applies Bone Modifiers"</summary>
         // <param name="Player">The player whose ragdoll this is.</param>
         // <param name="Ent">The ragdoll in question.</param>
-        public static void ApplyBoneModifiers(Player Player, Entity Ent) {
+        public virtual void ApplyBoneModifiers(Player Player, Entity Ent) {
         }
         
         // <realm>Server</realm>
         // <summary>"Applies entity Modifiers"</summary>
         // <param name="Player">The player whose entity this is.</param>
         // <param name="Ent">The entity in question.</param>
-        public static void ApplyEntityModifiers(Player Player, Entity Ent) {
+        public virtual void ApplyEntityModifiers(Player Player, Entity Ent) {
         }
         
         // <realm>Server</realm>
         // <summary>Clear entity modifiers.</summary>
         // <param name="Entity">The entity the modification is stored on.</param>
         // <param name="Type">The name of the stored entity modifier.</param>
-        public static void ClearEntityModifier(Entity Entity, string Type) {
+        public virtual void ClearEntityModifier(Entity Entity, string Type) {
         }
         
         // <realm>Server</realm>
         // <summary>Creates a duplication.</summary>
         // <param name="ent">The entity to duplicate. The function will automatically copy all constrained entities.</param>
-        public static void Copy(Entity ent) {
+        // <return>table|A table containing duplication info.</return>
+        public virtual table Copy(Entity ent) {
+            return new table();
         }
         
         // <realm>Server</realm>
-        public static void CopyEnts() {
+        public virtual void CopyEnts() {
         }
         
         // <realm>Server</realm>
-        public static void CopyEntTable() {
+        public virtual void CopyEntTable() {
         }
         
         // <realm>Server</realm>
-        public static void CreateConstraintFromTable() {
+        public virtual void CreateConstraintFromTable() {
         }
         
         // <realm>Server</realm>
         // <summary>"Create an entity from a table." <br/></summary>
         // <param name="Player">The player who wants to create something.</param>
         // <param name="EntTable">The duplication data to build the entity with.</param>
-        public static void CreateEntityFromTable(Player Player, table EntTable) {
+        public virtual void CreateEntityFromTable(Player Player, table EntTable) {
         }
         
         // <realm>Server</realm>
         // <summary>"Restores the bone's data."<br/></summary>
         // <param name="ent">The entity to be bone manipulated.</param>
         // <param name="Bones">The bone information.</param>
-        public static void DoBoneManipulator(Entity ent, table Bones) {
+        public virtual void DoBoneManipulator(Entity ent, table Bones) {
         }
         
         // <realm>Server</realm>
@@ -96,14 +98,14 @@ namespace MetroMad.Lua.gLua {
         // <param name="Ent">The entity to restore the flexes on.</param>
         // <param name="Flex">The flexes to restore.</param>
         // <param name="Scale">The flex scale to apply. (Flex scale is unchanged if omitted).</param>
-        public static void DoFlex(Entity Ent, table Flex, float Scale) {
+        public virtual void DoFlex(Entity Ent, table Flex, float Scale) {
         }
         
         // <realm>Server</realm>
         // <summary>"Applies generic every-day entity stuff for ent from table data."<br/></summary>
         // <param name="ent">The entity to be applied upon.</param>
         // <param name="data">The data to be applied onto the entity.</param>
-        public static void DoGeneric(Entity ent, table data) {
+        public virtual void DoGeneric(Entity ent, table data) {
         }
         
         // <realm>Server</realm>
@@ -111,20 +113,20 @@ namespace MetroMad.Lua.gLua {
         // <param name="Entity">The entity to be applied upon.</param>
         // <param name="Player">The player who owns the entity.</param>
         // <param name="data">The data to be applied onto the entity.</param>
-        public static void DoGenericPhysics(Entity Entity, Player Player, table data) {
+        public virtual void DoGenericPhysics(Entity Entity, Player Player, table data) {
         }
         
         // <realm>Shared</realm>
         // <summary>"Returns an entity class factory"</summary>
         // <param name="_name_">The name of the entity class factory.</param>
-        public static void FindEntityClass(string _name_) {
+        public virtual void FindEntityClass(string _name_) {
         }
         
         // <realm>Server</realm>
         // <summary>"Generic function for duplicating stuff" <br/></summary>
         // <param name="Player">The player who wants to create something.</param>
         // <param name="data">The duplication data to build the entity with.</param>
-        public static void GenericDuplicatorFunction(Player Player, table data) {
+        public virtual void GenericDuplicatorFunction(Player Player, table data) {
         }
         
         // <realm>Server</realm>
@@ -132,13 +134,13 @@ namespace MetroMad.Lua.gLua {
         // <param name="ent">The entity to start from.</param>
         // <param name="EntTable">The table the entities will be stored in. (Returned by the function).</param>
         // <param name="ConstraintTable">The table the constraints will be stored in (Returned by the function).</param>
-        public static void GetAllConstrainedEntitiesAndConstraints(Entity ent, table EntTable, table ConstraintTable) {
+        public virtual void GetAllConstrainedEntitiesAndConstraints(Entity ent, table EntTable, table ConstraintTable) {
         }
         
         // <realm>Shared</realm>
         // <summary>"Returns true if we can copy/paste this entity"</summary>
         // <param name="classname">An entity's classname.</param>
-        public static void IsAllowed(string classname) {
+        public virtual void IsAllowed(string classname) {
         }
         
         // <realm>Server</realm>
@@ -146,19 +148,19 @@ namespace MetroMad.Lua.gLua {
         // <param name="Player">The player who wants to create something.</param>
         // <param name="EntityList">A table of duplicator data to create the entities from.</param>
         // <param name="ConstraintList">A table of duplicator data to create the constraints from.</param>
-        public static void Paste(Player Player, table EntityList, table ConstraintList) {
+        public virtual void Paste(Player Player, table EntityList, table ConstraintList) {
         }
         
         // <realm>Shared</realm>
-        public static void RegisterBoneModifier() {
+        public virtual void RegisterBoneModifier() {
         }
         
         // <realm>Shared</realm>
         // <summary>Register a function used for creating a duplicated constraint.</summary>
         // <param name="name">The unique name of new constraint.</param>
         // <param name="callback">Function to be called when this constraint is created.</param>
-        // <param name="...">Arguments passed to the callback function.</param>
-        public static void RegisterConstraint(string name, function callback, any ...) {
+        // <param name="params object[]">Arguments passed to the callback function.</param>
+        public virtual void RegisterConstraint(string name, function callback, any params object[]) {
         }
         
         // <realm>Shared</realm>
@@ -166,35 +168,35 @@ namespace MetroMad.Lua.gLua {
         // <param name="name">The ClassName of the entity you wish to register a factory for.</param>
         // <param name="function">The factory function you want to have called. It should have the arguments (Player, ...) where ... is whatever arguments you request to be passed.</param>
         // <param name="args">A list of arguments you want passed from the duplication data table.</param>
-        public static void RegisterEntityClass(string name, function function, vararg args) {
+        public virtual void RegisterEntityClass(string name, function function, @object args) {
         }
         
         // <realm>Shared</realm>
         // <summary><!-- Garry did not document this function --></summary>
         // <param name="_name_">An identifier for your modification. This is not limited, so be verbose. "Person's 'Unbreakable' mod" is far less likely to cause conflicts than "unbreakable".</param>
         // <param name="_function_">The function to be called for your modification. It should have the arguments (Player, Entity, Data), where data is what you pass to {{LibraryFunction|duplicator|StoreEntityModifier}}.</param>
-        public static void RegisterEntityModifier(string _name_, function _function_) {
+        public virtual void RegisterEntityModifier(string _name_, function _function_) {
         }
         
         // <realm>Server</realm>
         // <summary>Help to remove certain map created entities before creating the saved entities</summary>
-        public static void RemoveMapCreatedEntities() {
+        public virtual void RemoveMapCreatedEntities() {
         }
         
         // <realm>Shared</realm>
         // <summary>"When a copy is copied it will be translated according to these.</summary>
         // <param name="v">The angle to offset all pastes from.</param>
-        public static void SetLocalAng(Angle v) {
+        public virtual void SetLocalAng(Angle v) {
         }
         
         // <realm>Shared</realm>
         // <summary>"When a copy is copied it will be translated according to these.</summary>
         // <param name="v">The position to offset all pastes from.</param>
-        public static void SetLocalPos(Vector v) {
+        public virtual void SetLocalPos(Vector v) {
         }
         
         // <realm>Server</realm>
-        public static void StoreBoneModifier() {
+        public virtual void StoreBoneModifier() {
         }
         
         // <realm>Server</realm>
@@ -202,13 +204,13 @@ namespace MetroMad.Lua.gLua {
         // <param name="entity">The entity to store modifier in.</param>
         // <param name="name">Unique modifier name.</param>
         // <param name="data">Modifier data.</param>
-        public static void StoreEntityModifier(Entity entity, string name, table data) {
+        public virtual void StoreEntityModifier(Entity entity, string name, table data) {
         }
         
         // <realm>Server</realm>
         // <summary>"Work out the AABB size"</summary>
         // <param name="Ents">A table of entity duplication datums.</param>
-        public static void WorkoutSize(table Ents) {
+        public virtual void WorkoutSize(table Ents) {
         }
     }
 }

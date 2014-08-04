@@ -37,26 +37,32 @@ namespace MetroMad.Lua.gLua {
         // <param name="name">The name of the convar to add the change callback to.</param>
         // <param name="callback">The function to be called when the convar changes.</param>
         // <param name="indentifier">If set, you will be able to remove the callback using {{LibraryFunction|cvars|RemoveChangeCallback}}.</param>
-        public static void AddChangeCallback(string name, function callback, string indentifier) {
+        public virtual void AddChangeCallback(string name, function callback, string indentifier) {
         }
         
         // <realm>Shared</realm>
-        // <summary>Retrieves console variable as a bool.</summary>
+        // <summary>Retrieves console variable as a boolean.</summary>
         // <param name="cvar">Name of console variable.</param>
-        public static void Bool(string cvar) {
+        // <return>boolean|Retrieved value</return>
+        public virtual bool Bool(string cvar) {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns a table with the convars callbacks.</summary>
         // <param name="name">The name of the convar.</param>
         // <param name="CreateIfNotFound">If a convar is not found, should it be created.</param>
-        public static void GetConVarCallbacks(string name, bool CreateIfNotFound) {
+        // <return>table|A table with the convars callbacks, or nil if the convar doesn't exist.</return>
+        public virtual table GetConVarCallbacks(string name, boolean CreateIfNotFound) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Retrieves console variable as a number.</summary>
         // <param name="cvar">Name of console variable.</param>
-        public static void Number(string cvar) {
+        // <return>number|Retrieved value</return>
+        public virtual int Number(string cvar) {
+            return 1;
         }
         
         // <realm>Shared</realm>
@@ -64,20 +70,22 @@ namespace MetroMad.Lua.gLua {
         // <param name="name">Convar name.</param>
         // <param name="oldVal">The old value of the convar.</param>
         // <param name="newVal">The new value of the convar.</param>
-        public static void OnConVarChanged(string name, string oldVal, string newVal) {
+        public virtual void OnConVarChanged(string name, string oldVal, string newVal) {
         }
         
         // <realm>Shared</realm>
         // <summary>Removes a callback for given convar with given identifier.</summary>
         // <param name="name">The name of the convar to add the change callback to.</param>
         // <param name="indentifier">The convar identifier.</param>
-        public static void AddChangeCallback(string name, string indentifier) {
+        public virtual void AddChangeCallback(string name, string indentifier) {
         }
         
         // <realm>Shared</realm>
         // <summary>Retrieves console variable as a string.</summary>
         // <param name="cvar">Name of console variable.</param>
-        public static void String(string cvar) {
+        // <return>string|Retrieved value</return>
+        public virtual string String(string cvar) {
+            return "String";
         }
     }
 }

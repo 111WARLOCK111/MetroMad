@@ -35,79 +35,79 @@ namespace MetroMad.Lua.gLua {
         // <realm>Server</realm>
         // <summary>Write an angle to the user message.</summary>
         // <param name="angle">The angle to be sent.</param>
-        public static void Angle(Angle angle) {
+        public virtual void Angle(Angle angle) {
         }
         
         // <realm>Server</realm>
         // <summary>Write a bool to the user message.</summary>
         // <param name="angle">The bool to be sent.</param>
-        public static void Bool(bool angle) {
+        public virtual void Bool(boolean angle) {
         }
         
         // <realm>Server</realm>
         // <summary>Writes a signed char to the usermessage.</summary>
         // <param name="char">The char to be send.</param>
-        public static void Char(float @char) {
+        public virtual void Char(float @char) {
         }
         
         // <realm>Server</realm>
         // <summary>Dispatches to usermessage to the client(s).</summary>
-        public static void End() {
+        public virtual void End() {
         }
         
         // <realm>Server</realm>
         // <summary>Writes an entity object to the usermessage.</summary>
         // <param name="entity">The entity to be send.</param>
-        public static void Entity(Entity entity) {
+        public virtual void Entity(Entity entity) {
         }
         
         // <realm>Server</realm>
         // <summary>Writes a float to the usermessage.</summary>
         // <param name="float">The float to be send.</param>
-        public static void Float(float @float) {
+        public virtual void Float(float @float) {
         }
         
         // <realm>Server</realm>
         // <summary>Writes a signed int to the usermessage.</summary>
         // <param name="int">The int to be send.</param>
-        public static void Long(float @int) {
+        public virtual void Long(float @int) {
         }
         
         // <realm>Server</realm>
         // <summary>The string specified will be networked to the client and receive a identifying number, which will be send instead of the string to optimize networking.</summary>
         // <param name="string">The string to be pooled.</param>
-        public static void PoolString(string @string) {
+        public virtual void PoolString(string @string) {
         }
         
         // <realm>Server</realm>
         // <summary>Writes a signed short to the usermessage.</summary>
         // <param name="short">The short to be pooled.</param>
-        public static void Short(float @short) {
+        public virtual void Short(float @short) {
         }
         
         // <realm>Server</realm>
         // <summary>Starts a new usermessage.</summary>
         // <param name="name">The name of the message to be send.</param>
         // <param name="filter">If passed a player object, it will only be send to the player, if passed a table of players, it will be send to all specified players, if passed nil, the message will be send to all players. You can also pass [[:Category:CRecipientFilter|CRecipientFilter]].</param>
-        public static void Start(string name, Player filter) {
+        public virtual void Start(string name, Player filter) {
         }
         
         // <realm>Server</realm>
         // <summary>Write a null terminated string to the user message.</summary>
         // <param name="string">The string to be sent.</param>
-        public static void String(string @string) {
+        public virtual void String(string @string) {
         }
         
         // <realm>Server</realm>
         // <summary>Writes a Vector to the usermessage.</summary>
         // <param name="vector">The vector to be send.</param>
-        public static void Vector(Vector vector) {
+        public virtual void Vector(Vector vector) {
         }
         
         // <realm>Server</realm>
         // <summary>Writes a vector normal to the usermessage.</summary>
         // <param name="normal">The vector normal to be send.</param>
-        public static void VectorNormal(Vector normal) {
+        public virtual void VectorNormal(Vector normal) {
         }
     }
 }

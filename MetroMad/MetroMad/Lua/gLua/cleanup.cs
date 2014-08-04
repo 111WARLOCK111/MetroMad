@@ -37,45 +37,49 @@ namespace MetroMad.Lua.gLua {
         // <param name="pl">Who's cleanup list to add the entity to.</param>
         // <param name="type">The type of cleanup.</param>
         // <param name="ent">The entity to add to the player's cleanup list.</param>
-        public static void Add(Player pl, string type, Entity ent) {
+        public virtual void Add(Player pl, string type, Entity ent) {
         }
         
         // <realm>Server</realm>
         // <summary>An internal function that is called by the "gmod_admin_cleanup" console command. Allows admins to clean up the server</summary>
-        public static void CC_AdminCleanup() {
+        public virtual void CC_AdminCleanup() {
         }
         
         // <realm>Server</realm>
         // <summary>An internal function that is called by the "gmod_cleanup" console command. Allows players to cleanup their own props.</summary>
-        public static void CC_Cleanup() {
+        public virtual void CC_Cleanup() {
         }
         
         // <realm>Server</realm>
         // <summary>Gets the cleanup list.</summary>
-        public static void GetList() {
+        public virtual void GetList() {
         }
         
         // <realm>Shared</realm>
         // <summary>Gets the table of cleanup types.</summary>
-        public static void GetTable() {
+        // <return>table|cleanup_types</return>
+        public virtual table GetTable() {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Registers a new cleanup type.</summary>
         // <param name="type">Name of type.</param>
-        public static void Register(string type) {
+        public virtual void Register(string type) {
         }
         
         // <realm>Server</realm>
         // <summary>Replaces one entity in the cleanup module with another</summary>
         // <param name="from">Old entity.</param>
         // <param name="to">New entity.</param>
-        public static void ReplaceEntity(Entity from, Entity to) {
+        // <return>boolean|Whether any action was taken.</return>
+        public virtual bool ReplaceEntity(Entity from, Entity to) {
+            return true;
         }
         
         // <realm>Client</realm>
         // <summary>Repopulates the clients cleanup menu</summary>
-        public static void UpdateUI() {
+        public virtual void UpdateUI() {
         }
     }
 }

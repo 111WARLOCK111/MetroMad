@@ -34,7 +34,7 @@ namespace MetroMad.Lua.gLua {
         
         // <realm>Client</realm>
         // <summary>Used by "Demo to Video" to record the frame.</summary>
-        public static void RecordFrame() {
+        public virtual void RecordFrame() {
         }
     }
 }

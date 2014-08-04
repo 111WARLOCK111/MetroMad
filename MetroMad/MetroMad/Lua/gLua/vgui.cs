@@ -34,10 +34,12 @@ namespace MetroMad.Lua.gLua {
         
         // <realm>Client</realm>
         // <summary>Creates a panel by the specified classname.</summary>
-        // <param name="classname">Classname of the panel to create.</param>
+        // <param name="classname">Classname of the panel to create. Valid classnames are at [[VGUI/Elements]].</param>
         // <param name="parent">Parent of the created panel.</param>
         // <param name="name">Name of the created panel.</param>
-        public static void Create(string classname, Panel parent, string name) {
+        // <return>Panel|panel</return>
+        public virtual Panel Create(string classname, Panel parent, string name) {
+            return new Panel();
         }
         
         // <realm>Client</realm>
@@ -45,7 +47,9 @@ namespace MetroMad.Lua.gLua {
         // <param name="metatable">Your PANEL table.</param>
         // <param name="parent">Which panel to parent the newly created panel to.</param>
         // <param name="name">Name of your panel.</param>
-        public static void CreateFromTable(table metatable, Panel parent, string name) {
+        // <return>Panel|Created panel</return>
+        public virtual Panel CreateFromTable(table metatable, Panel parent, string name) {
+            return new Panel();
         }
         
         // <realm>Client</realm>
@@ -53,43 +57,59 @@ namespace MetroMad.Lua.gLua {
         // <param name="class">Class of the panel to create.</param>
         // <param name="parent">If specified, parents created panel to given one.</param>
         // <param name="name">Name of the created panel.</param>
-        public static void CreateX(string @class, Panel parent, string name) {
+        // <return>Panel|Created panel</return>
+        public virtual Panel CreateX(string @class, Panel parent, string name) {
+            return new Panel();
         }
         
         // <realm>Client</realm>
         // <summary>Returns whenever the cursor is currently active and visible.</summary>
-        public static void CursorVisible() {
+        // <return>boolean|isCursorVisible</return>
+        public virtual bool CursorVisible() {
+            return true;
         }
         
         // <realm>Client</realm>
         // <summary>Returns whenever the currently focused panel has a parent.</summary>
-        public static void FocusedHasParent() {
+        // <return>boolean|focusHasParent</return>
+        public virtual bool FocusedHasParent() {
+            return true;
         }
         
         // <realm>Client</realm>
         // <summary>Gets the method table of this panel. Does not return parent methods!</summary>
         // <param name="Panelname">The name of the panel.</param>
-        public static void GetControlTable(string Panelname) {
+        // <return>table|methods</return>
+        public virtual table GetControlTable(string Panelname) {
+            return new table();
         }
         
         // <realm>Client</realm>
         // <summary>Returns the panel the cursor is hovering above.</summary>
-        public static void GetHoveredPanel() {
+        // <return>Panel|hoveredPanel</return>
+        public virtual Panel GetHoveredPanel() {
+            return new Panel();
         }
         
         // <realm>Client</realm>
         // <summary>Returns the panel which is currently receiving keyboard input.</summary>
-        public static void GetKeyboardFocus() {
+        // <return>Panel|keyboardPanel</return>
+        public virtual Panel GetKeyboardFocus() {
+            return new Panel();
         }
         
         // <realm>Client</realm>
         // <summary>Returns the global world panel which is the parent to all others.</summary>
-        public static void GetWorldPanel() {
+        // <return>Panel|The world panel</return>
+        public virtual Panel GetWorldPanel() {
+            return new Panel();
         }
         
         // <realm>Client</realm>
         // <summary>Returns whenever the cursor is hovering the world panel.</summary>
-        public static void IsHoveringWorld() {
+        // <return>boolean|isHoveringWorld</return>
+        public virtual bool IsHoveringWorld() {
+            return true;
         }
         
         // <realm>Client</realm>
@@ -97,20 +117,26 @@ namespace MetroMad.Lua.gLua {
         // <param name="classname">Classname of the panel to create.</param>
         // <param name="panelTable">The table containg the panel information.</param>
         // <param name="baseName">Name of the base of the panel.</param>
-        public static void Register(string classname, table panelTable, string baseName) {
+        // <return>Panel|panel</return>
+        public virtual Panel Register(string classname, table panelTable, string baseName) {
+            return new Panel();
         }
         
         // <realm>Client</realm>
         // <summary>Registers a new VGUI panel from a file.</summary>
         // <param name="file">The file to register.</param>
-        public static void RegisterFile(string file) {
+        // <return>table|A table containing info about the panel. Can be supplied to {{LibraryFunction|vgui|CreateFromTable}}</return>
+        public virtual table RegisterFile(string file) {
+            return new table();
         }
         
         // <realm>Client</realm>
         // <summary>Registers a table to use as a panel. All this function does is assigns Base key to your table and returns the table.</summary>
         // <param name="panel">The PANEL table.</param>
         // <param name="base">A base for the panel.</param>
-        public static void RegisterTable(table panel, string @base) {
+        // <return>table|The PANEL table</return>
+        public virtual table RegisterTable(table panel, string @base) {
+            return new table();
         }
     }
 }

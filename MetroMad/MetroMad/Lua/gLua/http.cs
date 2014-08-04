@@ -37,7 +37,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="url">The URL of the website to fetch.</param>
         // <param name="onSuccess">The function called on success.</param>
         // <param name="onFailure">The function called on failure.</param>
-        public static void Fetch(string url, function onSuccess, function onFailure) {
+        public virtual void Fetch(string url, function onSuccess, function onFailure) {
         }
         
         // <realm>Shared</realm>
@@ -46,7 +46,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="parameters">The post parameters to be send to the server.</param>
         // <param name="onSuccess">The function called on success: function( string responseText, number contentLength, table responseHeaders, number statusCode ).</param>
         // <param name="onFailure">The function called on failure: function( string errorMessage ).</param>
-        public static void Post(string url, table parameters, function onSuccess, function onFailure) {
+        public virtual void Post(string url, table parameters, function onSuccess, function onFailure) {
         }
     }
 }

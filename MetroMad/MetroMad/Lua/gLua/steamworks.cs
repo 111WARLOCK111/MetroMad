@@ -34,21 +34,21 @@ namespace MetroMad.Lua.gLua {
         
         // <realm>Menu</realm>
         // <summary>Refreshes clients addons.</summary>
-        public static void ApplyAddons() {
+        public virtual void ApplyAddons() {
         }
         
         // <realm>Client</realm>
         // <summary>Downloads preview image of supplied addon and saves it as a .cache file in garrysmod/cache folder.</summary>
         // <param name="workshopPreviewID">The Preview ID of workshop item.</param>
         // <param name="resultCallback">The function to process retrieved data. The first and only argument is a string, containing path to the saved file.</param>
-        public static void Download(string workshopPreviewID, function resultCallback) {
+        public virtual void Download(string workshopPreviewID, function resultCallback) {
         }
         
         // <realm>Client</realm>
         // <summary>Retrieves info about supplied Steam Workshop addon.</summary>
         // <param name="workshopItemID">The ID of Steam Workshop item.</param>
         // <param name="resultCallback">The function to process retrieved data. The first and only argument is a table, containing all the info.</param>
-        public static void FileInfo(string workshopItemID, function resultCallback) {
+        public virtual void FileInfo(string workshopItemID, function resultCallback) {
         }
         
         // <realm>Client</realm>
@@ -59,24 +59,28 @@ namespace MetroMad.Lua.gLua {
         // <param name="numRetrieve">How much addons to retrieve.</param>
         // <param name="userID">"0" to retrieve all addons, "1" to retrieve addons only published by you.</param>
         // <param name="resultCallback">The function to process retrieved data. The first and only argument is a table, containing all the info.</param>
-        public static void GetList(string type, table tags, float offset, float numRetrieve, string userID, function resultCallback) {
+        public virtual void GetList(string type, table tags, float offset, float numRetrieve, string userID, function resultCallback) {
         }
         
         // <realm>Client</realm>
         // <summary>Retrieves players name by his 64bit SteamID.</summary>
         // <param name="steamID64">The 64bit Steam ID ( aka Community ID ) of the player.</param>
-        public static void GetPlayerName(string steamID64) {
+        // <return>string|The name of that player</return>
+        public virtual string GetPlayerName(string steamID64) {
+            return "String";
         }
         
         // <realm>Client</realm>
         // <summary>Returns whenever the client is subscribed to the specified Steam Workshop item.</summary>
         // <param name="workshopItemID">The ID of the Steam Workshop item.</param>
-        public static void IsSubscribed(string workshopItemID) {
+        // <return>boolean|Is the client subscribed to the addon or not.</return>
+        public virtual bool IsSubscribed(string workshopItemID) {
+            return true;
         }
         
         // <realm>Client</realm>
         // <summary>Opens the workshop website in the steam overlay browser.</summary>
-        public static void OpenWorkshop() {
+        public virtual void OpenWorkshop() {
         }
         
         // <realm>Menu</realm>
@@ -86,69 +90,75 @@ namespace MetroMad.Lua.gLua {
         // <param name="image">Path to the image to use as icon.</param>
         // <param name="name">Name of the Workshop submission.</param>
         // <param name="desc">Description of the Workshop submission.</param>
-        public static void Publish(table tags, string filename, string image, string name, string desc) {
+        public virtual void Publish(table tags, string filename, string image, string name, string desc) {
         }
         
         // <realm>Client</realm>
         // <summary>Requests information of the player with SteamID64 for later use with {{LibraryFunction|steamworks|GetPlayerName}}.</summary>
         // <param name="steamID64">The 64bit Steam ID of player.</param>
-        public static void RequestPlayerInfo(string steamID64) {
+        public virtual void RequestPlayerInfo(string steamID64) {
         }
         
         // <realm>Menu</realm>
         // <param name="workshopid">The Steam Workshop item id.</param>
-        public static void SetFileCompleted(string workshopid) {
+        // <return>string|Whatever you have put in as first argument</return>
+        public virtual string SetFileCompleted(string workshopid) {
+            return "String";
         }
         
         // <realm>Menu</realm>
         // <summary>Sets whether you have played this addon or not. This will be shown to the user in the Steam Workshop itself:</summary>
         // <param name="workshopid">The Steam Workshop item ID.</param>
-        public static void SetFilePlayed(string workshopid) {
+        // <return>string|Whatever you have put in as first argument</return>
+        public virtual string SetFilePlayed(string workshopid) {
+            return "String";
         }
         
         // <realm>Menu</realm>
         // <summary>Sets if an addon should be enabled or disabled. Call {{LibraryFunction|steamworks|ApplyAddons}} afterwards to update.</summary>
         // <param name="workshopItemID">The ID of the Steam Workshop item we should enable/disable.</param>
         // <param name="shouldMount">true to enable the item, false to disable.</param>
-        public static void SetShouldMountAddon(string workshopItemID, bool shouldMount) {
+        public virtual void SetShouldMountAddon(string workshopItemID, boolean shouldMount) {
         }
         
         // <realm>Client</realm>
         // <summary>Returns whenever the specified Steam Workshop addon will be mounted or not.</summary>
         // <param name="workshopItemID">The ID of the Steam Workshop.</param>
-        public static void ShouldMountAddon(string workshopItemID) {
+        // <return>boolean|Will the workshop item be mounted or not</return>
+        public virtual bool ShouldMountAddon(string workshopItemID) {
+            return true;
         }
         
         // <realm>Menu</realm>
         // <summary>{{Internal}}</summary>
         // <param name="workshopItemID">The ID of the Steam Workshop item we should subscribe to.</param>
-        public static void Subscribe(string workshopItemID) {
+        public virtual void Subscribe(string workshopItemID) {
         }
         
         // <realm>Menu</realm>
         // <summary>Unsubscribes to the specified workshop addon. Call [[steamworks/ApplyAddons|steamworks.ApplyAddons]] afterwards to update.</summary>
         // <param name="workshopItemID">The ID of the Steam Workshop item we should unsubscribe from.</param>
-        public static void Unsubscribe(string workshopItemID) {
+        public virtual void Unsubscribe(string workshopItemID) {
         }
         
         // <realm>Client</realm>
         // <summary>Opens the workshop website for specified Steam Workshop item in the Steam overlay browser.</summary>
         // <param name="workshopItemID">The ID of workshop item.</param>
-        public static void ViewFile(string workshopItemID) {
+        public virtual void ViewFile(string workshopItemID) {
         }
         
         // <realm>Menu</realm>
         // <summary>Makes the user vote for the specified addon</summary>
         // <param name="workshopItemID">The ID of workshop item.</param>
         // <param name="upOrDown">Sets if the user should vote up/down. True makes them upvote, false down.</param>
-        public static void Vote(string workshopItemID, bool upOrDown) {
+        public virtual void Vote(string workshopItemID, boolean upOrDown) {
         }
         
         // <realm>Client</realm>
         // <summary>Retrieves vote info of supplied addon.</summary>
         // <param name="workshopItemID">The ID of workshop item.</param>
         // <param name="resultCallback">The function to process retrieved data. The first and only argument is a table, containing all the info.</param>
-        public static void VoteInfo(string workshopItemID, function resultCallback) {
+        public virtual void VoteInfo(string workshopItemID, function resultCallback) {
         }
     }
 }

@@ -37,33 +37,43 @@ namespace MetroMad.Lua.gLua {
         // <param name="string">The string to get the chars from.</param>
         // <param name="startPos">The first character of the string to get the byte of.</param>
         // <param name="endPos">The last character of the string to get the byte of.</param>
-        public static void @byte(string @string, float startPos, float endPos) {
+        // <return>vararg|Numerical bytes</return>
+        public virtual vararg @byte(string @string, float startPos, float endPos) {
+            return new vararg();
         }
         
         // <realm>Shared</realm>
         // <summary>Takes the given numerical bytes and converts them to a string.</summary>
         // <param name="bytes">The bytes to create the string from.</param>
-        public static void @char(vararg bytes) {
+        // <return>string|String built from given bytes</return>
+        public virtual string @char(@object bytes) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Inserts commas for every third digit.</summary>
         // <param name="InputNumber">The input number to commafy.</param>
-        public static void Comma(float InputNumber) {
+        // <return>string|Prettystring</return>
+        public virtual string Comma(float InputNumber) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the binary bytecode of function.</summary>
         // <param name="func">The function to get the bytecode of.</param>
         // <param name="stripDebugInfo">True to strip the debug data, false to keep it.</param>
-        public static void dump(function func, bool stripDebugInfo) {
+        // <return>string|Bytecode</return>
+        public virtual string dump(function func, boolean stripDebugInfo) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Returns weather the varg matches the end of the string provided.</summary>
         // <param name="str">The string that your looking to find.</param>
         // <param name="varg">The argument you intend to use to compared to.</param>
-        public static void EndsWith(string str, string varg) {
+        // <return>boolean|bool</return>
+        public virtual bool EndsWith(string str, string varg) {
+            return true;
         }
         
         // <realm>Shared</realm>
@@ -71,7 +81,9 @@ namespace MetroMad.Lua.gLua {
         // <param name="separator">The string will be separated wherever this sequence is found.</param>
         // <param name="str">The string to split up.</param>
         // <param name="use_patterns">Set this to true if your separator is a pattern.</param>
-        public static void Explode(string separator, string str, bool use_patterns) {
+        // <return>table|exploded_string</return>
+        public virtual table Explode(string separator, string str, boolean use_patterns) {
+            return new table();
         }
         
         // <realm>Shared</realm>
@@ -80,66 +92,86 @@ namespace MetroMad.Lua.gLua {
         // <param name="needle">The string to find, can contain patterns if enabled.</param>
         // <param name="startPos">The position to start the search from, can be negative start position will be relative to the end position.</param>
         // <param name="noPatterns">Disable patterns.</param>
-        public static void find(string haystack, string needle, float startPos, bool noPatterns) {
+        // <return>number|Starting position of the found text</return>
+        public virtual int find(string haystack, string needle, float startPos, boolean noPatterns) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Formats the specified values into the string given.</summary>
         // <param name="format">The string to be formatted.<br>.</param>
         // <param name="formatParameters">Values to be formatted into the string.</param>
-        public static void format(string format, vararg formatParameters) {
+        // <return>string|formattedString</return>
+        public virtual string format(string format, @object formatParameters) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the time as a formatted string or as a table if no format is given.</summary>
         // <param name="float">The time in seconds to format.</param>
         // <param name="format">An optional formatting to use. If no format it specified, a table will be returned instead.</param>
-        public static void FormattedTime(float @float, string format) {
+        // <return>string|Returns the time as a formatted string only if a format was specified.</return>
+        public virtual string FormattedTime(float @float, string format) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Creates a string from a Color variable.</summary>
         // <param name="color">The color to put in the string.</param>
-        public static void FromColor(table color) {
+        // <return>string|Output</return>
+        public virtual string FromColor(table color) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Returns char value from the specified index in the supplied string.</summary>
         // <param name="str">The string that you will be searching with the supplied index.</param>
         // <param name="index">The index's value of the string to be returned.</param>
-        public static void GetChar(string str, float index) {
+        // <return>string|str</return>
+        public virtual string GetChar(string str, float index) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Returns extension of the file.</summary>
         // <param name="file">String eg. file-path to get the file extensions from.</param>
-        public static void GetExtensionFromFilename(string file) {
+        // <return>string|fileExtension</return>
+        public virtual string GetExtensionFromFilename(string file) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Returns file name and extension.</summary>
         // <param name="pathString">The string eg. file-path to get the file-name from.</param>
-        public static void GetFileFromFilename(string pathString) {
+        // <return>string|FileName</return>
+        public virtual string GetFileFromFilename(string pathString) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the path only from a file's path.</summary>
         // <param name="Inputstring">String to get path from.</param>
-        public static void GetPathFromFilename(string Inputstring) {
+        // <return>string|Path</return>
+        public virtual string GetPathFromFilename(string Inputstring) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Returns an iterator function that is called for every complete match of the pattern, all sub matches will be passed as to the loop.</summary>
         // <param name="data">The string to search in.</param>
         // <param name="pattern">The pattern to search for.</param>
-        public static void gfind(string data, string pattern) {
+        // <return>function|The iterator function that can be used in a for-in loop</return>
+        public virtual function gfind(string data, string pattern) {
+            return new function();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns an iterator which will return either 1 value if no groupings are defined, or the group matches.</summary>
         // <param name="hayStack">The string to search in.</param>
         // <param name="pattern">The pattern to match for.</param>
-        public static void gmatch(string hayStack, string pattern) {
+        // <return>function|iterator</return>
+        public virtual function gmatch(string hayStack, string pattern) {
+            return new function();
         }
         
         // <realm>Shared</realm>
@@ -148,39 +180,51 @@ namespace MetroMad.Lua.gLua {
         // <param name="pattern">The pattern that defines what should be matched and eventually be replaced.</param>
         // <param name="replacement">In case of a string the matches sequence will be replaced with it.</param>
         // <param name="maxReplaces">Maximum number of replacements to be made.</param>
-        public static void gsub(string @string, string pattern, string or table or function replacement, float maxReplaces) {
+        // <return>string|replaceResult</return>
+        public virtual string gsub(string @string, string pattern, stringortableorfunction replacement, float maxReplaces) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Joins all values of pieces together to a single string.</summary>
         // <param name="seperator">The string will be used to join values in the table.</param>
         // <param name="pieces">The elements to concatenate.</param>
-        public static void Implode(string seperator, table pieces) {
+        // <return>string|imploded_pieces</return>
+        public virtual string Implode(string seperator, table pieces) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Replaces lua special characters with javascript special characters.</summary>
         // <param name="str">The string that should have it's special characters replaced.</param>
-        public static void JavascriptSafe(string str) {
+        // <return>string|string</return>
+        public virtual string JavascriptSafe(string str) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Returns everything left of supplied place of that string.</summary>
         // <param name="str">The string to extract from.</param>
         // <param name="num">Amount of chars relative to the beginning.</param>
-        public static void Left(string str, float num) {
+        // <return>string|string</return>
+        public virtual string Left(string str, float num) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Counts the number of characters in the string (length).</summary>
         // <param name="str">The string to find the length of.</param>
-        public static void len(string str) {
+        // <return>number|Length of the string</return>
+        public virtual int len(string str) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Changes any upper-case characters in a string to lower-case.</summary>
         // <param name="str">The string to convert.</param>
-        public static void lower(string str) {
+        // <return>string|lower</return>
+        public virtual string lower(string str) {
+            return "String";
         }
         
         // <realm>Shared</realm>
@@ -188,26 +232,34 @@ namespace MetroMad.Lua.gLua {
         // <param name="string">String which should be searched in for matches.</param>
         // <param name="pattern">The pattern that defines what should be matched.</param>
         // <param name="startPosition">The start index to start the matching from, can be negative to start the match from a position relative to the end.</param>
-        public static void match(string @string, string pattern, float startPosition) {
+        // <return>string|Matched text</return>
+        public virtual string match(string @string, string pattern, float startPosition) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Converts supplied number into bytes.</summary>
         // <param name="num">The number to convert into bytes.</param>
-        public static void NiceSize(float num) {
+        // <return>string|string</return>
+        public virtual string NiceSize(float num) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Converts supplied number into string.</summary>
         // <param name="num">The number to convert into string.</param>
-        public static void NiceTime(float num) {
+        // <return>string|string</return>
+        public virtual string NiceTime(float num) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Repeats a string by the given value.</summary>
         // <param name="str">The string to convert.</param>
         // <param name="repetitions">Timer to repeat, this values gets rounded internally.</param>
-        public static void rep(string str, float repetitions) {
+        // <return>string|repeated string</return>
+        public virtual string rep(string str, float repetitions) {
+            return "String";
         }
         
         // <realm>Shared</realm>
@@ -215,20 +267,26 @@ namespace MetroMad.Lua.gLua {
         // <param name="str">The string we are seeking to replace an occurrence(s).</param>
         // <param name="find">What we are seeking to replace.</param>
         // <param name="replace">What to replace find with.</param>
-        public static void Replace(string str, string find, string replace) {
+        // <return>string|string</return>
+        public virtual string Replace(string str, string find, string replace) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Reverses a string.</summary>
         // <param name="str">The string to be reversed.</param>
-        public static void reverse(string str) {
+        // <return>string|reversed string</return>
+        public virtual string reverse(string str) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the last n-th characters of the string.</summary>
         // <param name="str">The string to extract from.</param>
         // <param name="num">Amount of chars relative to the end.</param>
-        public static void Right(string str, float num) {
+        // <return>string|string</return>
+        public virtual string Right(string str, float num) {
+            return "String";
         }
         
         // <realm>Shared</realm>
@@ -236,27 +294,35 @@ namespace MetroMad.Lua.gLua {
         // <param name="InputString">The input string.</param>
         // <param name="Index">The character index, 1 is the first from left.</param>
         // <param name="ReplacementChar">String to replace with.</param>
-        public static void SetChar(string InputString, float Index, string ReplacementChar) {
+        // <return>string|ModifiedString</return>
+        public virtual string SetChar(string InputString, float Index, string ReplacementChar) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Splits the string into a table of strings, separated by the second argument.</summary>
         // <param name="Inputstring">String to split.</param>
         // <param name="Separator">Character(s) to split with.</param>
-        public static void Split(string Inputstring, string Separator) {
+        // <return>table|Splitted table</return>
+        public virtual table Split(string Inputstring, string Separator) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns if the first argument starts with the second argument.</summary>
         // <param name="Inputstring">String to check.</param>
         // <param name="Start">String to check with.</param>
-        public static void StartWith(string Inputstring, string Start) {
+        // <return>boolean|StartsWith</return>
+        public virtual bool StartWith(string Inputstring, string Start) {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Removes the extension of a path.</summary>
         // <param name="Inputstring">The path to change.</param>
-        public static void StripExtension(string Inputstring) {
+        // <return>string|Modifiedstring</return>
+        public virtual string StripExtension(string Inputstring) {
+            return "String";
         }
         
         // <realm>Shared</realm>
@@ -264,58 +330,74 @@ namespace MetroMad.Lua.gLua {
         // <param name="string">The string you'll take a sub-string out of.</param>
         // <param name="StartPos">The position of the first character that will be included in the sub-string.</param>
         // <param name="EndPos">The position of the last character to be included in the sub-string.</param>
-        public static void sub(string @string, float StartPos, float EndPos) {
+        // <return>string|The substring.</return>
+        public virtual string sub(string @string, float StartPos, float EndPos) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Fetches a Color type from a string.</summary>
         // <param name="Inputstring">The string to convert from.</param>
-        public static void ToColor(string Inputstring) {
+        // <return>table|The output {{Struct|Color}}</return>
+        public virtual table ToColor(string Inputstring) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns given time in "MM:SS" format.</summary>
         // <param name="time">Time in seconds.</param>
-        public static void ToMinutesSeconds(float time) {
+        // <return>string|Formatted time</return>
+        public virtual string ToMinutesSeconds(float time) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Returns given time in "MM:SS:MS" format.</summary>
         // <param name="time">Time in seconds.</param>
-        public static void ToMinutesSecondsMilliseconds(float time) {
+        // <return>string|Formatted time</return>
+        public virtual string ToMinutesSecondsMilliseconds(float time) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Splits the string into characters and creates a sequential table.</summary>
         // <param name="string">The string you'll turn into a table.</param>
-        public static void ToTable(string @string) {
+        public virtual void ToTable(string @string) {
         }
         
         // <realm>Shared</realm>
         // <summary>Removes leading and trailing matches of a string.</summary>
         // <param name="Inputstring">The string to trim.</param>
         // <param name="Char">String to match.</param>
-        public static void Trim(string Inputstring, string Char) {
+        // <return>string|Modifiedstring</return>
+        public virtual string Trim(string Inputstring, string Char) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Removes leading spaces/characters from a string.</summary>
         // <param name="str">String to trim.</param>
         // <param name="char">Custom character to remove.</param>
-        public static void TrimLeft(string str, string @char) {
+        // <return>string|Trimmed string</return>
+        public virtual string TrimLeft(string str, string @char) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Removes trailing spaces/passed character from a string.</summary>
         // <param name="str">String to remove from.</param>
         // <param name="char">Custom character to remove, default is a space.</param>
-        public static void TrimRight(string str, string @char) {
+        // <return>string|Trimmed string</return>
+        public virtual string TrimRight(string str, string @char) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Changes any lower-case characters in a string to upper-case.</summary>
         // <param name="str">The string to convert.</param>
-        public static void upper(string str) {
+        // <return>string|upper</return>
+        public virtual string upper(string str) {
+            return "String";
         }
     }
 }

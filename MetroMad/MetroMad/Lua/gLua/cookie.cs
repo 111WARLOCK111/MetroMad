@@ -35,28 +35,32 @@ namespace MetroMad.Lua.gLua {
         // <realm>Client</realm>
         // <summary>Deletes a cookie on the client.</summary>
         // <param name="name">The name of the cookie that you want to delete.</param>
-        public static void Delete(string name) {
+        public virtual void Delete(string name) {
         }
         
         // <realm>Client</realm>
         // <summary>Gets the value of a cookie on the client as a number.</summary>
         // <param name="name">The name of the cookie that you want to get.</param>
         // <param name="default">Value to return if the cookie does not exist.</param>
-        public static void GetNumber(string name, float @default) {
+        // <return>number|The cookie value</return>
+        public virtual int GetNumber(string name, float @default) {
+            return 1;
         }
         
         // <realm>Client</realm>
         // <summary>Gets the value of a cookie on the client as a string.</summary>
         // <param name="name">The name of the cookie that you want to get.</param>
         // <param name="default">Value to return if the cookie does not exist.</param>
-        public static void GetString(string name, string @default) {
+        // <return>string|The cookie value</return>
+        public virtual string GetString(string name, string @default) {
+            return "String";
         }
         
         // <realm>Client</realm>
         // <summary>Sets the value of a cookie on the client.<br /></summary>
         // <param name="key">The name of the cookie that you want to set.</param>
         // <param name="value">Value to store in the cookie.</param>
-        public static void Set(string key, string value) {
+        public virtual void Set(string key, string value) {
         }
     }
 }

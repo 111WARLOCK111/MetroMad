@@ -37,60 +37,60 @@ namespace MetroMad.Lua.gLua {
         // <param name="pos">Origin of the shake.</param>
         // <param name="angles">Angles of the shake.</param>
         // <param name="factor">The shake factor.</param>
-        public static void ApplyShake(Vector pos, Angle angles, float factor) {
+        public virtual void ApplyShake(Vector pos, Angle angles, float factor) {
         }
         
         // <realm>Client</realm>
         // <summary>Switches the renderer back to the previous drawing mode from a 2D or 3D context.</summary>
-        public static void End() {
+        public virtual void End() {
         }
         
         // <realm>Client</realm>
         // <summary>Switches the renderer back to the previous drawing mode from a 2D context.</summary>
-        public static void End2D() {
+        public virtual void End2D() {
         }
         
         // <realm>Client</realm>
         // <summary>Switches the renderer back to the previous drawing mode from a 3D context.</summary>
-        public static void End3D() {
+        public virtual void End3D() {
         }
         
         // <realm>Client</realm>
         // <summary>Switches the renderer back to the previous drawing mode from a 3D2D context.</summary>
-        public static void End3D2D() {
+        public virtual void End3D2D() {
         }
         
         // <realm>Client</realm>
         // <summary>Switches the renderer back to the previous drawing mode from a 3D orthographic rendering context.</summary>
-        public static void EndOrthoView() {
+        public virtual void EndOrthoView() {
         }
         
         // <realm>Client</realm>
         // <summary>Tells the renderer to ignore the depth buffer and draw any upcoming operation "ontop" of everything that was drawn yet.</summary>
         // <param name="ignoreZ">Determines whenever to ignore the depth buffer or not.</param>
-        public static void IgnoreZ(bool ignoreZ) {
+        public virtual void IgnoreZ(boolean ignoreZ) {
         }
         
         // <realm>Client</realm>
         // <summary>Pops the current active rendering matrix from the stack and reinstates the previous one.</summary>
-        public static void PopModelMatrix() {
+        public virtual void PopModelMatrix() {
         }
         
         // <realm>Client</realm>
         // <summary>Pushes the specified matrix onto the render matrix stack.</summary>
         // <param name="matrix">The matrix to push.</param>
-        public static void PushModelMatrix(VMatrix matrix) {
+        public virtual void PushModelMatrix(VMatrix matrix) {
         }
         
         // <realm>Client</realm>
         // <summary>Sets up a new rendering context. You can easily use this instead of {{LibraryFunction|cam|Start3D}} or {{LibraryFunction|cam|Start2D}}</summary>
         // <param name="dataTbl">Render context config. See {{Struct|RenderCamData}}.</param>
-        public static void Start(table dataTbl) {
+        public virtual void Start(table dataTbl) {
         }
         
         // <realm>Client</realm>
         // <summary>Sets up a new 2D rendering context.</summary>
-        public static void Start2D() {
+        public virtual void Start2D() {
         }
         
         // <realm>Client</realm>
@@ -104,7 +104,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="h">Height of the new viewport. Optional.</param>
         // <param name="zNear">Distance to near clipping plane. Optional.</param>
         // <param name="zFar">Distance to far clipping plane. Optional.</param>
-        public static void Start3D(Vector pos, Angle angles, float fov, float x, float y, float w, float h, float zNear, float zFar) {
+        public virtual void Start3D(Vector pos, Angle angles, float fov, float x, float y, float w, float h, float zNear, float zFar) {
         }
         
         // <realm>Client</realm>
@@ -112,7 +112,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="pos">Origin of the 3D2D context, ie. the top left corner, (0, 0).</param>
         // <param name="angles">Angles of the 3D2D context.</param>
         // <param name="scale">The scale of the render context.</param>
-        public static void Start3D2D(Vector pos, Angle angles, float scale) {
+        public virtual void Start3D2D(Vector pos, Angle angles, float scale) {
         }
         
         // <realm>Client</realm>
@@ -121,7 +121,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="topOffset">The top plane offset.</param>
         // <param name="rightOffset">The right plane offset.</param>
         // <param name="bottomOffset">The bottom plane offset.</param>
-        public static void StartOrthoView(float leftOffset, float topOffset, float rightOffset, float bottomOffset) {
+        public virtual void StartOrthoView(float leftOffset, float topOffset, float rightOffset, float bottomOffset) {
         }
     }
 }

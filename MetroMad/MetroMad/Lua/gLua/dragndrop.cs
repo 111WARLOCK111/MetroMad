@@ -33,47 +33,54 @@ namespace MetroMad.Lua.gLua {
     public class dragndrop {
         
         // <realm>Client</realm>
-        public static void CallReceiverFunction() {
+        public virtual void CallReceiverFunction() {
         }
         
         // <realm>Client</realm>
-        public static void Clear() {
+        public virtual void Clear() {
         }
         
         // <realm>Client</realm>
-        public static void Drop() {
+        public virtual void Drop() {
         }
         
         // <realm>Client</realm>
-        public static void GetDroppable() {
+        // <summary>Returns a table of currently dragged panels.</summary>
+        // <param name="name">If set, the function will return only the panels with this {{ClassFunction|Panel|Droppable}} name.</param>
+        // <return>table|A table of all panels that are being currently dragged, if any.</return>
+        public virtual table GetDroppable(string name) {
+            return new table();
         }
         
         // <realm>Client</realm>
-        public static void HandleDroppedInGame() {
+        public virtual void HandleDroppedInGame() {
         }
         
         // <realm>Client</realm>
-        public static void HoverThink() {
+        public virtual void HoverThink() {
         }
         
         // <realm>Client</realm>
-        public static void IsDragging() {
+        // <summary>Returns whether the user is dragging something with the drag'n'drop system.</summary>
+        // <return>boolean|True if the user is dragging something with the drag'n'drop system.</return>
+        public virtual bool IsDragging() {
+            return true;
         }
         
         // <realm>Client</realm>
-        public static void StartDragging() {
+        public virtual void StartDragging() {
         }
         
         // <realm>Client</realm>
-        public static void StopDragging() {
+        public virtual void StopDragging() {
         }
         
         // <realm>Client</realm>
-        public static void Think() {
+        public virtual void Think() {
         }
         
         // <realm>Client</realm>
-        public static void UpdateReceiver() {
+        public virtual void UpdateReceiver() {
         }
     }
 }

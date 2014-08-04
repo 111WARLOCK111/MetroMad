@@ -35,12 +35,16 @@ namespace MetroMad.Lua.gLua {
         // <realm>Server</realm>
         // <summary>{{Deprecated|The function is broken!}}</summary>
         // <param name="sched">Schedule, see {{Enum|SCHED}}.</param>
-        public static void GetScheduleID(string sched) {
+        // <return>number|The ID</return>
+        public virtual int GetScheduleID(string sched) {
+            return 1;
         }
         
         // <summary>Returns the task Id corresponding to the given task name.</summary>
         // <param name="taskName">The task name to get the ID of.</param>
-        public static void GetTaskID(string taskName) {
+        // <return>number|The ID</return>
+        public virtual int GetTaskID(string taskName) {
+            return 1;
         }
     }
 }

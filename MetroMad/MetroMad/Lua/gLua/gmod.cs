@@ -34,7 +34,9 @@ namespace MetroMad.Lua.gLua {
         
         // <realm>Shared</realm>
         // <summary>Returns {{GlobalVar|GAMEMODE}}.</summary>
-        public static void GetGamemode() {
+        // <return>table|GAMEMODE</return>
+        public virtual table GetGamemode() {
+            return new table();
         }
     }
 }

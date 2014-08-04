@@ -35,14 +35,16 @@ namespace MetroMad.Lua.gLua {
         // <realm>Client</realm>
         // <summary>Returns the table of the effect specified.</summary>
         // <param name="name">Effect name.</param>
-        public static void Create(string name) {
+        // <return>table|Effect table.</return>
+        public virtual table Create(string name) {
+            return new table();
         }
         
         // <realm>Client</realm>
         // <summary>Registers a new effect.</summary>
         // <param name="effect_table">Effect table.</param>
         // <param name="name">Effect name.</param>
-        public static void Register(table effect_table, string name) {
+        public virtual void Register(table effect_table, string name) {
         }
     }
 }

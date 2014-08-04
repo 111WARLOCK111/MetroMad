@@ -36,81 +36,105 @@ namespace MetroMad.Lua.gLua {
         // <summary>Returns the arithmetically shifted value.</summary>
         // <param name="value">The value to be manipulated.</param>
         // <param name="shiftCount">Amounts of bits to shift.</param>
-        public static void arshift(float value, float shiftCount) {
+        // <return>number|shiftedValue</return>
+        public virtual int arshift(float value, float shiftCount) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the bitwise and of all values specified.</summary>
         // <param name="value">The value to be manipulated.</param>
         // <param name="otherValues">Values bit and with. Optional.</param>
-        public static void band(float value, float otherValues) {
+        // <return>number|bitwiseAnd</return>
+        public virtual int band(float value, float otherValues) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the bitwise not of the value.</summary>
         // <param name="value">The value to be inverted.</param>
-        public static void bnot(float value) {
+        // <return>number|bitwiseNot</return>
+        public virtual int bnot(float value) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the bitwise or of all values specified.</summary>
         // <param name="value">The value to be manipulated.</param>
         // <param name="otherValues">Values bit or with. Optional.</param>
-        public static void bor(float value, float otherValues) {
+        // <return>number|The bitwise or.</return>
+        public virtual int bor(float value, float otherValues) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Swaps the byte order.</summary>
         // <param name="value">The value to be byte swapped.</param>
-        public static void bswap(float value) {
+        // <return>number|swapped</return>
+        public virtual int bswap(float value) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the bitwise xor of all values specified.</summary>
         // <param name="value">The value to be manipulated.</param>
         // <param name="otherValues">Values bit xor with. Optional.</param>
-        public static void bxor(float value, float otherValues) {
+        // <return>number|bitwiseXOr</return>
+        public virtual int bxor(float value, float otherValues) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the left shifted value.</summary>
         // <param name="value">The value to be manipulated.</param>
         // <param name="shiftCount">Amounts of bits to shift left by.</param>
-        public static void lshift(float value, float shiftCount) {
+        // <return>number|shiftedValue</return>
+        public virtual int lshift(float value, float shiftCount) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the left rotated value.</summary>
         // <param name="value">The value to be manipulated.</param>
         // <param name="shiftCount">Amounts of bits to rotate left by.</param>
-        public static void rol(float value, float shiftCount) {
+        // <return>number|shiftedValue</return>
+        public virtual int rol(float value, float shiftCount) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the right rotated value.</summary>
         // <param name="value">The value to be manipulated.</param>
         // <param name="shiftCount">Amounts of bits to rotate right by.</param>
-        public static void ror(float value, float shiftCount) {
+        // <return>number|shiftedValue</return>
+        public virtual int ror(float value, float shiftCount) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the right shifted value.</summary>
         // <param name="value">The value to be manipulated.</param>
         // <param name="shiftCount">Amounts of bits to shift right by.</param>
-        public static void rshift(float value, float shiftCount) {
+        // <return>number|shiftedValue</return>
+        public virtual int rshift(float value, float shiftCount) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Normalizes the specified value and clamps it in the range of a signed 32bit integer.</summary>
         // <param name="value">The value to be normalized.</param>
-        public static void tobit(float value) {
+        // <return>number|swapped</return>
+        public virtual int tobit(float value) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the hexadecimal representation of the number with the specified digits.</summary>
         // <param name="value">The value to be normalized.</param>
         // <param name="digits">The amount of digits. Optional.</param>
-        public static void tohex(float value, float digits) {
+        // <return>string|hexString</return>
+        public virtual string tohex(float value, float digits) {
+            return "String";
         }
     }
 }

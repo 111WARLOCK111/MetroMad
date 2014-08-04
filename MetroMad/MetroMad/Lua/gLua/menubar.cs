@@ -34,19 +34,21 @@ namespace MetroMad.Lua.gLua {
         
         // <realm>Client</realm>
         // <summary>Creates the menu bar ( The bar at the top of the screen when holding C or Q in sandbox ) and docks it to the top of the screen. It will not appear.<br/></summary>
-        public static void Init() {
+        public virtual void Init() {
         }
         
         // <realm>Client</realm>
         // <summary>Checks if the supplied panel is parent to the menubar</summary>
         // <param name="pnl">The panel to check.</param>
-        public static void IsParent(Panel pnl) {
+        // <return>boolean|Is parent or not</return>
+        public virtual bool IsParent(Panel pnl) {
+            return true;
         }
         
         // <realm>Client</realm>
         // <summary>Parents the menubar to the panel and displays the menubar.</summary>
         // <param name="pnl">The panel to parent to.</param>
-        public static void ParentTo(Panel pnl) {
+        public virtual void ParentTo(Panel pnl) {
         }
     }
 }

@@ -38,27 +38,29 @@ namespace MetroMad.Lua.gLua {
         // <param name="width">The width of the beam.</param>
         // <param name="textureEnd">The end coordinate of the texture used.</param>
         // <param name="color">The color to be used. Uses the {{Struct|Color}}.</param>
-        public static void AddBeam(Vector startPos, float width, float textureEnd, table color) {
+        public virtual void AddBeam(Vector startPos, float width, float textureEnd, table color) {
         }
         
         // <realm>Client</realm>
-        public static void BlurRenderTarget() {
+        public virtual void BlurRenderTarget() {
         }
         
         // <realm>Client</realm>
         // <param name="mat">The material to override with.</param>
-        public static void BrushMaterialOverride(IMaterial mat) {
+        public virtual void BrushMaterialOverride(IMaterial mat) {
         }
         
         // <realm>Client</realm>
         // <summary>Captures a part of the current render target and returns the data as a binary string in the given format.</summary>
         // <param name="captureData">Parameters of the capture. See {{Struct|RenderCaptureData}}.</param>
-        public static void Capture(table captureData) {
+        // <return>string|binaryData</return>
+        public virtual string Capture(table captureData) {
+            return "String";
         }
         
         // <realm>Client</realm>
         // <summary>Dumps the current render target and allows the pixels to be accessed by {{LibraryFunction|render|ReadPixel}}.</summary>
-        public static void CapturePixels() {
+        public virtual void CapturePixels() {
         }
         
         // <realm>Client</realm>
@@ -69,7 +71,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="a">Alpha component to clear to.</param>
         // <param name="clearDepth">Clear the depth.</param>
         // <param name="clearStencil">Clear the stencil.</param>
-        public static void Clear(float r, float g, float b, float a, bool clearDepth, bool clearStencil) {
+        public virtual void Clear(float r, float g, float b, float a, boolean clearDepth, boolean clearStencil) {
         }
         
         // <realm>Client</realm>
@@ -79,23 +81,23 @@ namespace MetroMad.Lua.gLua {
         // <param name="b">Value of the blue channel to clear the current rt with.</param>
         // <param name="a">Value of the alpha channel to clear the current rt with.</param>
         // <param name="depth">Clear the depth buffer.</param>
-        public static void ClearBuffersObeyStencil(float r, float g, float b, float a, bool depth) {
+        public virtual void ClearBuffersObeyStencil(float r, float g, float b, float a, boolean depth) {
         }
         
         // <realm>Client</realm>
         // <summary>Resets the depth buffer.</summary>
-        public static void ClearDepth() {
+        public virtual void ClearDepth() {
         }
         
         // <realm>Client</realm>
         // <summary>Clears a render target</summary>
         // <param name="color">The color, see {{Struct|Color}}.</param>
-        public static void ClearRenderTarget(table color) {
+        public virtual void ClearRenderTarget(table color) {
         }
         
         // <realm>Client</realm>
         // <summary>Resets all values in the stencil buffer to zero.</summary>
-        public static void ClearStencil() {
+        public virtual void ClearStencil() {
         }
         
         // <realm>Client</realm>
@@ -105,40 +107,44 @@ namespace MetroMad.Lua.gLua {
         // <param name="endX">The end X coordinate of the rectangle.</param>
         // <param name="endY">The end Y coordinate of the rectangle.</param>
         // <param name="stencilValue">Value to set cleared stencil buffer to.</param>
-        public static void ClearStencilBufferRectangle(float originX, float originY, float endX, float endY, float stencilValue) {
+        public virtual void ClearStencilBufferRectangle(float originX, float originY, float endX, float endY, float stencilValue) {
         }
         
         // <realm>Client</realm>
         // <summary>Calculates the lighting caused by dynamic lights for the specified surface.</summary>
         // <param name="position">The position to sample from.</param>
         // <param name="normal">The normal of the surface.</param>
-        public static void ComputeDynamicLighting(Vector position, Vector normal) {
+        // <return>Vector|lighting</return>
+        public virtual Vector ComputeDynamicLighting(Vector position, Vector normal) {
+            return new Vector();
         }
         
         // <realm>Client</realm>
         // <summary>Calculates the light color of a certain surface.</summary>
         // <param name="position">The position of the surface to get the light from.</param>
         // <param name="normal">The normal of the surface to get the light from.</param>
-        public static void ComputeLighting(Vector position, Vector normal) {
+        // <return>Vector|A vector representing the light at that point.</return>
+        public virtual Vector ComputeLighting(Vector position, Vector normal) {
+            return new Vector();
         }
         
         // <realm>Client</realm>
-        public static void CopyRenderTargetToTexture() {
+        public virtual void CopyRenderTargetToTexture() {
         }
         
         // <realm>Client</realm>
         // <summary>Copies the contents of one texture to another</summary>
-        public static void CopyTexture() {
+        public virtual void CopyTexture() {
         }
         
         // <realm>Client</realm>
         // <summary>Changes the cull mode.</summary>
         // <param name="cullMode">Cullmode, see {{Enum|MATERIAL_CULLMODE}}.</param>
-        public static void CullMode(float cullMode) {
+        public virtual void CullMode(float cullMode) {
         }
         
         // <realm>Client</realm>
-        public static void DepthRange() {
+        public virtual void DepthRange() {
         }
         
         // <realm>Client</realm>
@@ -149,7 +155,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="textureStart">The start coordinate of the texture used.</param>
         // <param name="textureEnd">The end coordinate of the texture used.</param>
         // <param name="color">The color to be used. Uses the {{Struct|Color}}.</param>
-        public static void DrawBeam(Vector startPos, Vector endPos, float width, float textureStart, float textureEnd, table color) {
+        public virtual void DrawBeam(Vector startPos, Vector endPos, float width, float textureStart, float textureEnd, table color) {
         }
         
         // <realm>Client</realm>
@@ -160,7 +166,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="maxs">End position of the box.</param>
         // <param name="color">The color of the box. Uses the {{Struct|Color}}.</param>
         // <param name="writeZ">End position of the box.</param>
-        public static void DrawBox(Vector position, Angle angles, Vector mins, Vector maxs, table color, bool writeZ) {
+        public virtual void DrawBox(Vector position, Angle angles, Vector mins, Vector maxs, table color, boolean writeZ) {
         }
         
         // <realm>Client</realm>
@@ -169,7 +175,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="endPos">Line end position.</param>
         // <param name="color">The color to be used. Uses the {{Struct|Color}}.</param>
         // <param name="writeZ">Sets whenever to write to the zBuffer.</param>
-        public static void DrawLine(Vector startPos, Vector endPos, table color, bool writeZ) {
+        public virtual void DrawLine(Vector startPos, Vector endPos, table color, boolean writeZ) {
         }
         
         // <realm>Client</realm>
@@ -179,7 +185,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="vert3">The third vertex.</param>
         // <param name="ver4">The fourth vertex.</param>
         // <param name="color">The color of the quad. See {{GlobalFunction|Color}}.</param>
-        public static void DrawQuad(Vector vert1, Vector vert2, Vector vert3, Vector ver4, table color) {
+        public virtual void DrawQuad(Vector vert1, Vector vert2, Vector vert3, Vector ver4, table color) {
         }
         
         // <realm>Client</realm>
@@ -190,12 +196,12 @@ namespace MetroMad.Lua.gLua {
         // <param name="height">The height of the quad.</param>
         // <param name="color">The color of the quad. Uses the {{Struct|Color}}.</param>
         // <param name="rotation">The rotation of the quad in degrees.</param>
-        public static void DrawQuadEasy(Vector position, Vector normal, float width, float height, table color, float rotation) {
+        public virtual void DrawQuadEasy(Vector position, Vector normal, float width, float height, table color, float rotation) {
         }
         
         // <realm>Client</realm>
         // <summary>Draws the the current material to the whole screen.</summary>
-        public static void DrawScreenQuad() {
+        public virtual void DrawScreenQuad() {
         }
         
         // <realm>Client</realm>
@@ -204,7 +210,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="startY">Y start position of the rect.</param>
         // <param name="width">Width of the rect.</param>
         // <param name="height">Height of the rect.</param>
-        public static void DrawScreenQuadEx(float startX, float startY, float width, float height) {
+        public virtual void DrawScreenQuadEx(float startX, float startY, float width, float height) {
         }
         
         // <realm>Client</realm>
@@ -214,7 +220,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="longitudeSteps">The amount of longitude steps.</param>
         // <param name="latitudeSteps">The amount of latitude steps.</param>
         // <param name="color">The color of the sphere. Uses the {{Struct|Color}}.</param>
-        public static void DrawSphere(Vector position, float radius, float longitudeSteps, float latitudeSteps, table color) {
+        public virtual void DrawSphere(Vector position, float radius, float longitudeSteps, float latitudeSteps, table color) {
         }
         
         // <realm>Client</realm>
@@ -223,15 +229,15 @@ namespace MetroMad.Lua.gLua {
         // <param name="width">Width of the sprite.</param>
         // <param name="height">Height of the sprite.</param>
         // <param name="color">Color of the sprite. Uses the {{Struct|Color}}.</param>
-        public static void DrawSprite(Vector position, float width, float height, table color) {
+        public virtual void DrawSprite(Vector position, float width, float height, table color) {
         }
         
         // <realm>Client</realm>
-        public static void DrawTextureToScreen() {
+        public virtual void DrawTextureToScreen() {
         }
         
         // <realm>Client</realm>
-        public static void DrawTextureToScreenRect() {
+        public virtual void DrawTextureToScreenRect() {
         }
         
         // <realm>Client</realm>
@@ -242,7 +248,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="maxs">The highest corner of the box.</param>
         // <param name="color">The color of the box. Uses the {{Struct|Color}}.</param>
         // <param name="writeZ">Sets whenever to write to the zBuffer.</param>
-        public static void DrawWireframeBox(Vector position, Angle angle, Vector mins, Vector maxs, table color, bool writeZ) {
+        public virtual void DrawWireframeBox(Vector position, Angle angle, Vector mins, Vector maxs, table color, boolean writeZ) {
         }
         
         // <realm>Client</realm>
@@ -253,18 +259,20 @@ namespace MetroMad.Lua.gLua {
         // <param name="segments">The number of segments.</param>
         // <param name="[color]">The color of the box.</param>
         // <param name="[writeZ]">End position of the box.</param>
-        public static void DrawWireframeSphere(Vector position, float size, float sectors, float segments, table [color], bool [writeZ]) {
+        public virtual void DrawWireframeSphere(Vector position, float size, float sectors, float segments, table [color], boolean [writeZ]) {
         }
         
         // <realm>Client</realm>
         // <summary>Sets the status of the clip renderer, returns previous state.</summary>
         // <param name="state">New clipping state.</param>
-        public static void EnableClipping(bool state) {
+        // <return>boolean|previousState</return>
+        public virtual bool EnableClipping(boolean state) {
+            return true;
         }
         
         // <realm>Client</realm>
         // <summary>Ends the beam mesh of a beam started with {{LibraryFunction|render|StartBeam}}.</summary>
-        public static void EndBeam() {
+        public virtual void EndBeam() {
         }
         
         // <realm>Client</realm>
@@ -272,250 +280,290 @@ namespace MetroMad.Lua.gLua {
         // <param name="red">Red channel of the fog color.</param>
         // <param name="green">Green channel of the fog color.</param>
         // <param name="blue">Blue channel of the fog color.</param>
-        public static void FogColor(float red, float green, float blue) {
+        public virtual void FogColor(float red, float green, float blue) {
         }
         
         // <realm>Client</realm>
         // <summary>Sets the at which the fog reaches its max density.</summary>
         // <param name="distance">The distance at which the fog reaches its max density.</param>
-        public static void FogEnd(float distance) {
+        public virtual void FogEnd(float distance) {
         }
         
         // <realm>Client</realm>
         // <summary>Sets the maximum density of the fog.</summary>
         // <param name="maxDensity">The maximum density of the fog.</param>
-        public static void FogMaxDensity(float maxDensity) {
+        public virtual void FogMaxDensity(float maxDensity) {
         }
         
         // <realm>Client</realm>
         // <summary>Sets the mode of fog.</summary>
         // <param name="fogMode">Fog mode, see {{Enum|MATERIAL_FOG}}.</param>
-        public static void FogMode(float fogMode) {
+        public virtual void FogMode(float fogMode) {
         }
         
         // <realm>Client</realm>
         // <summary>Sets the distance at which the fog starts showing up.</summary>
         // <param name="fogStart">The distance at which the fog starts showing up.</param>
-        public static void FogStart(float fogStart) {
+        public virtual void FogStart(float fogStart) {
         }
         
         // <realm>Client</realm>
         // <summary>Returns the ambient color of the map.</summary>
-        public static void GetAmbientLightColor() {
+        // <return>Vector|color</return>
+        public virtual Vector GetAmbientLightColor() {
+            return new Vector();
         }
         
         // <realm>Client</realm>
         // <summary>Returns the current alpha blending.</summary>
-        public static void GetBlend() {
+        // <return>number|blend</return>
+        public virtual int GetBlend() {
+            return 1;
         }
         
         // <realm>Client</realm>
-        public static void GetBloomTex0() {
+        // <return>ITexture|The bloom texture</return>
+        public virtual ITexture GetBloomTex0() {
+            return new ITexture();
         }
         
         // <realm>Client</realm>
-        public static void GetBloomTex1() {
+        public virtual ITexture GetBloomTex1() {
+            return new ITexture();
         }
         
         // <realm>Client</realm>
         // <summary>Returns the current color modulation values as normals.</summary>
-        public static void GetColorModulation() {
+        // <return>number|r</return>
+        public virtual int GetColorModulation() {
+            return 1;
         }
         
         // <realm>Client</realm>
         // <summary>Returns the maximum available directX version.</summary>
-        public static void GetDXLevel() {
+        // <return>number|dxLevel</return>
+        public virtual int GetDXLevel() {
+            return 1;
         }
         
         // <realm>Client</realm>
         // <summary>Returns the current fog color.</summary>
-        public static void GetFogColor() {
+        // <return>number|red</return>
+        public virtual int GetFogColor() {
+            return 1;
         }
         
         // <realm>Client</realm>
         // <summary>Returns the fog start and end distance.</summary>
-        public static void GetFogDistances() {
+        // <return>number|fogStart</return>
+        public virtual int GetFogDistances() {
+            return 1;
         }
         
         // <realm>Client</realm>
         // <summary>Returns the fog mode.</summary>
-        public static void GetFogMode() {
+        // <return>number|Fog mode, see {{Enum|MATERIAL_FOG}}</return>
+        public virtual int GetFogMode() {
+            return 1;
         }
         
         // <realm>Client</realm>
-        public static void GetFullScreenDepthTexture() {
+        public virtual ITexture GetFullScreenDepthTexture() {
+            return new ITexture();
         }
         
         // <realm>Client</realm>
         // <summary>Gets the light exposure on the specified position.</summary>
         // <param name="position">The position of the surface to get the light from.</param>
-        public static void GetLightColor(Vector position) {
+        // <return>Vector|lightColor</return>
+        public virtual Vector GetLightColor(Vector position) {
+            return new Vector();
         }
         
         // <realm>Client</realm>
-        public static void GetMoBlurTex0() {
+        public virtual ITexture GetMoBlurTex0() {
+            return new ITexture();
         }
         
         // <realm>Client</realm>
-        public static void GetMoBlurTex1() {
+        public virtual ITexture GetMoBlurTex1() {
+            return new ITexture();
         }
         
         // <realm>Client</realm>
-        public static void GetMorphTex0() {
+        public virtual ITexture GetMorphTex0() {
+            return new ITexture();
         }
         
         // <realm>Client</realm>
-        public static void GetMorphTex1() {
+        public virtual ITexture GetMorphTex1() {
+            return new ITexture();
         }
         
         // <realm>Client</realm>
-        public static void GetPowerOfTwoTexture() {
+        // <return>ITexture|The Power of Two texture.</return>
+        public virtual ITexture GetPowerOfTwoTexture() {
+            return new ITexture();
         }
         
         // <realm>Client</realm>
-        public static void GetRefractTexture() {
+        public virtual void GetRefractTexture() {
         }
         
         // <realm>Client</realm>
         // <summary>Returns the currently active render target.</summary>
-        public static void GetRenderTarget() {
+        // <return>ITexture|renderTarget</return>
+        public virtual ITexture GetRenderTarget() {
+            return new ITexture();
         }
         
         // <realm>Client</realm>
-        public static void GetResolvedFullFrameDepth() {
+        public virtual void GetResolvedFullFrameDepth() {
         }
         
         // <realm>Client</realm>
-        public static void GetScreenEffectTexture() {
+        public virtual void GetScreenEffectTexture() {
         }
         
         // <realm>Client</realm>
-        public static void GetSmallTex0() {
+        public virtual ITexture GetSmallTex0() {
+            return new ITexture();
         }
         
         // <realm>Client</realm>
-        public static void GetSmallTex1() {
+        public virtual ITexture GetSmallTex1() {
+            return new ITexture();
         }
         
         // <realm>Client</realm>
-        public static void GetSuperFPTex() {
+        public virtual ITexture GetSuperFPTex() {
+            return new ITexture();
         }
         
         // <realm>Client</realm>
-        public static void GetSuperFPTex2() {
+        public virtual ITexture GetSuperFPTex2() {
+            return new ITexture();
         }
         
         // <realm>Client</realm>
         // <summary>Performs a render trace and returns the color of the surface hit, this uses a low res version of the texture.</summary>
         // <param name="startPos">The start position to trace from.</param>
         // <param name="endPos">The end position of the trace.</param>
-        public static void GetSurfaceColor(Vector startPos, Vector endPos) {
+        // <return>Vector|color</return>
+        public virtual Vector GetSurfaceColor(Vector startPos, Vector endPos) {
+            return new Vector();
         }
         
         // <realm>Client</realm>
         // <summary>Returns a vector representing linear tone mapping scale.</summary>
-        public static void GetToneMappingScaleLinear() {
+        // <return>Vector|The vector representing linear tone mapping scale.</return>
+        public virtual Vector GetToneMappingScaleLinear() {
+            return new Vector();
         }
         
         // <realm>Client</realm>
         // <summary>Sets the render material override.</summary>
         // <param name="material">The material to use as override, use nil to disable.</param>
-        public static void MaterialOverride(IMaterial material) {
+        public virtual void MaterialOverride(IMaterial material) {
         }
         
         // <realm>Client</realm>
         // <summary>Returns the maximum texture height the renderer can handle.</summary>
-        public static void MaxTextureHeight() {
+        // <return>number|maxTextureHeight</return>
+        public virtual int MaxTextureHeight() {
+            return 1;
         }
         
         // <realm>Client</realm>
         // <summary>Returns the maximum texture width the renderer can handle.</summary>
-        public static void MaxTextureWidth() {
+        // <return>number|maxTextureWidth</return>
+        public virtual int MaxTextureWidth() {
+            return 1;
         }
         
         // <realm>Client</realm>
         // <summary>Creates a new ClientsideModel, renders it at the specified pos/ang, and removes it</summary>
         // <param name="settings">Requires:.</param>
-        public static void Model(table settings) {
+        public virtual void Model(table settings) {
         }
         
         // <realm>Client</realm>
-        public static void ModelMaterialOverride() {
+        public virtual void ModelMaterialOverride() {
         }
         
         // <realm>Client</realm>
         // <summary>Overrides the write behaviour of all next rendering operations towards the alpha channel of the current render target.</summary>
         // <param name="enable">Enable or disable the override.</param>
         // <param name="shouldWrite">If the previous argument is true, sets whether the next rendering operations should write to the alpha channel or not. Has no effect if the previous argument is false.</param>
-        public static void OverrideAlphaWriteEnable(bool enable, bool shouldWrite) {
+        public virtual void OverrideAlphaWriteEnable(boolean enable, boolean shouldWrite) {
         }
         
         // <realm>Client</realm>
         // <summary>Overrides the write behaviour of all next rendering operations towards the color channel of the current render target.</summary>
         // <param name="enable">Enable or disable the override.</param>
         // <param name="shouldWrite">If the previous argument is true, sets whether the next rendering operations should write to the color channel or not. Has no effect if the previous argument is false.</param>
-        public static void OverrideColorWriteEnable(bool enable, bool shouldWrite) {
+        public virtual void OverrideColorWriteEnable(boolean enable, boolean shouldWrite) {
         }
         
         // <realm>Client</realm>
         // <summary>Overrides the write behaviour of all next rendering operations towards the depth buffer.</summary>
         // <param name="enable">Enable or disable the override.</param>
         // <param name="shouldWrite">If the previous argument is true, sets whether the next rendering operations should write to the depth buffer or not. Has no effect if the previous argument is false.</param>
-        public static void OverrideDepthEnable(bool enable, bool shouldWrite) {
+        public virtual void OverrideDepthEnable(boolean enable, boolean shouldWrite) {
         }
         
         // <realm>Client</realm>
-        public static void PerformFullScreenStencilOperation() {
+        public virtual void PerformFullScreenStencilOperation() {
         }
         
         // <realm>Client</realm>
         // <summary>Removes the current active clipping plane from the clip plane stack.</summary>
-        public static void PopCustomClipPlane() {
+        public virtual void PopCustomClipPlane() {
         }
         
         // <realm>Client</realm>
         // <summary>Pops the current texture mag filter from the filter stack.</summary>
-        public static void PopFilterMag() {
+        public virtual void PopFilterMag() {
         }
         
         // <realm>Client</realm>
         // <summary>Pops the current texture min filter from the filter stack.</summary>
-        public static void PopFilterMin() {
+        public virtual void PopFilterMin() {
         }
         
         // <realm>Client</realm>
         // <summary>Pops the current flashlight mode from the flashlight mode stack.</summary>
-        public static void PopFlashlightMode() {
+        public virtual void PopFlashlightMode() {
         }
         
         // <realm>Client</realm>
         // <summary>Pops the last render target and viewport from the RT stack and sets them as the current render target and viewport.</summary>
-        public static void PopRenderTarget() {
+        public virtual void PopRenderTarget() {
         }
         
         // <realm>Client</realm>
         // <summary>Pushes a new clipping plane of the clip plane stack and sets it as active.</summary>
         // <param name="normal">The normal of the clipping plane.</param>
         // <param name="distance">The distance of the plane.</param>
-        public static void PushCustomClipPlane(Vector normal, float distance) {
+        public virtual void PushCustomClipPlane(Vector normal, float distance) {
         }
         
         // <realm>Client</realm>
         // <summary>Pushes a texture filter onto the mag texture filter stack.</summary>
         // <param name="texFilterType">The texture filter type, see {{Enum|TEXFILTER}}.</param>
-        public static void PushFilterMag(float texFilterType) {
+        public virtual void PushFilterMag(float texFilterType) {
         }
         
         // <realm>Client</realm>
         // <summary>Pushes a texture filter onto the min texture filter stack.</summary>
         // <param name="texFilterType">The texture filter type, see {{Enum|TEXFILTER}}.</param>
-        public static void PushFilterMin(float texFilterType) {
+        public virtual void PushFilterMin(float texFilterType) {
         }
         
         // <realm>Client</realm>
         // <summary>Enables the flashlight projection for the upcoming rendering.</summary>
         // <param name="enable">Whether the flashlight mode should be enabled or disabled.</param>
-        public static void PushFlashlightMode(bool enable) {
+        public virtual void PushFlashlightMode(boolean enable) {
         }
         
         // <realm>Client</realm>
@@ -525,19 +573,21 @@ namespace MetroMad.Lua.gLua {
         // <param name="y">Y origin of the viewport.</param>
         // <param name="w">Width of the viewport.</param>
         // <param name="h">Height of the viewport.</param>
-        public static void PushRenderTarget(ITexture texture, float x, float y, float w, float h) {
+        public virtual void PushRenderTarget(ITexture texture, float x, float y, float w, float h) {
         }
         
         // <realm>Client</realm>
         // <summary>Reads the color of the specified pixel.</summary>
         // <param name="x">The x coordinate.</param>
         // <param name="y">The y coordinate.</param>
-        public static void ReadPixel(float x, float y) {
+        // <return>number|r</return>
+        public virtual int ReadPixel(float x, float y) {
+            return 1;
         }
         
         // <realm>Client</realm>
         // <summary>This applies the changes made to map lighting using {{LibraryFunction|engine|LightStyle}}.</summary>
-        public static void RedownloadAllLightmaps() {
+        public virtual void RedownloadAllLightmaps() {
         }
         
         // <realm>Client</realm>
@@ -546,13 +596,13 @@ namespace MetroMad.Lua.gLua {
         // <param name="y">Y position for the HUD draw origin.</param>
         // <param name="w">Width of the HUD draw.</param>
         // <param name="h">Height of the HUD draw.</param>
-        public static void RenderHUD(float x, float y, float w, float h) {
+        public virtual void RenderHUD(float x, float y, float w, float h) {
         }
         
         // <realm>Client</realm>
         // <summary>Renders the scene with the specified viewData to the current active render target.</summary>
         // <param name="view">The view data to be used in the rendering. See {{Struct|ViewData}}.</param>
-        public static void RenderView(table view) {
+        public virtual void RenderView(table view) {
         }
         
         // <realm>Client</realm>
@@ -560,13 +610,13 @@ namespace MetroMad.Lua.gLua {
         // <param name="r">The red part of the color, 0-1.</param>
         // <param name="g">The green part of the color, 0-1.</param>
         // <param name="b">The blue part of the color, 0-1.</param>
-        public static void ResetModelLighting(float r, float g, float b) {
+        public virtual void ResetModelLighting(float r, float g, float b) {
         }
         
         // <realm>Client</realm>
         // <summary>Resets the HDR tone multiplier to the specified value.</summary>
         // <param name="scale">The value which should be used as multiplier.</param>
-        public static void ResetToneMappingScale(float scale) {
+        public virtual void ResetToneMappingScale(float scale) {
         }
         
         // <realm>Client</realm>
@@ -574,21 +624,21 @@ namespace MetroMad.Lua.gLua {
         // <param name="r">The red part of the color, 0-1.</param>
         // <param name="g">The green part of the color, 0-1.</param>
         // <param name="b">The blue part of the color, 0-1.</param>
-        public static void SetAmbientLight(float r, float g, float b) {
+        public virtual void SetAmbientLight(float r, float g, float b) {
         }
         
         // <realm>Client</realm>
         // <summary>Sets the alpha blending for every upcoming render operation.</summary>
         // <param name="blending">Blending value from 0-1.</param>
-        public static void SetBlend(float blending) {
+        public virtual void SetBlend(float blending) {
         }
         
         // <realm>Client</realm>
-        public static void SetColorMaterial() {
+        public virtual void SetColorMaterial() {
         }
         
         // <realm>Client</realm>
-        public static void SetColorMaterialIgnoreZ() {
+        public virtual void SetColorMaterialIgnoreZ() {
         }
         
         // <realm>Client</realm>
@@ -596,43 +646,43 @@ namespace MetroMad.Lua.gLua {
         // <param name="r">The red channel multiplier normal ranging from 0-1.</param>
         // <param name="g">The green channel multiplier normal ranging from 0-1.</param>
         // <param name="b">The blue channel multiplier normal ranging from 0-1.</param>
-        public static void SetColorModulation(float r, float g, float b) {
+        public virtual void SetColorModulation(float r, float g, float b) {
         }
         
         // <realm>Client</realm>
         // <summary>If the fog mode is set to MATERIAL_FOG_LINEAR_BELOW_FOG_Z, the fog will only be rendered below the specified distance.</summary>
         // <param name="fogZ">The fogZ.</param>
-        public static void SetFogZ(float fogZ) {
+        public virtual void SetFogZ(float fogZ) {
         }
         
         // <realm>Client</realm>
         // <summary>Sets the goal HDR tone mapping scale.</summary>
         // <param name="scale">The target scale.</param>
-        public static void SetGoalToneMappingScale(float scale) {
+        public virtual void SetGoalToneMappingScale(float scale) {
         }
         
         // <realm>Client</realm>
         // <summary>Sets lighting mode when rendering something.</summary>
         // <param name="Mode">Lighting render mode.</param>
-        public static void SetLightingMode(float Mode) {
+        public virtual void SetLightingMode(float Mode) {
         }
         
         // <realm>Client</realm>
         // <summary>Sets the lighting origin.</summary>
         // <param name="lightingOrigin">The position from which the light should be "emitted".</param>
-        public static void SetLightingOrigin(Vector lightingOrigin) {
+        public virtual void SetLightingOrigin(Vector lightingOrigin) {
         }
         
         // <realm>Client</realm>
         // <summary>Sets the texture to be used as the lightmap in upcoming rendering operations. This is required when rendering meshes using a material with a lightmapped shader such as LightmappedGeneric.</summary>
         // <param name="tex">The texture to be used as the lightmap.</param>
-        public static void SetLightmapTexture(ITexture tex) {
+        public virtual void SetLightmapTexture(ITexture tex) {
         }
         
         // <realm>Client</realm>
         // <summary>Sets the material to be used in any upcoming render operation.</summary>
         // <param name="texture">The material to be used.</param>
-        public static void SetMaterial(IMaterial texture) {
+        public virtual void SetMaterial(IMaterial texture) {
         }
         
         // <realm>Client</realm>
@@ -641,20 +691,20 @@ namespace MetroMad.Lua.gLua {
         // <param name="red">The red color channel ranging from 0-1.</param>
         // <param name="green">The green color channel ranging from 0-1.</param>
         // <param name="blue">The blue color channel ranging from 0-1.</param>
-        public static void SetModelLighting(float lightDirection, float red, float green, float blue) {
+        public virtual void SetModelLighting(float lightDirection, float red, float green, float blue) {
         }
         
         // <realm>Client</realm>
         // <summary>Sets the render target to the specified rt.</summary>
         // <param name="texture">The new render target to be used.</param>
-        public static void SetRenderTarget(ITexture texture) {
+        public virtual void SetRenderTarget(ITexture texture) {
         }
         
         // <realm>Client</realm>
         // <summary>Sets the render target with the specified index to the specified rt.</summary>
         // <param name="rtIndex">The index of the rt to set.</param>
         // <param name="texture">The new render target to be used.</param>
-        public static void SetRenderTargetEx(float rtIndex, ITexture texture) {
+        public virtual void SetRenderTargetEx(float rtIndex, ITexture texture) {
         }
         
         // <realm>Client</realm>
@@ -664,7 +714,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="endX">X end coordinate of the scissor rect.</param>
         // <param name="endY">Y end coordinate of the scissor rect.</param>
         // <param name="enable">Enable or disable the scissor rect.</param>
-        public static void SetScissorRect(float startX, float startY, float endX, float endY, bool enable) {
+        public virtual void SetScissorRect(float startX, float startY, float endX, float endY, boolean enable) {
         }
         
         // <realm>Client</realm>
@@ -672,71 +722,71 @@ namespace MetroMad.Lua.gLua {
         // <param name="red">The red channel of the shadow color.</param>
         // <param name="green">The green channel of the shadow color.</param>
         // <param name="blue">The blue channel of the shadow color.</param>
-        public static void SetShadowColor(float red, float green, float blue) {
+        public virtual void SetShadowColor(float red, float green, float blue) {
         }
         
         // <realm>Client</realm>
         // <summary>Sets the shadow projection direction.</summary>
         // <param name="shadowDirections">The new shadow direction.</param>
-        public static void SetShadowDirection(Vector shadowDirections) {
+        public virtual void SetShadowDirection(Vector shadowDirections) {
         }
         
         // <realm>Client</realm>
         // <summary>Sets the maximum shadow projection range.</summary>
         // <param name="shadowDistance">The new maximum shadow distance.</param>
-        public static void SetShadowDistance(float shadowDistance) {
+        public virtual void SetShadowDistance(float shadowDistance) {
         }
         
         // <realm>Client</realm>
-        public static void SetShadowsDisabled() {
+        public virtual void SetShadowsDisabled() {
         }
         
         // <realm>Client</realm>
         // <summary>Sets the compare function of the stencil.</summary>
         // <param name="compareFunction">Compare function, see {{Enum|STENCIL}}.</param>
-        public static void SetStencilCompareFunction(float compareFunction) {
+        public virtual void SetStencilCompareFunction(float compareFunction) {
         }
         
         // <realm>Client</realm>
         // <summary>Sets the state of the stencil buffer.</summary>
         // <param name="newState">The new state.</param>
-        public static void SetStencilEnable(bool newState) {
+        public virtual void SetStencilEnable(boolean newState) {
         }
         
         // <realm>Client</realm>
         // <summary>Sets what the stencil should do if the compare function was not successful.</summary>
         // <param name="failOperation">Fail operation function, see {{Enum|STENCIL}}.</param>
-        public static void SetStencilFailOperation(float failOperation) {
+        public virtual void SetStencilFailOperation(float failOperation) {
         }
         
         // <realm>Client</realm>
         // <summary>Sets what the stencil should do if the compare function was successful.</summary>
         // <param name="passOperation">Pass operation function, see {{Enum|STENCIL}}.</param>
-        public static void SetStencilPassOperation(float passOperation) {
+        public virtual void SetStencilPassOperation(float passOperation) {
         }
         
         // <realm>Client</realm>
         // <summary>Sets the reference value which will be used for all stencil operations.</summary>
         // <param name="referenceValue">Reference value.</param>
-        public static void SetStencilReferenceValue(float referenceValue) {
+        public virtual void SetStencilReferenceValue(float referenceValue) {
         }
         
         // <realm>Client</realm>
-        public static void SetStencilTestMask() {
+        public virtual void SetStencilTestMask() {
         }
         
         // <realm>Client</realm>
-        public static void SetStencilWriteMask() {
+        public virtual void SetStencilWriteMask() {
         }
         
         // <realm>Client</realm>
         // <summary>Sets what the stencil should do if the compare function was not successful due to the zBuffer.</summary>
         // <param name="zFailOperation">Z fail operation function, see {{Enum|STENCIL}}.</param>
-        public static void SetStencilZFailOperation(float zFailOperation) {
+        public virtual void SetStencilZFailOperation(float zFailOperation) {
         }
         
         // <realm>Client</realm>
-        public static void SetToneMappingScaleLinear() {
+        public virtual void SetToneMappingScaleLinear() {
         }
         
         // <realm>Client</realm>
@@ -745,70 +795,78 @@ namespace MetroMad.Lua.gLua {
         // <param name="y">Y origin of the view port.</param>
         // <param name="w">Width of the view port.</param>
         // <param name="h">Height of the view port.</param>
-        public static void SetViewPort(float x, float y, float w, float h) {
+        public virtual void SetViewPort(float x, float y, float w, float h) {
         }
         
         // <realm>Client</realm>
-        public static void SetWriteDepthToDestAlpha() {
+        public virtual void SetWriteDepthToDestAlpha() {
         }
         
         // <realm>Client</realm>
         // <summary>Swaps the frame buffers/cycles the frame.</summary>
-        public static void Spin() {
+        public virtual void Spin() {
         }
         
         // <realm>Client</realm>
         // <summary>Start a new beam draw operation.</summary>
         // <param name="segmentCount">Amount of beam segments that are about to be drawn.</param>
-        public static void StartBeam(float segmentCount) {
+        public virtual void StartBeam(float segmentCount) {
         }
         
         // <realm>Client</realm>
         // <summary>Returns whenever the game supports HDR eg. if the directX level is higher or equal 8.</summary>
-        public static void SupportsHDR() {
+        // <return>boolean|supportsHDR</return>
+        public virtual bool SupportsHDR() {
+            return true;
         }
         
         // <realm>Client</realm>
         // <summary>Returns if the current settings and the system allow the usage of pixel shaders 1.4.</summary>
-        public static void SupportsPixelShaders_1_4() {
+        // <return>boolean|supportsShaders</return>
+        public virtual bool SupportsPixelShaders_1_4() {
+            return true;
         }
         
         // <realm>Client</realm>
         // <summary>Returns if the current settings and the system allow the usage of pixel shaders 2.0.</summary>
-        public static void SupportsPixelShaders_2_0() {
+        // <return>boolean|supportsShaders</return>
+        public virtual bool SupportsPixelShaders_2_0() {
+            return true;
         }
         
         // <realm>Client</realm>
         // <summary>Returns if the current settings and the system allow the usage of vertex shaders 2.0.</summary>
-        public static void SupportsVertexShaders_2_0() {
+        // <return>boolean|supportsShaders</return>
+        public virtual bool SupportsVertexShaders_2_0() {
+            return true;
         }
         
         // <realm>Client</realm>
         // <summary>Suppresses or enables any engine lighting for any upcoming render operation.</summary>
         // <param name="suppressLighting">True to suppress false to enable.</param>
-        public static void SuppressEngineLighting(bool suppressLighting) {
+        public virtual void SuppressEngineLighting(boolean suppressLighting) {
         }
         
         // <realm>Client</realm>
         // <summary>Enables HDR tone mapping which influences the brightness.</summary>
-        public static void TurnOnToneMapping() {
+        public virtual void TurnOnToneMapping() {
         }
         
         // <realm>Client</realm>
-        public static void UpdateFullScreenDepthTexture() {
+        public virtual void UpdateFullScreenDepthTexture() {
         }
         
         // <realm>Client</realm>
         // <summary>Updates the power of two texture.</summary>
-        public static void UpdatePowerOfTwoTexture() {
+        public virtual void UpdatePowerOfTwoTexture() {
         }
         
         // <realm>Client</realm>
-        public static void UpdateRefractTexture() {
+        public virtual void UpdateRefractTexture() {
         }
         
         // <realm>Client</realm>
-        public static void UpdateScreenEffectTexture() {
+        public virtual void UpdateScreenEffectTexture() {
         }
     }
 }

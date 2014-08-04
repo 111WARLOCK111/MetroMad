@@ -37,20 +37,22 @@ namespace MetroMad.Lua.gLua {
         // <param name="groupname">The preset group name, usually it's tool class name.</param>
         // <param name="name">Preset name, must be unique.</param>
         // <param name="values">A table of preset console commands.</param>
-        public static void Add(string groupname, string name, table values) {
+        public virtual void Add(string groupname, string name, table values) {
         }
         
         // <realm>Client</realm>
         // <summary>Returns a table with preset names and values from a single preset group.</summary>
         // <param name="groupname">Preset group name.</param>
-        public static void GetTable(string groupname) {
+        // <return>table|All presets in specified group.</return>
+        public virtual table GetTable(string groupname) {
+            return new table();
         }
         
         // <realm>Client</realm>
         // <summary>Removes a preset entry from a preset group.</summary>
         // <param name="groupname">Preset group to remove from.</param>
         // <param name="name">Name of preset to remove.</param>
-        public static void Remove(string groupname, string name) {
+        public virtual void Remove(string groupname, string name) {
         }
         
         // <realm>Client</realm>
@@ -58,7 +60,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="groupname">Preset group name.</param>
         // <param name="oldname">Old preset name.</param>
         // <param name="newname">New preset name.</param>
-        public static void Rename(string groupname, string oldname, string newname) {
+        public virtual void Rename(string groupname, string oldname, string newname) {
         }
     }
 }

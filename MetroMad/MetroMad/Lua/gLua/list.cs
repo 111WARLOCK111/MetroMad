@@ -36,26 +36,32 @@ namespace MetroMad.Lua.gLua {
         // <summary>Adds an item to a named list</summary>
         // <param name="identifier">The list identifier.</param>
         // <param name="item">The item to add to the list.</param>
-        public static void Add(string identifier, any item) {
+        public virtual void Add(string identifier, any item) {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns true if the list contains the value. (as a value - not a key)</summary>
         // <param name="list">List to search through.</param>
         // <param name="value">The value to test.</param>
-        public static void Contains(string list, any value) {
+        // <return>boolean|Returns true if the list contains the value, false otherwise</return>
+        public virtual bool Contains(string list, any value) {
+            return true;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns a copy of the list stored at identifier</summary>
         // <param name="identifier">The list identifier.</param>
-        public static void Get(string identifier) {
+        // <return>table|listCopy</return>
+        public virtual table Get(string identifier) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the actual table of the list stored at identifier. Modifying this will affect the stored list</summary>
         // <param name="identifier">The list identifier.</param>
-        public static void GetForEdit(string identifier) {
+        // <return>table|listCopy</return>
+        public virtual table GetForEdit(string identifier) {
+            return new table();
         }
         
         // <realm>Shared</realm>
@@ -63,7 +69,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="identifier">The list identifier.</param>
         // <param name="key">The key in the list to set.</param>
         // <param name="item">The item to set to the list as key.</param>
-        public static void Set(string identifier, any key, any item) {
+        public virtual void Set(string identifier, any key, any item) {
         }
     }
 }

@@ -37,7 +37,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="eventName">The event to hook on to.</param>
         // <param name="identifier">The unique identifier, usually a string. This can be used to replace or remove existing hooks.</param>
         // <param name="func">The function to be called, arguments given to it depend on the [[:Category:Hooks|hook]].</param>
-        public static void Add(string eventName, any identifier, function func) {
+        public virtual void Add(string eventName, any identifier, function func) {
         }
         
         // <realm>Shared</realm>
@@ -45,26 +45,32 @@ namespace MetroMad.Lua.gLua {
         // <param name="eventName">The event to call hooks for.</param>
         // <param name="gamemodeTable">If the gamemode is specified, the gamemode hook within will be called, otherwise not.</param>
         // <param name="args">The arguments to be passed to the hooks.</param>
-        public static void Call(string eventName, table gamemodeTable, vararg args) {
+        // <return>any|Return data from called hooks</return>
+        public virtual any Call(string eventName, table gamemodeTable, @object args) {
+            return new any();
         }
         
         // <realm>Shared</realm>
         // <summary>Returns a table containing subtables which contain all hooks.</summary>
-        public static void GetTable() {
+        // <return>table|hooks</return>
+        public virtual table GetTable() {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Removes the hook with the supplied identifier from the given event.</summary>
         // <param name="eventName">The event name.</param>
         // <param name="identifier">The unique identifier of the hook to remove, usually a string.</param>
-        public static void Remove(string eventName, any identifier) {
+        public virtual void Remove(string eventName, any identifier) {
         }
         
         // <realm>Shared</realm>
         // <summary>Calls hooks associated with the given event<br /></summary>
         // <param name="eventName">The event to call hooks for.</param>
         // <param name="args">The arguments to be passed to the hooks.</param>
-        public static void Run(string eventName, vararg args) {
+        // <return>any|Returned data from called hooks</return>
+        public virtual any Run(string eventName, @object args) {
+            return new any();
         }
     }
 }

@@ -34,14 +34,14 @@ namespace MetroMad.Lua.gLua {
         
         // <realm>Client</realm>
         // <summary>Pushes the new vertex data onto the render stack.</summary>
-        public static void AdvanceVertex() {
+        public virtual void AdvanceVertex() {
         }
         
         // <realm>Client</realm>
         // <summary>Starts a new dynamic mesh.</summary>
         // <param name="primitiveType">Primitive type, see {{Enum|MATERIAL}}.</param>
         // <param name="primiteCount">The amount of primitives.</param>
-        public static void Begin(float primitiveType, float primiteCount) {
+        public virtual void Begin(float primitiveType, float primiteCount) {
         }
         
         // <realm>Client</realm>
@@ -50,24 +50,24 @@ namespace MetroMad.Lua.gLua {
         // <param name="g">Green component.</param>
         // <param name="b">Blue component.</param>
         // <param name="a">Alpha component.</param>
-        public static void Color(float r, float g, float b, float a) {
+        public virtual void Color(float r, float g, float b, float a) {
         }
         
         // <realm>Client</realm>
         // <summary>Ends the mesh and renders it.</summary>
-        public static void End() {
+        public virtual void End() {
         }
         
         // <realm>Client</realm>
         // <summary>Sets the normal to be used for the next vertex.</summary>
         // <param name="normal">The normal of the vertex.</param>
-        public static void Normal(Vector normal) {
+        public virtual void Normal(Vector normal) {
         }
         
         // <realm>Client</realm>
         // <summary>Sets the position to be used for the next vertex.</summary>
         // <param name="position">The position of the vertex.</param>
-        public static void Position(Vector position) {
+        public virtual void Position(Vector position) {
         }
         
         // <realm>Client</realm>
@@ -76,7 +76,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="vertex2">The second vertex.</param>
         // <param name="vertex3">The third vertex.</param>
         // <param name="vertex4">The fourth vertex.</param>
-        public static void Quad(Vector vertex1, Vector vertex2, Vector vertex3, Vector vertex4) {
+        public virtual void Quad(Vector vertex1, Vector vertex2, Vector vertex3, Vector vertex4) {
         }
         
         // <realm>Client</realm>
@@ -85,7 +85,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="normal">The normal of the quad.</param>
         // <param name="sizeX">X size in pixels.</param>
         // <param name="sizeY">Y size in pixels.</param>
-        public static void QuadEasy(Vector position, Vector normal, float sizeX, float sizeY) {
+        public virtual void QuadEasy(Vector position, Vector normal, float sizeX, float sizeY) {
         }
         
         // <realm>Client</realm>
@@ -94,19 +94,19 @@ namespace MetroMad.Lua.gLua {
         // <param name="g">The green channel multiplier of the specular map.</param>
         // <param name="b">The blue channel multiplier of the specular map.</param>
         // <param name="a">The alpha channel multiplier of the specular map.</param>
-        public static void Specular(float r, float g, float b, float a) {
+        public virtual void Specular(float r, float g, float b, float a) {
         }
         
         // <realm>Client</realm>
         // <summary>Sets the s tangent to be used.</summary>
         // <param name="sTanger">The s tangent.</param>
-        public static void TangentS(Vector sTanger) {
+        public virtual void TangentS(Vector sTanger) {
         }
         
         // <realm>Client</realm>
         // <summary>Sets the T tangent to be used.</summary>
         // <param name="tTanger">The t tangent.</param>
-        public static void TangentT(Vector tTanger) {
+        public virtual void TangentT(Vector tTanger) {
         }
         
         // <realm>Client</realm>
@@ -114,12 +114,14 @@ namespace MetroMad.Lua.gLua {
         // <param name="stage">The stage of the texture coordinate.</param>
         // <param name="u">U coordinate.</param>
         // <param name="v">V coordinate.</param>
-        public static void TexCoord(float stage, float u, float v) {
+        public virtual void TexCoord(float stage, float u, float v) {
         }
         
         // <realm>Client</realm>
         // <summary>Returns the amount of vertex that have yet been pushes.</summary>
-        public static void VertexCount() {
+        // <return>number|vertexCount</return>
+        public virtual int VertexCount() {
+            return 1;
         }
     }
 }

@@ -72,6 +72,7 @@
     </Compile>
     <Compile Include="gLua\GLuaFoldingStrategy.cs" />
     <Compile Include="gLua\GLuaFormattingStrategy.cs" />
+    <Compile Include="Lua\gLuaInterface.cs" />
     <Compile Include="Lua\gLua\achievements.cs" />
     <Compile Include="Lua\gLua\ai schedule.cs" />
     <Compile Include="Lua\gLua\ai task.cs" />
@@ -80,6 +81,8 @@
     <Compile Include="Lua\gLua\bit.cs" />
     <Compile Include="Lua\gLua\cam.cs" />
     <Compile Include="Lua\gLua\chat.cs" />
+    <Compile Include="Lua\gLua\classes\Entity.cs" />
+    <Compile Include="Lua\gLua\classes\Player.cs" />
     <Compile Include="Lua\gLua\cleanup.cs" />
     <Compile Include="Lua\gLua\concommand.cs" />
     <Compile Include="Lua\gLua\constraint.cs" />
@@ -214,6 +217,10 @@
     <None Include="Resources\save.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\gmlua\NLua\NLua.csproj">
+      <Project>{f55cabbb-4108-4a39-94e1-581fd46dc021}</Project>
+      <Name>NLua</Name>
+    </ProjectReference>
     <ProjectReference Include="DigitalRune.Windows.TextEditor\DigitalRune.Windows.TextEditor.csproj">
       <Project>{2d18be89-d210-49eb-a9dd-2246fbb3df6d}</Project>
       <Name>DigitalRune.Windows.TextEditor</Name>

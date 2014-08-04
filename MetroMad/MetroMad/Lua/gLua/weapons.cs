@@ -35,30 +35,36 @@ namespace MetroMad.Lua.gLua {
         // <realm>Shared</realm>
         // <summary>Get copy of weapon table by name.</summary>
         // <param name="classname">Class name of weapon to retrieve.</param>
-        public static void Get(string classname) {
+        // <return>table|The retrieved table or nil</return>
+        public virtual table Get(string classname) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Get a list of all the registered SWEPs. This does not include weapons added to spawnmenu manually.</summary>
-        public static void GetList() {
+        // <return>table|List of all the registered SWEPs</return>
+        public virtual table GetList() {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Gets the REAL weapon table, not a copy.</summary>
         // <param name="weapon_class">Weapon class to retrieve weapon table of.</param>
-        public static void GetStored(string weapon_class) {
+        // <return>table|The weapon table</return>
+        public virtual table GetStored(string weapon_class) {
+            return new table();
         }
         
         // <realm>Shared</realm>
         // <summary>Called after all SWEPS have been loaded.</summary>
-        public static void OnLoaded() {
+        public virtual void OnLoaded() {
         }
         
         // <realm>Shared</realm>
         // <summary>Used to register your SWEP with the engine.</summary>
         // <param name="swep_table">The SWEP table.</param>
         // <param name="classname">Classname to assign to that swep.</param>
-        public static void Register(table swep_table, string classname) {
+        public virtual void Register(table swep_table, string classname) {
         }
     }
 }

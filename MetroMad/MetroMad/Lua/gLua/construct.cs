@@ -49,7 +49,9 @@ namespace MetroMad.Lua.gLua {
         // <param name="vel">Velocity to set on spawn.</param>
         // <param name="aVel">Angular velocity to set on spawn.</param>
         // <param name="frozen">Freeze the magnet on start.</param>
-        public static void Magnet(Player ply, Vector pos, Angle ang, string model, string material, float key, float maxObjects, float strength, float nopull, float allowrot, float startOn, float toggle, Vector vel, Angle aVel, bool frozen) {
+        // <return>Entity|The magnet</return>
+        public virtual Entity Magnet(Player ply, Vector pos, Angle ang, string model, string material, float key, float maxObjects, float strength, float nopull, float allowrot, float startOn, float toggle, Vector vel, Angle aVel, boolean frozen) {
+            return new Entity();
         }
         
         // <realm>Server</realm>
@@ -59,7 +61,7 @@ namespace MetroMad.Lua.gLua {
         // <param name="physObjID">You can use this or the argument below. This will be used in case you don't provide argument below.</param>
         // <param name="physObj">The physics object to apply the properties to.</param>
         // <param name="data">The table containing properties to apply. See {{Struct|PhysProperties}}.</param>
-        public static void SetPhysProp(Player ply, Entity ent, float physObjID, PhysObj physObj, table data) {
+        public virtual void SetPhysProp(Player ply, Entity ent, float physObjID, PhysObj physObj, table data) {
         }
     }
 }

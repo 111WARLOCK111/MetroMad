@@ -35,20 +35,26 @@ namespace MetroMad.Lua.gLua {
         // <realm>Shared</realm>
         // <summary>Calculates the absolute value of a number (effectively removes any negative sign).</summary>
         // <param name="x">The number to get the absolute value of.</param>
-        public static void abs(float x) {
+        // <return>number|absolute_value</return>
+        public virtual int abs(float x) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the arc cosine of the given number.</summary>
         // <param name="normal">Value in range of -1 - 1.</param>
-        public static void acos(float normal) {
+        // <return>number|acos</return>
+        public virtual int acos(float normal) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Calculates the difference between two angles.</summary>
         // <param name="a">The first angle.</param>
         // <param name="b">The second angle.</param>
-        public static void AngleDifference(float a, float b) {
+        // <return>number|The difference between the angles.</return>
+        public virtual int AngleDifference(float a, float b) {
+            return 1;
         }
         
         // <realm>Shared</realm>
@@ -56,7 +62,9 @@ namespace MetroMad.Lua.gLua {
         // <param name="start">The number to start with.</param>
         // <param name="end">The max value, this function will never return a number greater than this.</param>
         // <param name="amount">The amount to increment the starting number by.</param>
-        public static void Approach(float start, float end, float amount) {
+        // <return>number|New value</return>
+        public virtual int Approach(float start, float end, float amount) {
+            return 1;
         }
         
         // <realm>Shared</realm>
@@ -64,49 +72,61 @@ namespace MetroMad.Lua.gLua {
         // <param name="currentAngle">The current angle to increase.</param>
         // <param name="targetAngle">The angle to increase towards.</param>
         // <param name="rate">The amount to approach the target angle by.</param>
-        public static void ApproachAngle(float currentAngle, float targetAngle, float rate) {
+        // <return>number|Modified angle</return>
+        public virtual int ApproachAngle(float currentAngle, float targetAngle, float rate) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the arc sine of the given number.</summary>
         // <param name="normal">Value in range of -1 - 1.</param>
-        public static void asin(float normal) {
+        // <return>number|asin</return>
+        public virtual int asin(float normal) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the arc tangents of the given number.</summary>
         // <param name="normal">Value in range of -1 - 1.</param>
-        public static void atan(float normal) {
+        // <return>number|atan</return>
+        public virtual int atan(float normal) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the atan2 of the specified values.</summary>
         // <param name="y">Y coordinate.</param>
         // <param name="x">X coordinate.</param>
-        public static void atan2(float y, float x) {
+        // <return>number|atan2</return>
+        public virtual int atan2(float y, float x) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Converts a binary string into a number.</summary>
         // <param name="string">Binary string to convert.</param>
-        public static void BinToInt(string @string) {
+        // <return>number|Base 10 number.</return>
+        public virtual int BinToInt(string @string) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Basic code for Bezier-Spline algorithm.</summary>
         // <param name="tPoints">A table of {{GlobalFunction|Vector}}s.</param>
-        public static void BSplinePoint(table tPoints) {
+        public virtual void BSplinePoint(table tPoints) {
         }
         
         // <realm>Shared</realm>
         // <summary>Basic code for Bezier-Spline algorithm.</summary>
-        public static void calcBSplineN() {
+        public virtual void calcBSplineN() {
         }
         
         // <realm>Shared</realm>
         // <summary>Ceils or rounds a number up.</summary>
         // <param name="number">The number to be rounded up.</param>
-        public static void ceil(float number) {
+        // <return>number|ceiled numbers</return>
+        public virtual int ceil(float number) {
+            return 1;
         }
         
         // <realm>Shared</realm>
@@ -114,25 +134,33 @@ namespace MetroMad.Lua.gLua {
         // <param name="input">The number to clamp.</param>
         // <param name="min">The minimum value, this function will never return a number less than this.</param>
         // <param name="max">The maximum value, this function will never return a number greater than this.</param>
-        public static void Clamp(float input, float min, float max) {
+        // <return>number|The clamped value.</return>
+        public virtual int Clamp(float input, float min, float max) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns cosine of given angle.</summary>
         // <param name="number">Angle in radians.</param>
-        public static void cos(float number) {
+        // <return>number|cosine</return>
+        public virtual int cos(float number) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns hyperbolic cosine of the given number.</summary>
         // <param name="number">Value in radians.</param>
-        public static void cosh(float number) {
+        // <return>number|hcos</return>
+        public virtual int cosh(float number) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Converts radians to degrees.</summary>
         // <param name="radians">Value to be converted to degrees.</param>
-        public static void deg(float radians) {
+        // <return>number|degrees</return>
+        public virtual int deg(float radians) {
+            return 1;
         }
         
         // <realm>Shared</realm>
@@ -141,7 +169,9 @@ namespace MetroMad.Lua.gLua {
         // <param name="y1">Y position of first point.</param>
         // <param name="x2">X position of second point.</param>
         // <param name="y2">Y position of second point.</param>
-        public static void Dist(float x1, float y1, float x2, float y2) {
+        // <return>number|Distance between the two points.</return>
+        public virtual int Dist(float x1, float y1, float x2, float y2) {
+            return 1;
         }
         
         // <realm>Shared</realm>
@@ -150,7 +180,9 @@ namespace MetroMad.Lua.gLua {
         // <param name="y1">Y position of first point.</param>
         // <param name="x2">X position of second point.</param>
         // <param name="y2">Y position of second point.</param>
-        public static void Distance(float x1, float y1, float x2, float y2) {
+        // <return>number|Distance between the two points</return>
+        public virtual int Distance(float x1, float y1, float x2, float y2) {
+            return 1;
         }
         
         // <realm>Shared</realm>
@@ -158,122 +190,154 @@ namespace MetroMad.Lua.gLua {
         // <param name="progress">Fraction of the progress to ease.</param>
         // <param name="easeIn">Fraction of how much easing to begin with.</param>
         // <param name="easeOut">Fraction of how much easing to end with.</param>
-        public static void EaseInOut(float progress, float easeIn, float easeOut) {
+        // <return>number|Eased Value</return>
+        public virtual int EaseInOut(float progress, float easeIn, float easeOut) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the x power of the euler constant.</summary>
         // <param name="exponent">The exponent for the function.</param>
-        public static void exp(float exponent) {
+        // <return>number|result</return>
+        public virtual int exp(float exponent) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Floors or rounds a number down.</summary>
         // <param name="number">The number to be rounded down.</param>
-        public static void floor(float number) {
+        // <return>number|floored numbers</return>
+        public virtual int floor(float number) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the modulus of the specified values.</summary>
         // <param name="base">The base value.</param>
         // <param name="modulator">The modulator.</param>
-        public static void fmod(float @base, float modulator) {
+        // <return>number|The calculated modulus.</return>
+        public virtual int fmod(float @base, float modulator) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>used to split the number value into a normalized fraction and an exponent. Two values are returned: the first is a value always in the range 1/2 (inclusive) to 1 (exclusive) and the second is an exponent.</summary>
         // <param name="inputValue">The value to get the normalized fraction and the exponent from.</param>
-        public static void frexp(float inputValue) {
+        // <return>number|normalizedFraction</return>
+        public virtual int frexp(float inputValue) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Converts an integer to a binary (base-2) string</summary>
         // <param name="number">Number to be converted.</param>
-        public static void IntToBin(float number) {
+        // <return>string|Binary number string</return>
+        public virtual string IntToBin(float number) {
+            return "String";
         }
         
         // <realm>Shared</realm>
         // <summary>Takes a normalised number and returns the floating point representation.</summary>
         // <param name="normalizedFraction">The value to get the normalized fraction and the exponent from.</param>
         // <param name="exponent">The value to get the normalized fraction and the exponent from.</param>
-        public static void ldexp(float normalizedFraction, float exponent) {
+        // <return>number|result</return>
+        public virtual int ldexp(float normalizedFraction, float exponent) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the the given exponent for the base e.</summary>
         // <param name="value">The value to get the base from exponent from.</param>
-        public static void log(float value) {
+        public virtual void log(float value) {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the the given exponent for the base 10.</summary>
         // <param name="value">The value to get the base from exponent from.</param>
-        public static void log10(float value) {
+        public virtual void log10(float value) {
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the largest value of all arguments.</summary>
         // <param name="numbers">Numbers to get the largest from.</param>
-        public static void max(vararg numbers) {
+        // <return>number|The largest number</return>
+        public virtual int max(@object numbers) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the smallest value of all arguments.</summary>
         // <param name="numbers">Numbers to get the smallest from.</param>
-        public static void min(vararg numbers) {
+        // <return>number|The smallest number</return>
+        public virtual int min(@object numbers) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>{{Deprecated|This is removed in Lua versions later than what GMod is currently using. You should use {{LibraryFunction|math|fmod}} instead.}}</summary>
         // <param name="base">The base value.</param>
         // <param name="modulator">Modulator.</param>
-        public static void mod(float @base, float modulator) {
+        // <return>number|The calculated modulus</return>
+        public virtual int mod(float @base, float modulator) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the integral and fractional component of the modulo operation.</summary>
         // <param name="base">The base value.</param>
         // <param name="modulator">The modulator.</param>
-        public static void modf(float @base, float modulator) {
+        // <return>number|The integral component.</return>
+        public virtual int modf(float @base, float modulator) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Normalizes angle, so it returns value between -180 and 180.</summary>
         // <param name="angle">The angle to normalize, in degrees.</param>
-        public static void NormalizeAngle(float angle) {
+        // <return>number|The normalized angle, in the range of -180 to 180 degrees.</return>
+        public virtual int NormalizeAngle(float angle) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the y power of x.</summary>
         // <param name="x">Base.</param>
         // <param name="y">Exponent.</param>
-        public static void pow(float x, float y) {
+        // <return>number|y power of x</return>
+        public virtual int pow(float x, float y) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Converts an angle in degrees to it's equivalent in radians.</summary>
         // <param name="degrees">The angle measured in degrees.</param>
-        public static void rad(float degrees) {
+        // <return>number|radians</return>
+        public virtual int rad(float degrees) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns a random float between min and max.</summary>
         // <param name="min">The minimum value.</param>
         // <param name="max">The maximum value.</param>
-        public static void Rand(float min, float max) {
+        // <return>number|Random float between min and max.</return>
+        public virtual int Rand(float min, float max) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>If no value is specified, a random float value between 0-1 will be returned, if the first value is specified, a integer value between 1 and the specified value will be returned, if both values are specified, a integer value between the first and the second value will be returned, all inputs are rounded.</summary>
         // <param name="limitOrLimitStart">Limit or begin of limit.</param>
         // <param name="limit">End of limit.</param>
-        public static void random(float limitOrLimitStart, float limit) {
+        // <return>number|maximum value</return>
+        public virtual int random(float limitOrLimitStart, float limit) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Seeds the "seed" for the random generator, which will cause {{LibraryFunction|math|random}} to return the same sequence of numbers.</summary>
         // <param name="seed">The new seed.</param>
-        public static void randomseed(float seed) {
+        public virtual void randomseed(float seed) {
         }
         
         // <realm>Shared</realm>
@@ -283,44 +347,58 @@ namespace MetroMad.Lua.gLua {
         // <param name="inMax">The maximum of the initial range.</param>
         // <param name="outMin">The minimum of new range.</param>
         // <param name="outMax">The maximum of new range.</param>
-        public static void Remap(float value, float inMin, float inMax, float outMin, float outMax) {
+        // <return>number|The number in the new range</return>
+        public virtual int Remap(float value, float inMin, float inMax, float outMin, float outMax) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Rounds the given value to the nearest whole number or to the given decimal places.</summary>
         // <param name="value">The value to round.</param>
         // <param name="decimals">The decimal places to round to.</param>
-        public static void Round(float value, float decimals) {
+        // <return>number|The rounded value.</return>
+        public virtual int Round(float value, float decimals) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns sine of given angle.</summary>
         // <param name="number">Angle in radians.</param>
-        public static void sin(float number) {
+        // <return>number|sine</return>
+        public virtual int sin(float number) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns hyperbolic sine of the given number.</summary>
         // <param name="number">Value in radians.</param>
-        public static void sinh(float number) {
+        // <return>number|sinh</return>
+        public virtual int sinh(float number) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns the square root of the number.</summary>
         // <param name="value">Value to get the square root from.</param>
-        public static void sqrt(float value) {
+        // <return>number|squareRoot</return>
+        public virtual int sqrt(float value) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns tangents of given angle.</summary>
         // <param name="value">Angle in radians.</param>
-        public static void tan(float value) {
+        // <return>number|tangents</return>
+        public virtual int tan(float value) {
+            return 1;
         }
         
         // <realm>Shared</realm>
         // <summary>Returns hyperbolic tangents of the given number.</summary>
         // <param name="number">Value in radians.</param>
-        public static void tanh(float number) {
+        // <return>number|tanh</return>
+        public virtual int tanh(float number) {
+            return 1;
         }
         
         // <realm>Shared</realm>
@@ -328,7 +406,9 @@ namespace MetroMad.Lua.gLua {
         // <param name="start">Start time in seconds.</param>
         // <param name="end">End time in seconds.</param>
         // <param name="current">Current time in seconds.</param>
-        public static void TimeFraction(float start, float end, float current) {
+        // <return>number|Fraction</return>
+        public virtual int TimeFraction(float start, float end, float current) {
+            return 1;
         }
     }
 }

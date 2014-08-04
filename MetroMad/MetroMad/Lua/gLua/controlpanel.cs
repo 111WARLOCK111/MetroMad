@@ -34,13 +34,15 @@ namespace MetroMad.Lua.gLua {
         
         // <realm>Client</realm>
         // <summary>Clears ALL the control panels ( for tools )</summary>
-        public static void Clear() {
+        public virtual void Clear() {
         }
         
         // <realm>Client</realm>
         // <summary>Returns (or creates if not exists) a controlpanel.</summary>
         // <param name="name">The name of the panel.</param>
-        public static void Get(string name) {
+        // <return>Panel|ControlPanel</return>
+        public virtual Panel Get(string name) {
+            return new Panel();
         }
     }
 }

@@ -35,7 +35,9 @@ namespace MetroMad.Lua.gLua {
         // <realm>Client</realm>
         // <summary>Attempts to create an {{Type|IVideoWriter}}.</summary>
         // <param name="config">The video config. See {{Struct|VideoData}}.</param>
-        public static void Record(table config) {
+        // <return>IVideoWriter|The video object</return>
+        public virtual IVideoWriter Record(table config) {
+            return new IVideoWriter();
         }
     }
 }

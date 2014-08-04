@@ -33,53 +33,61 @@ namespace MetroMad.Lua.gLua {
     public class motionsensor {
         
         // <realm>Shared</realm>
-        public static void BuildSkeleton() {
+        public virtual void BuildSkeleton() {
         }
         
         // <realm>Shared</realm>
         // <param name="ent">Entity to choose builder for.</param>
-        public static void ChooseBuilderFromEntity(Entity ent) {
+        // <return>string|Chosen builder</return>
+        public virtual string ChooseBuilderFromEntity(Entity ent) {
+            return "String";
         }
         
         // <realm>Client</realm>
         // <summary>Returns the depth map material.</summary>
-        public static void GetColourMaterial() {
+        // <return>IMaterial|The material</return>
+        public virtual IMaterial GetColourMaterial() {
+            return new IMaterial();
         }
         
         // <realm>Client</realm>
-        public static void GetSkeleton() {
+        public virtual void GetSkeleton() {
         }
         
         // <realm>Client</realm>
         // <summary>Return whether a kinect is connected - and active (ie - Start has been called).</summary>
-        public static void IsActive() {
+        // <return>boolean|Connected and active or not</return>
+        public virtual bool IsActive() {
+            return true;
         }
         
         // <realm>Client</realm>
         // <summary>Returns true if we have detected that there's a kinect connected to the PC</summary>
-        public static void IsAvailable() {
+        // <return>boolean|Connected or not</return>
+        public virtual bool IsAvailable() {
+            return true;
         }
         
         // <realm>Shared</realm>
-        public static void ProcessAngle() {
+        public virtual void ProcessAngle() {
         }
         
         // <realm>Shared</realm>
-        public static void ProcessAnglesTable() {
+        public virtual void ProcessAnglesTable() {
         }
         
         // <realm>Shared</realm>
-        public static void ProcessPositionTable() {
+        public virtual void ProcessPositionTable() {
         }
         
         // <realm>Client</realm>
         // <summary>This starts access to the kinect sensor. Note that this usually freezes the game for a couple of seconds.</summary>
-        public static void Start() {
+        public virtual void Start() {
         }
         
         // <realm>Client</realm>
         // <summary>Stops the motion capture.</summary>
-        public static void Stop() {
+        public virtual void Stop() {
         }
     }
 }

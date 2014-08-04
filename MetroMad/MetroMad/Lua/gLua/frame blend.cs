@@ -30,45 +30,53 @@ namespace MetroMad.Lua.gLua {
     using System;
     
     
-    public class frame blend {
+    public class frameblend {
         
         // <realm>Client</realm>
         // <summary>{{Internal}}</summary>
-        public static void AddFrame() {
+        public virtual void AddFrame() {
         }
         
         // <realm>Client</realm>
         // <summary>{{Internal}}</summary>
-        public static void BlendFrame() {
+        public virtual void BlendFrame() {
         }
         
         // <realm>Client</realm>
         // <summary>{{Internal}}</summary>
-        public static void CompleteFrame() {
+        public virtual void CompleteFrame() {
         }
         
         // <realm>Client</realm>
         // <summary>{{Internal}}</summary>
-        public static void DrawPreview() {
+        public virtual void DrawPreview() {
         }
         
         // <realm>Client</realm>
         // <summary>Returns whether frame blend post processing effect is enabled or not.</summary>
-        public static void IsActive() {
+        // <return>boolean|Is frame blend enabled or not</return>
+        public virtual bool IsActive() {
+            return true;
         }
         
         // <summary>{{Internal}}</summary>
-        public static void IsLastFrame() {
+        // <return>boolean|Whether the current frame is the last frame?</return>
+        public virtual bool IsLastFrame() {
+            return true;
         }
         
         // <realm>Client</realm>
         // <summary>{{Internal}}{{Validate}}</summary>
-        public static void RenderableFrames() {
+        // <return>number|Amount of frames needed to render?</return>
+        public virtual int RenderableFrames() {
+            return 1;
         }
         
         // <realm>Client</realm>
         // <summary>Returns whether we should skip frame or not</summary>
-        public static void ShouldSkipFrame() {
+        // <return>boolean|Should the frame be skipped or not</return>
+        public virtual bool ShouldSkipFrame() {
+            return true;
         }
     }
 }
